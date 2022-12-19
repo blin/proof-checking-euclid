@@ -22,3 +22,15 @@ and so the dependencies need to be introduced in a particular order.
 
 001. [euclidean_axioms](./euclidean_axioms.v)
 001. [lemma_localextension](./lemma_localextension.v)
+     ([img](./lemma_localextension.svg))
+
+## How images were generated
+
+1. Diagrams were built by hand in
+   [GeoGebra](https://en.wikipedia.org/wiki/GeoGebra) .
+1. Downloaded as SVG.
+1. Clipped with
+   [Inkscape](https://en.wikipedia.org/wiki/Inkscape) .
+1. Cleaned up with [format_geogebra_svg.sh](./format_geogebra_svg.sh) .
+
+GeoGebra is used as a way of enforcing straightedge-and-compass construction.
