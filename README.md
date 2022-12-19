@@ -14,3 +14,11 @@ Most of the code here is a direct translation but with the following changes:
 * `auto` tactic and the like are not used.
 
 The goal is to be able to follow how the proof unfolds.
+
+## Reading order
+
+Each lemma has a tree of dependencies,
+and so the dependencies need to be introduced in a particular order.
+
+001. [euclidean_axioms](./euclidean_axioms.v)
+001. [lemma_localextension](./lemma_localextension.v)
