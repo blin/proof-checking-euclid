@@ -1,0 +1,4 @@
+# Library name
+-R . ProofCheckingEuclid
+
+# Coq files (filled by the configure)
