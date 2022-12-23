@@ -1,4 +1,5 @@
-Require Export ProofCheckingEuclid.euclidean_axioms.
+Require Import ProofCheckingEuclid.euclidean_axioms.
+Require Import ProofCheckingEuclid.euclidean_tactics.
 
 
 Section Euclid.
@@ -22,14 +23,11 @@ Proof.
 		neq_B_Q
 	) as (J & CI_J_B_BQ).
 
-	assert (InCirc B J) as InCirc_B_J.
-	unfold InCirc.
-	exists B, B. (* any combination of points works here, used in the non-centre point branch *)
-	exists B, B, Q.
-	split.
-	exact CI_J_B_BQ.
-	left.
-	reflexivity.
+	assert (InCirc B J) as InCirc_B_J by (
+		InCirc_Centre
+		B J
+		CI_J_B_BQ
+	).
 
 	pose proof (
 		postulate_line_circle

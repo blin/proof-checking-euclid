@@ -21,8 +21,24 @@ Each lemma has a tree of dependencies,
 and so the dependencies need to be introduced in a particular order.
 
 001. [euclidean_axioms](./euclidean_axioms.v)
+001. [euclidean_defs](./euclidean_defs.v)
+001. [euclidean_tactics](./euclidean_tactics.v)
 001. [lemma_localextension](./lemma_localextension.v)
      ([img](./lemma_localextension.svg))
+001. [lemma_equalitysymmetric](./lemma_equalitysymmetric.v)
+001. [lemma_inequalitysymmetric](./lemma_inequalitysymmetric.v)
+001. [lemma_congruencesymmetric](./lemma_congruencesymmetric.v)
+001. [lemma_congruencetransitive](./lemma_congruencetransitive.v)
+001. [lemma_congruenceflip](./lemma_congruenceflip.v)
+001. [proposition_01](./proposition_01.v)
+
+## Differences from GeoCoq
+
+* `cn_equalityreverse` is renamed to `cn_congruencereverse`.
+  I think the original name is due to how this common notion was applied in the
+  `.prf` files: `EEABBA cn:equalityreverse` . I found this hard to follow given
+  that the rest of the congruence common notions start with `congruence`.
+
 
 ## How images were generated
 
