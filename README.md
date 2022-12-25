@@ -34,6 +34,14 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_orderofpoints_ABC_BCD_ABD](./lemma_orderofpoints_ABC_BCD_ABD.v)
 001. [lemma_partnotequalwhole](./lemma_partnotequalwhole.v)
 001. [proposition_01](./proposition_01.v)
+     ([img](./proposition_01.svg))
+     * Dependency tree up to this point has
+       * 14 definitions
+       * 3 common notions
+       * 6 axioms
+       * 4 postulates
+       * 12 lemmas
+       * 3 custom tactics
 
 ## Differences from GeoCoq
 
