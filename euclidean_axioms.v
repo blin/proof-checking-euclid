@@ -17,7 +17,10 @@ Class euclidean_neutral :=
 	CI : Circle -> Point -> Point -> Point -> Prop;
 	eq := @eq Point;
 	neq A B := ~ eq A B;
+	nCol A B C := neq A B /\ neq A C /\ neq B C /\ ~ BetS A B C /\ ~ BetS A C B /\ ~ BetS B A C;
 	Col A B C := (eq A B \/ eq A C \/ eq B C \/ BetS B A C \/ BetS A B C \/ BetS A C B);
+	Triangle A B C := nCol A B C;
+
 
 	OnCirc B J := exists X Y U, CI J U X Y /\ Cong U B X Y;
 	InCirc P J := exists X Y U V W, CI J U V W /\ (eq P U \/ (BetS U Y X /\ Cong U X V W /\ Cong U P U Y));
@@ -27,11 +30,34 @@ Class euclidean_neutral :=
 		forall A B C D E F, Cong A B C D -> Cong A B E F -> Cong C D E F;
 	cn_congruencereflexive :
 		forall A B, Cong A B A B;
+	(* Originally known as cn_equalityreverse *)
 	cn_congruencereverse :
 		forall A B, Cong A B B A;
 
 	axiom_circle_center_radius :
 		forall A B C J P, CI J A B C -> OnCirc P J -> Cong A P B C;
+	axiom_betweennessidentity :
+		forall A B, ~ BetS A B A;
+	axiom_betweennesssymmetry :
+		forall A B C, BetS A B C -> BetS C B A;
+	(* Originally known as axiom_innertransitivity *)
+	axiom_orderofpoints_ABD_BCD_ABC :
+		forall A B C D,
+			BetS A B D -> BetS B C D -> BetS A B C;
+
+
+	axiom_nocollapse :
+		forall A B C D, neq A B -> Cong A B C D -> neq C D;
+	(* 6.4 Five-line axiom *)
+	(* Called Five Segment in Tarski *)
+	axiom_5_line :
+		forall A B C D a b c d,
+			Cong B C b c -> Cong A D a d -> Cong B D b d ->
+			BetS A B C -> BetS a b c -> Cong A B a b ->
+			Cong D C d c;
+
+
+	postulate_Euclid2 : forall A B, neq A B -> exists X, BetS A B X;
 	postulate_Euclid3 : forall A B, neq A B -> exists X, CI X A A B;
 }.
 

@@ -8,11 +8,8 @@ Beeson, Michael, et al. ‘Proof-Checking Euclid’. Annals of Mathematics and A
 
 and https://github.com/GeoCoq/GeoCoq specifically.
 
-Most of the code here is a direct translation but with the following changes:
-
-* Custom tactics are not used.
-* `auto` tactic and the like are not used.
-
+Most of the code here is a direct translation but
+`auto` tactic and the like are not used.
 The goal is to be able to follow how the proof unfolds.
 
 ## Reading order
@@ -30,6 +27,12 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_congruencesymmetric](./lemma_congruencesymmetric.v)
 001. [lemma_congruencetransitive](./lemma_congruencetransitive.v)
 001. [lemma_congruenceflip](./lemma_congruenceflip.v)
+001. [lemma_orderofpoints_ABC_ACD_BCD](./lemma_orderofpoints_ABC_ACD_BCD.v)
+001. [lemma_betweennotequal](./lemma_betweennotequal.v)
+001. [lemma_extensionunique](./lemma_extensionunique.v)
+001. [lemma_orderofpoints_ABC_BCD_ACD](./lemma_orderofpoints_ABC_BCD_ACD.v)
+001. [lemma_orderofpoints_ABC_BCD_ABD](./lemma_orderofpoints_ABC_BCD_ABD.v)
+001. [lemma_partnotequalwhole](./lemma_partnotequalwhole.v)
 001. [proposition_01](./proposition_01.v)
 
 ## Differences from GeoCoq
@@ -38,6 +41,15 @@ and so the dependencies need to be introduced in a particular order.
   I think the original name is due to how this common notion was applied in the
   `.prf` files: `EEABBA cn:equalityreverse` . I found this hard to follow given
   that the rest of the congruence common notions start with `congruence`.
+* `lemma_3_6a` and the like are renamed to `lemma_orderofpoints_ABC_ACD_BCD`
+  and the like. Section "8 Book Zero and filling in book I" mentions
+  "several important and often-used lemmas \[that\] are about the
+  order of four points on a line,
+  when two betweenness relations are known between them", which seems to match
+  `lemma_3_6a` and the like. I found `orderofpoints` to be a more appropriate
+  name for those lemmas.
+* `axiom_innertransitivity` is renamed to `axiom_orderofpoints_ABD_BCD_ABC`
+  to match the renaming of `lemma_3_6a` into `lemma_orderofpoints_ABC_ACD_BCD`.
 
 
 ## How images were generated

@@ -6,6 +6,7 @@ Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_localextension.
+Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
 
 
 Section Euclid.
@@ -15,7 +16,7 @@ Context `{Ax1:euclidean_neutral_ruler_compass}.
 Lemma proposition_01 :
 	forall A B,
 	neq A B ->
-	exists X, equilateral A B X (* /\ Triangle A B X *).
+	exists X, equilateral A B X /\ Triangle A B X .
 Proof.
 	intros A B.
 	intros neq_A_B.
@@ -26,7 +27,7 @@ Proof.
 
 	pose proof (lemma_localextension B A B neq_B_A neq_A_B) as (D & BetS_B_A_D & Cong_AD_AB).
 
-	assert (Cong B A B A) as Cong_BA_BA by (apply cn_congruencereflexive) .
+	assert (Cong B A B A) as Cong_BA_BA by (apply cn_congruencereflexive).
 
 	assert (OutCirc D K) as OutCirc_D_K by (
 		OutCirc_Beyond_Perimeter
@@ -34,7 +35,7 @@ Proof.
 		CI_K_B_BA
 		BetS_B_A_D
 		Cong_BA_BA
-	) .
+	).
 
 	assert (InCirc B K) as InCirc_B_K by (InCirc_Centre B K CI_K_B_BA).
 	assert (InCirc A J) as InCirc_A_J by (InCirc_Centre A J CI_J_A_AB).
@@ -60,7 +61,6 @@ Proof.
 	) as (C & OnCirc_C_K & OnCirc_C_J).
 
 	exists C.
-	unfold equilateral.
 
 	pose proof (
 		axiom_circle_center_radius
@@ -70,8 +70,6 @@ Proof.
 	) as Cong_BC_BA.
 	apply (lemma_congruencesymmetric) in Cong_BC_BA as Cong_BA_BC.
 	apply (lemma_congruenceflip) in Cong_BA_BC as (Cong_AB_CB & Cong_AB_BC & Cong_BC_CB).
-	split.
-	exact Cong_AB_BC.
 
 	pose proof (
 		axiom_circle_center_radius
@@ -80,11 +78,53 @@ Proof.
 		OnCirc_C_J
 	) as Cong_AC_AB.
 	apply (lemma_congruenceflip) in Cong_AC_AB as (Cong_CA_BA & Cong_CA_AB & Cong_AC_BA).
-
 	pose proof (lemma_congruencetransitive C A A B B C Cong_CA_AB Cong_AB_BC) as Cong_CA_BC.
 	apply (lemma_congruencesymmetric) in Cong_CA_BC as Cong_BC_CA.
-	exact Cong_BC_CA.
 
+	split.
+	unfold equilateral.
+	split.
+	exact Cong_AB_BC.
+	exact Cong_BC_CA.
+	(* equilateral A B X is now proven *)
+
+	apply (lemma_congruencesymmetric) in Cong_CA_AB as Cong_AB_CA.
+	apply (lemma_congruenceflip) in Cong_AB_CA as (Cong_BA_AC & Cong_BA_CA & Cong_AB_AC).
+	pose proof (axiom_nocollapse A B A C neq_A_B Cong_AB_AC) as neq_A_C.
+	pose proof (axiom_nocollapse A B B C neq_A_B Cong_AB_BC) as neq_B_C.
+
+	assert (~ BetS A C B) as nBetS_A_C_B.
+	{
+		intro BetS_A_C_B.
+		pose proof (lemma_partnotequalwhole _ _ _ BetS_A_C_B) as nCong_AC_AB.
+		pose proof (cn_congruencereverse C A) as Cong_CA_AC.
+		pose proof (cn_congruencereverse A C) as Cong_AC_CA.
+		pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_CA Cong_CA_AB) as Cong_AC_AB.
+		contradiction.
+	}
+	assert (~ BetS A B C) as nBetS_A_B_C.
+	{
+		intro BetS_A_B_C.
+		pose proof (lemma_partnotequalwhole _ _ _ BetS_A_B_C) as nCong_AB_AC.
+		contradiction.
+	}
+	assert (~ BetS B A C) as nBetS_B_A_C.
+	{
+		intro BetS_B_A_C.
+		pose proof (lemma_partnotequalwhole _ _ _ BetS_B_A_C) as nCong_BA_BC.
+		apply lemma_congruencesymmetric in Cong_BC_BA as Cong_BA_BC.
+		contradiction.
+	}
+
+	unfold Triangle.
+	unfold nCol.
+	repeat split.
+	exact neq_A_B.
+	exact neq_A_C.
+	exact neq_B_C.
+	exact nBetS_A_B_C.
+	exact nBetS_A_C_B.
+	exact nBetS_B_A_C.
 Qed.
 
 End Euclid.
