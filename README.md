@@ -42,6 +42,10 @@ and so the dependencies need to be introduced in a particular order.
        * 4 postulates
        * 12 lemmas
        * 3 custom tactics
+001. [lemma_NCdistinct](./lemma_NCdistinct.v)
+001. [lemma_doublereverse](./lemma_doublereverse.v)
+001. [lemma_differenceofparts](./lemma_differenceofparts.v)
+001. [proposition_02](./proposition_02.v)
 
 ## Differences from GeoCoq
 

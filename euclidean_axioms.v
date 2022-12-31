@@ -33,6 +33,10 @@ Class euclidean_neutral :=
 	(* Originally known as cn_equalityreverse *)
 	cn_congruencereverse :
 		forall A B, Cong A B B A;
+	cn_sumofparts :
+		forall A B C a b c,
+			Cong A B a b -> Cong B C b c -> BetS A B C -> BetS a b c -> Cong A C a c;
+
 
 	axiom_circle_center_radius :
 		forall A B C J P, CI J A B C -> OnCirc P J -> Cong A P B C;
@@ -50,11 +54,34 @@ Class euclidean_neutral :=
 		forall A B C D, neq A B -> Cong A B C D -> neq C D;
 	(* 6.4 Five-line axiom *)
 	(* Called Five Segment in Tarski *)
+	(*
+		The order and list of antecedents is changed to make the axiom easier to remember.
+
+		0.	Not stated: ∃ △ABD , △abd , △DBC , △dbc , possibly degenerate.
+
+		1.	△ABC ≅ △abc by SSS congruence.
+
+		2.	(B(A,B,C) /\ B(a,b,c)) implies that
+			∠ABC is supplement to ∠DBC and ∠abc is supplement to ∠dbc .
+		3.	#1 implies that ∠ABD ≅ ∠abd .
+		4.	#2 and #3 imply that ∠DBC ≅ ∠dbc .
+
+		5.	(DB ≅ db /\ ∠DBC ≅ ∠dbc (from #4) /\ BC ≅ bc) implies that
+			△DBC ≅ △dbc by SAS congruence.
+	*)
 	axiom_5_line :
 		forall A B C D a b c d,
-			Cong B C b c -> Cong A D a d -> Cong B D b d ->
-			BetS A B C -> BetS a b c -> Cong A B a b ->
-			Cong D C d c;
+			Cong A B a b ->
+			Cong B D b d ->
+			Cong D A d a ->
+
+			BetS A B C ->
+			BetS a b c ->
+
+			Cong D B d b ->
+			Cong B C b c ->
+
+			Cong C D c d;
 
 
 	postulate_Euclid2 : forall A B, neq A B -> exists X, BetS A B X;

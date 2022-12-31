@@ -24,6 +24,7 @@ Proof.
 	{
 		intro Cong_AB_AC.
 		pose proof (lemma_extensionunique D A B C BetS_D_A_B BetS_D_A_C Cong_AB_AC) as eq_B_C.
+		(* TODO specify what is contradictiory. *)
 		contradiction.
 	}
 	exact nCong_AB_AC.
