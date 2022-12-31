@@ -46,6 +46,14 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_doublereverse](./lemma_doublereverse.v)
 001. [lemma_differenceofparts](./lemma_differenceofparts.v)
 001. [proposition_02](./proposition_02.v)
+     ([img](./proposition_02.svg))
+     * Dependency tree up to this point has
+       * 14 definitions
+       * 4 common notions
+       * 6 axioms
+       * 4 postulates
+       * 15 lemmas
+       * 4 custom tactics
 
 ## Differences from GeoCoq
 
