@@ -19,7 +19,7 @@ and so the dependencies need to be introduced in a particular order.
 
 001. [euclidean_axioms](./euclidean_axioms.v)
 001. [euclidean_defs](./euclidean_defs.v)
-001. [euclidean_tactics](./euclidean_tactics.v)
+001. [lemma_incirc_centre](./lemma_incirc_centre.v)
 001. [lemma_localextension](./lemma_localextension.v)
      ([img](./lemma_localextension.svg))
 001. [lemma_equalitysymmetric](./lemma_equalitysymmetric.v)
@@ -33,6 +33,8 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_orderofpoints_ABC_BCD_ACD](./lemma_orderofpoints_ABC_BCD_ACD.v)
 001. [lemma_orderofpoints_ABC_BCD_ABD](./lemma_orderofpoints_ABC_BCD_ABD.v)
 001. [lemma_partnotequalwhole](./lemma_partnotequalwhole.v)
+001. [lemma_oncirc_radius](./lemma_oncirc_radius.v)
+001. [lemma_outcirc_beyond_perimeter](./lemma_outcirc_beyond_perimeter.v)
 001. [proposition_01](./proposition_01.v)
      ([img](./proposition_01.svg))
      * Dependency tree up to this point has
@@ -40,11 +42,11 @@ and so the dependencies need to be introduced in a particular order.
        * 3 common notions
        * 6 axioms
        * 4 postulates
-       * 12 lemmas
-       * 3 custom tactics
+       * 15 lemmas
 001. [lemma_NCdistinct](./lemma_NCdistinct.v)
 001. [lemma_doublereverse](./lemma_doublereverse.v)
 001. [lemma_differenceofparts](./lemma_differenceofparts.v)
+001. [lemma_incirc_within_radius](./lemma_incirc_within_radius.v)
 001. [proposition_02](./proposition_02.v)
      ([img](./proposition_02.svg))
      * Dependency tree up to this point has
@@ -52,8 +54,7 @@ and so the dependencies need to be introduced in a particular order.
        * 4 common notions
        * 6 axioms
        * 4 postulates
-       * 15 lemmas
-       * 4 custom tactics
+       * 19 lemmas
 
 ## Differences from GeoCoq
 
@@ -70,6 +71,12 @@ and so the dependencies need to be introduced in a particular order.
   name for those lemmas.
 * `axiom_innertransitivity` is renamed to `axiom_orderofpoints_ABD_BCD_ABC`
   to match the renaming of `lemma_3_6a` into `lemma_orderofpoints_ABC_ACD_BCD`.
+* Following lemmas are introduced
+  to make it easier to use some of the definitions:
+  * lemma_incirc_centre
+  * lemma_incirc_within_radius
+  * lemma_oncirc_radius
+  * lemma_outcirc_beyond_perimeter
 
 
 ## How images were generated

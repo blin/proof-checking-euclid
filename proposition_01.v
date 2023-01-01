@@ -1,11 +1,13 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_congruencetransitive.
+Require Import ProofCheckingEuclid.lemma_incirc_centre.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_localextension.
+Require Import ProofCheckingEuclid.lemma_oncirc_radius.
+Require Import ProofCheckingEuclid.lemma_outcirc_beyond_perimeter.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
 
 
@@ -29,21 +31,17 @@ Proof.
 
 	assert (Cong B A B A) as Cong_BA_BA by (apply cn_congruencereflexive).
 
-	assert (OutCirc D K) as OutCirc_D_K by (
-		OutCirc_Beyond_Perimeter
-		D K
-		CI_K_B_BA
-		BetS_B_A_D
-		Cong_BA_BA
-	).
+	pose proof (
+		lemma_outcirc_beyond_perimeter _ _ _ _ _ _ CI_K_B_BA BetS_B_A_D Cong_BA_BA
+	) as OutCirc_D_K.
 
-	assert (InCirc B K) as InCirc_B_K by (InCirc_Centre B K CI_K_B_BA).
-	assert (InCirc A J) as InCirc_A_J by (InCirc_Centre A J CI_J_A_AB).
+	pose proof (lemma_incirc_centre _ _ _ _ CI_K_B_BA) as InCirc_B_K.
+	pose proof (lemma_incirc_centre _ _ _ _ CI_J_A_AB) as InCirc_A_J.
 
 	assert (Cong A B A B) as Cong_AB_AB by (apply cn_congruencereflexive).
 
-	assert (OnCirc B J) as OnCirc_B_J by (OnCirc_Radius B J CI_J_A_AB Cong_AB_AB).
-	assert (OnCirc D J) as OnCirc_D_J by (OnCirc_Radius D J CI_J_A_AB Cong_AD_AB).
+	pose proof (lemma_oncirc_radius _ _ _ _ _ CI_J_A_AB Cong_AB_AB) as OnCirc_B_J.
+	pose proof (lemma_oncirc_radius _ _ _ _ _ CI_J_A_AB Cong_AD_AB) as OnCirc_D_J.
 
 	pose proof (
 		postulate_circle_circle
