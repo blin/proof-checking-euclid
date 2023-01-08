@@ -35,8 +35,15 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_bd_bc) as Cong_bc_bd.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BC_bc Cong_bc_bd) as Cong_BC_bd.
 
-	(* △ABC , △abc are degenerate and SSS congruent. *)
-	(* △CBC , △cbd are degenerate and SAS congruent. *)
+	(* BetS A B C -> Col A B C -> DegenerateTriangle A B C *)
+	(* BetS a b c -> Col a b c -> DegenerateTriangle a b c *)
+	(* eq C C     -> Col C B C -> DegenerateTriangle C B C *)
+	(* eq c d     -> Col c b d -> DegenerateTriangle c b d *)
+	(* axiom_5_line is used to help prove BetS a b c *)
+	(* axiom_5_line is used to help prove eq c d *)
+
+	(* △ABC and △abc are SSS congruent. *)
+	(* △CBC and △cbd are SAS congruent. *)
 	(* ∠ABC is supplement to ∠CBC and ∠abc is supplement to ∠cbd . *)
 	(* △CBC ≅ △cbd implies that CC ≅ dc . *)
 	pose proof (

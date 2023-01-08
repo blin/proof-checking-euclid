@@ -102,8 +102,14 @@ Proof.
 	pose proof (axiom_orderofpoints_ABD_BCD_ABC E A B C BetS_E_A_C BetS_A_B_C) as BetS_E_A_B.
 	pose proof (axiom_orderofpoints_ABD_BCD_ABC e a b c BetS_e_a_c BetS_a_b_c) as BetS_e_a_b.
 
-	(* △EAC , △eac are degenerate and SSS congruent. *)
-	(* △CAB , △cab are degenerate and SAS congruent. *)
+	(* BetS E A C -> Col E A C -> DegenerateTriangle E A C *)
+	(* BetS e a c -> Col e a c -> DegenerateTriangle e a c *)
+	(* BetS A B C -> Col C A B -> DegenerateTriangle C A B *)
+	(* BetS a b c -> Col c a b -> DegenerateTriangle c a b *)
+	(* axiom_5_line is not needed to prove degeneracy of involved triangles. Rare case. *)
+
+	(* △EAC and △eac are SSS congruent. *)
+	(* △CAB and △cab are SAS congruent. *)
 	(* ∠EAC is supplement to ∠CAB and ∠eac is supplement to ∠cab . *)
 	(* △CAB ≅ △cab implies that BC ≅ bc . *)
 	pose proof (

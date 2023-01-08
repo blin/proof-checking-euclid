@@ -22,8 +22,14 @@ Proof.
 	assert (Cong E B E B) as Cong_EB_EB by (apply cn_congruencereflexive).
 	apply lemma_congruencesymmetric in Cong_BE_BF as Cong_BF_BE.
 
-	(* △ABE , △ABE are degenerate and SSS congruent. *)
-	(* △EBE , △EBF are degenerate and SAS congruent. *)
+	(* BetS A B E -> Col A B E -> DegenerateTriangle A B E *)
+	(* BetS A B E -> Col A B E -> DegenerateTriangle A B E *)
+	(* eq E E     -> Col E B E -> DegenerateTriangle E B E *)
+	(* eq E F     -> Col E B F -> DegenerateTriangle E B F *)
+	(* axiom_5_line is used to help prove eq E F *)
+
+	(* △ABE and △ABE are SSS congruent. *)
+	(* △EBE and △EBF are SAS congruent. *)
 	(* ∠ABE is supplement to ∠EBE and ∠ABE is supplement to ∠EBF . *)
 	(* △EBE ≅ △EBF implies that EE ≅ FE . *)
 	pose proof (

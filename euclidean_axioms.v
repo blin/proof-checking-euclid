@@ -70,12 +70,9 @@ Class euclidean_neutral :=
 			△DBC ≅ △dbc by SAS congruence.
 	*)
 	(*
-		TODO: add lemma_5_line_degenerate that requires
-		Col A B D ->
-		Col a b d ->
-		Col D B C ->
-		Col d b c ->
-		to make it clear which degenerate triangles are implied.
+		Adding lemma_5_line_degenerate would make it obvious when degenerate triangles are used.
+		This is not done, since axiom_5_line is commonly used to help prove betweenness or equality,
+		which are needed to show that the triangles used are in fact degenerate.
 	*)
 	axiom_5_line :
 		forall A B C D a b c d,

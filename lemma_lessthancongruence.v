@@ -59,8 +59,14 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_EH_AB) as Cong_AB_EH.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_CG_AB Cong_AB_EH) as Cong_CG_EH.
 
-	(* △QCD , △PEF are degenerate and SSS congruent. *)
-	(* △DCG , △FEH are degenerate and SAS congruent. *)
+	(* BetS Q C D -> Col Q C D -> DegenerateTriangle Q C D *)
+	(* BetS P E F -> Col P E F -> DegenerateTriangle P E F *)
+	(* BetS C G D -> Col D C G -> DegenerateTriangle D C G *)
+	(* BetS E H F -> Col F E H -> DegenerateTriangle F E H *)
+	(* axiom_5_line is used to help prove BetS E H F *)
+
+	(* △QCD and △PEF are SSS congruent. *)
+	(* △DCG and △FEH are SAS congruent. *)
 	(* ∠QCD is supplement to ∠DCG and ∠PEF is supplement to ∠FEH . *)
 	(* △DCG ≅ △FEH implies that GD ≅ HF . *)
 	pose proof (
