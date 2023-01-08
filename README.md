@@ -58,7 +58,20 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_betweennesspreserved](./lemma_betweennesspreserved.v)
 001. [lemma_extension](./lemma_extension.v)
 001. [lemma_lessthancongruence](./lemma_lessthancongruence.v)
+     ([img](./lemma_lessthancongruence.svg))
+     * The illustration includes triangles implied by `axiom_5_line`, where
+       point D is "moving onto the line". See section "6.6 Degenerate cases".
 001. [proposition_03](./proposition_03.v)
+     * For illsutration see `lemma_lessthancongruence`.
+      `proposition_03` is
+       a direct application of that lemma and so their illustrations are
+       equivalent.
+     * Dependency tree up to this point has
+       * 15 definitions
+       * 4 common notions
+       * 6 axioms
+       * 4 postulates
+       * 22 lemmas
 
 ## Differences from GeoCoq
 
