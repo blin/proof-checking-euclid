@@ -55,6 +55,10 @@ and so the dependencies need to be introduced in a particular order.
        * 6 axioms
        * 4 postulates
        * 19 lemmas
+001. [lemma_betweennesspreserved](./lemma_betweennesspreserved.v)
+001. [lemma_extension](./lemma_extension.v)
+001. [lemma_lessthancongruence](./lemma_lessthancongruence.v)
+001. [proposition_03](./proposition_03.v)
 
 ## Differences from GeoCoq
 

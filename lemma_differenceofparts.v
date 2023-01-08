@@ -102,7 +102,8 @@ Proof.
 	pose proof (axiom_orderofpoints_ABD_BCD_ABC E A B C BetS_E_A_C BetS_A_B_C) as BetS_E_A_B.
 	pose proof (axiom_orderofpoints_ABD_BCD_ABC e a b c BetS_e_a_c BetS_a_b_c) as BetS_e_a_b.
 
-	(* ∃ △CAB , △cab , they are degenerate. *)
+	(* △EAC , △eac are degenerate and SSS congruent. *)
+	(* △CAB , △cab are degenerate and SAS congruent. *)
 	(* ∠EAC is supplement to ∠CAB and ∠eac is supplement to ∠cab . *)
 	(* △CAB ≅ △cab implies that BC ≅ bc . *)
 	pose proof (

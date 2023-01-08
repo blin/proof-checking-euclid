@@ -21,7 +21,9 @@ Proof.
 	assert (Cong B E B E) as Cong_BE_BE by (apply cn_congruencereflexive).
 	assert (Cong E B E B) as Cong_EB_EB by (apply cn_congruencereflexive).
 	apply lemma_congruencesymmetric in Cong_BE_BF as Cong_BF_BE.
-	(* ∃ △EBE , △EBF , they are degenerate. *)
+
+	(* △ABE , △ABE are degenerate and SSS congruent. *)
+	(* △EBE , △EBF are degenerate and SAS congruent. *)
 	(* ∠ABE is supplement to ∠EBE and ∠ABE is supplement to ∠EBF . *)
 	(* △EBE ≅ △EBF implies that EE ≅ FE . *)
 	pose proof (

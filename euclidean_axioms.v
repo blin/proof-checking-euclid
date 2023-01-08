@@ -59,15 +59,23 @@ Class euclidean_neutral :=
 
 		0.	Not stated: ∃ △ABD , △abd , △DBC , △dbc , possibly degenerate.
 
-		1.	△ABC ≅ △abc by SSS congruence.
+		1.	△ABD ≅ △abd by SSS congruence.
 
 		2.	(B(A,B,C) /\ B(a,b,c)) implies that
-			∠ABC is supplement to ∠DBC and ∠abc is supplement to ∠dbc .
+			∠ABD is supplement to ∠DBC and ∠abd is supplement to ∠dbc .
 		3.	#1 implies that ∠ABD ≅ ∠abd .
 		4.	#2 and #3 imply that ∠DBC ≅ ∠dbc .
 
 		5.	(DB ≅ db /\ ∠DBC ≅ ∠dbc (from #4) /\ BC ≅ bc) implies that
 			△DBC ≅ △dbc by SAS congruence.
+	*)
+	(*
+		TODO: add lemma_5_line_degenerate that requires
+		Col A B D ->
+		Col a b d ->
+		Col D B C ->
+		Col d b c ->
+		to make it clear which degenerate triangles are implied.
 	*)
 	axiom_5_line :
 		forall A B C D a b c d,
