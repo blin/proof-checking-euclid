@@ -48,6 +48,11 @@ Class euclidean_neutral :=
 	axiom_orderofpoints_ABD_BCD_ABC :
 		forall A B C D,
 			BetS A B D -> BetS B C D -> BetS A B C;
+	axiom_connectivity :
+		forall A B C D,
+			BetS A B D -> BetS A C D -> ~ BetS A B C -> ~ BetS A C B ->
+			eq B C;
+
 
 
 	axiom_nocollapse :
