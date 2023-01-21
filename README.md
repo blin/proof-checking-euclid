@@ -72,6 +72,22 @@ and so the dependencies need to be introduced in a particular order.
        * 6 axioms
        * 4 postulates
        * 22 lemmas
+001. [lemma_orderofpoints_ABD_BCD_ACD](./lemma_orderofpoints_ABD_BCD_ACD.v)
+001. [lemma_orderofpoints_ABC_ACD_ABD](./lemma_orderofpoints_ABC_ACD_ABD.v)
+001. [lemma_outerconnectivity](./lemma_outerconnectivity.v)
+001. [euclidean_tactics](./euclidean_tactics.v)
+001. [lemma_collinear_ABC_ABD_BCD](./lemma_collinear_ABC_ABD_BCD.v)
+001. [lemma_collinear_ABC_BCA](./lemma_collinear_ABC_BCA.v)
+001. [lemma_collinear_ABC_BAC](./lemma_collinear_ABC_BAC.v)
+001. [lemma_collinearorder](./lemma_collinearorder.v)
+001. [lemma_collinearitypreserved](./lemma_collinearitypreserved.v)
+001. [lemma_onray_impliescollinear](./lemma_onray_impliescollinear.v)
+001. [lemma_onray_neq_A_B](./lemma_onray_neq_A_B.v)
+001. [lemma_onray_strict](./lemma_onray_strict.v)
+001. [lemma_supporting_n_ncol_col](./lemma_supporting_n_ncol_col.v)
+001. [lemma_supporting_n_col_ncol](./lemma_supporting_n_col_ncol.v)
+001. [lemma_supporting_ncol_n_col](./lemma_supporting_ncol_n_col.v)
+001. [lemma_equalanglesNC](./lemma_equalanglesNC.v)
 
 ## Differences from GeoCoq
 

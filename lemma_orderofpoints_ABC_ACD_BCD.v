@@ -7,7 +7,8 @@ Context `{Ax:euclidean_neutral}.
 (* Originally known as lemma_3_6a *)
 Lemma lemma_orderofpoints_ABC_ACD_BCD :
 	forall A B C D,
-	BetS A B C -> BetS A C D ->
+	BetS A B C ->
+	BetS A C D ->
 	BetS B C D.
 Proof.
 	intros A B C D.
