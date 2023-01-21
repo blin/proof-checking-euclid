@@ -88,6 +88,11 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_supporting_n_col_ncol](./lemma_supporting_n_col_ncol.v)
 001. [lemma_supporting_ncol_n_col](./lemma_supporting_ncol_n_col.v)
 001. [lemma_equalanglesNC](./lemma_equalanglesNC.v)
+001. [lemma_interior5](./lemma_interior5.v)
+001. [lemma_supporting_lt](./lemma_supporting_lt.v)
+001. [lemma_onray_betweenness](./lemma_onray_betweenness.v)
+001. [lemma_onray_orderofpoints_any](./lemma_onray_orderofpoints_any.v)
+001. [lemma_layoffunique](./lemma_layoffunique.v)
 
 ## Differences from GeoCoq
 
