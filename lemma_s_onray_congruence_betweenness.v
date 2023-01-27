@@ -5,7 +5,7 @@ Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_onray_assert.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
-Require Import ProofCheckingEuclid.lemma_supporting_lt.
+Require Import ProofCheckingEuclid.lemma_s_lt.
 Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 
@@ -13,7 +13,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_supporting_onray_congruence_betweenness :
+Lemma lemma_s_onray_congruence_betweenness :
 	forall A B C a b c,
 	Cong A B a b ->
 	Cong A C a c ->
@@ -28,7 +28,7 @@ Proof.
 	intros BetS_A_B_C.
 
 	pose proof (cn_congruencereflexive A B) as Cong_AB_AB.
-	pose proof (lemma_supporting_lt _ _ _ _ _ BetS_A_B_C Cong_AB_AB) as Lt_AB_AC.
+	pose proof (lemma_s_lt _ _ _ _ _ BetS_A_B_C Cong_AB_AB) as Lt_AB_AC.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_AB_AC Cong_AC_ac) as Lt_AB_ac.
 	destruct Lt_AB_ac as (g & BetS_a_g_c & Cong_ag_AB).
 

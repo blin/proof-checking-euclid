@@ -4,7 +4,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral}.
 
-Lemma lemma_oncirc_radius :
+Lemma lemma_s_oncirc_radius :
 	forall B J U X Y,
 	CI J U X Y ->
 	Cong U B X Y ->

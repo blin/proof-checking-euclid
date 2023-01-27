@@ -4,7 +4,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral}.
 
-Lemma lemma_incirc_within_radius :
+Lemma lemma_s_incirc_within_radius :
 	forall P J U V W X Y,
 	CI J U V W ->
 	BetS U Y X ->

@@ -6,7 +6,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_supporting_n_ncol_col :
+Lemma lemma_s_n_ncol_col :
 	forall A B C,
 	~ nCol A B C ->
 	Col A B C.

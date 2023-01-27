@@ -5,8 +5,8 @@ Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_differenceofparts.
-Require Import ProofCheckingEuclid.lemma_incirc_centre.
-Require Import ProofCheckingEuclid.lemma_incirc_within_radius.
+Require Import ProofCheckingEuclid.lemma_s_incirc_centre.
+Require Import ProofCheckingEuclid.lemma_s_incirc_within_radius.
 Require Import ProofCheckingEuclid.proposition_01.
 
 Section Euclid.
@@ -32,7 +32,7 @@ Proof.
 		_ & neq_B_D & neq_A_D & neq_B_A & neq_D_B & neq_D_A
 	).
 
-	pose proof (lemma_incirc_centre _ _ _ _ CI_J_B_BC) as InCirc_B_J.
+	pose proof (lemma_s_incirc_centre _ _ _ _ CI_J_B_BC) as InCirc_B_J.
 	pose proof (
 		postulate_line_circle _ _ _ _ _ _ CI_J_B_BC InCirc_B_J neq_D_B
 	) as (_ & G & _ & BetS_D_B_G & _ & OnCirc_G_J & _).
@@ -44,7 +44,7 @@ Proof.
 
 	pose proof(cn_congruencereflexive D G) as Cong_DG_DG.
 	pose proof (
-		lemma_incirc_within_radius A R D D G G B CI_R_D_DG BetS_D_B_G Cong_DG_DG Cong_DA_DB
+		lemma_s_incirc_within_radius A R D D G G B CI_R_D_DG BetS_D_B_G Cong_DG_DG Cong_DA_DB
 	) as InCirc_A_R.
 
 	pose proof (

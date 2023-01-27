@@ -1,5 +1,5 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
-Require Import ProofCheckingEuclid.lemma_incirc_centre.
+Require Import ProofCheckingEuclid.lemma_s_incirc_centre.
 
 
 Section Euclid.
@@ -23,7 +23,7 @@ Proof.
 		neq_B_Q
 	) as (J & CI_J_B_BQ).
 
-	pose proof (lemma_incirc_centre _ _ _ _ CI_J_B_BQ) as InCirc_B_J.
+	pose proof (lemma_s_incirc_centre _ _ _ _ CI_J_B_BQ) as InCirc_B_J.
 
 	pose proof (
 		postulate_line_circle

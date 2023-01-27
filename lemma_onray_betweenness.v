@@ -7,7 +7,7 @@ Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_extensionunique.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_supporting_lt.
+Require Import ProofCheckingEuclid.lemma_s_lt.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
@@ -36,7 +36,7 @@ Proof.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_B_D) as BetS_D_B_A.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_BD_AP) as (_ & Cong_DB_AP & _).
-	pose proof (lemma_supporting_lt _ _ _ _ _ BetS_D_B_A Cong_DB_AP) as Lt_AP_DA.
+	pose proof (lemma_s_lt _ _ _ _ _ BetS_D_B_A Cong_DB_AP) as Lt_AP_DA.
 
 	pose proof (cn_congruencereverse D A) as Cong_DA_AD.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_AP_DA Cong_DA_AD) as Lt_AP_AD.

@@ -1,14 +1,14 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
-Require Import ProofCheckingEuclid.lemma_supporting_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_supporting_ncol_n_col.
+Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
+Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_supporting_ncol_permutations :
+Lemma lemma_s_ncol_permutations :
 	forall A B C,
 	nCol A B C ->
 	nCol B A C /\ nCol B C A /\ nCol C A B /\ nCol A C B /\ nCol C B A.
@@ -16,7 +16,7 @@ Proof.
 	intros A B C.
 	intros nCol_A_B_C.
 
-	pose proof (lemma_supporting_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 
 	assert (~ Col B A C) as n_Col_B_A_C.
 	{
@@ -25,7 +25,7 @@ Proof.
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
-	pose proof (lemma_supporting_n_col_ncol _ _ _ n_Col_B_A_C) as nCol_B_A_C.
+	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_B_A_C) as nCol_B_A_C.
 
 	assert (~ Col B C A) as n_Col_B_C_A.
 	{
@@ -34,7 +34,7 @@ Proof.
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
-	pose proof (lemma_supporting_n_col_ncol _ _ _ n_Col_B_C_A) as nCol_B_C_A.
+	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_B_C_A) as nCol_B_C_A.
 
 	assert (~ Col C A B) as n_Col_C_A_B.
 	{
@@ -43,7 +43,7 @@ Proof.
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
-	pose proof (lemma_supporting_n_col_ncol _ _ _ n_Col_C_A_B) as nCol_C_A_B.
+	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_C_A_B) as nCol_C_A_B.
 
 	assert (~ Col A C B) as n_Col_A_C_B.
 	{
@@ -52,7 +52,7 @@ Proof.
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
-	pose proof (lemma_supporting_n_col_ncol _ _ _ n_Col_A_C_B) as nCol_A_C_B.
+	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_C_B) as nCol_A_C_B.
 
 	assert (~ Col C B A) as n_Col_C_B_A.
 	{
@@ -61,7 +61,7 @@ Proof.
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
-	pose proof (lemma_supporting_n_col_ncol _ _ _ n_Col_C_B_A) as nCol_C_B_A.
+	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_C_B_A) as nCol_C_B_A.
 
 	split.
 	exact nCol_B_A_C.

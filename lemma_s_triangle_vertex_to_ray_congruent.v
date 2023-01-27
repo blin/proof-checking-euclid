@@ -8,16 +8,16 @@ Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
-Require Import ProofCheckingEuclid.lemma_onray_assert_ABB.
+Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
-Require Import ProofCheckingEuclid.lemma_supporting_onray_congruence_betweenness.
+Require Import ProofCheckingEuclid.lemma_s_onray_congruence_betweenness.
 Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
 
 Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_supporting_triangle_vertex_to_ray_congruent_BetS_A_U_B :
+Lemma lemma_s_triangle_vertex_to_ray_congruent_BetS_A_U_B :
 	forall A B U a b u V v,
 	Cong A B a b->
 	Cong A U a u ->
@@ -37,7 +37,7 @@ Proof.
 
 	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_ab_u) as OnRay_au_b.
 	pose proof (
-		lemma_supporting_onray_congruence_betweenness
+		lemma_s_onray_congruence_betweenness
 		_ _ _ _ _ _
 		Cong_AU_au Cong_AB_ab
 		OnRay_au_b BetS_A_U_B
@@ -71,7 +71,7 @@ Proof.
 	exact Cong_BV_bv.
 Qed.
 
-Lemma lemma_supporting_triangle_vertex_to_ray_congruent_eq_B_U :
+Lemma lemma_s_triangle_vertex_to_ray_congruent_eq_B_U :
 	forall A B U a b u V v,
 	Cong A B a b->
 	Cong A U a u ->
@@ -94,7 +94,7 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_ab) as Cong_ab_AB.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_ab_AB Cong_AB_au) as Cong_ab_au.
 	pose proof (lemma_onray_neq_A_B _ _ _ OnRay_ab_u) as neq_a_b.
-	pose proof (lemma_onray_assert_ABB _ _ neq_a_b) as OnRay_ab_b.
+	pose proof (lemma_s_onray_assert_ABB _ _ neq_a_b) as OnRay_ab_b.
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_ab_b OnRay_ab_u Cong_ab_au) as eq_b_u.
 
 	(* TODO: figure out how to specify equality hypothesis to use. *)
@@ -106,7 +106,7 @@ Proof.
 	exact Cong_BV_bv.
 Qed.
 
-Lemma lemma_supporting_triangle_vertex_to_ray_congruent_BetS_A_B_U :
+Lemma lemma_s_triangle_vertex_to_ray_congruent_BetS_A_B_U :
 	forall A B U a b u V v,
 	Cong A B a b->
 	Cong A U a u ->
@@ -125,7 +125,7 @@ Proof.
 	intros Cong_UV_uv.
 
 	pose proof (
-		lemma_supporting_onray_congruence_betweenness
+		lemma_s_onray_congruence_betweenness
 		_ _ _ _ _ _
 		Cong_AB_ab Cong_AU_au
 		OnRay_ab_u BetS_A_B_U
@@ -151,7 +151,7 @@ Proof.
 	exact Cong_BV_bv.
 Qed.
 
-Lemma lemma_supporting_triangle_vertex_to_ray_congruent :
+Lemma lemma_s_triangle_vertex_to_ray_congruent :
 	forall A B U a b u V v,
 	Cong A B a b->
 	Cong A U a u ->
@@ -175,7 +175,7 @@ Proof.
 	{
 		(* case BetS_A_U_B *)
 		pose proof (
-			lemma_supporting_triangle_vertex_to_ray_congruent_BetS_A_U_B
+			lemma_s_triangle_vertex_to_ray_congruent_BetS_A_U_B
 			_ _ _ _ _ _ _ _
 			Cong_AB_ab
 			Cong_AU_au
@@ -190,7 +190,7 @@ Proof.
 	{
 		(* case eq_B_U *)
 		pose proof (
-			lemma_supporting_triangle_vertex_to_ray_congruent_eq_B_U
+			lemma_s_triangle_vertex_to_ray_congruent_eq_B_U
 			_ _ _ _ _ _ _ _
 			Cong_AB_ab
 			Cong_AU_au
@@ -204,7 +204,7 @@ Proof.
 	{
 		(* case BetS_A_B_U *)
 		pose proof (
-			lemma_supporting_triangle_vertex_to_ray_congruent_BetS_A_B_U
+			lemma_s_triangle_vertex_to_ray_congruent_BetS_A_B_U
 			_ _ _ _ _ _ _ _
 			Cong_AB_ab
 			Cong_AU_au
