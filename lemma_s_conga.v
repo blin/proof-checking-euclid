@@ -2,13 +2,13 @@ Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_onray_assert_ABB.
+Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 
 Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_supporting_conga :
+Lemma lemma_s_conga :
 	forall A B C a b c,
 	Cong A B a b->
 	Cong A C a c ->
@@ -27,14 +27,14 @@ Proof.
 	pose proof (
 		lemma_NCdistinct _ _ _ nCol_A_B_C
 	) as (_ & neq_B_C & _ & neq_B_A & _).
-	pose proof (lemma_onray_assert_ABB _ _ neq_B_A) as OnRay_BA_A.
-	pose proof (lemma_onray_assert_ABB _ _ neq_B_C) as OnRay_BC_C.
+	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_A) as OnRay_BA_A.
+	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_C) as OnRay_BC_C.
 
 	pose proof (
 		lemma_NCdistinct _ _ _ nCol_a_b_c
 	) as (neq_a_b & neq_b_c & neq_a_c & neq_b_a & _).
-	pose proof (lemma_onray_assert_ABB _ _ neq_b_a) as OnRay_ba_a.
-	pose proof (lemma_onray_assert_ABB _ _ neq_b_c) as OnRay_bc_c.
+	pose proof (lemma_s_onray_assert_ABB _ _ neq_b_a) as OnRay_ba_a.
+	pose proof (lemma_s_onray_assert_ABB _ _ neq_b_c) as OnRay_bc_c.
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AB_ab) as (Cong_BA_ba & _).
 

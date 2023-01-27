@@ -3,9 +3,9 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_equalanglesNC.
-Require Import ProofCheckingEuclid.lemma_supporting_conga.
-Require Import ProofCheckingEuclid.lemma_supporting_ncol_permutations.
-Require Import ProofCheckingEuclid.lemma_supporting_triangle_vertex_to_ray_congruent.
+Require Import ProofCheckingEuclid.lemma_s_conga.
+Require Import ProofCheckingEuclid.lemma_s_ncol_permutations.
+Require Import ProofCheckingEuclid.lemma_s_triangle_vertex_to_ray_congruent.
 
 Section Euclid.
 
@@ -35,7 +35,7 @@ Proof.
 	).
 
 	pose proof (
-		lemma_supporting_triangle_vertex_to_ray_congruent
+		lemma_s_triangle_vertex_to_ray_congruent
 		_ _ _ _ _ _ _ _
 		Cong_AB_ab
 		Cong_AU_au
@@ -47,7 +47,7 @@ Proof.
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_BV_bv) as (Cong_VB_vb & _).
 	pose proof (
-		lemma_supporting_triangle_vertex_to_ray_congruent
+		lemma_s_triangle_vertex_to_ray_congruent
 		_ _ _ _ _ _ _ _
 		Cong_AC_ac
 		Cong_AV_av
@@ -59,22 +59,22 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_CB_cb) as (Cong_BC_bc & _).
 
 	pose proof (
-		lemma_supporting_ncol_permutations _ _ _ nCol_B_A_C
+		lemma_s_ncol_permutations _ _ _ nCol_B_A_C
 	) as (nCol_A_B_C & nCol_A_C_B & _).
 
 	pose proof (
-		lemma_supporting_ncol_permutations _ _ _ nCol_b_a_c
+		lemma_s_ncol_permutations _ _ _ nCol_b_a_c
 	) as (nCol_a_b_c & nCol_a_c_b & _).
 
 	pose proof (
-		lemma_supporting_conga
+		lemma_s_conga
 		A B C a b c
 		Cong_AB_ab Cong_AC_ac Cong_BC_bc
 		nCol_A_B_C nCol_a_b_c
 	) as CongA_ABC_abc.
 
 	pose proof (
-		lemma_supporting_conga
+		lemma_s_conga
 		A C B a c b
 		Cong_AC_ac
 		Cong_AB_ab

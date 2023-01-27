@@ -4,7 +4,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral}.
 
-Lemma lemma_incirc_centre :
+Lemma lemma_s_incirc_centre :
 	forall J U V W,
 	CI J U V W ->
 	InCirc U J.

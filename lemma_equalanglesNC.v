@@ -9,8 +9,8 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
-Require Import ProofCheckingEuclid.lemma_supporting_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_supporting_ncol_n_col.
+Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
+Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -77,10 +77,10 @@ Proof.
 		pose proof (lemma_inequalitysymmetric _ _ neq_B_V) as neq_V_B.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_V_B_A Col_V_B_C neq_V_B) as Col_B_A_C.
 		pose proof (lemma_collinearorder _ _ _ Col_B_A_C) as (Col_A_B_C & _).
-		pose proof (lemma_supporting_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+		pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 		contradiction n_Col_A_B_C.
 	}
-	apply lemma_supporting_n_col_ncol in nCol_a_b_c.
+	apply lemma_s_n_col_ncol in nCol_a_b_c.
 	exact nCol_a_b_c.
 Qed.
 

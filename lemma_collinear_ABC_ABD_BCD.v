@@ -5,7 +5,7 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABD_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_supporting_n_ncol_col.
+Require Import ProofCheckingEuclid.lemma_s_n_ncol_col.
 
 Section Euclid.
 
@@ -110,7 +110,7 @@ Proof.
 				) as eq_C_D.
 				contradiction neq_C_D.
 			}
-			apply lemma_supporting_n_ncol_col in Col_B_C_D.
+			apply lemma_s_n_ncol_col in Col_B_C_D.
 			exact Col_B_C_D.
 		}
 		{
@@ -161,7 +161,7 @@ Proof.
 				) as eq_C_D.
 				contradiction neq_C_D.
 			}
-			apply lemma_supporting_n_ncol_col in Col_B_C_D.
+			apply lemma_s_n_ncol_col in Col_B_C_D.
 			exact Col_B_C_D.
 		}
 		{
@@ -216,7 +216,7 @@ Proof.
 				) as eq_C_D.
 				contradiction neq_C_D.
 			}
-			apply lemma_supporting_n_ncol_col in Col_B_C_D.
+			apply lemma_s_n_ncol_col in Col_B_C_D.
 			exact Col_B_C_D.
 		}
 	}
