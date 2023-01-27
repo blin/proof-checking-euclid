@@ -93,6 +93,14 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_onray_betweenness](./lemma_onray_betweenness.v)
 001. [lemma_onray_orderofpoints_any](./lemma_onray_orderofpoints_any.v)
 001. [lemma_layoffunique](./lemma_layoffunique.v)
+001. [lemma_onray_assert](./lemma_onray_assert.v)
+001. [lemma_onray_assert_ABB](./lemma_onray_assert_ABB.v)
+001. [lemma_supporting_conga](./lemma_supporting_conga.v)
+001. [lemma_supporting_ncol_permutations](./lemma_supporting_ncol_permutations.v)
+001. [lemma_onray_ABC_ACB](./lemma_onray_ABC_ACB.v)
+001. [lemma_supporting_onray_congruence_betweenness](./lemma_supporting_onray_congruence_betweenness.v)
+001. [lemma_supporting_triangle_vertex_to_ray_congruent](./lemma_supporting_triangle_vertex_to_ray_congruent.v)
+001. [proposition_04](./proposition_04.v)
 
 ## Differences from GeoCoq
 
