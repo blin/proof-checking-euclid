@@ -1,0 +1,20 @@
+s/Out /OnRay /g
+s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
+s/cn_equalityreverse/cn_congruencereverse/g
+
+s/lemma_3_5b/lemma_orderofpoints_ABD_BCD_ACD/g
+s/lemma_3_6a/lemma_orderofpoints_ABC_ACD_BCD/g
+s/lemma_3_6b/lemma_orderofpoints_ABC_ACD_ABD/g
+s/lemma_3_7a/lemma_orderofpoints_ABC_BCD_ACD/g
+s/lemma_3_7b/lemma_orderofpoints_ABC_BCD_ABD/g
+
+s/ray1/onray_orderofpoints_any/g
+s/ray2/onray_neq_A_B/g
+s/ray3/onray_shared_initial_point/g
+s/ray4/onray_assert/g
+s/ray5/onray_ABC_ACB/g
+s/raystrict/onray_strict/g
+
+s/collinear1/collinear_ABC_BAC/g
+s/collinear2/collinear_ABC_BCA/g
+s/collinear4/collinear_ABC_ABD_BCD/g

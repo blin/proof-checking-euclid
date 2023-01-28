@@ -3,7 +3,7 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_equalanglesNC.
-Require Import ProofCheckingEuclid.lemma_s_conga.
+Require Import ProofCheckingEuclid.lemma_s_conga_sss.
 Require Import ProofCheckingEuclid.lemma_s_ncol_permutations.
 Require Import ProofCheckingEuclid.lemma_s_triangle_vertex_to_ray_congruent.
 
@@ -67,14 +67,14 @@ Proof.
 	) as (nCol_a_b_c & nCol_a_c_b & _).
 
 	pose proof (
-		lemma_s_conga
+		lemma_s_conga_sss
 		A B C a b c
 		Cong_AB_ab Cong_AC_ac Cong_BC_bc
 		nCol_A_B_C nCol_a_b_c
 	) as CongA_ABC_abc.
 
 	pose proof (
-		lemma_s_conga
+		lemma_s_conga_sss
 		A C B a c b
 		Cong_AC_ac
 		Cong_AB_ab
