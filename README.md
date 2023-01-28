@@ -77,12 +77,15 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_layoffunique](./lemma_layoffunique.v)
 001. [lemma_onray_assert](./lemma_onray_assert.v)
 001. [lemma_s_onray_assert_ABB](./lemma_s_onray_assert_ABB.v)
-001. [lemma_s_conga](./lemma_s_conga.v)
+001. [lemma_s_conga_sss](./lemma_s_conga_sss.v)
 001. [lemma_s_ncol_permutations](./lemma_s_ncol_permutations.v)
 001. [lemma_onray_ABC_ACB](./lemma_onray_ABC_ACB.v)
 001. [lemma_s_onray_congruence_betweenness](./lemma_s_onray_congruence_betweenness.v)
 001. [lemma_s_triangle_vertex_to_ray_congruent](./lemma_s_triangle_vertex_to_ray_congruent.v)
 001. [proposition_04](./proposition_04.v)
+001. [lemma_s_conga](./lemma_s_conga.v)
+001. [lemma_ABCequalsCBA](./lemma_ABCequalsCBA.v)
+001. [proposition_05](./proposition_05.v)
 
 ## Differences from GeoCoq
 
@@ -99,6 +102,16 @@ and so the dependencies need to be introduced in a particular order.
   name for those lemmas.
 * `axiom_innertransitivity` is renamed to `axiom_orderofpoints_ABD_BCD_ABC`
   to match the renaming of `lemma_3_6a` into `lemma_orderofpoints_ABC_ACD_BCD`.
+* `Out` is renamed to `OnRay`, which I found easier to reason about.
+* `lemma_ray*` were renamed to `lemma_onray*` to match the change
+  from `Out` to `OnRay`.
+* `lemma_onray[12345]` instead of having numeric suffixes have evocative
+  if not descriptive suffixes,
+  `lemma_onray_orderofpoints_any` instead of `lemma_ray1`.
+* `lemma_collinear[124]` instead of having a numeric suffixes have evocative
+  if not descriptive suffixes,
+  `lemma_collinear_ABC_BAC` instead of `lemma_collinear1`.
+* You can find the full list of renames in [sed_renames.txt](./sed_renames.txt).
 * Following lemmas are introduced
   to make it easier to use some of the definitions and
 	to make sense of whta is going on:
@@ -111,10 +124,11 @@ and so the dependencies need to be introduced in a particular order.
   * lemma_s_ncol_n_col
   * lemma_s_lt
   * lemma_s_onray_assert_ABB
-  * lemma_s_conga
+  * lemma_s_conga_sss
   * lemma_s_ncol_permutations
   * lemma_s_onray_congruence_betweenness
   * lemma_s_triangle_vertex_to_ray_congruent
+  * lemma_s_conga
 
 
 ## How images were generated
