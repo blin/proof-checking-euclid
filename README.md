@@ -95,6 +95,10 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE.v)
 001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD.v)
 001. [proposition_10](./proposition_10.v)
+     * Fig 1: constructing point F using Pasch's Inner postulate
+       ([img](./proposition_10_pasch_F.svg))
+     * Fig 2: constructing point M using Pasch's Inner postulate
+       ([img](./proposition_10_pasch_M.svg))
 
 ## Differences from GeoCoq
 
