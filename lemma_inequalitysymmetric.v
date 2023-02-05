@@ -11,11 +11,12 @@ Lemma lemma_inequalitysymmetric :
 	neq B A.
 Proof.
 	intros A B.
-	unfold neq.
 	intros neq_A_B.
 	intros eq_B_A.
-	apply lemma_equalitysymmetric in eq_B_A.
-	contradiction.
+
+	pose proof (lemma_equalitysymmetric _ _ eq_B_A) as eq_A_B.
+	contradict eq_A_B.
+	exact neq_A_B.
 Qed.
 
 End Euclid.

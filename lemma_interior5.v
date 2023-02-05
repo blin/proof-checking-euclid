@@ -35,8 +35,11 @@ Proof.
 	assert (~ eq C A) as neq_C_A.
 	{
 		intros eq_C_A.
+
 		pose proof (lemma_equalitysymmetric _ _ eq_C_A) as eq_A_C.
-		contradiction neq_A_C.
+
+		contradict eq_A_C.
+		exact neq_A_C.
 	}
 	pose proof (lemma_extension _ _ _ _ neq_C_A neq_B_C) as (M & BetS_C_A_M & Cong_AM_BC).
 	pose proof (cn_congruencereverse M A) as Cong_MA_AM.
@@ -46,8 +49,11 @@ Proof.
 	assert (~ eq c a) as neq_c_a.
 	{
 		intros eq_c_a.
+
 		pose proof (lemma_equalitysymmetric _ _ eq_c_a) as eq_a_c.
-		contradiction neq_a_c.
+
+		contradict eq_a_c.
+		exact neq_a_c.
 	}
 	pose proof (lemma_extension _ _ _ _ neq_c_a neq_b_c) as (m & BetS_c_a_m & Cong_am_bc).
 	pose proof (cn_congruencereverse m a) as Cong_ma_am.

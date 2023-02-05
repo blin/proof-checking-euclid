@@ -16,8 +16,11 @@ Proof.
 	assert (~ ~ nCol A B C) as nn_nCol_A_B_C.
 	{
 		intros n_nCol_A_B_C.
+
 		pose proof (lemma_s_n_ncol_col _ _ _ n_nCol_A_B_C) as Col_A_B_C.
-		contradiction n_Col_A_B_C.
+
+		contradict Col_A_B_C.
+		exact n_Col_A_B_C.
 	}
 	apply Classical_Prop.NNPP in nn_nCol_A_B_C.
 	exact nn_nCol_A_B_C.

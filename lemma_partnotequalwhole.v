@@ -15,7 +15,8 @@ Lemma lemma_partnotequalwhole :
 Proof.
 	intros A B C.
 	intros BetS_A_B_C.
-	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_C) as (neq_B_C & neq_A_B & neq_A_C).
+
+	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_C) as (neq_B_C & neq_A_B & _).
 	apply lemma_inequalitysymmetric in neq_A_B as neq_B_A.
 	pose proof (postulate_Euclid2 B A neq_B_A) as (D & BetS_B_A_D).
 	apply axiom_betweennesssymmetry in BetS_B_A_D as BetS_D_A_B.
@@ -23,13 +24,13 @@ Proof.
 	assert (~ Cong A B A C) as nCong_AB_AC.
 	{
 		intro Cong_AB_AC.
+
 		pose proof (lemma_extensionunique _ _ _ _ BetS_D_A_B BetS_D_A_C Cong_AB_AC) as eq_B_C.
-		(* TODO specify what is contradictiory. *)
-		contradiction.
+
+		contradict eq_B_C.
+		exact neq_B_C.
 	}
 	exact nCong_AB_AC.
 Qed.
 
 End Euclid.
-
-

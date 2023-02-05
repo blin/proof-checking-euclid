@@ -35,9 +35,12 @@ Proof.
 		assert (~ neq a b) as eq_a_b.
 		{
 			intros neq_a_b.
+
 			pose proof (axiom_nocollapse _ _ _ _ neq_a_b Cong_ab_AA) as neq_A_A.
 			assert (eq A A) as eq_A_A by (reflexivity).
-			contradiction neq_A_A.
+
+			contradict eq_A_A.
+			exact neq_A_A.
 		}
 		unfold neq in eq_a_b.
 		apply Classical_Prop.NNPP in eq_a_b.
@@ -51,9 +54,12 @@ Proof.
 		assert (~ neq a c) as eq_a_c.
 		{
 			intros neq_a_c.
+
 			pose proof (axiom_nocollapse _ _ _ _ neq_a_c Cong_ac_AA) as neq_A_A.
 			assert (eq A A) as eq_A_A by (reflexivity).
-			contradiction neq_A_A.
+
+			contradict eq_A_A.
+			exact neq_A_A.
 		}
 		unfold neq in eq_a_c.
 		apply Classical_Prop.NNPP in eq_a_c.
@@ -67,9 +73,12 @@ Proof.
 		assert (~ neq b c) as eq_b_c.
 		{
 			intros neq_b_c.
+
 			pose proof (axiom_nocollapse _ _ B B neq_b_c Cong_bc_BB) as neq_B_B.
-			assert (eq B B) by (reflexivity).
-			contradiction neq_B_B.
+			assert (eq B B) as eq_B_B by (reflexivity).
+
+			contradict eq_B_B.
+			exact neq_B_B.
 		}
 		unfold neq in eq_b_c.
 		apply Classical_Prop.NNPP in eq_b_c.

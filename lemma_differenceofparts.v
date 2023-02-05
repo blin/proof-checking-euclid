@@ -29,9 +29,12 @@ Proof.
 	assert (~ neq a b) as eq_a_b.
 	{
 		intro neq_a_b.
+
 		pose proof (axiom_nocollapse _ _ _ _ neq_a_b Cong_ab_AA) as neq_A_A.
-		assert (eq A A) by (reflexivity).
-		contradiction.
+		assert (eq A A) as eq_A_A by (reflexivity).
+
+		contradict eq_A_A.
+		exact neq_A_A.
 	}
 	unfold neq in eq_a_b.
 	apply Classical_Prop.NNPP in eq_a_b.
@@ -58,8 +61,10 @@ Lemma lemma_differenceofparts_neq_B_A :
 	Cong B C b c.
 Proof.
 	intros A B C a b c.
-	intros Cong_AB_ab Cong_AC_ac.
-	intros BetS_A_B_C BetS_a_b_c.
+	intros Cong_AB_ab.
+	intros Cong_AC_ac.
+	intros BetS_A_B_C.
+	intros BetS_a_b_c.
 	intros neq_B_A.
 
 	assert (~ eq C A) as neq_C_A.
@@ -68,10 +73,10 @@ Proof.
 
 		assert (BetS_A_B_A := BetS_A_B_C).
 		replace C with A in BetS_A_B_A.
-
 		pose proof (axiom_betweennessidentity A B) as nBetS_A_B_A.
 
-		contradiction.
+		contradict BetS_A_B_A.
+		exact nBetS_A_B_A.
 	}
 
 	apply lemma_inequalitysymmetric in neq_C_A as neq_A_C.

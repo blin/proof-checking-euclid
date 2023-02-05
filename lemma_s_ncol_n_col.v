@@ -15,6 +15,7 @@ Proof.
 	assert (~ Col A B C) as n_Col_a_b_c.
 	{
 		intros Col_A_B_C.
+
 		unfold nCol in nCol_A_B_C.
 		unfold Col in Col_A_B_C.
 		destruct nCol_A_B_C as (
@@ -23,12 +24,19 @@ Proof.
 		destruct Col_A_B_C as [
 			eq_A_B | [eq_A_C | [eq_B_C | [BetS_B_A_C | [BetS_A_B_C | BetS_A_C_B]]]]
 		].
-		contradiction neq_A_B.
-		contradiction neq_A_C .
-		contradiction neq_B_C .
-		contradiction nBetS_B_A_C .
-		contradiction nBetS_A_B_C.
-		contradiction nBetS_A_C_B .
+
+		contradict eq_A_B.
+		exact neq_A_B.
+		contradict eq_A_C .
+		exact neq_A_C .
+		contradict eq_B_C .
+		exact neq_B_C .
+		contradict BetS_B_A_C .
+		exact nBetS_B_A_C .
+		contradict BetS_A_B_C.
+		exact nBetS_A_B_C.
+		contradict BetS_A_C_B .
+		exact nBetS_A_C_B .
 	}
 	exact n_Col_a_b_c.
 Qed.
