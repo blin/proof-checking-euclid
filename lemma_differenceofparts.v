@@ -46,8 +46,8 @@ Proof.
 
 	apply lemma_congruencesymmetric in Cong_bc_ac as Cong_ac_bc.
 
-	pose proof (lemma_congruencetransitive A C a c b c Cong_AC_ac Cong_ac_bc) as Cong_AC_bc.
-	pose proof (lemma_congruencetransitive B C A C b c Cong_BC_AC Cong_AC_bc) as Cong_BC_bc.
+	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_ac Cong_ac_bc) as Cong_AC_bc.
+	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BC_AC Cong_AC_bc) as Cong_BC_bc.
 
 	exact Cong_BC_bc.
 Qed.
@@ -76,17 +76,17 @@ Proof.
 
 	apply lemma_inequalitysymmetric in neq_C_A as neq_A_C.
 
-	pose proof (lemma_localextension C A C neq_C_A neq_A_C) as (E & BetS_C_A_E & Cong_AE_AC).
+	pose proof (lemma_localextension _ _ _ neq_C_A neq_A_C) as (E & BetS_C_A_E & Cong_AE_AC).
 
 	pose proof (axiom_nocollapse _ _ _ _ neq_A_C Cong_AC_ac) as neq_a_c.
 	apply lemma_inequalitysymmetric in neq_a_c as neq_c_a.
-	pose proof (lemma_localextension c a c neq_c_a neq_a_c) as (e & BetS_c_a_e & Cong_ae_ac).
+	pose proof (lemma_localextension _ _ _ neq_c_a neq_a_c) as (e & BetS_c_a_e & Cong_ae_ac).
 
 	apply lemma_congruencesymmetric in Cong_ae_ac as Cong_ac_ae.
-	pose proof (lemma_congruencetransitive A C a c a e Cong_AC_ac Cong_ac_ae) as Cong_AC_ae.
+	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_ac Cong_ac_ae) as Cong_AC_ae.
 	apply lemma_congruencesymmetric in Cong_AC_ae as Cong_ae_AC.
 	apply lemma_congruencesymmetric in Cong_AE_AC as Cong_AC_AE.
-	pose proof (lemma_congruencetransitive a e A C A E Cong_ae_AC Cong_AC_AE) as Cong_ae_AE.
+	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_ae_AC Cong_AC_AE) as Cong_ae_AE.
 	apply lemma_doublereverse in Cong_ae_AE as (Cong_EA_ea & Cong_ea_EA).
 
 

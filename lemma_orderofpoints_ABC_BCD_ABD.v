@@ -16,7 +16,7 @@ Proof.
 	intros BetS_B_C_D.
 	apply (axiom_betweennesssymmetry) in BetS_A_B_C as BetS_C_B_A.
 	apply (axiom_betweennesssymmetry) in BetS_B_C_D as BetS_D_C_B.
-	pose proof(lemma_orderofpoints_ABC_BCD_ACD D C B A BetS_D_C_B BetS_C_B_A) as BetS_D_B_A.
+	pose proof(lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_D_C_B BetS_C_B_A) as BetS_D_B_A.
 	apply (axiom_betweennesssymmetry) in BetS_D_B_A as BetS_A_B_D.
 	exact BetS_A_B_D.
 Qed.

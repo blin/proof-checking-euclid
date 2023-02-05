@@ -49,7 +49,7 @@ Proof.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_c_b_u Col_c_b_v neq_c_b) as Col_b_u_v.
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_UV_uv) as Cong_uv_UV.
 		pose proof (
-			lemma_collinearitypreserved _ _ _ _ U V Col_b_u_v Cong_bu_BU Cong_bv_BV Cong_uv_UV
+			lemma_collinearitypreserved _ _ _ _ _ _ Col_b_u_v Cong_bu_BU Cong_bv_BV Cong_uv_UV
 		) as Col_B_U_V.
 		pose proof (lemma_collinearorder _ _ _ Col_B_A_U) as (_ & _ & _ & Col_B_U_A & _).
 		pose proof (lemma_onray_strict _ _ _ OnRay_BA_U) as neq_B_U.

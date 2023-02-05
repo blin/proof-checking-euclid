@@ -24,8 +24,8 @@ Proof.
 
 	(* BetS A B E -> Col A B E -> DegenerateTriangle A B E *)
 	(* BetS A B E -> Col A B E -> DegenerateTriangle A B E *)
-	(* eq E E     -> Col E B E -> DegenerateTriangle E B E *)
-	(* eq E F     -> Col E B F -> DegenerateTriangle E B F *)
+	(* eq E E -> Col E B E -> DegenerateTriangle E B E *)
+	(* eq E F -> Col E B F -> DegenerateTriangle E B F *)
 	(* axiom_5_line is used to help prove eq E F *)
 
 	(* △ABE and △ABE are SSS congruent. *)
