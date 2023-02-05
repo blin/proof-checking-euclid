@@ -53,9 +53,12 @@ Proof.
 	assert (~ neq E F) as eq_E_F.
 	{
 		intro neq_E_F.
+
 		pose proof (axiom_nocollapse E F E E neq_E_F Cong_EF_EE) as neq_E_E.
 		assert (eq E E) as eq_E_E by (reflexivity).
-		contradiction.
+
+		contradict eq_E_E.
+		exact neq_E_E.
 	}
 	unfold neq in eq_E_F.
 	apply Classical_Prop.NNPP in eq_E_F.

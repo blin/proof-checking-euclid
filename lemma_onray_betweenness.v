@@ -55,11 +55,14 @@ Proof.
 	assert (~ ~ BetS A B P) as BetS_A_B_P.
 	{
 		intro nBetS_A_B_P.
+
 		pose proof (
 			axiom_connectivity _ _ _ _ BetS_A_B_D BetS_A_P_D nBetS_A_B_P nBetS_A_P_B
 		) as eq_B_P.
 		pose proof (lemma_inequalitysymmetric _ _ neq_P_B) as neq_B_P.
-		contradiction eq_B_P.
+
+		contradict eq_B_P.
+		exact neq_B_P.
 	}
 	apply Classical_Prop.NNPP in BetS_A_B_P.
 	exact BetS_A_B_P.

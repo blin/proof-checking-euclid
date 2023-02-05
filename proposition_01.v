@@ -94,24 +94,33 @@ Proof.
 	assert (~ BetS A C B) as nBetS_A_C_B.
 	{
 		intro BetS_A_C_B.
+
 		pose proof (lemma_partnotequalwhole _ _ _ BetS_A_C_B) as nCong_AC_AB.
 		pose proof (cn_congruencereverse C A) as Cong_CA_AC.
 		pose proof (cn_congruencereverse A C) as Cong_AC_CA.
 		pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_CA Cong_CA_AB) as Cong_AC_AB.
-		contradiction.
+
+		contradict Cong_AC_AB.
+		exact nCong_AC_AB.
 	}
 	assert (~ BetS A B C) as nBetS_A_B_C.
 	{
 		intro BetS_A_B_C.
+
 		pose proof (lemma_partnotequalwhole _ _ _ BetS_A_B_C) as nCong_AB_AC.
-		contradiction.
+
+		contradict Cong_AB_AC.
+		exact nCong_AB_AC.
 	}
 	assert (~ BetS B A C) as nBetS_B_A_C.
 	{
 		intro BetS_B_A_C.
+
 		pose proof (lemma_partnotequalwhole _ _ _ BetS_B_A_C) as nCong_BA_BC.
 		apply lemma_congruencesymmetric in Cong_BC_BA as Cong_BA_BC.
-		contradiction.
+
+		contradict Cong_BA_BC.
+		exact nCong_BA_BC.
 	}
 
 	unfold Triangle.

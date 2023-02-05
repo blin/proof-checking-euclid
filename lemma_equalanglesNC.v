@@ -41,6 +41,7 @@ Proof.
 	assert (~ Col a b c) as nCol_a_b_c.
 	{
 		intros Col_a_b_c.
+
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_a_b_u Col_a_b_c neq_a_b) as Col_b_u_c.
 		pose proof (lemma_collinearorder _ _ _ Col_b_u_c) as (_ & _ & Col_c_b_u & _).
 		pose proof (lemma_collinearorder _ _ _ Col_b_c_v) as (Col_c_b_v & _).
@@ -78,7 +79,9 @@ Proof.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_V_B_A Col_V_B_C neq_V_B) as Col_B_A_C.
 		pose proof (lemma_collinearorder _ _ _ Col_B_A_C) as (Col_A_B_C & _).
 		pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
-		contradiction n_Col_A_B_C.
+
+		contradict Col_A_B_C.
+		exact n_Col_A_B_C.
 	}
 	apply lemma_s_n_col_ncol in nCol_a_b_c.
 	exact nCol_a_b_c.

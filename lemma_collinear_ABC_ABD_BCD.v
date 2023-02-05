@@ -25,9 +25,11 @@ Proof.
 
 	(* get rid of eq_A_B early to reduce number of permutations *)
 	destruct Col_A_B_C as [eq_A_B | Col_A_B_C].
-	contradiction neq_A_B.
+	contradict eq_A_B.
+	exact neq_A_B.
 	destruct Col_A_B_D as [eq_A_B | Col_A_B_D].
-	contradiction neq_A_B.
+	contradict eq_A_B.
+	exact neq_A_B.
 
 	unfold Col.
 
@@ -92,23 +94,30 @@ Proof.
 				assert (~ BetS A C D) as nBetS_A_C_D.
 				{
 					intros BetS_A_C_D.
+
 					pose proof (
 						lemma_orderofpoints_ABD_BCD_ACD _ _ _ _ BetS_B_A_D BetS_A_C_D
 					) as BetS_B_C_D.
-					contradiction nBetS_B_C_D.
+
+					contradict BetS_B_C_D.
+					exact nBetS_B_C_D.
 				}
 				assert (~ BetS A D C) as nBetS_A_D_C.
 				{
 					intros BetS_A_D_C.
+
 					pose proof (
 						lemma_orderofpoints_ABD_BCD_ACD _ _ _ _ BetS_B_A_C BetS_A_D_C
 					) as BetS_B_D_C.
-					contradiction nBetS_B_D_C.
+
+					contradict BetS_B_D_C.
+					exact nBetS_B_D_C.
 				}
 				pose proof (
 					lemma_outerconnectivity _ _ _ _ BetS_B_A_C BetS_B_A_D nBetS_A_C_D nBetS_A_D_C
 				) as eq_C_D.
-				contradiction neq_C_D.
+				contradict eq_C_D.
+				exact neq_C_D.
 			}
 			apply lemma_s_n_ncol_col in Col_B_C_D.
 			exact Col_B_C_D.
@@ -154,12 +163,15 @@ Proof.
 			assert (~ nCol B C D) as Col_B_C_D.
 			{
 				intros nCol_B_C_D.
+
 				unfold nCol in nCol_B_C_D.
 				destruct nCol_B_C_D as (_ & _ & neq_C_D & nBetS_B_C_D & nBetS_B_D_C & _).
 				pose proof (
 					lemma_outerconnectivity _ _ _ _ BetS_A_B_C BetS_A_B_D nBetS_B_C_D nBetS_B_D_C
 				) as eq_C_D.
-				contradiction neq_C_D.
+
+				contradict eq_C_D.
+				exact neq_C_D.
 			}
 			apply lemma_s_n_ncol_col in Col_B_C_D.
 			exact Col_B_C_D.
@@ -207,6 +219,7 @@ Proof.
 			assert (~ nCol B C D) as Col_B_C_D.
 			{
 				intros nCol_B_C_D.
+
 				unfold nCol in nCol_B_C_D.
 				destruct nCol_B_C_D as (_ & _ & neq_C_D & nBetS_B_C_D & nBetS_B_D_C & _).
 				pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_C_B) as BetS_B_C_A.
@@ -214,7 +227,9 @@ Proof.
 				pose proof (
 					axiom_connectivity _ _ _ _ BetS_B_C_A BetS_B_D_A nBetS_B_C_D nBetS_B_D_C
 				) as eq_C_D.
-				contradiction neq_C_D.
+
+				contradict eq_C_D.
+				exact neq_C_D.
 			}
 			apply lemma_s_n_ncol_col in Col_B_C_D.
 			exact Col_B_C_D.

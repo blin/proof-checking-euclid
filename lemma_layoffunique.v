@@ -64,11 +64,14 @@ Proof.
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
+
 				pose proof (lemma_doublereverse _ _ _ _ Cong_CC_DC) as (Cong_CD_CC & _).
 				pose proof (axiom_nocollapse _ _ C C neq_C_D Cong_CD_CC) as neq_C_C.
 				unfold neq in neq_C_C.
 				assert (eq C C) as eq_C_C by (reflexivity).
-				contradiction neq_C_C.
+
+				contradict eq_C_C.
+				exact neq_C_C.
 			}
 			unfold neq in n_neq_C_D.
 			apply Classical_Prop.NNPP in n_neq_C_D.
@@ -81,8 +84,11 @@ Proof.
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
+
 				pose proof (lemma_partnotequalwhole _ _ _ BetS_A_C_D) as n_Cong_AC_AD.
-				contradiction Cong_AC_AD.
+
+				contradict n_Cong_AC_AD.
+				exact Cong_AC_AD.
 			}
 			unfold neq in n_neq_C_D.
 			apply Classical_Prop.NNPP in n_neq_C_D.
@@ -96,8 +102,11 @@ Proof.
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
+
 				pose proof (lemma_partnotequalwhole _ _ _ BetS_A_C_D) as n_Cong_AC_AD.
-				contradiction Cong_AC_AD.
+
+				contradict n_Cong_AC_AD.
+				exact Cong_AC_AD.
 			}
 			unfold neq in n_neq_C_D.
 			apply Classical_Prop.NNPP in n_neq_C_D.
@@ -113,7 +122,9 @@ Proof.
 		{
 			(* case BetS_A_D_B *)
 			pose proof (lemma_partnotequalwhole _ _ _ BetS_A_D_B) as n_Cong_AD_AB.
-			contradiction Cong_AD_AB.
+
+			contradict n_Cong_AD_AB.
+			exact Cong_AD_AB.
 		}
 		{
 			(* case eq_B_D *)
@@ -128,8 +139,11 @@ Proof.
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
+
 				pose proof (lemma_partnotequalwhole _ _ _ BetS_A_C_D) as n_Cong_AC_AD.
-				contradiction Cong_AC_AD.
+
+				contradict n_Cong_AC_AD.
+				exact Cong_AC_AD.
 			}
 			unfold neq in n_neq_C_D.
 			apply Classical_Prop.NNPP in n_neq_C_D.
@@ -147,8 +161,11 @@ Proof.
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
+
 				pose proof (lemma_partnotequalwhole _ _ _ BetS_A_D_C) as n_Cong_AD_AC.
-				contradiction Cong_AD_AC.
+
+				contradict n_Cong_AD_AC.
+				exact Cong_AD_AC.
 			}
 			unfold neq in n_neq_C_D.
 			apply Classical_Prop.NNPP in n_neq_C_D.
@@ -161,8 +178,11 @@ Proof.
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
+
 				pose proof (lemma_partnotequalwhole _ _ _ BetS_A_D_C) as n_Cong_AD_AC.
-				contradiction Cong_AD_AC.
+
+				contradict n_Cong_AD_AC.
+				exact Cong_AD_AC.
 			}
 			unfold neq in n_neq_C_D.
 			apply Classical_Prop.NNPP in n_neq_C_D.
