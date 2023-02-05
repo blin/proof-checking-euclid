@@ -27,7 +27,7 @@ Proof.
 	pose proof (postulate_Euclid3 A B neq_A_B) as (J & CI_J_A_AB).
 	pose proof (postulate_Euclid3 B A neq_B_A) as (K & CI_K_B_BA).
 
-	pose proof (lemma_localextension B A B neq_B_A neq_A_B) as (D & BetS_B_A_D & Cong_AD_AB).
+	pose proof (lemma_localextension _ _ _ neq_B_A neq_A_B) as (D & BetS_B_A_D & Cong_AD_AB).
 
 	assert (Cong B A B A) as Cong_BA_BA by (apply cn_congruencereflexive).
 
@@ -76,7 +76,7 @@ Proof.
 		OnCirc_C_J
 	) as Cong_AC_AB.
 	apply (lemma_congruenceflip) in Cong_AC_AB as (Cong_CA_BA & Cong_CA_AB & Cong_AC_BA).
-	pose proof (lemma_congruencetransitive C A A B B C Cong_CA_AB Cong_AB_BC) as Cong_CA_BC.
+	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_CA_AB Cong_AB_BC) as Cong_CA_BC.
 	apply (lemma_congruencesymmetric) in Cong_CA_BC as Cong_BC_CA.
 
 	split.

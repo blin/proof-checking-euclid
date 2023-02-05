@@ -44,7 +44,7 @@ Proof.
 
 	pose proof(cn_congruencereflexive D G) as Cong_DG_DG.
 	pose proof (
-		lemma_s_incirc_within_radius A R D D G G B CI_R_D_DG BetS_D_B_G Cong_DG_DG Cong_DA_DB
+		lemma_s_incirc_within_radius _ _ _ _ _ _ B CI_R_D_DG BetS_D_B_G Cong_DG_DG Cong_DA_DB
 	) as InCirc_A_R.
 
 	pose proof (
