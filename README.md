@@ -86,6 +86,19 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_conga](./lemma_s_conga.v)
 001. [lemma_ABCequalsCBA](./lemma_ABCequalsCBA.v)
 001. [proposition_05](./proposition_05.v)
+001. [lemma_s_cut](./lemma_s_cut.v)
+001. [lemma_s_intersecting_triangles_ncol_ADE](./lemma_s_intersecting_triangles_ncol_ADE.v)
+001. [lemma_s_intersecting_triangles_ncol_BDE](./lemma_s_intersecting_triangles_ncol_BDE.v)
+001. [lemma_twolines](./lemma_twolines.v)
+001. [lemma_s_intersecting_triangles_cong_AF_BF](./lemma_s_intersecting_triangles_cong_AF_BF.v)
+001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD.v)
+001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE.v)
+001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD.v)
+001. [proposition_10](./proposition_10.v)
+     * Fig 1: constructing point F using Pasch's Inner postulate
+       ([img](./proposition_10_pasch_F.svg))
+     * Fig 2: constructing point M using Pasch's Inner postulate
+       ([img](./proposition_10_pasch_M.svg))
 
 ## Differences from GeoCoq
 
@@ -129,6 +142,13 @@ and so the dependencies need to be introduced in a particular order.
   * lemma_s_onray_congruence_betweenness
   * lemma_s_triangle_vertex_to_ray_congruent
   * lemma_s_conga
+  * lemma_s_cut
+  * lemma_s_intersecting_triangles_ncol_ADE
+  * lemma_s_intersecting_triangles_ncol_BDE
+  * lemma_s_intersecting_triangles_cong_AF_BF
+  * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD
+  * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE
+  * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD
 
 
 ## How images were generated

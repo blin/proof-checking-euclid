@@ -17,6 +17,7 @@ Definition CongA A B C a b c := exists U V u v,
 	 Cong U V u v /\
 	 nCol A B C.
 Definition isosceles A B C := Triangle A B C /\ Cong A B A C.
+Definition Cut A B C D E := BetS A E B /\ BetS C E D /\ nCol A B C /\ nCol A B D.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
 End Definitions.

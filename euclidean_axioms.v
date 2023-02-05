@@ -94,6 +94,10 @@ Class euclidean_neutral :=
 			Cong C D c d;
 
 
+	postulate_Pasch_inner :
+		forall A B C P Q,
+			BetS A P C -> BetS B Q C -> nCol A C B ->
+			exists X, BetS A X Q /\ BetS B X P;
 	postulate_Euclid2 : forall A B, neq A B -> exists X, BetS A B X;
 	postulate_Euclid3 : forall A B, neq A B -> exists X, CI X A A B;
 }.

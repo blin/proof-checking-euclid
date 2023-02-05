@@ -1,0 +1,6 @@
+s/(lemma_\w+) [A-Za-z] /\1 _ /
+s/(lemma_\w+) _ [A-Za-z] /\1 _ _ /
+s/(lemma_\w+) _ _ [A-Za-z] /\1 _ _ _ /
+s/(lemma_\w+) _ _ _ [A-Za-z] /\1 _ _ _ _ /
+s/(lemma_\w+) _ _ _ _ [A-Za-z] /\1 _ _ _ _ _ /
+s/(lemma_\w+) _ _ _ _ _ [A-Za-z] /\1 _ _ _ _ _ _ /
