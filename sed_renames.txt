@@ -1,3 +1,7 @@
+s/GeoCoq.Elements.OriginalProofs/ProofCheckingEuclid/
+
+s/OS /SS /g
+s/TS /OS /g
 s/Out /OnRay /g
 s/Per /RightTriangle /g
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
@@ -19,3 +23,7 @@ s/raystrict/onray_strict/g
 s/collinear1/collinear_ABC_BAC/g
 s/collinear2/collinear_ABC_BCA/g
 s/collinear4/collinear_ABC_ABD_BCD/g
+s/collinear5/collinear_ABC_ABD_ABE_CDE/g
+
+s/9_5a/otherside_betweenness_PABC_RPQ_QABC/g
+s/9_5b/otherside_betweenness_PABC_RQP_QABC/g

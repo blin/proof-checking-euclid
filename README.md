@@ -103,6 +103,12 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_perp_at](./lemma_s_perp_at.v)
 001. [proposition_12](./proposition_12.v)
      ([img](./proposition_12.svg))
+001. [lemma_collinear_ABC_ABD_ABE_CDE](./lemma_collinear_ABC_ABD_ABE_CDE.v)
+001. [lemma_otherside_betweenness_PABC_RPQ_QABC](./lemma_otherside_betweenness_PABC_RPQ_QABC.v)
+001. [lemma_otherside_betweenness_PABC_RQP_QABC](./lemma_otherside_betweenness_PABC_RQP_QABC.v)
+001. [lemma_s_os](./lemma_s_os.v)
+001. [lemma_twolines2](./lemma_twolines2.v)
+001. [lemma_planeseparation](./lemma_planeseparation.v)
 
 ## Differences from GeoCoq
 
@@ -154,6 +160,7 @@ and so the dependencies need to be introduced in a particular order.
   * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD
   * lemma_right_triangle
   * lemma_s_perp_at
+  * lemma_s_os
 
 
 ## How images were generated
