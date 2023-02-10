@@ -1,6 +1,7 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
+Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
@@ -13,7 +14,6 @@ Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_cong_AF_BF.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_permutations.
 Require Import ProofCheckingEuclid.proposition_01.
 
 Section Euclid.
@@ -31,7 +31,7 @@ Proof.
 	pose proof (proposition_01 _ _ neq_A_B) as (C & equilateral_A_B_C & Triangle_A_B_C).
 	assert (nCol A B C) as nCol_A_B_C by (exact Triangle_A_B_C).
 	pose proof (
-		lemma_s_ncol_permutations _ _ _ nCol_A_B_C
+		lemma_NCorder _ _ _ nCol_A_B_C
 	) as (_ & _ & nCol_C_A_B & _ & nCol_C_B_A).
 	destruct nCol_A_B_C as (_ & neq_A_C & neq_B_C & _ & _ & _).
 
@@ -66,10 +66,10 @@ Proof.
 		_ _ _ _ _
 		nCol_C_B_A Col_C_B_D Col_C_A_E neq_C_D neq_C_E
 	) as nCol_C_D_E.
-	pose proof (lemma_s_ncol_permutations _ _ _ nCol_A_E_B) as (_ & _ & nCol_B_A_E & _ & _).
-	pose proof (lemma_s_ncol_permutations _ _ _ nCol_B_D_A) as (_ & _ & nCol_A_B_D & _ & _).
-	pose proof (lemma_s_ncol_permutations _ _ _ nCol_C_D_A) as (_ & _ & _ & _ & nCol_A_D_C).
-	pose proof (lemma_s_ncol_permutations _ _ _ nCol_C_D_E) as (nCol_D_C_E & _ & _ & _ & _).
+	pose proof (lemma_NCorder _ _ _ nCol_A_E_B) as (_ & _ & nCol_B_A_E & _ & _).
+	pose proof (lemma_NCorder _ _ _ nCol_B_D_A) as (_ & _ & nCol_A_B_D & _ & _).
+	pose proof (lemma_NCorder _ _ _ nCol_C_D_A) as (_ & _ & _ & _ & nCol_A_D_C).
+	pose proof (lemma_NCorder _ _ _ nCol_C_D_E) as (nCol_D_C_E & _ & _ & _ & _).
 
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_B_D) as BetS_D_B_C.

@@ -78,7 +78,7 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_onray_assert](./lemma_onray_assert.v)
 001. [lemma_s_onray_assert_ABB](./lemma_s_onray_assert_ABB.v)
 001. [lemma_s_conga_sss](./lemma_s_conga_sss.v)
-001. [lemma_s_ncol_permutations](./lemma_s_ncol_permutations.v)
+001. [lemma_NCorder](./lemma_NCorder.v)
 001. [lemma_onray_ABC_ACB](./lemma_onray_ABC_ACB.v)
 001. [lemma_s_onray_congruence_betweenness](./lemma_s_onray_congruence_betweenness.v)
 001. [lemma_s_triangle_vertex_to_ray_congruent](./lemma_s_triangle_vertex_to_ray_congruent.v)
@@ -142,7 +142,6 @@ and so the dependencies need to be introduced in a particular order.
   * lemma_s_lt
   * lemma_s_onray_assert_ABB
   * lemma_s_conga_sss
-  * lemma_s_ncol_permutations
   * lemma_s_onray_congruence_betweenness
   * lemma_s_triangle_vertex_to_ray_congruent
   * lemma_s_conga

@@ -1,8 +1,8 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
+Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_s_ncol_permutations.
 Require Import ProofCheckingEuclid.proposition_04.
 
 Section Euclid.
@@ -22,7 +22,7 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_AC) as Cong_AC_AB.
 
 	assert (nCol A B C) as nCol_A_B_C by (exact Triangle_A_B_C).
-	pose proof (lemma_s_ncol_permutations _ _ _ nCol_A_B_C) as (_ & _ & nCol_C_A_B & _).
+	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & _ & nCol_C_A_B & _).
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_C_A_B) as CongA_CAB_BAC.
 
 	epose proof (
