@@ -1,0 +1,64 @@
+1i Require Import ProofCheckingEuclid.euclidean_axioms.
+1i Require Import ProofCheckingEuclid.euclidean_defs.
+1i Require Coq.Logic.Classical_Prop.
+s/Require Export/Require Import/
+s/(assert.*)(lemma_\w+)(.*)/\1\2\3\nRequire Import ProofCheckingEuclid.\2./
+
+s/forall ([^,]+), ?$/forall \1,\nintros \1./
+
+s/^\W*(Cong) (.) (.) (.) (.) ->/\1 \2 \3 \4 \5->\nintros \1_\2\3_\4\5./
+s/^\W*(\w+) (.) (.) (.) ->/\1 \2 \3 \4 ->\nintros \1_\2_\3_\4./
+s/^\W*(\w+) (.) (.) ->/\1 \2 \3 ->\nintros \1_\2_\3./
+
+s/assert \(eq (.) .\) by \(conclude cn_equalityreflexive\)./assert (eq \1 \1) as eq_\1_\1 by (reflexivity)./
+s/assert \(eq (.) (.)\) by \(conclude (lemma_layoffunique)\)./epose proof \(\3 _ _ \1 \2) as eq_\1_\2./
+
+s/assert \(~ eq (.) (.)\)./assert (~ eq \1 \2) as neq_\1_\2.\n{\nintros eq_\1_\2.\n/
+s/assert \(~ neq (.) (.)\)./assert (~ neq \1 \2) as eq_\1_\2.\n\t{\n\t\tintros neq_\1_\2.\n\tapply Classical_Prop.NNPP in eq_\1_\2./
+s/assert \(~ Col (.) (.) (.)\)./assert (~ Col \1 \2 \3) as n_Col_\1_\2_\3.\n\t{\n\t\tintros Col_\1_\2_\3./
+
+s/assert \(neq (.) (.)\) by \(forward_using (lemma_betweennotequal)\)./epose proof (\3 _ _ _ ) as (neq_Y_Z \& neq_X_Y \& neq_X_Z). (* wanted neq_\1_\2 *)/
+s/assert \(neq (.) (.)\) by \(conclude (axiom_nocollapse)\)./epose proof (\3 _ _ \1 \2) as neq_\1_\2./
+s/assert \(neq (.) (.)\) by \(conclude (lemma_onray_neq_A_B)\)./epose proof (\3 \1 \2 _) as neq_\1_\2./
+s/assert \(neq (.) (.)\) by \(conclude (lemma_inequalitysymmetric)\)./pose proof (\3 _ _ neq_\2_\1) as neq_\1_\2./
+s/assert \(neq (.) (.)\) by \(conclude (lemma_raystrict)\)./epose proof (\3 \1 _ \2) as neq_\1_\2./
+
+s/assert \(BetS (.) (.) (.)\) by \(conclude (axiom_betweennesssymmetry)\)\./pose proof (\4 _ _ _ BetS_\3_\2_\1) as BetS_\1_\2_\3./
+s/assert \(BetS (.) (.) (.)\) by \(conclude (lemma_orderofpoints_..._..._BCD)\)\./epose proof (\4 _ \1 \2 \3) as BetS_\1_\2_\3./
+s/assert \(BetS (.) (.) (.)\) by \(conclude (lemma_orderofpoints_..._..._ACD)\)\./epose proof (\4 \1 _ \2 \3) as BetS_\1_\2_\3./
+s/assert \(BetS (.) (.) (.)\)\ by \(conclude cn_equalitysub\)\./assert (BetS_\1_\2_\3 := BetS_\1_\2_\3). replace X with Y in BetS_\1_\2_\3./
+s/assert \(BetS (.) (.) (.)\) by \(conclude (lemma_betweennesspreserved)\)./epose proof (\4 _ _ _ \1 \2 \3) as BetS_\1_\2_\3./
+s/assert \(~ BetS (.) (.) (.)\)\./assert (~ BetS \1 \2 \3) as nBetS_\1_\2_\3./
+s/assert \(~ ~ BetS (.) (.) (.)\)\./assert (~ ~ BetS \1 \2 \3) as BetS_\1_\2_\3./
+
+s|assert \(Tf:exists (.) (.), \(Col (.) (.) . .. BetS . . . .. OnCirc . (.) .. OnCirc . . .. BetS . . .\)\) by \(conclude postulate_line_circle\);destruct Tf as \[.\[.\]\];spliter.|epose proof (postulate_line_circle \3 \4 _ \5 _ _ H_CI InCirc_\4_\5 neq_\3_\4) as (\1 \& \2 \& Col_\3_\4_\1 \& BetS_\3_\4_\2 \& OnCirc_\1_\5 \& OnCirc_\2_\5 \& BetS_\1_\4_\2).|
+s|assert \(Tf:exists (.), \(BetS . (.) (.) \/\\ BetS . . (.)\)\) by \(conclude_def OnRay \);destruct Tf as \[.\];spliter.|unfold OnRay in Out_\2_\4_\3. destruct Out_\2_\4_\3 as (\1 \& BetS_\1_\2_\3 \& BetS_\1_\2_\4).|
+
+s/assert \(Col (.) (.) (.)\) by \(conclude (lemma_collinear1)\)\./pose proof (\4 _ _ _ Col_\2_\1_\3) as Col_\1_\2_\3./
+s/assert \(Col (.) (.) (.)\) by \(conclude (lemma_collinear4)\)\./epose proof (\4 _ \1 \2 \3 ) as Col_\1_\2_\3./
+s/assert \(Col (.) (.) (.)\) by \(conclude_def Col ?\)./assert (Col \1 \2 \3) as Col_\1_\2_\3.\nunfold Col./
+s/assert \(Col (.) (.) (.)\) by \(conclude (lemma_rayimpliescollinear)\)./pose proof (\4 _ _ _ Out_\1_\2_\3) as Col_\1_\2_\3./
+s/assert \(Col (.) (.) (.)\) by \(forward_using (lemma_collinearorder)\)./epose proof (\4 _ _ _ Col_X_Y_Z) as (Col_Y_X_Z \& Col_Y_Z_X \& Col_Z_X_Y \& Col_X_Z_Y \& Col_Z_Y_X). (* wanted Col_\1_\2_\3 *)/
+s/assert \(Col (.) (.) (.)\) by \(conclude (lemma_collinear_ABC_ABD_BCD)\)./epose proof (\4 X \1 \2 \3 Col_X_\1_\2 Col_X_\1_\3 neq_X_\1) as Col_\1_\2_\3./
+s/assert \(Col (.) (.) (.)\) as Col_._._../assert (Col \1 \2 \3) as Col_\1_\2_\3 by (unfold Col; one_of_disjunct H)./
+
+s/assert \(Cong (.) (.) . .\) by \(conclude (cn_congruencereflexive)\)./pose proof (\3 \1 \2) as Cong_\1\2_\1\2./
+s/assert \(Cong (.) (.) . .\) by \(conclude (cn_congruencereverse)\)./pose proof (\3 \1 \2) as Cong_\1\2_\2\1./
+s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (lemma_congruencetransitive)\)./epose proof (\5 \1 \2 _ _ \3 \4) as Cong_\1\2_\3\4./
+s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (lemma_congruencesymmetric)\)./pose proof (\5 _ _ _ _ Cong_\3\4_\1\2) as Cong_\1\2_\3\4./
+s/assert \(Cong (.) (.) (.) (.)\) by \(forward_using (lemma_congruenceflip)\)./epose proof \(\5 _ _ _ _) as (Cong_YX_WZ \& Cong_YX_ZW \& Cong_XY_WZ). (* wanted Cong_\1\2_\3\4 *)/
+s/assert \(Cong (.) (.) (.) (.)\) by \(conclude cn_equalitysub\)./assert (Cong_\1\2_\3\4 := Cong_\1\2_\3\4).\nreplace _ with \1 in Cong_\1\2_\3\4./
+s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (lemma_differenceofparts)\)./epose proof \(\5 _ \1 \2 _ \3 \4) as Cong_\1\2_\3\4./
+s/assert \(Cong (.) (.) (.) (.)\) by \(forward_using (lemma_doublereverse)\)./epose proof (\5 _ _ _ _) as (Cong_WZ_YX \& Cong_YX_WZ). (* wanted Cong_\1\2_\3\4 *)/
+s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (lemma_interior5)\)./epose proof (\n\t\t\5\n\t\t_ \1 _ \2\n\t\t_ \3 _ \4\n\t) as Cong_\1\2_\3\4./
+s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (axiom_circle_center_radius)\)./epose proof (\5 \1 \3 \4 _ \2 H_CI H_OnCirc) as Cong_\1\2_\3\4./
+
+s/assert \(Tf:exists (.) (.) (.) (.), \(OnRay . (.) . .. OnRay (.) (.) . .. OnRay . (.) . .. OnRay (.) . . .. Cong . . . . .. Cong . . . . .. Cong . . . . .. nCol . . .\)\) by \(conclude_def CongA \);destruct Tf as \[.\[.\[.\[.\]\]\]\];spliter./unfold CongA in CongA_\5\6\7_\8\9?.\ndestruct CongA_\5\6\7_\8\9? as (\1 \& \2 \& \3 \& \4 \& Out_\6_\5_\1 \& Out_\6_\7_\2 \& Out_\9_\8_\3 \& Out_\9_?_\4 \& Cong_\6\1_\9\3 \& Cong_\6\2_\9\4 \& Cong_\1\2_\3\4 \& nCol_\5_\6_\7)./
+
+s/assert \(Tf:exists (.), \(BetS (.) (.) . .. Cong . . (.) (.)\)\) by \(conclude (lemma_extension)\);destruct Tf as \[.\];spliter./pose proof (\6 _ _ _ _ neq_\2_\3 neq_\4_\5) as (\1 \& BetS_\2_\3_\1 \& Cong_\3\1_\4\5)./
+
+s/assert \(OnRay (.) (.) (.)\) by \(conclude (lemma_onray_shared_initial_point)\)./epose proof (\4 \1 _ \2 \3) as Out_\1_\2_\3./
+s/assert \(OnRay (.) (.) (.)\) by \(conclude (lemma_onray_assert)\)./pose proof (\4 \1 \2 \3) as Out_\1_\2_\3./
+s/assert \(OnRay (.) (.) (.)\) by \(conclude (lemma_onray_ABC_ACB)\)./pose proof (\4 _ _ _ Out_\1_\3_\2) as Out_\1_\2_\3./
+
+s/assert \(Lt (.) (.) (.) (.)\) by \(conclude (lemma_lessthancongruence)\)./epose proof \(\5 \1 \2 _ _ \3 \4) as Lt_\1\2_\3\4./
