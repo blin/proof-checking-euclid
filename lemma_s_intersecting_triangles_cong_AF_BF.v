@@ -1,6 +1,7 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
+Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_betweennesspreserved.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
@@ -12,7 +13,6 @@ Require Import ProofCheckingEuclid.lemma_s_cut.
 Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_ncol_ADE.
 Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_ncol_BDE.
 Require Import ProofCheckingEuclid.lemma_s_lt.
-Require Import ProofCheckingEuclid.lemma_s_ncol_permutations.
 Require Import ProofCheckingEuclid.lemma_twolines.
 
 Section Euclid.
@@ -50,8 +50,8 @@ Proof.
 
 	assert (nCol_A_B_D := Triangle_A_B_D).
 	unfold Triangle in nCol_A_B_D.
-	pose proof (lemma_s_ncol_permutations _ _ _ nCol_A_B_D) as (_ & _ & _ & nCol_A_D_B & _).
-	pose proof (lemma_s_ncol_permutations _ _ _ nCol_B_D_E) as (_ & nCol_D_E_B & _ & _ & _).
+	pose proof (lemma_NCorder _ _ _ nCol_A_B_D) as (_ & _ & _ & nCol_A_D_B & _).
+	pose proof (lemma_NCorder _ _ _ nCol_B_D_E) as (_ & nCol_D_E_B & _ & _ & _).
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AE_BD) as Cong_BD_AE.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AD_BE) as Cong_BE_AD.

@@ -8,7 +8,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_ncol_permutations :
+Lemma lemma_NCorder :
 	forall A B C,
 	nCol A B C ->
 	nCol B A C /\ nCol B C A /\ nCol C A B /\ nCol A C B /\ nCol C B A.

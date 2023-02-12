@@ -1,10 +1,10 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
+Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_permutations.
+Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
