@@ -5,13 +5,13 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_per :
+Lemma lemma_s_right_triangle :
 	forall A B C X,
 	BetS A B X ->
 	Cong A B X B ->
 	Cong A C X C ->
 	neq B C ->
-	Per A B C.
+	RightTriangle A B C.
 Proof.
 	intros A B C X.
 	intros BetS_A_B_X.
@@ -19,7 +19,7 @@ Proof.
 	intros Cong_AC_XC.
 	intros neq_B_C.
 
-	unfold Per.
+	unfold RightTriangle.
 	exists X.
 	repeat split.
 	exact BetS_A_B_X.
