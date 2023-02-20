@@ -99,7 +99,7 @@ and so the dependencies need to be introduced in a particular order.
        ([img](./proposition_10_pasch_F.svg))
      * Fig 2: constructing point M using Pasch's Inner postulate
        ([img](./proposition_10_pasch_M.svg))
-001. [lemma_s_per](./lemma_s_per.v)
+001. [lemma_right_triangle](./lemma_s_per.v)
 001. [lemma_s_perp_at](./lemma_s_perp_at.v)
 001. [proposition_12](./proposition_12.v)
      ([img](./proposition_12.svg))
@@ -152,7 +152,7 @@ and so the dependencies need to be introduced in a particular order.
   * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD
   * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE
   * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD
-  * lemma_s_per
+  * lemma_right_triangle
   * lemma_s_perp_at
 
 

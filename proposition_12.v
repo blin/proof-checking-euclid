@@ -11,8 +11,8 @@ Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_s_incirc_within_radius.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_per.
 Require Import ProofCheckingEuclid.lemma_s_perp_at.
+Require Import ProofCheckingEuclid.lemma_s_right_triangle.
 Require Import ProofCheckingEuclid.proposition_10.
 
 Section Euclid.
@@ -78,7 +78,9 @@ Proof.
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_MP_MQ) as (Cong_PM_QM & _ & _).
 
-	pose proof (lemma_s_per _ _ _ _ BetS_P_M_Q Cong_PM_QM Cong_PC_QC neq_M_C) as Per_PM_C.
+	pose proof (
+		lemma_s_right_triangle _ _ _ _ BetS_P_M_Q Cong_PM_QM Cong_PC_QC neq_M_C
+	) as RightTriangle_P_M_C.
 
 	assert (eq M M) as eq_M_M by (reflexivity).
 	assert (Col C M M) as Col_C_M_M by (unfold Col; one_of_disjunct eq_M_M).
@@ -89,7 +91,7 @@ Proof.
 		Col_C_M_M
 		Col_A_B_M
 		Col_A_B_P
-		Per_PM_C
+		RightTriangle_P_M_C
 	) as Perp_at_CM_AB_M.
 
 	exists M.
