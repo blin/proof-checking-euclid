@@ -19,6 +19,8 @@ Class euclidean_neutral :=
 	neq A B := ~ eq A B;
 	nCol A B C := neq A B /\ neq A C /\ neq B C /\ ~ BetS A B C /\ ~ BetS A C B /\ ~ BetS B A C;
 	Col A B C := (eq A B \/ eq A C \/ eq B C \/ BetS B A C \/ BetS A B C \/ BetS A C B);
+	(* C and D are on opposite sides of AB *)
+	OS P A B Q := exists X, BetS P X Q /\ Col A B X /\ nCol A B P;
 	Triangle A B C := nCol A B C;
 
 
@@ -98,6 +100,11 @@ Class euclidean_neutral :=
 		forall A B C P Q,
 			BetS A P C -> BetS B Q C -> nCol A C B ->
 			exists X, BetS A X Q /\ BetS B X P;
+	postulate_Pasch_outer :
+		forall A B C P Q,
+			BetS A P C -> BetS B C Q -> nCol B Q A ->
+			exists X, BetS A X Q /\ BetS B P X;
+
 	postulate_Euclid2 : forall A B, neq A B -> exists X, BetS A B X;
 	postulate_Euclid3 : forall A B, neq A B -> exists X, CI X A A B;
 }.

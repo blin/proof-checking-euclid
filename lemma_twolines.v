@@ -12,6 +12,7 @@ Section Euclid.
 
 Context `{Ax1:euclidean_neutral_ruler_compass}.
 
+(* TODO: rename to lemma_line_intersection_unique_cut *)
 Lemma lemma_twolines :
 	forall A B C D E F,
 	Cut A B C D E ->
