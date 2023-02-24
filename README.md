@@ -75,8 +75,11 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_onray_betweenness](./lemma_onray_betweenness.v)
 001. [lemma_onray_orderofpoints_any](./lemma_onray_orderofpoints_any.v)
 001. [lemma_layoffunique](./lemma_layoffunique.v)
+001. [lemma_s_onray](./lemma_s_onray.v)
 001. [lemma_onray_assert](./lemma_onray_assert.v)
 001. [lemma_s_onray_assert_ABB](./lemma_s_onray_assert_ABB.v)
+001. [lemma_s_onray_assert_bets_ABE](./lemma_s_onray_assert_bets_ABE.v)
+001. [lemma_s_onray_assert_bets_AEB](./lemma_s_onray_assert_bets_AEB.v)
 001. [lemma_s_conga_sss](./lemma_s_conga_sss.v)
 001. [lemma_NCorder](./lemma_NCorder.v)
 001. [lemma_onray_ABC_ACB](./lemma_onray_ABC_ACB.v)
@@ -99,7 +102,7 @@ and so the dependencies need to be introduced in a particular order.
        ([img](./proposition_10_pasch_F.svg))
      * Fig 2: constructing point M using Pasch's Inner postulate
        ([img](./proposition_10_pasch_M.svg))
-001. [lemma_right_triangle](./lemma_s_per.v)
+001. [lemma_s_right_triangle](./lemma_s_right_triangle.v)
 001. [lemma_s_perp_at](./lemma_s_perp_at.v)
 001. [proposition_12](./proposition_12.v)
      ([img](./proposition_12.svg))
@@ -109,6 +112,20 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_os](./lemma_s_os.v)
 001. [lemma_twolines2](./lemma_twolines2.v)
 001. [lemma_planeseparation](./lemma_planeseparation.v)
+001. [lemma_equalanglessymmetric](./lemma_equalanglessymmetric.v)
+001. [lemma_angledistinct](./lemma_angledistinct.v)
+001. [lemma_onray_shared_initial_point](./lemma_onray_shared_initial_point.v)
+001. [lemma_equalangleshelper](./lemma_equalangleshelper.v)
+001. [lemma_layoff](./lemma_layoff.v)
+001. [lemma_equalanglestransitive](./lemma_equalanglestransitive.v)
+001. [lemma_lessthantransitive](./lemma_lessthantransitive.v)
+001. [lemma_midpointunique](./lemma_midpointunique.v)
+001. [lemma_s_congruence_null_segment](./lemma_s_congruence_null_segment.v)
+001. [lemma_right_triangle_NC](./lemma_right_triangle_NC.v)
+001. [lemma_supplements_conga](./lemma_supplements_conga.v)
+001. [lemma_right_triangle_symmetric](./lemma_right_triangle_symmetric.v)
+001. [lemma_right_triangle_leg_change](./lemma_right_triangle_leg_change.v)
+001. [lemma_collinearright](./lemma_collinearright.v)
 
 ## Differences from GeoCoq
 
@@ -135,32 +152,10 @@ and so the dependencies need to be introduced in a particular order.
   if not descriptive suffixes,
   `lemma_collinear_ABC_BAC` instead of `lemma_collinear1`.
 * You can find the full list of renames in [sed_renames.txt](./sed_renames.txt).
-* Following lemmas are introduced
+* Many lemmas are introduced
   to make it easier to use some of the definitions and
-	to make sense of what is going on:
-  * lemma_s_incirc_centre
-  * lemma_s_oncirc_radius
-  * lemma_s_outcirc_beyond_perimeter
-  * lemma_s_incirc_within_radius
-  * lemma_s_n_ncol_col
-  * lemma_s_n_col_ncol
-  * lemma_s_ncol_n_col
-  * lemma_s_lt
-  * lemma_s_onray_assert_ABB
-  * lemma_s_conga_sss
-  * lemma_s_onray_congruence_betweenness
-  * lemma_s_triangle_vertex_to_ray_congruent
-  * lemma_s_conga
-  * lemma_s_cut
-  * lemma_s_intersecting_triangles_ncol_ADE
-  * lemma_s_intersecting_triangles_ncol_BDE
-  * lemma_s_intersecting_triangles_cong_AF_BF
-  * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD
-  * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE
-  * lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD
-  * lemma_right_triangle
-  * lemma_s_perp_at
-  * lemma_s_os
+  to make sense of what is going on. Newly introduced lemmas start with
+  `lemma_s` , with `s` for `supporting`.
 
 
 ## How images were generated
