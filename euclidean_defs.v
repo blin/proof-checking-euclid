@@ -7,6 +7,7 @@ Context `{Ax:euclidean_neutral}.
 (* C lies on ray AB *)
 Definition OnRay A B C := exists X, BetS X A C /\ BetS X A B.
 Definition Lt A B C D := exists X, BetS C X D /\ Cong C X A B.
+Definition Midpoint A B C := BetS A B C /\ Cong A B B C.
 Definition CongA A B C a b c := exists U V u v,
 	OnRay B A U /\
 	OnRay B C V /\
@@ -16,6 +17,8 @@ Definition CongA A B C a b c := exists U V u v,
 	Cong B V b v /\
 	Cong U V u v /\
 	nCol A B C.
+(* ∠ABC and ∠DBF are supplementary *)
+Definition Supp A B C D F := OnRay B C D /\ BetS A B F.
 Definition RightTriangle A B C := exists X,
 	BetS A B X /\
 	Cong A B X B /\

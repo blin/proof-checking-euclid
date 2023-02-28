@@ -6,6 +6,7 @@ Section Euclid.
 
 Context `{Ax1:euclidean_neutral}.
 
+(* TODO: rename to lemma_onray_neq_A_C *)
 Lemma lemma_onray_strict :
 	forall A B C,
 	OnRay A B C ->
