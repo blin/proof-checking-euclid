@@ -126,6 +126,13 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_right_triangle_symmetric](./lemma_right_triangle_symmetric.v)
 001. [lemma_right_triangle_leg_change](./lemma_right_triangle_leg_change.v)
 001. [lemma_collinearright](./lemma_collinearright.v)
+001. [lemma_altitudebisectsbase](./lemma_altitudebisectsbase.v)
+001. [lemma_rightreverse](./lemma_rightreverse.v)
+001. [lemma_droppedperpendicularunique](./lemma_droppedperpendicularunique.v)
+001. [lemma_fiveline](./lemma_fiveline.v)
+001. [lemma_s_ss](./lemma_s_ss.v)
+001. [lemma_samesidesymmetric](./lemma_samesidesymmetric.v)
+001. [proposition_07](./proposition_07.v)
 
 ## Differences from GeoCoq
 
