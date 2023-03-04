@@ -1,3 +1,4 @@
+Require Coq.Setoids.Setoid.
 (*
 	The following axiom systems are used to formalize
 	Euclid's proofs of Euclid's Elements.OriginalProofs.statements.

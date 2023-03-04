@@ -40,7 +40,7 @@ Proof.
 	{
 		(* case eq_A_B *)
 
-		assert (Cong B B a b) as Cong_BB_ab by (rewrite <- eq_A_B at 1; exact Cong_AB_ab).
+		assert (Cong B B a b) as Cong_BB_ab by (setoid_rewrite <- eq_A_B at 1; exact Cong_AB_ab).
 		assert (Cong B D a d) as Cong_BD_ad by (rewrite <- eq_A_B; exact Cong_AD_ad).
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BB_ab) as Cong_ab_BB.
 		pose proof (lemma_s_congruence_null_segment _ _ _ Cong_ab_BB) as eq_a_b.
@@ -55,7 +55,7 @@ Proof.
 	}
 	{
 		(* case eq_B_C *)
-		assert (Cong B B b c) as Cong_BB_bc by (rewrite eq_B_C at 2; exact Cong_BC_bc).
+		assert (Cong B B b c) as Cong_BB_bc by (setoid_rewrite eq_B_C at 2; exact Cong_BC_bc).
 		assert (Cong B D c d) as Cong_BD_cd by (rewrite eq_B_C; exact Cong_CD_cd).
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BB_bc) as Cong_bc_BB.
 		pose proof (lemma_s_congruence_null_segment _ _ _ Cong_bc_BB) as eq_b_c.

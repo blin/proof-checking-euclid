@@ -59,7 +59,7 @@ Proof.
 	{
 		intros eq_C_A.
 
-		assert (Cong C C D C) as Cong_CC_DC by (rewrite eq_C_A at 1; exact Cong_AC_DC).
+		assert (Cong C C D C) as Cong_CC_DC by (setoid_rewrite eq_C_A at 1; exact Cong_AC_DC).
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_CC_DC) as Cong_DC_CC.
 		pose proof (lemma_s_congruence_null_segment _ _ _ Cong_DC_CC) as eq_D_C.
 		assert (eq D A) as eq_D_A by (rewrite <- eq_C_A; exact eq_D_C).
@@ -74,7 +74,7 @@ Proof.
 	{
 		intros eq_C_D.
 
-		assert (Cong A C D D) as Cong_AC_DD by (rewrite <- eq_C_D at 2; exact Cong_AC_DC).
+		assert (Cong A C D D) as Cong_AC_DD by (setoid_rewrite <- eq_C_D at 2; exact Cong_AC_DC).
 		pose proof (lemma_s_congruence_null_segment _ _ _ Cong_AC_DD) as eq_A_C.
 		pose proof (lemma_equalitysymmetric _ _ eq_A_C) as eq_C_A.
 

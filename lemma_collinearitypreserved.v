@@ -29,8 +29,7 @@ Proof.
 	destruct Col_A_B_C as [eq_A_B | [eq_A_C | [eq_B_C | [BetS_B_A_C | [BetS_A_B_C | BetS_A_C_B]]]]].
 	{
 		(* case eq_A_B *)
-		assert (Cong_AA_ab := Cong_AB_ab).
-		replace B with A in Cong_AA_ab.
+		assert (Cong A A a b) as Cong_AA_ab by (setoid_rewrite eq_A_B at 2; exact Cong_AB_ab).
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AA_ab) as Cong_ab_AA.
 		assert (~ neq a b) as eq_a_b.
 		{
@@ -48,8 +47,7 @@ Proof.
 	}
 	{
 		(* case eq_A_C *)
-		assert (Cong_AA_ac := Cong_AC_ac).
-		replace C with A in Cong_AA_ac.
+		assert (Cong A A a c) as Cong_AA_ac by (setoid_rewrite eq_A_C at 2; exact Cong_AC_ac).
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AA_ac) as Cong_ac_AA.
 		assert (~ neq a c) as eq_a_c.
 		{
@@ -67,8 +65,7 @@ Proof.
 	}
 	{
 		(* case eq_B_C *)
-		assert (Cong_BB_bc := Cong_BC_bc).
-		replace C with B in Cong_BB_bc.
+		assert (Cong B B b c) as Cong_BB_bc by (setoid_rewrite eq_B_C at 2; exact Cong_BC_bc).
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BB_bc) as Cong_bc_BB.
 		assert (~ neq b c) as eq_b_c.
 		{

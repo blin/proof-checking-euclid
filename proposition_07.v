@@ -350,7 +350,7 @@ Proof.
 		Cong_AB_AB
 		neq_A_B
 	) as Cong_FC_GD.
-	assert (Cong F C F D) as Cong_FC_FD by (rewrite eq_F_G at 2; exact Cong_FC_GD).
+	assert (Cong F C F D) as Cong_FC_FD by (setoid_rewrite eq_F_G at 2; exact Cong_FC_GD).
 
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_FD_C OnRay_FD_D Cong_FC_FD) as eq_C_D.
 

@@ -1,5 +1,4 @@
 Require Coq.Logic.Classical_Prop.
-Require Import Coq.Setoids.Setoid.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
@@ -23,9 +22,9 @@ Proof.
 	intros BetS_A_B_C BetS_a_b_c.
 	intros eq_B_A.
 
-	assert (Cong_AA_ab := Cong_AB_ab).
-	replace B with A in Cong_AA_ab.
+	assert (Cong A A a b) as Cong_AA_ab by (setoid_rewrite <- eq_B_A at 2; exact Cong_AB_ab).
 	apply lemma_congruencesymmetric in Cong_AA_ab as Cong_ab_AA.
+
 	assert (~ neq a b) as eq_a_b.
 	{
 		intro neq_a_b.
@@ -40,12 +39,10 @@ Proof.
 	apply Classical_Prop.NNPP in eq_a_b.
 
 	pose proof(cn_congruencereflexive A C) as Cong_AC_AC.
-	assert (Cong_BC_AC := Cong_AC_AC).
-	replace A with B in Cong_BC_AC at 1.
+	assert (Cong B C A C) as Cong_BC_AC by (rewrite eq_B_A; exact Cong_AC_AC).
 
 	pose proof(cn_congruencereflexive a c) as Cong_ac_ac.
-	assert (Cong_bc_ac := Cong_ac_ac).
-	replace a with b in Cong_bc_ac at 1.
+	assert (Cong b c a c) as Cong_bc_ac by (rewrite <- eq_a_b; exact Cong_ac_ac).
 
 	apply lemma_congruencesymmetric in Cong_bc_ac as Cong_ac_bc.
 
@@ -71,8 +68,7 @@ Proof.
 	{
 		intros eq_C_A.
 
-		assert (BetS_A_B_A := BetS_A_B_C).
-		replace C with A in BetS_A_B_A.
+		assert (BetS A B A) as BetS_A_B_A by (setoid_rewrite <- eq_C_A at 2; exact BetS_A_B_C).
 		pose proof (axiom_betweennessidentity A B) as nBetS_A_B_A.
 
 		contradict BetS_A_B_A.

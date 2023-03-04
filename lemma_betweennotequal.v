@@ -1,4 +1,3 @@
-Require Import Coq.Setoids.Setoid.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 
@@ -18,10 +17,7 @@ Proof.
 	{
 		intro eq_B_C.
 
-		assert (BetS A C B) as BetS_A_C_B.
-		replace B with C at 1.
-		replace C with B at 1.
-		exact BetS_A_B_C.
+		assert (BetS A C B) as BetS_A_C_B by (setoid_rewrite <- eq_B_C; rewrite eq_B_C at 2; exact BetS_A_B_C).
 		pose proof (lemma_orderofpoints_ABC_ACD_BCD _ _ _ _ BetS_A_B_C BetS_A_C_B) as BetS_B_C_B.
 		pose proof (axiom_betweennessidentity B C) as nBetS_B_C_B.
 
@@ -33,10 +29,7 @@ Proof.
 	{
 		intro eq_A_B.
 
-		assert (BetS B A C) as BetS_B_A_C.
-		replace A with B at 1.
-		replace B with A at 1.
-		exact BetS_A_B_C.
+		assert (BetS B A C) as BetS_B_A_C by (setoid_rewrite <- eq_A_B; rewrite eq_A_B at 2; exact BetS_A_B_C).
 		pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_A_B_C BetS_B_A_C) as BetS_A_B_A.
 		pose proof (axiom_betweennessidentity A B) as nBetS_A_B_A.
 
@@ -48,9 +41,7 @@ Proof.
 	{
 		intro eq_A_C.
 
-		assert (BetS A B A) as BetS_A_B_A.
-		replace A with C at 2.
-		exact BetS_A_B_C.
+		assert (BetS A B A) as BetS_A_B_A by (setoid_rewrite eq_A_C at 2; exact BetS_A_B_C).
 		pose proof (axiom_betweennessidentity A B) as nBetS_A_B_A.
 
 		contradict nBetS_A_B_A.

@@ -65,8 +65,7 @@ Proof.
 			intros eq_F_B.
 
 			assert (Col F C D) as Col_F_C_D by (unfold Col; one_of_disjunct BetS_C_F_D).
-			assert (Col_B_C_D := Col_F_C_D).
-			replace F with B in Col_B_C_D.
+			assert (Col B C D) as Col_B_C_D by (rewrite <- eq_F_B; exact Col_F_C_D).
 
 			contradict Col_B_C_D.
 			exact n_Col_B_C_D.

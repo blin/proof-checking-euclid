@@ -20,15 +20,11 @@ Proof.
 	intros neq_P_Q.
 	intros eq_B_P.
 
-	assert (neq B Q) as neq_B_Q.
-	replace B with P.
-	exact neq_P_Q.
+	assert (neq B Q) as neq_B_Q by (rewrite eq_B_P; exact neq_P_Q).
 
 	pose proof (lemma_localextension _ _ _ neq_A_B neq_B_Q) as (X & BetS_A_B_X & Cong_BX_BQ).
 
-	assert (Cong B X P Q) as Cong_BX_PQ.
-	replace P with B.
-	exact Cong_BX_BQ.
+	assert (Cong B X P Q) as Cong_BX_PQ by (rewrite <- eq_B_P; exact Cong_BX_BQ).
 
 	exists X.
 	split.

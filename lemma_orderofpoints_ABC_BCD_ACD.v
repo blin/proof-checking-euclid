@@ -24,8 +24,7 @@ Proof.
 	apply lemma_congruencesymmetric in Cong_CE_CD as Cong_CD_CE.
 	pose proof (lemma_orderofpoints_ABC_ACD_BCD _ _ _ _ BetS_A_B_C BetS_A_C_E) as BetS_B_C_E.
 	pose proof (lemma_extensionunique _ _ _ _ BetS_B_C_D BetS_B_C_E Cong_CD_CE) as eq_D_E.
-	assert (BetS_A_C_D := BetS_A_C_E).
-	replace E with D in BetS_A_C_D.
+	assert (BetS A C D) as BetS_A_C_D by (rewrite eq_D_E; exact BetS_A_C_E).
 	exact BetS_A_C_D.
 Qed.
 

@@ -62,8 +62,7 @@ Proof.
 	assert (~ eq M C) as neq_M_C.
 	{
 		intros eq_M_C.
-		assert (Col_A_B_C := Col_A_B_M).
-		replace M with C in Col_A_B_C by eq_M_C.
+		assert (Col A B C) as Col_A_B_C by (rewrite <- eq_M_C; exact Col_A_B_M).
 
 		contradict Col_A_B_C.
 		pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.

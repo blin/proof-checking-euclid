@@ -60,8 +60,7 @@ Proof.
 		assert (Col V A B) as Col_V_A_B.
 		assert (eq U V \/ neq U V) as [eq_U_V|neq_U_V] by (apply Classical_Prop.classic).
 		{
-			assert (Col_B_A_V := Col_B_A_U).
-			replace U with V in Col_B_A_V.
+			assert (Col B A V) as Col_B_A_V by (rewrite <- eq_U_V; exact Col_B_A_U).
 			pose proof (lemma_collinearorder _ _ _ Col_B_A_V) as (_ & _ & _ & _ &  Col_V_A_B).
 			exact Col_V_A_B.
 		}

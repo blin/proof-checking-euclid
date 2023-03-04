@@ -55,8 +55,7 @@ Proof.
 	) as Cong_BE_BF.
 	pose proof (lemma_extensionunique _ _ _ _ BetS_A_B_E BetS_A_B_F Cong_BE_BF) as eq_E_F.
 
-	assert (BetS_A_D_E := BetS_A_D_F).
-	replace F with E in BetS_A_D_E.
+	assert (BetS A D E) as BetS_A_D_E by (rewrite eq_E_F; exact BetS_A_D_F).
 
 	pose proof (lemma_orderofpoints_ABC_ACD_BCD _ _ _ _ BetS_A_B_C BetS_A_C_E) as BetS_B_C_E.
 	pose proof (lemma_orderofpoints_ABC_ACD_BCD _ _ _ _ BetS_A_B_D BetS_A_D_E) as BetS_B_D_E.

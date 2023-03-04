@@ -75,8 +75,7 @@ Proof.
 	unfold neq in eq_c_d.
 	apply Classical_Prop.NNPP in eq_c_d.
 
-	assert (BetS_a_b_c := BetS_a_b_d).
-	replace d with c in BetS_a_b_c.
+	assert (BetS a b c) as BetS_a_b_c by (rewrite eq_c_d; exact BetS_a_b_d).
 	exact BetS_a_b_c.
 Qed.
 

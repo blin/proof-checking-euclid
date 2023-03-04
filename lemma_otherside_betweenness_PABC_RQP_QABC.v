@@ -49,18 +49,9 @@ Proof.
 	assert (eq S B \/ neq S B) as [eq_S_B|neq_S_B] by (apply Classical_Prop.classic).
 	{
 		(* case eq_S_B *)
-		assert (Col_R_B_F := Col_R_S_F).
-		replace S with B in Col_R_B_F.
-		assert (~ eq R B) as neq_R_B.
-		{
-			intros eq_R_B.
+		assert (Col R B F) as Col_R_B_F by (rewrite <- eq_S_B; exact Col_R_S_F).
 
-			assert (neq_R_B := neq_R_S).
-			replace S with B in neq_R_B.
-
-			contradict eq_R_B.
-			exact neq_R_B.
-		}
+		assert (neq R B) as neq_R_B by (rewrite <- eq_S_B;  exact neq_R_S).
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_R_B_F Col_R_B_A neq_R_B) as Col_B_F_A.
 		pose proof (lemma_collinearorder _ _ _ Col_B_F_A) as (Col_F_B_A & Col_F_A_B & Col_A_B_F & Col_B_A_F & Col_A_F_B).
 		exact Col_A_B_F.
@@ -87,8 +78,7 @@ Proof.
 		assert (eq B R \/ neq B R) as [eq_B_R|neq_B_R] by (apply Classical_Prop.classic).
 		{
 			(* case eq_B_R *)
-			assert (neq_A_R := neq_A_B).
-			replace B with R in neq_A_R.
+			assert (neq A R) as neq_A_R by (rewrite <- eq_B_R; exact neq_A_B).
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_R Col_B_A_F neq_B_A) as Col_A_R_F.
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_R Col_B_A_Q neq_B_A) as Col_A_R_Q.
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_R_F Col_A_R_Q neq_A_R) as Col_R_F_Q.

@@ -79,8 +79,7 @@ Proof.
 		}
 		{
 			(* case eq_B_D *)
-			assert (BetS_A_C_D := BetS_A_C_B).
-			replace B with D in BetS_A_C_D.
+			assert (BetS A C D) as BetS_A_C_D by (rewrite <- eq_B_D; exact BetS_A_C_B).
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
@@ -115,8 +114,7 @@ Proof.
 	}
 	{
 		(* case eq_B_C *)
-		assert (Cong_AB_AD := Cong_AC_AD).
-		replace C with B in Cong_AB_AD.
+		assert (Cong A B A D) as Cong_AB_AD by (rewrite eq_B_C; exact Cong_AC_AD).
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_AD) as Cong_AD_AB.
 		destruct BetS_A_D_B_or_eq_B_D_or_BetS_A_B_D as [BetS_A_D_B | [eq_B_D | BetS_A_B_D]].
 		{
@@ -128,14 +126,12 @@ Proof.
 		}
 		{
 			(* case eq_B_D *)
-			assert (eq_C_D := eq_B_D).
-			replace B with C in eq_C_D.
+			assert (eq C D) as eq_C_D by (rewrite <- eq_B_C; exact eq_B_D).
 			exact eq_C_D.
 		}
 		{
 			(* case BetS_A_B_D *)
-			assert (BetS_A_C_D := BetS_A_B_D).
-			replace B with C in BetS_A_C_D.
+			assert (BetS A C D) as BetS_A_C_D by (rewrite <- eq_B_C; exact BetS_A_B_D).
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
@@ -173,8 +169,7 @@ Proof.
 		}
 		{
 			(* case eq_B_D *)
-			assert (BetS_A_D_C := BetS_A_B_C).
-			replace B with D in BetS_A_D_C.
+			assert (BetS A D C) as BetS_A_D_C by (rewrite <- eq_B_D; exact BetS_A_B_C).
 			assert (~ neq C D) as n_neq_C_D.
 			{
 				intros neq_C_D.
