@@ -21,6 +21,7 @@ Proof.
 	intros A B D C E.
 	intros nCol_A_B_D.
 	intros Col_A_B_C.
+	(* TODO: remove Col_A_D_E , it is not used *)
 	intros Col_A_D_E.
 	intros neq_A_C.
 

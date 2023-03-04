@@ -9,6 +9,7 @@ s/forall ([^,]+), ?$/forall \1,\nintros \1./
 s/^\W*OS (.) (.) (.) (.) ->$/OS \1 \2 \3 \4 ->\nintros OS_\1_\2\3_\4./
 s/^\W*Cong (.) (.) (.) (.) ->/Cong \1 \2 \3 \4 ->\nintros Cong_\1\2_\3\4./
 s/^\W*Lt (.) (.) (.) (.) ->/Lt \1 \2 \3 \4 ->\nintros Lt_\1\2_\3\4./
+s/^\W*RightTriangle (.) (.) (.) ->/RightTriangle \1 \2 \3 ->\nintros \1\2\3./
 s/^\W*(\w+) (.) (.) (.) ->/\1 \2 \3 \4 ->\nintros \1_\2_\3_\4./
 s/^\W*(\w+) (.) (.) ->/\1 \2 \3 ->\nintros \1_\2_\3./
 
@@ -47,9 +48,7 @@ s/assert \(Col (.) (.) (.)\) as Col_._._../assert (Col \1 \2 \3) as Col_\1_\2_\3
 s/assert \(Cong (.) (.) . .\) by \(conclude (cn_congruencereflexive)\)./pose proof (\3 \1 \2) as Cong_\1\2_\1\2./
 s/assert \(Cong (.) (.) . .\) by \(conclude (cn_congruencereverse)\)./pose proof (\3 \1 \2) as Cong_\1\2_\2\1./
 s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (lemma_congruencesymmetric)\)./pose proof (\5 _ _ _ _ Cong_\3\4_\1\2) as Cong_\1\2_\3\4./
-s/assert \(Cong (.) (.) (.) (.)\) by \(forward_using (lemma_congruenceflip)\)./epose proof \(\5 _ _ _ _) as (Cong_YX_WZ \& Cong_YX_ZW \& Cong_XY_WZ). (* wanted Cong_\1\2_\3\4 *)/
 s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (lemma_differenceofparts)\)./epose proof \(\5 _ \1 \2 _ \3 \4) as Cong_\1\2_\3\4./
-s/assert \(Cong (.) (.) (.) (.)\) by \(forward_using (lemma_doublereverse)\)./epose proof (\5 _ _ _ _) as (Cong_WZ_YX \& Cong_YX_WZ). (* wanted Cong_\1\2_\3\4 *)/
 s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (lemma_interior5)\)./epose proof (\n\t\t\5\n\t\t_ \1 _ \2\n\t\t_ \3 _ \4\n\t) as Cong_\1\2_\3\4./
 s/assert \(Cong (.) (.) (.) (.)\) by \(conclude (axiom_circle_center_radius)\)./epose proof (\5 \1 \3 \4 _ \2 H_CI H_OnCirc) as Cong_\1\2_\3\4./
 
@@ -58,7 +57,6 @@ s/assert \(Tf:exists (.) (.) (.) (.), \(OnRay . (.) . .. OnRay (.) (.) . .. OnRa
 s/assert \(Tf:exists (.), \(BetS (.) (.) . .. Cong . . (.) (.)\)\) by \(conclude (lemma_extension)\);destruct Tf as \[.\];spliter./pose proof (\6 _ _ _ _ neq_\2_\3 neq_\4_\5) as (\1 \& BetS_\2_\3_\1 \& Cong_\3\1_\4\5)./
 
 s/assert \(OnRay (.) (.) (.)\) by \(conclude (lemma_onray_shared_initial_point)\)./epose proof (\4 \1 _ \2 \3) as OnRay_\1\2_\3./
-s/assert \(OnRay (.) (.) (.)\) by \(conclude (lemma_onray_assert)\)./pose proof (\4 \1 \2 \3) as OnRay_\1\2_\3./
 s/assert \(OnRay (.) (.) (.)\) by \(conclude (lemma_onray_ABC_ACB)\)./pose proof (\4 _ _ _ OnRay_\1_\3_\2) as OnRay_\1\2_\3./
 
 s/assert \(Lt (.) (.) (.) (.)\) by \(conclude (lemma_lessthancongruence)\)./epose proof \(\5 \1 \2 _ _ \3 \4) as Lt_\1\2_\3\4./
@@ -84,8 +82,28 @@ s/assert \(\(BetS (.) (.) (.) .. eq . . .. BetS . . .\)\) by \(conclude lemma_on
 
 s/assert \(Lt (.) (.) (.) (.)\) by \(conclude_def Lt \)./pose proof (lemma_s_lt \1 \2 \3 \4 X BetS_\3_X_\4 Cong_\3X_\1\2) as Lt_\1\2_\3\4./
 
-s/assert \(Tf:exists (.), \(BetS (.) (.) . .. Cong . . . . .. Cong . (.) . . .. neq . .\)\) by \(conclude_def RightTriangle \);destruct Tf as ...;spliter./destruct RightTriangle_\2_\3_\4 as (\1 \& BetS_\2_\3_\1 \& Cong_\2\3_\1\3 \& Cong_\2\4_\1\4 \& neq_\3_\4)./
+s/assert \(Tf:exists (.), \(BetS (.) (.) . .. Cong . . . . .. Cong . (.) . . .. neq . .\)\) by \(conclude_def RightTriangle \);destruct Tf as ...;spliter./destruct RightTriangle_\2\3\4 as (\1 \& BetS_\2_\3_\1 \& Cong_\2\3_\1\3 \& Cong_\2\4_\1\4 \& neq_\3_\4)./
 
 s/assert \(eq (.) (.)\) by \(conclude lemma_equalitysymmetric\)./pose proof (lemma_equalitysymmetric _ _ eq_\2_\1) as eq_\1_\2./
 
 s/assert \(~ Cong (.) (.) . (.)\) by \(conclude lemma_partnotequalwhole\)./pose proof (lemma_partnotequalwhole _ _ _ BetS_\1_\2_\3) as nCong_\1\2_\1\3./
+
+s/assert \(Cong (.) (.) (.) (.)\) by \(conclude lemma_congruencetransitive\)./pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_\1\2_XY Cong_XY_\3\4) as Cong_\1\2_\3\4./
+
+s/assert \(Cong (.) (.) (.) (.)\) by \(forward_using lemma_congruenceflip\)./pose proof (lemma_congruenceflip _ _ _ _ Cong_\2\1_\4\3) as (Cong_\1\2_\3\4 \& _ \& _).\npose proof (lemma_congruenceflip _ _ _ _ Cong_\2\1_\3\4) as (_ \& Cong_\1\2_\3\4 \& _ ).\npose proof (lemma_congruenceflip _ _ _ _ Cong_\1\2_\4\3) as (_ \& _ \& Cong_\1\2_\3\4)./
+
+s/assert \(Cong (.) (.) (.) (.)\) by \(conclude cn_equalitysub\)./assert (Cong \1 \2 \3 \4) as Cong_\1\2_\3\4 by (rewrite eq_X_Y; exact Cong_\1\2_\3\4)./
+s/assert \(BetS (.) (.) (.)\) by \(conclude cn_equalitysub\)./assert (BetS \1 \2 \3) as BetS_\1_\2_\3 by (rewrite eq_X_Y; exact BetS_\1_\2_\3)./
+s/assert \(Col (.) (.) (.)\) by \(conclude cn_equalitysub\)./assert (Col \1 \2 \3) as Col_\1_\2_\3 by (rewrite eq_X_Y; exact Col_\1_\2_\3)./
+
+s/assert \(RightTriangle (.) (.) (.)\) by \(conclude lemma_collinearright\)./pose proof (lemma_collinearright _ _ _ _ RightTriangle_X\2\3 Col_X_\2_\1 neq_\1_\2) as RightTriangle_\1\2\3./
+
+s/assert \(RightTriangle (.) (.) (.)\) by \(conclude lemma_right_triangle_symmetric\)./pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_\3\2\1) as RightTriangle_\1\2\3./
+
+s/assert \(eq (.) (.)\) by \(conclude lemma_extensionunique\)./pose proof (lemma_extensionunique _ _ _ _ BetS_X_Y_\1 BetS_X_Y_\2 Cong_Y\1_Y\2) as eq_\1_\2./
+
+s/assert \(Cong (.) (.) (.) (.)\) by \(forward_using lemma_doublereverse\)./pose proof (lemma_doublereverse _ _ _ _ Cong_\4\3_\2\1) as (Cong_\1\2_\3\4 \& _).\npose proof (lemma_doublereverse _ _ _ _ Cong_\2\1_\4\3) as (_ \& Cong_\1\2_\3\4)./
+
+s/assert \(RightTriangle (.) (.) (.)\) by \(conclude_def RightTriangle \)./pose proof (lemma_s_right_triangle \1 \2 \3 X BetS_\1_\2_X Cong_\1\2_X\2 Cong_\1\3_X\3 neq_\2_\3) as RightTriangle_\1\2\3./
+
+s/assert \(eq (.) (.)\) by \(conclude lemma_droppedperpendicularunique\)./pose proof (lemma_droppedperpendicularunique X \2 \1 Y RightTriangle_X\1Y RightTriangle_X\2Y Col_X_\1_\2) as eq_\1_\2./

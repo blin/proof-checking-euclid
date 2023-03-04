@@ -30,6 +30,7 @@ Definition Perp_at P Q A B C := exists X,
 	Col A B X /\
 	RightTriangle X C P.
 (* P and Q are on the same side of AB *)
+(* TODO: rename to SameSide *)
 Definition SS P Q A B := exists X U V,
 	Col A B U /\
 	Col A B V /\
@@ -38,6 +39,7 @@ Definition SS P Q A B := exists X U V,
 	nCol A B P /\
 	nCol A B Q.
 Definition isosceles A B C := Triangle A B C /\ Cong A B A C.
+(* Cut is only used in proposition 10 and the original lemma_twolines *)
 Definition Cut A B C D E := BetS A E B /\ BetS C E D /\ nCol A B C /\ nCol A B D.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
