@@ -13,6 +13,7 @@ checkpoints=(
 "lemma_planeseparation"
 "lemma_collinearright"
 "proposition_07"
+"proposition_08"
 )
 
 make clean >/dev/null

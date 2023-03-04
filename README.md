@@ -133,6 +133,7 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_ss](./lemma_s_ss.v)
 001. [lemma_samesidesymmetric](./lemma_samesidesymmetric.v)
 001. [proposition_07](./proposition_07.v)
+001. [proposition_07](./proposition_08.v)
 
 ## Differences from GeoCoq
 
