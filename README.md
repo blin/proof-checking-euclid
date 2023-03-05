@@ -145,6 +145,9 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_06a](./proposition_06a.v)
 001. [proposition_06](./proposition_06.v)
 001. [proposition_08](./proposition_08.v)
+001. [lemma_s_inangle](./lemma_s_inangle.v)
+001. [proposition_09](./proposition_09.v)
+     ([img](./proposition_09.svg))
 
 ## Differences from GeoCoq
 
