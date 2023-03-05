@@ -11,7 +11,7 @@ Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_cong_AF_BF.
-Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD.
+Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD.
 Require Import ProofCheckingEuclid.proposition_01.
@@ -57,9 +57,9 @@ Proof.
 		nCol_C_B_A Col_C_B_D Col_C_A_E neq_B_D
 	) as nCol_B_D_A.
 	pose proof (
-		lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD
-		_ _ _ _ _
-		nCol_C_B_A Col_C_B_D Col_C_A_E neq_C_D
+		lemma_s_ncol_ABD_col_ABC_ncol_ACD
+		_ _ _ _
+		nCol_C_B_A Col_C_B_D neq_C_D
 	) as nCol_C_D_A.
 	pose proof (
 		lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE

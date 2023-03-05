@@ -94,7 +94,7 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_intersecting_triangles_ncol_BDE](./lemma_s_intersecting_triangles_ncol_BDE.v)
 001. [lemma_twolines](./lemma_twolines.v)
 001. [lemma_s_intersecting_triangles_cong_AF_BF](./lemma_s_intersecting_triangles_cong_AF_BF.v)
-001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACD.v)
+001. [lemma_s_ncol_ABD_col_ABC_ncol_ACD](./lemma_s_ncol_ABD_col_ABC_ncol_ACD.v)
 001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE.v)
 001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD.v)
 001. [proposition_10](./proposition_10.v)
