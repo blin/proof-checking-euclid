@@ -49,8 +49,7 @@ Proof.
 
 	pose proof (lemma_extensionunique _ _ _ _ BetS_E_A_P BetS_E_A_F Cong_AP_AF) as eq_P_F.
 
-	assert (BetS_A_P_D := BetS_A_F_D).
-	replace F with P in BetS_A_P_D.
+	assert (BetS A P D) as BetS_A_P_D by (rewrite eq_P_F;  exact BetS_A_F_D).
 
 	assert (~ ~ BetS A B P) as BetS_A_B_P.
 	{

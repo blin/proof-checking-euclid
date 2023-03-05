@@ -26,8 +26,7 @@ Proof.
 	assert (eq B C \/ neq B C) as [eq_B_C|neq_B_C] by (apply Classical_Prop.classic).
 	{
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_D Col_A_B_E neq_A_B) as Col_B_D_E.
-		assert (Col_C_D_E := Col_B_D_E).
-		replace B with C in Col_C_D_E.
+		assert (Col C D E) as Col_C_D_E by (rewrite <- eq_B_C; exact Col_B_D_E).
 		exact Col_C_D_E.
 	}
 	{

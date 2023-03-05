@@ -39,8 +39,7 @@ Proof.
 		destruct Col_A_B_D as [ eq_A_D | [ eq_B_D | [ BetS_B_A_D | [ BetS_A_B_D | BetS_A_D_B]]]].
 		{
 			(* case eq_A_D *)
-			assert (eq_C_D := eq_A_D).
-			replace A with C in eq_C_D.
+			assert (eq C D) as eq_C_D by (rewrite <- eq_A_C; exact eq_A_D).
 			one_of_disjunct eq_C_D.
 		}
 		{
@@ -49,21 +48,18 @@ Proof.
 		}
 		{
 			(* case BetS_B_A_D *)
-			assert (BetS_B_C_D := BetS_B_A_D).
-			replace A with C in BetS_B_C_D.
+			assert (BetS B C D) as BetS_B_C_D by (rewrite <- eq_A_C; exact BetS_B_A_D).
 			one_of_disjunct BetS_B_C_D.
 		}
 		{
 			(* case BetS_A_B_D *)
-			assert (BetS_C_B_D := BetS_A_B_D).
-			replace A with C in BetS_C_B_D.
+			assert (BetS C B D) as BetS_C_B_D by (rewrite <- eq_A_C; exact BetS_A_B_D).
 			one_of_disjunct BetS_C_B_D.
 		}
 		{
 			(* case BetS_A_D_B *)
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_D_B) as BetS_B_D_A.
-			assert (BetS_B_D_C := BetS_B_D_A).
-			replace A with C in BetS_B_D_C.
+			assert (BetS B D C) as BetS_B_D_C by (rewrite <- eq_A_C; exact BetS_B_D_A).
 			one_of_disjunct BetS_B_D_C.
 		}
 	}
@@ -76,8 +72,7 @@ Proof.
 		destruct Col_A_B_D as [ eq_A_D | [ eq_B_D | [ BetS_B_A_D | [ BetS_A_B_D | BetS_A_D_B]]]].
 		{
 			(* case eq_A_D *)
-			assert (BetS_B_D_C := BetS_B_A_C).
-			replace A with D in BetS_B_D_C.
+			assert (BetS B D C) as BetS_B_D_C by (rewrite <- eq_A_D; exact BetS_B_A_C).
 			one_of_disjunct BetS_B_D_C.
 		}
 		{
@@ -143,8 +138,7 @@ Proof.
 		{
 			(* case eq_A_D *)
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_B_C) as BetS_C_B_A.
-			assert (BetS_C_B_D := BetS_C_B_A).
-			replace A with D in BetS_C_B_D.
+			assert (BetS C B D) as BetS_C_B_D by (rewrite <- eq_A_D; exact BetS_C_B_A).
 			one_of_disjunct BetS_C_B_D.
 		}
 		{
@@ -189,8 +183,7 @@ Proof.
 		{
 			(* case eq_A_D *)
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_C_B) as BetS_B_C_A.
-			assert (BetS_B_C_D := BetS_B_C_A).
-			replace A with D in BetS_B_C_D.
+			assert (BetS B C D) as BetS_B_C_D by (rewrite <- eq_A_D; exact BetS_B_C_A).
 			one_of_disjunct BetS_B_C_D.
 		}
 		{

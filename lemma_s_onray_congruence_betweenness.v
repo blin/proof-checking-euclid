@@ -40,8 +40,7 @@ Proof.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_ag_AB Cong_AB_ab) as Cong_ag_ab.
 	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_ab_c) as OnRay_ac_b.
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_ac_g OnRay_ac_b Cong_ag_ab) as eq_g_b.
-	assert (BetS_a_b_c := BetS_a_g_c).
-	replace g with b in BetS_a_b_c.
+	assert (BetS a b c) as BetS_a_b_c by (rewrite <- eq_g_b; exact BetS_a_g_c).
 
 	exact BetS_a_b_c.
 Qed.

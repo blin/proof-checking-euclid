@@ -89,19 +89,15 @@ Proof.
 	intros Cong_AV_av.
 	intros Cong_UV_uv.
 
-	assert (Cong_AB_au := Cong_AU_au).
-	replace U with B in Cong_AB_au.
+	assert (Cong A B a u) as Cong_AB_au by (rewrite eq_B_U; exact Cong_AU_au).
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_ab) as Cong_ab_AB.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_ab_AB Cong_AB_au) as Cong_ab_au.
 	pose proof (lemma_onray_neq_A_B _ _ _ OnRay_ab_u) as neq_a_b.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_a_b) as OnRay_ab_b.
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_ab_b OnRay_ab_u Cong_ab_au) as eq_b_u.
 
-	(* TODO: figure out how to specify equality hypothesis to use. *)
-	assert (Cong_BV_uv := Cong_UV_uv).
-	replace U with B in Cong_BV_uv.
-	assert (Cong_BV_bv := Cong_BV_uv).
-	replace u with b in Cong_BV_bv.
+	assert (Cong B V u v) as Cong_BV_uv by (rewrite eq_B_U; exact Cong_UV_uv).
+	assert (Cong B V b v) as Cong_BV_bv by (rewrite eq_b_u; exact Cong_BV_uv).
 
 	exact Cong_BV_bv.
 Qed.

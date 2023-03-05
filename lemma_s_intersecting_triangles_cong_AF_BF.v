@@ -119,8 +119,7 @@ Proof.
 	pose proof (lemma_s_cut _ _ _ _ _ BetS_A_F_D BetS_E_F_B nCol_A_D_E nCol_A_D_B) as Cut_AD_EB_F.
 
 	pose proof (lemma_twolines _ _ _ _ _ _ Cut_AD_EB_G Cut_AD_EB_F nCol_D_E_B) as eq_G_F.
-	assert (Cong_AF_BF := Cong_AF_BG).
-	replace G with F in Cong_AF_BF.
+	assert (Cong A F B F) as Cong_AF_BF by (setoid_rewrite <- eq_G_F at 2; exact Cong_AF_BG).
 	exact Cong_AF_BF.
 Qed.
 

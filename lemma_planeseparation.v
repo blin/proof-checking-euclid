@@ -421,8 +421,7 @@ Proof.
 	{
 		intros eq_G_H.
 
-		assert (Col_Q_H_C := Col_Q_G_C).
-		replace G with H in Col_Q_H_C.
+		assert (Col Q H C) as Col_Q_H_C by (rewrite <- eq_G_H; exact Col_Q_G_C).
 
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_Q_H_D Col_Q_H_C neq_Q_H) as Col_H_D_C.
 
@@ -476,8 +475,7 @@ Proof.
 		}
 		apply Classical_Prop.NNPP in eq_W_G.
 
-		assert (BetS_D_G_E := BetS_D_W_E).
-		replace W with G in BetS_D_G_E.
+		assert (BetS D G E) as BetS_D_G_E by (rewrite <- eq_W_G; exact BetS_D_W_E).
 
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_G_E) as BetS_E_G_D.
 		pose proof (axiom_orderofpoints_ABD_BCD_ABC E G F D BetS_E_G_D BetS_G_F_D) as BetS_E_G_F.
@@ -562,8 +560,7 @@ Proof.
 		assert (~ eq G W) as neq_G_W.
 		{
 			intros eq_G_W.
-			assert (Col_D_G_E := Col_D_W_E).
-			replace W with G in Col_D_G_E.
+			assert (Col D G E) as Col_D_G_E by (rewrite eq_G_W; exact Col_D_W_E).
 			pose proof (lemma_collinearorder _ _ _ Col_D_G_E) as (_ & _ & Col_E_D_G & _ & _).
 
 			contradict Col_E_D_G.
@@ -628,13 +625,11 @@ Proof.
 		{
 			intros eq_H_W.
 
-			assert (Col_D_H_E := Col_D_W_E).
-			replace W with H in Col_D_H_E.
+			assert (Col D H E) as Col_D_H_E by ( rewrite eq_H_W; exact Col_D_W_E).
 
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_D_H_E Col_D_H_Q neq_D_H) as Col_H_E_Q.
 
-			assert (neq_H_E := neq_W_E).
-			replace W with H in neq_H_E.
+			assert (neq H E) as neq_H_E by (rewrite eq_H_W; exact neq_W_E).
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_E_Q Col_H_E_C neq_H_E) as Col_E_Q_C.
 			pose proof (lemma_collinearorder _ _ _ Col_E_Q_C) as (_ & _ & _ & Col_E_C_Q & _).
 
@@ -651,11 +646,9 @@ Proof.
 			}
 			apply Classical_Prop.NNPP in eq_E_C.
 
-			assert (Col_C_W_D := Col_E_W_D).
-			replace E with C in Col_C_W_D.
+			assert (Col C W D) as Col_C_W_D by (rewrite <- eq_E_C; exact Col_E_W_D).
 
-			assert (Col_C_H_D := Col_C_W_D).
-			replace W with H in Col_C_H_D.
+			assert (Col C H D) as Col_C_H_D by (rewrite eq_H_W; exact Col_C_W_D).
 
 			pose proof (lemma_collinearorder _ _ _ Col_C_H_D) as (_ & _ & _ & _ & Col_D_H_C).
 
@@ -685,8 +678,7 @@ Proof.
 		}
 		apply Classical_Prop.NNPP in eq_J_H.
 
-		assert (BetS_E_H_F := BetS_E_J_F).
-		replace J with H in BetS_E_H_F.
+		assert (BetS E H F) as BetS_E_H_F by (rewrite <- eq_J_H; exact BetS_E_J_F).
 
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_H_F) as BetS_F_H_E.
 		pose proof (lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_C_F_H BetS_F_H_E) as BetS_C_H_E.

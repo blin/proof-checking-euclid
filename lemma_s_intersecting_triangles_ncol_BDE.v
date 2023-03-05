@@ -43,8 +43,7 @@ Proof.
 	{
 		intros eq_D_E.
 
-		assert (Col_F_D_B := Col_F_E_B).
-		replace E with D in Col_F_D_B by eq_D_E.
+		assert (Col F D B) as Col_F_D_B by (rewrite eq_D_E; exact Col_F_E_B).
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_F_D_A Col_F_D_B neq_F_D) as Col_D_A_B.
 		pose proof (lemma_collinearorder _ _ _ Col_D_A_B) as (_ & Col_A_B_D & _ & _ & _).
 
