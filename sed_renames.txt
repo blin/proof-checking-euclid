@@ -34,3 +34,8 @@ s/8_3/right_triangle_leg_change/g
 s/rightangleNC/right_triangle_NC/g
 
 s/supplements/supplements_conga/g
+
+s/trichotomy1/trichotomy_equal/g
+s/trichotomy2/trichotomy_asymmetric/g
+
+s/angleorderrespectscongruence2/angleorderrespectscongruence_smaller/g

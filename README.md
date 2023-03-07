@@ -133,6 +133,17 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_ss](./lemma_s_ss.v)
 001. [lemma_samesidesymmetric](./lemma_samesidesymmetric.v)
 001. [proposition_07](./proposition_07.v)
+001. [lemma_trichotomy_equal](./lemma_trichotomy_equal.v)
+001. [lemma_s_lta](./lemma_s_lta.v)
+001. [lemma_angleorderrespectscongruence_smaller](./lemma_angleorderrespectscongruence_smaller.v)
+001. [lemma_angleorderrespectscongruence](./lemma_angleorderrespectscongruence.v)
+001. [lemma_crossbar](./lemma_crossbar.v)
+001. [lemma_equalanglesreflexive](./lemma_equalanglesreflexive.v)
+001. [lemma_angleordertransitive](./lemma_angleordertransitive.v)
+001. [lemma_sameside_onray](./lemma_sameside_onray.v)
+001. [lemma_angletrichotomy](./lemma_angletrichotomy.v)
+001. [proposition_06a](./proposition_06a.v)
+001. [proposition_06](./proposition_06.v)
 001. [proposition_08](./proposition_08.v)
 
 ## Differences from GeoCoq
