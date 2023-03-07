@@ -41,6 +41,7 @@ Definition SS P Q A B := exists X U V,
 Definition isosceles A B C := Triangle A B C /\ Cong A B A C.
 (* Cut is only used in proposition 10 and the original lemma_twolines *)
 Definition Cut A B C D E := BetS A E B /\ BetS C E D /\ nCol A B C /\ nCol A B D.
+Definition LtA A B C D E F := exists U X V, BetS U X V /\ OnRay E D U /\ OnRay E F V /\ CongA A B C D E X.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
 End Definitions.
