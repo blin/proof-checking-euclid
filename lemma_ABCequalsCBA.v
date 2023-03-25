@@ -33,7 +33,7 @@ Proof.
 		cn_sumofparts _ _ _ _ _ _ Cong_BA_FC Cong_AE_CB BetS_B_A_E BetS_F_C_B
 	) as Cong_BE_FB.
 	pose proof (cn_congruencereverse F B) as Cong_FB_BF.
-	epose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BE_FB Cong_FB_BF) as Cong_BE_BF.
+	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BE_FB Cong_FB_BF) as Cong_BE_BF.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BE_BF) as Cong_BF_BE.
 	pose proof (cn_congruencereverse E F) as Cong_EF_FE.
 

@@ -11,7 +11,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_fiveline : 
+Lemma lemma_fiveline :
 	forall A B C D a b c d,
 	Col A B C ->
 	Cong A B a b ->

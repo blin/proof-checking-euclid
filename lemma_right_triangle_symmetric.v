@@ -27,7 +27,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_right_triangle_symmetric : 
+Lemma lemma_right_triangle_symmetric :
 	forall A B C,
 	RightTriangle A B C ->
 	RightTriangle C B A.

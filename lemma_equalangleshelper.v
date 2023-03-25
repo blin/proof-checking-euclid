@@ -8,7 +8,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_equalangleshelper : 
+Lemma lemma_equalangleshelper :
 	forall A B C a b c p q,
 	CongA A B C a b c ->
 	OnRay b a p ->

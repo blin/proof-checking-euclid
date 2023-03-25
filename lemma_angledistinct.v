@@ -8,7 +8,7 @@ Section Euclid.
 
 Context `{Ax1:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_angledistinct : 
+Lemma lemma_angledistinct :
 	forall A B C a b c,
 	CongA A B C a b c ->
 	neq A B /\ neq B C /\ neq A C /\ neq a b /\ neq b c /\ neq a c.

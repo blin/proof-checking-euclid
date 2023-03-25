@@ -28,7 +28,7 @@ Context `{Ax:euclidean_neutral_ruler_compass}.
 	lemma_altitudebisectsbase_isosceles would be a more appropriate name,
 	but the change in clarity is fairly minor, so I'm leaving it as is.
 *)
-Lemma lemma_altitudebisectsbase : 
+Lemma lemma_altitudebisectsbase :
 	forall A B M P,
 	BetS A M B ->
 	Cong A P B P ->

@@ -12,7 +12,7 @@ Section Euclid.
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
 
-Lemma lemma_onray_shared_initial_point : 
+Lemma lemma_onray_shared_initial_point :
 	forall B C D V,
 	OnRay B C D ->
 	OnRay B C V ->

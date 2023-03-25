@@ -26,7 +26,7 @@ Section Euclid.
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
 
-Lemma lemma_planeseparation_Col_C_Q_D : 
+Lemma lemma_planeseparation_Col_C_Q_D :
 	forall A B C D E Q G H,
 	OS D A B E ->
 	Col A B G ->
@@ -308,7 +308,7 @@ Proof.
 				pose proof (
 					lemma_outerconnectivity
 					_ _ _ _
-					BetS_Q_G_C BetS_Q_G_D 
+					BetS_Q_G_C BetS_Q_G_D
 					nBetS_G_C_D nBetS_G_D_C
 				) as eq_C_D.
 
@@ -321,8 +321,8 @@ Proof.
 				lemma_otherside_betweenness_PABC_RPQ_QABC
 				_ _ _ _ _ _
 				OS_D_AB_E
-				BetS_G_D_C 
-				nCol_G_C_E 
+				BetS_G_D_C
+				nCol_G_C_E
 				Col_A_B_G
 			) as OS_C_AB_E.
 			exact OS_C_AB_E.
@@ -331,7 +331,7 @@ Proof.
 Qed.
 
 
-Lemma lemma_planeseparation_nCol_C_Q_D : 
+Lemma lemma_planeseparation_nCol_C_Q_D :
 	forall A B C D E Q G H,
 	OS D A B E ->
 	Col A B G ->
@@ -697,7 +697,7 @@ Proof.
 
 Qed.
 
-Lemma lemma_planeseparation : 
+Lemma lemma_planeseparation :
 	forall A B C D E,
 	SS C D A B ->
 	OS D A B E ->

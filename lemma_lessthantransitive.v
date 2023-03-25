@@ -22,7 +22,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_lessthantransitive : 
+Lemma lemma_lessthantransitive :
 	forall A B C D E F,
 	Lt A B C D ->
 	Lt C D E F ->

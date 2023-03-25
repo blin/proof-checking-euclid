@@ -25,7 +25,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & _ & nCol_C_A_B & _).
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_C_A_B) as CongA_CAB_BAC.
 
-	epose proof (
+	pose proof (
 		proposition_04
 		_ _ _ _ _ _
 		Cong_AC_AB
