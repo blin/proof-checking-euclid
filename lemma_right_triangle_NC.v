@@ -21,7 +21,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_right_triangle_NC : 
+Lemma lemma_right_triangle_NC :
 	forall A B C,
 	RightTriangle A B C ->
 	nCol A B C.

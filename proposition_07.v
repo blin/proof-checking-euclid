@@ -35,7 +35,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma proposition_07 : 
+Lemma proposition_07 :
 	forall A B C D,
 	neq A B ->
 	Cong C A D A ->

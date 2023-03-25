@@ -20,7 +20,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_droppedperpendicularunique : 
+Lemma lemma_droppedperpendicularunique :
 	forall A J M P,
 	RightTriangle A M P ->
 	RightTriangle A J P ->

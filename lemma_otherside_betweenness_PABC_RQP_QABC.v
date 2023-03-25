@@ -14,7 +14,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_otherside_betweenness_PABC_RQP_QABC : 
+Lemma lemma_otherside_betweenness_PABC_RQP_QABC :
 	forall A B C P Q R,
 	OS P A B C ->
 	BetS R Q P ->

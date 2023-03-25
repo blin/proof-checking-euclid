@@ -11,7 +11,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_layoff : 
+Lemma lemma_layoff :
 	forall A B C D,
 	neq A B ->
 	neq C D ->

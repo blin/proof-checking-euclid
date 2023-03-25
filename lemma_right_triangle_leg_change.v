@@ -12,7 +12,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_right_triangle_leg_change : 
+Lemma lemma_right_triangle_leg_change :
 	forall A B C D,
 	RightTriangle A B C ->
 	OnRay B C D ->

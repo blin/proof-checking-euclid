@@ -10,7 +10,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_equalanglessymmetric : 
+Lemma lemma_equalanglessymmetric :
 	forall A B C a b c,
 	CongA A B C a b c ->
 	CongA a b c A B C.

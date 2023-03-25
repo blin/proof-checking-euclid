@@ -17,7 +17,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_equalanglestransitive : 
+Lemma lemma_equalanglestransitive :
 	forall A B C D E F P Q R,
 	CongA A B C D E F ->
 	CongA D E F P Q R ->

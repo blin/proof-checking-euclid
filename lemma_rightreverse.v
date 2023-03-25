@@ -10,7 +10,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral}.
 
-Lemma lemma_rightreverse : 
+Lemma lemma_rightreverse :
 	forall A B C D,
 	RightTriangle A B C ->
 	BetS A B D ->

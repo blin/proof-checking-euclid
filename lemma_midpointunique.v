@@ -12,7 +12,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_midpointunique : 
+Lemma lemma_midpointunique :
 	forall A B C D,
 	Midpoint A B C ->
 	Midpoint A D C ->

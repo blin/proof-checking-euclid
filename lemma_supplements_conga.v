@@ -60,7 +60,7 @@ Proof.
 	exact BetS_B_A_D.
 Qed.
 
-Lemma lemma_supplements_conga : 
+Lemma lemma_supplements_conga :
 	forall A B C D F a b c d f,
 	CongA A B C a b c ->
 	Supp A B C D F ->
@@ -131,7 +131,7 @@ Proof.
 	) as Cong_WV_wv.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_WV_wv) as (Cong_VW_vw & _ & _).
 
-	assert (~ Col D B F) as n_Col_D_B_F. 
+	assert (~ Col D B F) as n_Col_D_B_F.
 	{
 		intros Col_D_B_F.
 

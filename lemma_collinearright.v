@@ -17,7 +17,7 @@ Section Euclid.
 
 Context `{Ax1:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_collinearright : 
+Lemma lemma_collinearright :
 	forall A B C D,
 	RightTriangle A B D ->
 	Col A B C ->
