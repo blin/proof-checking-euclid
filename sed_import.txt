@@ -103,7 +103,7 @@ s/assert \(eq (.) (.)\) by \(conclude lemma_extensionunique\)./pose proof (lemma
 
 s/assert \(Cong (.) (.) (.) (.)\) by \(forward_using lemma_doublereverse\)./pose proof (lemma_doublereverse _ _ _ _ Cong_\4_\3_\2_\1) as (Cong_\1_\2_\3_\4 \& _).\npose proof (lemma_doublereverse _ _ _ _ Cong_\2_\1_\4_\3) as (_ \& Cong_\1_\2_\3_\4)./
 
-s/assert \(RightTriangle (.) (.) (.)\) by \(conclude_def RightTriangle \)./pose proof (lemma_s_right_triangle \1 \2 \3 X BetS_\1_\2_X Cong_\1\2_X\2 Cong_\1\3_X\3 neq_\2_\3) as RightTriangle_\1\2\3./
+s/assert \(RightTriangle (.) (.) (.)\) by \(conclude_def RightTriangle \)./pose proof (lemma_s_right_triangle \1 \2 \3 X BetS_\1_\2_X Cong_\1_\2_X_\2 Cong_\1_\3_X_\3 neq_\2_\3) as RightTriangle_\1\2\3./
 
 s/assert \(eq (.) (.)\) by \(conclude lemma_droppedperpendicularunique\)./pose proof (lemma_droppedperpendicularunique X \2 \1 Y RightTriangle_X\1Y RightTriangle_X\2Y Col_X_\1_\2) as eq_\1_\2./
 

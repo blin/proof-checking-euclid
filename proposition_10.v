@@ -3,6 +3,7 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
+Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_congruencetransitive.
@@ -12,8 +13,6 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_cong_AF_BF.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE.
-Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD.
 Require Import ProofCheckingEuclid.proposition_01.
 
 Section Euclid.
@@ -30,9 +29,7 @@ Proof.
 
 	pose proof (proposition_01 _ _ neq_A_B) as (C & equilateral_A_B_C & Triangle_A_B_C).
 	assert (nCol A B C) as nCol_A_B_C by (exact Triangle_A_B_C).
-	pose proof (
-		lemma_NCorder _ _ _ nCol_A_B_C
-	) as (_ & _ & nCol_C_A_B & _ & nCol_C_B_A).
+	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & nCol_B_C_A & _ & nCol_A_C_B & nCol_C_B_A).
 	destruct nCol_A_B_C as (_ & neq_A_C & neq_B_C & _ & _ & _).
 
 	pose proof (lemma_inequalitysymmetric _ _ neq_B_C) as neq_C_B.
@@ -46,30 +43,16 @@ Proof.
 	assert (Col C A E) as Col_C_A_E by (unfold Col; one_of_disjunct BetS_C_A_E).
 	assert (Col C B D) as Col_C_B_D by (unfold Col; one_of_disjunct BetS_C_B_D).
 
-	pose proof (
-		lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD
-		_ _ _ _ _
-		nCol_C_A_B Col_C_A_E Col_C_B_D neq_A_E
-	) as nCol_A_E_B.
-	pose proof (
-		lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD
-		_ _ _ _ _
-		nCol_C_B_A Col_C_B_D Col_C_A_E neq_B_D
-	) as nCol_B_D_A.
-	pose proof (
-		lemma_s_ncol_ABD_col_ABC_ncol_ACD
-		_ _ _ _
-		nCol_C_B_A Col_C_B_D neq_C_D
-	) as nCol_C_D_A.
-	pose proof (
-		lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE
-		_ _ _ _ _
-		nCol_C_B_A Col_C_B_D Col_C_A_E neq_C_D neq_C_E
-	) as nCol_C_D_E.
+	pose proof (lemma_collinearorder _ _ _ Col_C_A_E) as (Col_A_C_E & _ & _ & _ & _).
+	pose proof (lemma_collinearorder _ _ _ Col_C_B_D) as (Col_B_C_D & _ & _ & _ & _).
+	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_C_B Col_A_C_E neq_A_E) as nCol_A_E_B.
+	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_C_A Col_B_C_D neq_B_D) as nCol_B_D_A.
+	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_C_B_A Col_C_B_D neq_C_D) as nCol_C_D_A.
+	pose proof (lemma_NCorder _ _ _ nCol_C_D_A) as (_ & _ & _ & nCol_C_A_D & nCol_A_D_C).
+	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_C_A_D Col_C_A_E neq_C_E) as nCol_C_E_D.
+	pose proof (lemma_NCorder _ _ _ nCol_C_E_D) as (_ & _ & nCol_D_C_E & _ & _).
 	pose proof (lemma_NCorder _ _ _ nCol_A_E_B) as (_ & _ & nCol_B_A_E & _ & _).
 	pose proof (lemma_NCorder _ _ _ nCol_B_D_A) as (_ & _ & nCol_A_B_D & _ & _).
-	pose proof (lemma_NCorder _ _ _ nCol_C_D_A) as (_ & _ & _ & _ & nCol_A_D_C).
-	pose proof (lemma_NCorder _ _ _ nCol_C_D_E) as (nCol_D_C_E & _ & _ & _ & _).
 
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_B_D) as BetS_D_B_C.
