@@ -11,10 +11,14 @@ s/(lemma_\w+) _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ /
 s/(lemma_\w+) _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ /
 s/(lemma_\w+) _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ /
 
-s/Lt_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Lt_\1\2_\3\4/g
-s/Cong_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Cong_\1\2_\3\4/g
 s/OnRay_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/OnRay_\1\2_\3/g
-s/SS_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SS_\1_\2_\3\4/g
+s/Triangle_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Triangle_\1\2\3/g
+s/equilateral_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/equilateral_\1\2\3/g
+
+s/Cong_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Cong_\1\2_\3\4/g
+s/Lt_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Lt_\1\2_\3\4/g
 s/OS_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/OS_\1_\2\3_\4/g
+s/SS_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SS_\1_\2_\3\4/g
+
 s/LtA_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/LtA_\1\2\3_\4\5\6/g
 s/CongA_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/CongA_\1\2\3_\4\5\6/g
