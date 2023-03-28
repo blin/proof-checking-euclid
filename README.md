@@ -95,8 +95,6 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_twolines](./lemma_twolines.v)
 001. [lemma_s_intersecting_triangles_cong_AF_BF](./lemma_s_intersecting_triangles_cong_AF_BF.v)
 001. [lemma_s_ncol_ABD_col_ABC_ncol_ACD](./lemma_s_ncol_ABD_col_ABC_ncol_ACD.v)
-001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE.v)
-001. [lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD](./lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_BCD.v)
 001. [proposition_10](./proposition_10.v)
      * Fig 1: constructing point F using Pasch's Inner postulate
        ([img](./proposition_10_pasch_F.svg))
@@ -149,6 +147,9 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_09](./proposition_09.v)
      ([img](./proposition_09.svg))
 001. [proposition_11](./proposition_11.v)
+001. [lemma_NChelper](./lemma_NChelper.v)
+001. [lemma_s_sumsupp](./lemma_s_sumsupp.v)
+001. [proposition_13](./proposition_13.v)
 
 ## Differences from GeoCoq
 

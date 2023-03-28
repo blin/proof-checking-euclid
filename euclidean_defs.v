@@ -43,6 +43,8 @@ Definition isosceles A B C := Triangle A B C /\ Cong A B A C.
 (* Cut is only used in proposition 10 and the original lemma_twolines *)
 Definition Cut A B C D E := BetS A E B /\ BetS C E D /\ nCol A B C /\ nCol A B D.
 Definition LtA A B C D E F := exists U X V, BetS U X V /\ OnRay E D U /\ OnRay E F V /\ CongA A B C D E X.
+(* ABC and DEF make together two right angles *)
+Definition SumSupp A B C D E F := exists X Y Z U V, Supp X Y U V Z /\ CongA A B C X Y U /\ CongA D E F V Y Z.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
 End Definitions.
