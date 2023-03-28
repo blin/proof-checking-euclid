@@ -16,7 +16,6 @@ Require Import ProofCheckingEuclid.lemma_onray_shared_initial_point.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_os.
@@ -142,7 +141,10 @@ Proof.
 
 		pose proof (lemma_s_os _ _ _ _ _ BetS_H_G_P Col_B_U_G nCol_B_U_H) as OS_H_BU_P.
 
-		pose proof (lemma_s_ncol_ABD_col_ABC_col_ADE_ncol_ACE _ _ _ _ _ nCol_B_A_C Col_B_A_U Col_B_C_J neq_B_U neq_B_J) as nCol_B_U_J.
+		pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_A_C Col_B_A_U neq_B_U) as nCol_B_U_C.
+		pose proof (lemma_NCorder _ _ _ nCol_B_U_C) as (_ & _ & _ & nCol_B_C_U & _).
+		pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_C_U Col_B_C_J neq_B_J) as nCol_B_J_U.
+		pose proof (lemma_NCorder _ _ _ nCol_B_J_U) as (_ & _ & _ & nCol_B_U_J & _).
 
 		pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_B_U_G Col_B_U_G BetS_J_G_P BetS_H_G_P nCol_B_U_J nCol_B_U_H) as SS_J_H_BU.
 		pose proof (lemma_samesidesymmetric _ _ _ _ SS_J_H_BU) as (SS_H_J_BU & _ & _).
