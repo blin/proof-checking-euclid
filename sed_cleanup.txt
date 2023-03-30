@@ -21,5 +21,8 @@ s/Lt_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Lt_\1\2_\3\4/g
 s/OS_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/OS_\1_\2\3_\4/g
 s/SS_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SS_\1_\2_\3\4/g
 
+s/Supp_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])([^_])/Supp_\1\2\3_\4\2\5\6/g
+
 s/LtA_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/LtA_\1\2\3_\4\5\6/g
 s/CongA_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/CongA_\1\2\3_\4\5\6/g
+s/SumSupp_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SumSupp_\1\2\3_\4\5\6/g

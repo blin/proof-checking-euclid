@@ -30,8 +30,8 @@ Lemma lemma_s_intersecting_triangles_cong_AF_BF :
 	Cong A F B F.
 Proof.
 	intros A B D E F.
-	intros Triangle_A_B_D.
-	intros Triangle_B_A_E.
+	intros Triangle_ABD.
+	intros Triangle_BAE.
 	intros BetS_A_F_D.
 	intros BetS_B_F_E.
 	intros Cong_AD_BE.
@@ -40,15 +40,15 @@ Proof.
 	pose proof (
 		lemma_s_intersecting_triangles_ncol_ADE
 		_ _ _ _ _
-		Triangle_A_B_D Triangle_B_A_E BetS_A_F_D BetS_B_F_E
+		Triangle_ABD Triangle_BAE BetS_A_F_D BetS_B_F_E
 	) as nCol_A_D_E.
 	pose proof (
 		lemma_s_intersecting_triangles_ncol_BDE
 		_ _ _ _ _
-		Triangle_A_B_D Triangle_B_A_E BetS_A_F_D BetS_B_F_E
+		Triangle_ABD Triangle_BAE BetS_A_F_D BetS_B_F_E
 	) as nCol_B_D_E.
 
-	assert (nCol_A_B_D := Triangle_A_B_D).
+	assert (nCol_A_B_D := Triangle_ABD).
 	unfold Triangle in nCol_A_B_D.
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_D) as (_ & _ & _ & nCol_A_D_B & _).
 	pose proof (lemma_NCorder _ _ _ nCol_B_D_E) as (_ & nCol_D_E_B & _ & _ & _).

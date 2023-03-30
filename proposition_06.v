@@ -17,18 +17,18 @@ Lemma proposition_06 :
 	Cong A B A C.
 Proof.
 	intros A B C.
-	intros Triangle_A_B_C.
+	intros Triangle_ABC.
 	intros CongA_ABC_ACB.
 
-	assert (nCol A B C) as nCol_A_B_C by (unfold Triangle in Triangle_A_B_C; exact Triangle_A_B_C).
+	assert (nCol A B C) as nCol_A_B_C by (unfold Triangle in Triangle_ABC; exact Triangle_ABC).
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & _ & _ & nCol_A_C_B & _).
-	assert (Triangle A C B) as Triangle_A_C_B by (unfold Triangle; exact nCol_A_C_B ).
+	assert (Triangle A C B) as Triangle_ACB by (unfold Triangle; exact nCol_A_C_B ).
 
 	pose proof (lemma_angledistinct _ _ _ _ _ _ CongA_ABC_ACB) as (neq_A_B & _ & neq_A_C & _ & _ & _).
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_ABC_ACB) as CongA_ACB_ABC.
 
-	pose proof (proposition_06a _ _ _ Triangle_A_B_C CongA_ABC_ACB) as n_Lt_AC_AB.
-	pose proof (proposition_06a _ _ _ Triangle_A_C_B CongA_ACB_ABC) as n_Lt_AB_AC.
+	pose proof (proposition_06a _ _ _ Triangle_ABC CongA_ABC_ACB) as n_Lt_AC_AB.
+	pose proof (proposition_06a _ _ _ Triangle_ACB CongA_ACB_ABC) as n_Lt_AB_AC.
 
 	pose proof (lemma_trichotomy_equal _ _ _ _ n_Lt_AB_AC n_Lt_AC_AB neq_A_B neq_A_C) as Cong_AB_AC.
 

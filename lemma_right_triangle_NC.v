@@ -27,10 +27,10 @@ Lemma lemma_right_triangle_NC :
 	nCol A B C.
 Proof.
 	intros A B C.
-	intros RightTriangle_A_B_C.
+	intros RightTriangle_ABC.
 
 	(* TODO: use RightTriangle_[A-Z]{3} everywhere *)
-	destruct RightTriangle_A_B_C as (D & BetS_A_B_D & Cong_AB_DB & Cong_AC_DC & neq_B_C).
+	destruct RightTriangle_ABC as (D & BetS_A_B_D & Cong_AB_DB & Cong_AC_DC & neq_B_C).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_D) as (_ & neq_A_B & neq_A_D).
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.

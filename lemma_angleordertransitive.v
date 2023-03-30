@@ -67,12 +67,12 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_P_Q_T) as (nCol_Q_P_T & _ & _ & _ & _).
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_Q_P_T Col_Q_P_S neq_Q_S) as nCol_Q_S_T.
 	pose proof (lemma_NCorder _ _ _ nCol_Q_S_T) as (nCol_S_Q_T & _ & _ & _ & _).
-	assert (Triangle S Q T) as Triangle_S_Q_T by (unfold Triangle; exact nCol_S_Q_T ).
+	assert (Triangle S Q T) as Triangle_SQT by (unfold Triangle; exact nCol_S_Q_T ).
 
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_Q_H) as OnRay_QH_H.
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_ABC_UQH OnRay_QU_P OnRay_QH_H) as CongA_ABC_PQH.
 
-	pose proof (lemma_crossbar _ _ _ _ _ _ Triangle_S_Q_T BetS_S_H_T OnRay_QS_U OnRay_QT_W) as (K & OnRay_QH_K & BetS_U_K_W).
+	pose proof (lemma_crossbar _ _ _ _ _ _ Triangle_SQT BetS_S_H_T OnRay_QS_U OnRay_QT_W) as (K & OnRay_QH_K & BetS_U_K_W).
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_ABC_PQH OnRay_QP_P OnRay_QH_K) as CongA_ABC_PQK.
 	pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_U_K_W BetS_U_W_V) as BetS_U_K_V.
 

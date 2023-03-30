@@ -20,11 +20,11 @@ Lemma proposition_02 :
 Proof.
 	intros A B C.
 	intros neq_A_B neq_B_C.
-	pose proof (proposition_01 _ _ neq_A_B) as (D & equilateral_A_B_D & Triangle_A_B_D).
-	destruct equilateral_A_B_D as (Cong_AB_BD & Cong_BD_DA).
+	pose proof (proposition_01 _ _ neq_A_B) as (D & equilateral_ABD & Triangle_ABD).
+	destruct equilateral_ABD as (Cong_AB_BD & Cong_BD_DA).
 	apply lemma_congruencesymmetric in Cong_BD_DA as Cong_DA_BD.
 	apply lemma_congruenceflip in Cong_DA_BD as (_ & _ & Cong_DA_DB).
-	assert (nCol_A_B_D := Triangle_A_B_D).
+	assert (nCol_A_B_D := Triangle_ABD).
 	unfold Triangle in nCol_A_B_D.
 
 	pose proof (postulate_Euclid3 _ _ neq_B_C) as (J & CI_J_B_BC).
