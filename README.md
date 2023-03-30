@@ -150,6 +150,8 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_NChelper](./lemma_NChelper.v)
 001. [lemma_s_sumsupp](./lemma_s_sumsupp.v)
 001. [proposition_13](./proposition_13.v)
+001. [lemma_oppositesidesymmetric](./lemma_oppositesidesymmetric.v)
+001. [proposition_14](./proposition_14.v)
 
 ## Differences from GeoCoq
 
