@@ -20,19 +20,19 @@ Lemma lemma_s_intersecting_triangles_ncol_ADE :
 	nCol A D E.
 Proof.
 	intros A B D E F.
-	intros Triangle_A_B_D.
-	intros Triangle_B_A_E.
+	intros Triangle_ABD.
+	intros Triangle_BAE.
 	intros BetS_A_F_D.
 	intros BetS_B_F_E.
 
-	assert (nCol_A_B_D := Triangle_A_B_D).
+	assert (nCol_A_B_D := Triangle_ABD).
 	unfold Triangle in nCol_A_B_D.
 
-	assert (nCol_B_A_E := Triangle_B_A_E).
+	assert (nCol_B_A_E := Triangle_BAE).
 	unfold Triangle in nCol_B_A_E.
 
-	destruct Triangle_A_B_D as (_ & neq_A_D & _ & _ & _ & _).
-	destruct Triangle_B_A_E as (_ & _ & neq_A_E & _ & _ & _).
+	destruct Triangle_ABD as (_ & neq_A_D & _ & _ & _ & _).
+	destruct Triangle_BAE as (_ & _ & neq_A_E & _ & _ & _).
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_D) as n_Col_A_B_D.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_B_A_E) as n_Col_B_A_E.
 

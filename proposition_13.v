@@ -42,11 +42,11 @@ Proof.
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_A_B_D) as CongA_ABD_ABD.
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_C_B_A) as CongA_CBA_CBA.
 
-	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BA_A BetS_C_B_D) as Supp_C_B_A_A_D.
+	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BA_A BetS_C_B_D) as Supp_CBA_ABD.
 
-	pose proof (lemma_s_sumsupp _ _ _ _ _ _ _ _ _ _ _ Supp_C_B_A_A_D CongA_CBA_CBA CongA_ABD_ABD) as SumSupp_C_B_A_A_B_D.
+	pose proof (lemma_s_sumsupp _ _ _ _ _ _ _ _ _ _ _ Supp_CBA_ABD CongA_CBA_CBA CongA_ABD_ABD) as SumSupp_CBA_ABD.
 
-	exact SumSupp_C_B_A_A_B_D.
+	exact SumSupp_CBA_ABD.
 Qed.
 
 End Euclid.

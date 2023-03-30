@@ -17,7 +17,7 @@ Proof.
 	intros Col_P_Q_C.
 	intros Col_A_B_C.
 	intros Col_A_B_X.
-	intros RightTriangle_X_C_P.
+	intros RightTriangle_XCP.
 
 	unfold Perp_at.
 	exists X.
@@ -25,7 +25,7 @@ Proof.
 	exact Col_P_Q_C.
 	exact Col_A_B_C.
 	exact Col_A_B_X.
-	exact RightTriangle_X_C_P.
+	exact RightTriangle_XCP.
 Qed.
 
 End Euclid.

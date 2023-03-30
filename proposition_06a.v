@@ -35,10 +35,10 @@ Lemma proposition_06a :
 	~ Lt A C A B.
 Proof.
 	intros A B C.
-	intros Triangle_A_B_C.
+	intros Triangle_ABC.
 	intros CongA_ABC_ACB.
 
-	assert (nCol A B C) as nCol_A_B_C by (unfold Triangle in Triangle_A_B_C; exact Triangle_A_B_C).
+	assert (nCol A B C) as nCol_A_B_C by (unfold Triangle in Triangle_ABC; exact Triangle_ABC).
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (nCol_B_A_C & _ & _ & nCol_A_C_B & nCol_C_B_A).
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_A_B_C) as CongA_ABC_ABC.

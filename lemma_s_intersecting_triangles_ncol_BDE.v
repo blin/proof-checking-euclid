@@ -20,17 +20,17 @@ Lemma lemma_s_intersecting_triangles_ncol_BDE :
 	nCol B D E.
 Proof.
 	intros A B D E F.
-	intros Triangle_A_B_D.
-	intros Triangle_B_A_E.
+	intros Triangle_ABD.
+	intros Triangle_BAE.
 	intros BetS_A_F_D.
 	intros BetS_B_F_E.
 
-	assert (nCol_A_B_D := Triangle_A_B_D).
+	assert (nCol_A_B_D := Triangle_ABD).
 	unfold Triangle in nCol_A_B_D.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_D) as n_Col_A_B_D.
 
-	destruct Triangle_A_B_D as (_ & _ & neq_B_D & _ & _ & _).
-	destruct Triangle_B_A_E as (_ & neq_B_E & _ & _ & _ & _).
+	destruct Triangle_ABD as (_ & _ & neq_B_D & _ & _ & _).
+	destruct Triangle_BAE as (_ & neq_B_E & _ & _ & _ & _).
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_F_D) as (neq_F_D & _ & _).
 	pose proof (lemma_inequalitysymmetric _ _ neq_B_E) as neq_E_B.
 
