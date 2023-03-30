@@ -19,11 +19,11 @@ Lemma lemma_right_triangle_leg_change :
 	RightTriangle A B D.
 Proof.
 	intros A B C D.
-	intros RightTriangle_A_B_C.
+	intros RightTriangle_ABC.
 	intros OnRay_BC_D.
 
-	assert (RightTriangle_A_B_C2 := RightTriangle_A_B_C).
-	destruct RightTriangle_A_B_C2 as (E & BetS_A_B_E & Cong_AB_EB & Cong_AC_EC & neq_B_C).
+	assert (RightTriangle_ABC2 := RightTriangle_ABC).
+	destruct RightTriangle_ABC2 as (E & BetS_A_B_E & Cong_AB_EB & Cong_AC_EC & neq_B_C).
 
 	pose proof (cn_congruencereflexive B C) as Cong_BC_BC.
 	pose proof (cn_congruencereflexive C D) as Cong_CD_CD.
@@ -49,16 +49,16 @@ Proof.
 		pose proof (lemma_congruenceflip _ _ _ _ Cong_DA_DE) as (Cong_AD_ED & _ & _).
 		pose proof (lemma_betweennotequal _ _ _ BetS_B_D_C) as (_ & neq_B_D & _).
 
-		pose proof (lemma_s_right_triangle _ _ _ _ BetS_A_B_E Cong_AB_EB Cong_AD_ED neq_B_D) as RightTriangle_A_B_D.
+		pose proof (lemma_s_right_triangle _ _ _ _ BetS_A_B_E Cong_AB_EB Cong_AD_ED neq_B_D) as RightTriangle_ABD.
 
-		exact RightTriangle_A_B_D.
+		exact RightTriangle_ABD.
 	}
 	{
 		(* case eq_C_D *)
 		pose proof (lemma_equalitysymmetric _ _ eq_C_D) as eq_D_C.
-		assert (RightTriangle A B D) as RightTriangle_A_B_D by (rewrite eq_D_C; exact RightTriangle_A_B_C).
+		assert (RightTriangle A B D) as RightTriangle_ABD by (rewrite eq_D_C; exact RightTriangle_ABC).
 
-		exact RightTriangle_A_B_D.
+		exact RightTriangle_ABD.
 	}
 	{
 		(* case BetS_B_C_D *)
@@ -78,9 +78,9 @@ Proof.
 		) as Cong_DA_DE.
 		pose proof (lemma_congruenceflip _ _ _ _ Cong_DA_DE) as (Cong_AD_ED & _ & _).
 		pose proof (lemma_betweennotequal _ _ _ BetS_B_C_D) as (_ & _ & neq_B_D).
-		pose proof (lemma_s_right_triangle _ _ _ _ BetS_A_B_E Cong_AB_EB Cong_AD_ED neq_B_D) as RightTriangle_A_B_D.
+		pose proof (lemma_s_right_triangle _ _ _ _ BetS_A_B_E Cong_AB_EB Cong_AD_ED neq_B_D) as RightTriangle_ABD.
 
-		exact RightTriangle_A_B_D.
+		exact RightTriangle_ABD.
 	}
 Qed.
 

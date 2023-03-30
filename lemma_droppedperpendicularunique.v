@@ -28,8 +28,8 @@ Lemma lemma_droppedperpendicularunique :
 	eq M J.
 Proof.
 	intros A J M P.
-	intros RightTriangle_A_M_P.
-	intros RightTriangle_A_J_P.
+	intros RightTriangle_AMP.
+	intros RightTriangle_AJP.
 	intros Col_A_M_J.
 
 	pose proof (lemma_collinearorder _ _ _ Col_A_M_J) as (_ & Col_M_J_A & _ & _ & Col_J_M_A).
@@ -64,14 +64,14 @@ Proof.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_M_J_F Col_M_J_A neq_M_J) as Col_J_F_A.
 		pose proof (lemma_collinearorder _ _ _ Col_J_F_A) as (_ & _ & Col_A_J_F & _ & _).
 
-		pose proof (lemma_collinearright _ _ _ _ RightTriangle_A_J_P Col_A_J_F neq_F_J) as RightTriangle_F_J_P.
+		pose proof (lemma_collinearright _ _ _ _ RightTriangle_AJP Col_A_J_F neq_F_J) as RightTriangle_FJP.
 
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_J_M_F Col_J_M_A neq_J_M) as Col_M_F_A.
 		pose proof (lemma_collinearorder _ _ _ Col_M_F_A) as (_ & _ & Col_A_M_F & _ & _).
 
-		pose proof (lemma_collinearright _ _ _ _ RightTriangle_A_M_P Col_A_M_F neq_F_M) as RightTriangle_F_M_P.
-		pose proof (lemma_rightreverse _ _ _ _ RightTriangle_F_M_P BetS_F_M_E Cong_FM_ME) as Cong_FP_EP.
-		pose proof (lemma_altitudebisectsbase _ _ _ _ BetS_F_J_E Cong_FP_EP RightTriangle_F_J_P) as Midpoint_F_J_E.
+		pose proof (lemma_collinearright _ _ _ _ RightTriangle_AMP Col_A_M_F neq_F_M) as RightTriangle_FMP.
+		pose proof (lemma_rightreverse _ _ _ _ RightTriangle_FMP BetS_F_M_E Cong_FM_ME) as Cong_FP_EP.
+		pose proof (lemma_altitudebisectsbase _ _ _ _ BetS_F_J_E Cong_FP_EP RightTriangle_FJP) as Midpoint_F_J_E.
 		pose proof (lemma_s_midpoint _ _ _ BetS_F_M_E Cong_FM_ME) as Midpoint_F_M_E.
 		pose proof (lemma_midpointunique _ _ _ _ Midpoint_F_J_E Midpoint_F_M_E) as eq_J_M.
 

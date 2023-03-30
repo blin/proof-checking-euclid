@@ -27,8 +27,8 @@ Proof.
 	intros A B.
 	intros neq_A_B.
 
-	pose proof (proposition_01 _ _ neq_A_B) as (C & equilateral_A_B_C & Triangle_A_B_C).
-	assert (nCol A B C) as nCol_A_B_C by (exact Triangle_A_B_C).
+	pose proof (proposition_01 _ _ neq_A_B) as (C & equilateral_ABC & Triangle_ABC).
+	assert (nCol A B C) as nCol_A_B_C by (exact Triangle_ABC).
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & nCol_B_C_A & _ & nCol_A_C_B & nCol_C_B_A).
 	destruct nCol_A_B_C as (_ & neq_A_C & neq_B_C & _ & _ & _).
 
@@ -83,7 +83,7 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BD_AE) as Cong_AE_BD.
 	pose proof (cn_congruencereverse A B) as Cong_AB_BA.
 	pose proof (cn_congruencereverse B A) as Cong_BA_AB.
-	destruct equilateral_A_B_C as (_ & Cong_BC_CA).
+	destruct equilateral_ABC as (_ & Cong_BC_CA).
 	pose proof (lemma_doublereverse _ _ _ _ Cong_BC_CA) as (Cong_AC_CB & _).
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_CB) as (_ & Cong_CA_CB & _).
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_BC_CA) as (_ & _ & Cong_BC_AC).
@@ -108,13 +108,13 @@ Proof.
 	) as Cong_EB_DA.
 
 	pose proof (lemma_doublereverse _ _ _ _ Cong_EB_DA) as (Cong_AD_BE & _).
-	assert (Triangle A B D) as Triangle_A_B_D by (exact nCol_A_B_D).
-	assert (Triangle B A E) as Triangle_B_A_E by (exact nCol_B_A_E).
+	assert (Triangle A B D) as Triangle_ABD by (exact nCol_A_B_D).
+	assert (Triangle B A E) as Triangle_BAE by (exact nCol_B_A_E).
 	pose proof (
 		lemma_s_intersecting_triangles_cong_AF_BF
 		_ _ _ _ _
-		Triangle_A_B_D
-		Triangle_B_A_E
+		Triangle_ABD
+		Triangle_BAE
 		BetS_A_F_D
 		BetS_B_F_E
 		Cong_AD_BE
