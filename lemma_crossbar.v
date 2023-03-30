@@ -32,12 +32,12 @@ Lemma lemma_crossbar :
 	exists X, OnRay B E X /\ BetS U X V.
 Proof.
 	intros A B C E U V.
-	intros Triangle_A_B_C.
+	intros Triangle_ABC.
 	intros BetS_A_E_C.
 	intros OnRay_BA_U.
 	intros OnRay_BC_V.
 
-	assert (nCol A B C) as nCol_A_B_C by (unfold Triangle in Triangle_A_B_C; exact Triangle_A_B_C).
+	assert (nCol A B C) as nCol_A_B_C by (unfold Triangle in Triangle_ABC; exact Triangle_ABC).
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & nCol_B_C_A & _ & _ & _).
 

@@ -33,13 +33,13 @@ Lemma lemma_right_triangle_symmetric :
 	RightTriangle C B A.
 Proof.
 	intros A B C.
-	intros RightTriangle_A_B_C.
+	intros RightTriangle_ABC.
 
-	pose proof (lemma_right_triangle_NC _ _ _ RightTriangle_A_B_C) as nCol_A_B_C.
+	pose proof (lemma_right_triangle_NC _ _ _ RightTriangle_ABC) as nCol_A_B_C.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_A_B_C) as CongA_ABC_CBA.
 
-	destruct RightTriangle_A_B_C as (D & BetS_A_B_D & Cong_AB_DB & Cong_AC_DC & neq_B_C).
+	destruct RightTriangle_ABC as (D & BetS_A_B_D & Cong_AB_DB & Cong_AC_DC & neq_B_C).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_D) as (_ & neq_A_B & _).
 
@@ -86,9 +86,9 @@ Proof.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_CD Cong_CD_EA) as Cong_AC_EA.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_EA) as (_ & Cong_CA_EA & _).
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_C_B_E Cong_CB_EB Cong_CA_EA neq_B_A) as RightTriangle_C_B_A.
+	pose proof (lemma_s_right_triangle _ _ _ _ BetS_C_B_E Cong_CB_EB Cong_CA_EA neq_B_A) as RightTriangle_CBA.
 
-	exact RightTriangle_C_B_A.
+	exact RightTriangle_CBA.
 Qed.
 
 End Euclid.
