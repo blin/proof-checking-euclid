@@ -130,3 +130,5 @@ s/assert \(BetS (.) (.) (.)\) by \(conclude lemma_orderofpoints_ABC_BCD_ACD\)./p
 s/assert \(OS (.) (.) (.) (.)\) by \(conclude_def OS \)./pose proof (lemma_s_os \1 \2 \3 \4 X BetS_\1_X_\4 Col_\2_\3_X nCol_\2_\3_\1) as OS_\1_\2_\3_\4./
 
 s/assert \(CongA (.) (.) (.) . . .\) by \(conclude lemma_equalanglesreflexive\)./pose proof (lemma_equalanglesreflexive _ _ _ nCol_\1_\2_\3) as CongA_\1_\2_\3_\1_\2_\3./
+
+s/assert \(Supp (.) (.) (.) . (.)\) by \(conclude_def Supp \)./epose proof (lemma_s_supp \1 \2 \3 \3 \4 OnRay_\2_\3_\3 BetS_\1_\2_\4) as Supp_\1_\2_\3_\3_\4./
