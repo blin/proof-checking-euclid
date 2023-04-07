@@ -1,0 +1,29 @@
+coq = require* section
+
+require = "Require" ws "Export" ws qualified_id "." ws
+
+section = section_start context lemma+ section_end
+
+section_start = "Section" ws id "." ws
+section_end = "End" ws id "." ws
+
+context = "Context `{" id ":" id "}." ws
+
+lemma = "Lemma" ws id ":" ws lemma_preamble "Proof." ws lemma_statement+ "Qed." ws
+
+lemma_preamble = lemma_preamble_points lemma_preamble_given+ lemma_preamble_conclusion
+lemma_preamble_points = "forall" ws point+ "," ws 
+lemma_preamble_given = hypothesis "->" ws
+lemma_preamble_conclusion = expression "." ws
+
+lemma_statement = ("intros." ws) / statement_assert / ("close." ws)
+statement_assert = "assert" ws "(" hypothesis ") by (conclude" ws id ")." ws
+
+expression = conjunction
+conjunction = (hypothesis ("/\\" ws hypothesis)+) / hypothesis
+hypothesis = id point+
+point = ~"[a-zA-Z]" ws?
+
+qualified_id = ("."? id)*
+id = ~"[a-zA-Z][a-zA-Z0-9_]*" ws?
+ws = ~"\s+"
