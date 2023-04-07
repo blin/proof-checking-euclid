@@ -7,7 +7,7 @@ Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_equalanglesreflexive.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_sumsupp.
+Require Import ProofCheckingEuclid.lemma_s_sumtwort.
 Require Import ProofCheckingEuclid.lemma_s_supp.
 
 Section Euclid.
@@ -18,7 +18,7 @@ Lemma proposition_13 :
 	forall A B C D,
 	BetS D B C ->
 	nCol A B C ->
-	SumSupp C B A A B D.
+	SumTwoRT C B A A B D.
 Proof.
 	intros A B C D.
 	intros BetS_D_B_C.
@@ -44,9 +44,9 @@ Proof.
 
 	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BA_A BetS_C_B_D) as Supp_CBA_ABD.
 
-	pose proof (lemma_s_sumsupp _ _ _ _ _ _ _ _ _ _ _ Supp_CBA_ABD CongA_CBA_CBA CongA_ABD_ABD) as SumSupp_CBA_ABD.
+	pose proof (lemma_s_sumtwort _ _ _ _ _ _ _ _ _ _ _ Supp_CBA_ABD CongA_CBA_CBA CongA_ABD_ABD) as SumTwoRT_CBA_ABD.
 
-	exact SumSupp_CBA_ABD.
+	exact SumTwoRT_CBA_ABD.
 Qed.
 
 End Euclid.
