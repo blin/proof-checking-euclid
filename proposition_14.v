@@ -26,13 +26,13 @@ Context `{Ax:euclidean_neutral_ruler_compass}.
 
 Lemma proposition_14 :
 	forall A B C D E,
-	SumSupp A B C D B E ->
+	SumTwoRT A B C D B E ->
 	OnRay B C D ->
 	OS E D B A ->
 	Supp A B C D E /\ BetS A B E.
 Proof.
 	intros A B C D E.
-	intros SumSupp_ABC_DBE.
+	intros SumTwoRT_ABC_DBE.
 	intros OnRay_BC_D.
 	intros OS_E_DB_A.
 
@@ -43,7 +43,7 @@ Proof.
 	assert (Col D B B) as Col_D_B_B by (unfold Col; one_of_disjunct eq_B_B).
 	assert (Col C B B) as Col_C_B_B by (unfold Col; one_of_disjunct eq_B_B).
 
-	destruct SumSupp_ABC_DBE as (a & b & e & c & d & Supp_abc_dbe & CongA_ABC_abc & CongA_DBE_dbe).
+	destruct SumTwoRT_ABC_DBE as (a & b & e & c & d & Supp_abc_dbe & CongA_ABC_abc & CongA_DBE_dbe).
 
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_ABC_abc) as CongA_abc_ABC.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_DBE_dbe) as CongA_dbe_DBE.

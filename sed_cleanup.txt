@@ -25,4 +25,4 @@ s/Supp_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])([^_
 
 s/LtA_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/LtA_\1\2\3_\4\5\6/g
 s/CongA_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/CongA_\1\2\3_\4\5\6/g
-s/SumSupp_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SumSupp_\1\2\3_\4\5\6/g
+s/SumTwoRT_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SumTwoRT_\1\2\3_\4\5\6/g
