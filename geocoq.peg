@@ -1,0 +1,42 @@
+coq = require* section
+
+require = "Require" ws "Export" ws qualified_id "." ws
+
+section = section_start context lemma+ section_end
+
+section_start = "Section" ws id "." ws
+section_end = "End" ws id "." ws
+
+context = "Context `{" id ":" id "}." ws
+
+lemma = lemma_intro lemma_statement+ lemma_outro
+lemma_intro = "Lemma" ws id ":" ws lemma_preamble "Proof." ws
+lemma_outro = "Qed." ws
+
+lemma_preamble = lemma_preamble_points lemma_preamble_given+ lemma_preamble_conclusion
+lemma_preamble_points = "forall" ws point+ "," ws 
+lemma_preamble_given = expression "->" ws
+lemma_preamble_conclusion = ("exists " point ", ")? expression "." ws
+
+lemma_statement = statement_assert / destruct_assert / assert_contradiction / unneeded_statement
+unneeded_statement = ("close." / "intros." / "Unshelve." / ("exact" ws id ".") / "all: (exact A).") ws?
+statement_assert = "assert" ws "("+ expression ")"+ " by (" conclude_type ws id ws? ")" ws? "." ws
+destruct_assert = destruct_intro point+ "," ws "("? expression ")"+ " by (conclude" ws id ");" destruct_splitter ws
+destruct_intro = "let Tf:=fresh in" ws "assert (Tf:exists" ws
+destruct_splitter = "destruct Tf as " destruct_point ";spliter."
+destruct_point = "[" point destruct_point? "]"
+
+conclude_type = "conclude_def" / "conclude" / "forward_using"
+
+assert_contradiction = "assert (~ " hypothesis ")." ws "{" ws "intro." ws lemma_statement+ "contradict." ws "}" ws
+
+expression = disjunction
+disjunction = (conjunction ("\\/" ws conjunction)+) / conjunction
+conjunction = (inversion ("/\\" ws inversion)+) / inversion
+inversion = ("~" ws hypothesis) / hypothesis
+hypothesis = id point+
+point = ~"[a-zA-Z]" ws?
+
+qualified_id = ("."? id)*
+id = ~"[a-zA-Z][a-zA-Z0-9_]*" ws?
+ws = ~"\s+"
