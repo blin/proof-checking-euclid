@@ -153,6 +153,13 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_oppositesidesymmetric](./lemma_oppositesidesymmetric.v)
 001. [proposition_14](./proposition_14.v)
 001. [proposition_15](./proposition_15.v)
+001. [lemma_s_col_BetS_A_B_C](./lemma_s_col_BetS_A_B_C.v)
+001. [lemma_s_ncol_triangle](./lemma_s_ncol_triangle.v)
+001. [proposition_16](./proposition_16.v)
+     * Fig 1: proving ∠BAC < ∠ACD
+       ([img](./proposition_16_LtA_BAC_ACD.svg))
+     * Fig 1: proving ∠CBA < ∠ACD
+       ([img](./proposition_16_LtA_CBA_ACD.svg))
 
 ## Differences from GeoCoq
 

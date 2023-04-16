@@ -1,16 +1,16 @@
 s/   /\t/g
 s/ +$//g
 s/epose/pose/
-s/(lemma_\w+) [[:alpha:]] /\1 _ /
-s/(lemma_\w+) _ [[:alpha:]] /\1 _ _ /
-s/(lemma_\w+) _ _ [[:alpha:]] /\1 _ _ _ /
-s/(lemma_\w+) _ _ _ [[:alpha:]] /\1 _ _ _ _ /
-s/(lemma_\w+) _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ /
-s/(lemma_\w+) _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ /
-s/(lemma_\w+) _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ /
-s/(lemma_\w+) _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ /
-s/(lemma_\w+) _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ /
-s/(lemma_\w+) _ _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) [[:alpha:]] /\1 _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ [[:alpha:]] /\1 _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ _ [[:alpha:]] /\1 _ _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ _ _ [[:alpha:]] /\1 _ _ _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ /
+s/((lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ _ /
 
 s/OnRay_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/OnRay_\1\2_\3/g
 s/Triangle_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Triangle_\1\2\3/g
