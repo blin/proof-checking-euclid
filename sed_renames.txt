@@ -40,3 +40,6 @@ s/trichotomy1/trichotomy_equal/g
 s/trichotomy2/trichotomy_asymmetric/g
 
 s/angleorderrespectscongruence2/angleorderrespectscongruence_smaller/g
+
+s/proposition_15a/proposition_15/g
+s/proposition_15b/proposition_15/g
