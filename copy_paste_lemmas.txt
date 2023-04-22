@@ -6,3 +6,4 @@ pose proof (lemma_betweennotequal _ _ _ BetS_X_Y_Z) as (neq_Y_Z & neq_X_Y & neq_
 pose proof (axiom_betweennesssymmetry _ _ _ BetS_X_Y_Z) as BetS_Z_Y_X.
 pose proof (lemma_collinearorder _ _ _ Col_X_Y_Z) as (Col_Y_X_Z & Col_Y_Z_X & Col_Z_X_Y & Col_X_Z_Y & Col_Z_Y_X).
 pose proof (lemma_s_n_col_ncol _ _ _ n_Col_X_Y_Z) as nCol_X_Y_Z.
+pose proof (lemma_s_ncol_n_col _ _ _ nCol_X_Y_Z) as n_Col_X_Y_Z.
