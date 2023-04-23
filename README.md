@@ -160,6 +160,11 @@ and so the dependencies need to be introduced in a particular order.
        ([img](./proposition_16_LtA_BAC_ACD.svg))
      * Fig 1: proving ∠CBA < ∠ACD
        ([img](./proposition_16_LtA_CBA_ACD.svg))
+001. [lemma_s_AngleSum](./lemma_s_AngleSum.v)
+001. [lemma_s_col_eq_A_C](./lemma_s_col_eq_A_C.v)
+001. [lemma_s_col_eq_B_C](./lemma_s_col_eq_B_C.v)
+001. [lemma_s_triangle](./lemma_s_triangle.v)
+001. [proposition_17](./proposition_17.v)
 
 ## Differences from GeoCoq
 
