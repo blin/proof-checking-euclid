@@ -45,6 +45,7 @@ Definition Cut A B C D E := BetS A E B /\ BetS C E D /\ nCol A B C /\ nCol A B D
 Definition LtA A B C D E F := exists U X V, BetS U X V /\ OnRay E D U /\ OnRay E F V /\ CongA A B C D E X.
 (* ABC and DEF make together two right angles *)
 Definition SumTwoRT A B C D E F := exists X Y Z U V, Supp X Y U V Z /\ CongA A B C X Y U /\ CongA D E F V Y Z.
+Definition AngleSum A B C D E F P Q R := exists X, CongA A B C P Q X /\ CongA D E F X Q R /\ BetS P X R.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
 End Definitions.

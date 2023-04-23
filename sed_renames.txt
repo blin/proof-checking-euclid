@@ -5,6 +5,7 @@ s/TS /OS /g
 s/Out /OnRay /g
 s/Per /RightTriangle /g
 s/RT /SumTwoRT /g
+s/SumA /AngleSum /g
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
 
