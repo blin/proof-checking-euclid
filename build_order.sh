@@ -22,6 +22,7 @@ checkpoints=(
 "proposition_15"
 "proposition_16"
 "proposition_17"
+"proposition_18"
 )
 
 make clean >/dev/null

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="400"
+   height="300"
+   id="svg208"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs110">
+    <clipPath
+       id="hfhcxbfFPudw">
+      <path
+         fill="none"
+         stroke="none"
+         d="M 0,0 H 1524 V 905 H 0 Z"
+         id="path107" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath428">
+      <rect
+         style="fill:#000000"
+         id="rect430"
+         width="400.58707"
+         height="300.12439"
+         x="349.40796"
+         y="199.6617" />
+    </clipPath>
+  </defs>
+  <g
+     id="g364"
+     clip-path="url(#clipPath428)"
+     transform="translate(-349.40796,-199.6617)">
+    <g
+       clip-path="url(#hfhcxbfFPudw)"
+       id="g206">
+      <g
+         id="g204">
+        <rect
+           fill="#ffffff"
+           stroke="none"
+           x="0"
+           y="0"
+           width="1524"
+           height="905"
+           id="rect112" />
+        <path
+           fill="#2e7d32"
+           stroke="none"
+           paint-order="stroke fill markers"
+           d="M 590.7868,331.2868 C 585.16071,336.91289 582,344.54351 582,352.5 h 30 z"
+           fill-opacity="0.0980392"
+           id="path114" />
+        <path
+           fill="none"
+           stroke="#2e7d32"
+           d="M 590.7868,331.2868 C 585.16071,336.91289 582,344.54351 582,352.5 h 30 z"
+           stroke-opacity="0.6"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2"
+           id="path116" />
+        <text
+           fill="#2e7d32"
+           stroke="none"
+           x="537"
+           y="323"
+           id="text118">ADB</text>
+        <text
+           fill="none"
+           stroke="#ffffff"
+           x="537"
+           y="323"
+           stroke-opacity="1"
+           stroke-linejoin="bevel"
+           stroke-miterlimit="10"
+           stroke-width="3"
+           id="text120">ADB</text>
+        <text
+           fill="#2e7d32"
+           stroke="none"
+           x="537"
+           y="323"
+           id="text122">ADB</text>
+        <path
+           fill="#1565c0"
+           stroke="none"
+           paint-order="stroke fill markers"
+           d="m 690.7868,431.2868 c -3.29325,3.29324 -5.77451,7.30801 -7.2473,11.72637 L 712,452.5 Z"
+           fill-opacity="0.0980392"
+           id="path124" />
+        <path
+           fill="none"
+           stroke="#1565c0"
+           d="m 690.7868,431.2868 c -3.29325,3.29324 -5.77451,7.30801 -7.2473,11.72637 L 712,452.5 Z"
+           stroke-opacity="0.6"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2"
+           id="path126" />
+        <text
+           fill="#1565c0"
+           stroke="none"
+           x="638"
+           y="423"
+           id="text128">ACB</text>
+        <text
+           fill="none"
+           stroke="#ffffff"
+           x="638"
+           y="423"
+           stroke-opacity="1"
+           stroke-linejoin="bevel"
+           stroke-miterlimit="10"
+           stroke-width="3"
+           id="text130">ACB</text>
+        <text
+           fill="#1565c0"
+           stroke="none"
+           x="638"
+           y="423"
+           id="text132">ACB</text>
+        <path
+           fill="#d32f2f"
+           stroke="none"
+           paint-order="stroke fill markers"
+           d="m 440.4605,361.98683 c 3.59335,-10.78004 0.78767,-22.66506 -7.2473,-30.70003 L 412,352.5 Z"
+           fill-opacity="0.0980392"
+           id="path134" />
+        <path
+           fill="none"
+           stroke="#d32f2f"
+           d="m 440.4605,361.98683 c 3.59335,-10.78004 0.78767,-22.66506 -7.2473,-30.70003 L 412,352.5 Z"
+           stroke-opacity="0.6"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2"
+           id="path136" />
+        <text
+           fill="#d32f2f"
+           stroke="none"
+           x="453"
+           y="349"
+           id="text138">ABC</text>
+        <text
+           fill="none"
+           stroke="#ffffff"
+           x="453"
+           y="349"
+           stroke-opacity="1"
+           stroke-linejoin="bevel"
+           stroke-miterlimit="10"
+           stroke-width="3"
+           id="text140">ABC</text>
+        <text
+           fill="#d32f2f"
+           stroke="none"
+           x="453"
+           y="349"
+           id="text142">ABC</text>
+        <path
+           fill="#2e7d32"
+           stroke="none"
+           paint-order="stroke fill markers"
+           d="m 442,352.5 c 0,-7.95649 -3.16071,-15.58711 -8.7868,-21.2132 L 412,352.5 Z"
+           fill-opacity="0.0980392"
+           id="path144" />
+        <path
+           fill="none"
+           stroke="#2e7d32"
+           d="m 442,352.5 c 0,-7.95649 -3.16071,-15.58711 -8.7868,-21.2132 L 412,352.5 Z"
+           stroke-opacity="0.6"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2"
+           id="path146" />
+        <text
+           fill="#2e7d32"
+           stroke="none"
+           x="453"
+           y="325"
+           id="text148">ABD</text>
+        <text
+           fill="none"
+           stroke="#ffffff"
+           x="453"
+           y="325"
+           stroke-opacity="1"
+           stroke-linejoin="bevel"
+           stroke-miterlimit="10"
+           stroke-width="3"
+           id="text150">ABD</text>
+        <text
+           fill="#2e7d32"
+           stroke="none"
+           x="453"
+           y="325"
+           id="text152">ABD</text>
+        <path
+           fill="none"
+           stroke="#2e7d32"
+           d="m 512,252.5 -100,100"
+           stroke-opacity="0.8"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2.5"
+           id="path154" />
+        <path
+           fill="none"
+           stroke="#616161"
+           d="M 712,452.5 412,352.5"
+           stroke-opacity="0.8"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2.5"
+           id="path156" />
+        <path
+           fill="none"
+           stroke="#616161"
+           d="M 612,352.5 H 412"
+           stroke-opacity="0.8"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2.5"
+           id="path158" />
+        <path
+           fill="none"
+           stroke="#2e7d32"
+           d="m 512,252.5 100,100"
+           stroke-opacity="0.8"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2.5"
+           id="path160" />
+        <path
+           fill="none"
+           stroke="#616161"
+           d="m 612,352.5 100,100"
+           stroke-opacity="0.8"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           stroke-width="2.5"
+           id="path162" />
+        <path
+           fill="#1565c0"
+           stroke="none"
+           paint-order="stroke fill markers"
+           d="m 517,252.5 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           id="path164" />
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 517,252.5 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           stroke-opacity="1"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path166" />
+        <text
+           fill="#1565c0"
+           stroke="none"
+           x="516"
+           y="242"
+           id="text168">A</text>
+        <text
+           fill="none"
+           stroke="#ffffff"
+           x="516"
+           y="242"
+           stroke-opacity="1"
+           stroke-linejoin="bevel"
+           stroke-miterlimit="10"
+           stroke-width="3"
+           id="text170">A</text>
+        <text
+           fill="#1565c0"
+           stroke="none"
+           x="516"
+           y="242"
+           id="text172">A</text>
+        <path
+           fill="#1565c0"
+           stroke="none"
+           paint-order="stroke fill markers"
+           d="m 417,352.5 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           id="path174" />
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 417,352.5 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           stroke-opacity="1"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path176" />
+        <text
+           fill="#1565c0"
+           stroke="none"
+           x="379"
+           y="352"
+           id="text178">B</text>
+        <text
+           fill="none"
+           stroke="#ffffff"
+           x="379"
+           y="352"
+           stroke-opacity="1"
+           stroke-linejoin="bevel"
+           stroke-miterlimit="10"
+           stroke-width="3"
+           id="text180">B</text>
+        <text
+           fill="#1565c0"
+           stroke="none"
+           x="379"
+           y="352"
+           id="text182">B</text>
+        <path
+           fill="#1565c0"
+           stroke="none"
+           paint-order="stroke fill markers"
+           d="m 717,452.5 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           id="path184" />
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 717,452.5 c 0,2.76142 -2.23858,5 -5,5 -2.76142,0 -5,-2.23858 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
+           stroke-opacity="1"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path186" />
+        <text
+           fill="#1565c0"
+           stroke="none"
+           x="716"
+           y="443"
+           id="text188">C</text>
+        <text
+           fill="none"
+           stroke="#ffffff"
+           x="716"
+           y="443"
+           stroke-opacity="1"
+           stroke-linejoin="bevel"
+           stroke-miterlimit="10"
+           stroke-width="3"
+           id="text190">C</text>
+        <text
+           fill="#1565c0"
+           stroke="none"
+           x="716"
+           y="443"
+           id="text192">C</text>
+        <path
+           fill="#616161"
+           stroke="none"
+           paint-order="stroke fill markers"
+           d="m 616,352.5 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           id="path194" />
+        <path
+           fill="none"
+           stroke="#000000"
+           d="m 616,352.5 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           stroke-opacity="1"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           id="path196" />
+        <text
+           fill="#616161"
+           stroke="none"
+           x="616"
+           y="345"
+           id="text198">D</text>
+        <text
+           fill="none"
+           stroke="#ffffff"
+           x="616"
+           y="345"
+           stroke-opacity="1"
+           stroke-linejoin="bevel"
+           stroke-miterlimit="10"
+           stroke-width="3"
+           id="text200">D</text>
+        <text
+           fill="#616161"
+           stroke="none"
+           x="616"
+           y="345"
+           id="text202">D</text>
+      </g>
+    </g>
+  </g>
+</svg>
