@@ -1,0 +1,117 @@
+id = { [:alpha:] [[_][:alnum:]]* }
+qualified_id = { id {"." id }* }
+-- test qualified_id accepts "GeoCoq.Elements.OriginalProofs.lemma_angletrichotomy", "A", "proposition03"
+-- test qualified_id rejects "lemma-angletrichotomy"
+
+-- H' is only ever used in lemma_trapezoiddiagonals.v
+point = { [:alpha:] ['] } / [:alpha:]
+--test point accepts "A", "a", "H'"
+
+grammar
+	simple = id (point)+
+	inversion = ( "~" simple ) / ( "~" prop )
+	conjunction = ( inversion / simple ) ( "/\\" prop )+
+	disjunction = ( conjunction / inversion / simple ) ( "\\/" prop )+
+	all = disjunction / conjunction / inversion / inversion / simple
+in
+	prop = ( "(" all ")" ) / all
+end
+--test prop accepts "Lt C D A B"
+--test prop accepts "~ LtA D E F A B C", "~ ~ Cong G D G E", "~ ~ (CR E C B H)"
+--test prop accepts "BetS E X F /\\ Cong E X C D"
+--test prop accepts "BetS E X F \\/ Cong E X C D"
+--test prop accepts "~ ~ (CR E C B H \\/ CR E B H C)"
+
+
+conclude_simple_prefix = "conclude_def" / "conclude" / "forward_using"
+conclude_simple = conclude_simple_prefix ( id / ( "(" prop ")" ) )
+
+conclude_until_semicolon_inclusive = { [^;]+ ";" }
+conclude_auto_prefix = "apply" / "auto" / "eapply" / "epose" / "pose" / "unfold" / "unshelve"
+conclude_auto_suffix = "assumption" / "auto" / "eauto" / "close"
+conclude_auto = "remove_double_neg;"? conclude_auto_prefix (conclude_until_semicolon_inclusive !conclude_auto_suffix)* conclude_until_semicolon_inclusive conclude_auto_suffix
+
+conclude_auto_using = "auto using" id
+
+conclude_assert = "assert" "(" prop ")" "by auto;" ( ( "(" conclude_simple ")" ) / conclude_simple )
+
+conclude_statement = conclude_simple / conclude_auto / conclude_auto_using / conclude_assert
+-- test conclude_statement accepts "conclude lemma_differenceofparts"
+-- test conclude_statement accepts "conclude (lemma_supplements2 D C B C G K F C G C B A)"
+-- test conclude_statement accepts "eapply @axiom_5_line with (B:=U) (b:=u) (A:=A) (a:=a);assumption"
+-- test conclude_statement accepts "eapply ( axiom_connectivity) with A F;auto"
+-- test conclude_statement accepts "auto using parnotmeet"
+-- test conclude_statement accepts "unfold OS;exists A;exists H;exists E;splits;auto"
+-- test conclude_statement accepts "assert (nCol B C A) by auto;\n (forward_using lemma_NCorder)"
+-- test conclude_statement accepts "assert (nCol C B F) by auto;forward_using lemma_NCorder"
+-- test conclude_statement accepts "remove_double_neg;unfold CongA in *; assumption"
+
+comment = "(*" { . !"*)" }+ "*)"
+-- test comment accepts "(* comment\ncomment *)"
+
+statement_assert = "assert" "("+ prop ")"+ "by" ( ( "(" conclude_statement ")" ) / "auto" ) "."
+
+lemma_statement_unneeded = ( ( "close" / "intros" / "Unshelve" / ( "exact" id ) / "all: (exact A)" / conclude_statement / "remove_exists;eauto 20" / ( "exists" id ";" conclude_auto_suffix ) ) "." ) / "rename_H H;"
+
+grammar destruct_point = "[" point destruct_point? "]" end
+
+destruct_intro = "let Tf:=fresh in" "assert (Tf:exists"
+destruct_splitter = "destruct" id "as" destruct_point ";spliter."
+destruct_assert = destruct_intro (point)+ "," "("? prop ")"+ "by (" conclude_statement ");" destruct_splitter
+
+cases_outro = destruct_splitter? "(*" "*"? "cases" "*)"
+
+grammar
+	-- See proposition_07 for an example of contradiction that is just "intro. contradict." .
+	assert_contradiction = "assert (" prop ")." "{" "intro." (lemma_statement)* "contradict." "}"
+	-- See proposition_34 for an example of an assert scope closed by conclusion .
+	assert_conclude = "assert (" prop ")." "{" (lemma_statement !conclude_statement)* lemma_statement conclude_statement "." "}"
+	-- See proposition_30 for an example of an assert scope starting with simple eapply .
+	assert_simple_eapply = "assert (" prop ")." "{" "simple eapply" id "." (lemma_statement)+ "}"
+
+	assert_by_cases = "assert" "("+ ( "exists" point "," )? prop ")"+ "." "by cases on" "("+ prop ")"+ "." (assert_case)+ cases_outro
+	assert_case = "{" (lemma_statement)+ "}"
+in
+	lemma_statement = statement_assert / destruct_assert / lemma_statement_unneeded / assert_contradiction / assert_by_cases / assert_conclude / assert_simple_eapply / comment
+end
+-- crucial part of a statement is that it terminates with a "." . This makes contradiction and proof by cases not a statement!
+--test lemma_statement accepts "intros."
+--test lemma_statement accepts "assert (Cong A B E F) by (conclude lemma_congruencesymmetric)."
+--test lemma_statement accepts "let Tf:=fresh in\n assert (Tf:exists G, (BetS E G F /\\ Cong E G C D)) by (conclude_def Lt );destruct Tf as [G];spliter."
+--test lemma_statement accepts "assert (~ eq A B).\n {\n intro.\n assert (Col A B C) by (conclude_def Col ).\n contradict.\n }"
+--test lemma_statement accepts "assert (~ ~ Cong G D G E).\n {\n intro.\n contradict.\n }"
+--test lemma_statement accepts "assert (eq b u).\n by cases on (BetS a u b \\/ eq b u).\n {\n close.\n }\n {\n close.\n }\n (** cases *)"
+--test lemma_statement accepts "apply (proposition_15 A B C D E);assumption."
+--test lemma_statement accepts "assert (neq E D) by auto."
+--test lemma_statement accepts "let Tf:=fresh in\nassert (Tf:exists d a p q, (Out E C d /\\ Out E A a /\\ Out E C p /\\ Out E f q /\\ Cong E d E p /\\ Cong E a E q /\\ Cong d a p q /\\ nCol C E A))\nby (remove_double_neg;unfold CongA in *; assumption);destruct Tf as [d[a[p[q]]]];spliter."
+--test lemma_statement accepts "assert (nCol F B C) by (assert (nCol C B F) by auto;forward_using lemma_NCorder)."
+--test lemma_statement accepts "assert (nCol C B A).\n {\n assert (nCol B C A) by auto.\n forward_using lemma_NCorder.\n }"
+--test lemma_statement accepts "assert (Par A b d C).\n {\n simple eapply proposition_30A.\n exact H40.\n }"
+--test lemma_statement accepts "assert (exists D, Cong B D P Q). \n by cases on (eq B P \\/ neq B P).\n {\n assert (neq Q P) by (conclude lemma_inequalitysymmetric).\n }\n {\n exists D;auto.\n }\n destruct H2 as [D];spliter.\n (* cases *)"
+
+lemma_preamble_points = "forall" (point)+ ": Point"? ","
+lemma_preamble_given = prop "->"
+lemma_preamble_conclusion = ( "exists" (point)+ "," )? prop "."
+lemma_preamble = lemma_preamble_points (lemma_preamble_given)+ lemma_preamble_conclusion
+--test lemma_preamble_points accepts "forall A B C D E F,", "forall A B C D E : Point,"
+--test lemma_preamble_given accepts "Lt C D A B ->"
+--test lemma_preamble_conclusion accepts "exists X, BetS E X F."
+--test lemma_preamble accepts "forall A B C D E F, \n Lt C D A B -> Cong E F A B ->\n exists X, BetS E X F."
+
+lemma_intro = "Lemma" id ":" lemma_preamble "Proof."
+lemma_outro = "Qed."
+
+lemma = lemma_intro (lemma_statement)+ lemma_outro
+
+section_start = "Section" id "."
+section_end = "End" id "."
+
+context = { "Context `{" id ":" id "}." }
+--test context accepts "Context `{Ax:euclidean_neutral_ruler_compass}.", "Context `{Ax1:euclidean_neutral_ruler_compass}."
+
+section = section_start context (lemma)+ section_end
+
+require = "Require Export" qualified_id "."
+-- test require accepts "Require Export GeoCoq.Elements.OriginalProofs.lemma_angletrichotomy."
+
+top = (require)* section+ $
