@@ -1,0 +1,126 @@
+id = { [:alpha:] [[_][:alnum:]]* }
+qualified_id = { id {"." id }* }
+-- test qualified_id accepts "GeoCoq.Elements.OriginalProofs.lemma_angletrichotomy", "A", "proposition03"
+-- test qualified_id rejects "lemma-angletrichotomy"
+
+-- H' is only ever used in lemma_trapezoiddiagonals.v
+point = { [:alpha:] ['] } / [:alpha:] ~
+-- test point accepts "A", "a", "H'"
+
+-- TODO: add a test
+grammar destruct_point = "[" point destruct_point? "]" end
+
+grammar
+	simple = id (point)+
+	inversion = ( "~" simple ) / ( "~" prop )
+	conjunction = ( inversion / simple ) ( "/\\" prop )+
+	disjunction = ( conjunction / inversion / simple ) ( "\\/" prop )+
+	all = disjunction / conjunction / inversion / inversion / simple
+in
+	prop = ( "(" all ")" ) / all
+end
+-- test prop accepts "Lt C D A B"
+-- test prop accepts "~ LtA D E F A B C", "~ ~ Cong G D G E", "~ ~ (CR E C B H)"
+-- test prop accepts "BetS E X F /\\ Cong E X C D"
+-- test prop accepts "BetS E X F \\/ Cong E X C D"
+-- test prop accepts "~ ~ (CR E C B H \\/ CR E B H C)"
+
+exists_prop = "Tf:"? "exists" (point)+ "," ( ( "(" prop ")" ) / prop )
+-- test exists_prop accepts "Tf:exists G, (BetS E G F /\\ Cong E G C D)"
+-- test exists_prop accepts "exists D, Cong B D P Q"
+-- test exists_prop accepts "Tf:exists J, CI J A A B"
+
+lemma_invocation = id ( id / "_" )+
+-- test lemma_invocation accepts "axiom_5_line _ _ _ _ _ _ _ _ H37 H H38"
+
+grammar
+	tactic_arg = exists_prop / lemma_invocation / ( point ":=" point ) / prop / id / destruct_point / ltac_expr / "*" / ( "@" id ) / [:digit:]+ / "[ex and]"
+	tactic_name = "assert" / "conclude_def" / "conclude" /  "intros" / "apply" / "assumption" / "exact" / "destruct" / "spliter" / "remove_double_neg" / "unfold" / "forward_using" / "close" / "eauto" / "auto" / "remove_exists" / "exists" / "simple" / "unfold" / "splits" / "eapply" / "epose" / "pose" / "unshelve" / "decompose"
+	ltac_expr1 = tactic_name ( ( "(" tactic_arg ")" ) / tactic_arg )*
+	ltac_expr4 = ( ltac_expr1 ( ";" ( "(" ltac_expr1 ")" ) / ltac_expr1 )+ ) / ltac_expr1
+	let_binder = "let" id ":=" "fresh" "in"
+	ltac_intro = "all:"? "rename_H H;"? let_binder?
+in
+	ltac_expr = ltac_intro ( "(" ltac_expr4 ")" ) / ltac_expr4
+end
+-- test ltac_expr accepts "all: (exact A)"
+-- test ltac_expr accepts "intros"
+-- test ltac_expr accepts "assert (Cong A B E F) by (conclude lemma_congruencesymmetric)"
+-- test ltac_expr accepts "let Tf:=fresh in\n assert (Tf:exists G, (BetS E G F /\\ Cong E G C D)) by (conclude_def Lt );destruct Tf as [G];spliter"
+-- test ltac_expr accepts "apply (proposition_15 A B C D E);assumption"
+-- test ltac_expr accepts "assert (neq E D) by auto"
+-- test ltac_expr accepts "let Tf:=fresh in\nassert (Tf:exists d a p q, (Out E C d /\\ Out E A a /\\ Out E C p /\\ Out E f q /\\ Cong E d E p /\\ Cong E a E q /\\ Cong d a p q /\\ nCol C E A))\nby (remove_double_neg;unfold CongA in *; assumption);destruct Tf as [d[a[p[q]]]];spliter"
+-- test ltac_expr accepts "assert (nCol F B C) by (assert (nCol C B F) by auto;forward_using lemma_NCorder)"
+-- test ltac_expr accepts "assert (Cong B C b c) by (epose proof (axiom_5_line _ _ _ _ _ _ _ _ H37 H H38); eauto)"
+-- test ltac_expr accepts "eauto 20"
+-- test ltac_expr accepts "decompose [ex and] H251"
+-- test ltac_expr accepts "conclude lemma_differenceofparts"
+-- test ltac_expr accepts "conclude (lemma_supplements2 D C B C G K F C G C B A)"
+-- test ltac_expr accepts "eapply @axiom_5_line with (B:=U)"
+-- test ltac_expr accepts "eapply @axiom_5_line with (B:=U) (b:=u) (A:=A) (a:=a);assumption"
+-- test ltac_expr accepts "eapply ( axiom_connectivity) with A F;auto"
+-- test ltac_expr accepts "auto using parnotmeet"
+-- test ltac_expr accepts "unfold OS;exists A;exists H;exists E;splits;auto"
+-- test ltac_expr accepts "(forward_using lemma_NCorder)"
+-- test ltac_expr accepts "assert (nCol B C A) by auto;\n (forward_using lemma_NCorder)"
+-- test ltac_expr accepts "assert (nCol C B F) by auto;forward_using lemma_NCorder"
+-- test ltac_expr accepts "remove_double_neg;unfold CongA in *; assumption"
+
+command = "Unshelve"
+
+sentence = ( ltac_expr / command ) "."
+
+comment = "(*" { . !"*)" }+ "*)"
+-- test comment accepts "(* comment\ncomment *)"
+
+grammar
+	-- See proposition_07 for an example of contradiction that is just "intro. contradict." .
+	assert_contradiction = sentence "{" "intro." (lemma_compound)* "contradict." "}"
+
+	-- TODO: replace with sentence
+	destruct_splitter = "destruct" id "as" destruct_point ";spliter."
+	assert_by_cases_outro = destruct_splitter? "(*" "*"? "cases" "*)"
+	assert_case = "{" (lemma_compound)+ "}"
+	assert_by_cases = sentence "by cases on" "("+ prop ")"+ "." (assert_case)+ assert_by_cases_outro
+
+	-- See proposition_34 for an example of an assert scope closed by conclusion .
+	-- See proposition_30 for an example of an assert scope starting with simple eapply .
+	assert_conclude = sentence "{" (lemma_compound)+ "}"
+in
+	lemma_compound = assert_contradiction / assert_by_cases / assert_conclude / comment / sentence
+end
+-- test lemma_compound accepts "intros."
+-- test lemma_compound accepts "assert (~ eq A B).\n {\n intro.\n assert (Col A B C) by (conclude_def Col ).\n contradict.\n }"
+-- test lemma_compound accepts "assert (~ ~ Cong G D G E).\n {\n intro.\n contradict.\n }"
+-- test lemma_compound accepts "assert (eq b u).\n by cases on (BetS a u b \\/ eq b u).\n {\n close.\n }\n {\n close.\n }\n (** cases *)"
+-- test lemma_compound accepts "assert (nCol C B A).\n {\n assert (nCol B C A) by auto.\n forward_using lemma_NCorder.\n }"
+-- test lemma_compound accepts "assert (Par A b d C).\n {\n simple eapply proposition_30A.\n exact H40.\n }"
+-- test lemma_compound accepts "assert (exists D, Cong B D P Q). \n by cases on (eq B P \\/ neq B P).\n {\n assert (neq Q P) by (conclude lemma_inequalitysymmetric).\n }\n {\n exists D;auto.\n }\n destruct H2 as [D];spliter.\n (* cases *)"
+-- test lemma_compound accepts "assert (eq b u).\n by cases on (BetS a u b \\/ eq b u \\/ BetS a b u).\n {\n assert (~ neq b u).\n {\n intro.\n contradict.\n }\n close.\n }\n {\n close.\n }\n {\n close.\n }\n(** cases *)"
+
+lemma_preamble_points = "forall" (point)+ ": Point"? ","
+lemma_preamble_given = prop "->"
+lemma_preamble_conclusion = ( "exists" (point)+ "," )? prop "."
+lemma_preamble = lemma_preamble_points (lemma_preamble_given)+ lemma_preamble_conclusion
+-- test lemma_preamble_points accepts "forall A B C D E F,", "forall A B C D E : Point,"
+-- test lemma_preamble_given accepts "Lt C D A B ->"
+-- test lemma_preamble_conclusion accepts "exists X, BetS E X F."
+-- test lemma_preamble accepts "forall A B C D E F, \n Lt C D A B -> Cong E F A B ->\n exists X, BetS E X F."
+
+lemma_intro = "Lemma" id ":" lemma_preamble "Proof."
+lemma_outro = "Qed."
+
+lemma = lemma_intro (lemma_compound)+ lemma_outro
+
+section_start = "Section" id "."
+section_end = "End" id "."
+
+context = { "Context `{" id ":" id "}." }
+-- test context accepts "Context `{Ax:euclidean_neutral_ruler_compass}.", "Context `{Ax1:euclidean_neutral_ruler_compass}."
+
+section = section_start context (lemma)+ section_end
+
+require = "Require Export" qualified_id "."
+-- test require accepts "Require Export GeoCoq.Elements.OriginalProofs.lemma_angletrichotomy."
+
+top = (require)* section+ $
