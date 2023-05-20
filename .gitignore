@@ -7,3 +7,6 @@
 _CoqProject
 *.vio
 .vscode
+build
+.env
+__pycache__
