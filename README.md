@@ -168,6 +168,8 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_isosceles](./lemma_s_isosceles.v)
 001. [proposition_18](./proposition_18.v)
 001. [proposition_19](./proposition_19.v)
+001. [lemma_s_TogetherGreater](./lemma_s_TogetherGreater.v)
+001. [proposition_20](./proposition_20.v)
 
 ## Differences from GeoCoq
 
