@@ -6,6 +6,8 @@ s/Out /OnRay /g
 s/Per /RightTriangle /g
 s/RT /SumTwoRT /g
 s/SumA /AngleSum /g
+s/TG /TogetherGreater /g
+s/lemma_TG/lemma_TogetherGreater_/g
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
 
@@ -41,3 +43,5 @@ s/trichotomy1/trichotomy_equal/g
 s/trichotomy2/trichotomy_asymmetric/g
 
 s/angleorderrespectscongruence2/angleorderrespectscongruence_smaller/g
+
+s/lessthancongruence2/lessthancongruence_smaller/g
