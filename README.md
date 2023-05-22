@@ -170,6 +170,22 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_19](./proposition_19.v)
 001. [lemma_s_TogetherGreater](./lemma_s_TogetherGreater.v)
 001. [proposition_20](./proposition_20.v)
+001. [lemma_lessthancongruence_smaller](./lemma_lessthancongruence_smaller.v)
+001. [lemma_s_col_BetS_A_C_B](./lemma_s_col_BetS_A_C_B.v)
+001. [lemma_s_col_BetS_B_A_C](./lemma_s_col_BetS_B_A_C.v)
+001. [lemma_s_col_eq_A_B](./lemma_s_col_eq_A_B.v)
+001. [lemma_trichotomy_asymmetric](./lemma_trichotomy_asymmetric.v)
+001. [lemma_lessthanadditive](./lemma_lessthanadditive.v)
+001. [lemma_lessthanbetween](./lemma_lessthanbetween.v)
+001. [lemma_s_TT](./lemma_s_TT.v)
+001. [lemma_21helper](./lemma_21helper.v)
+001. [lemma_TogetherGreater_flip](./lemma_TogetherGreater_flip.v)
+001. [lemma_TogetherGreater_symmetric](./lemma_TogetherGreater_symmetric.v)
+001. [lemma_TTflip](./lemma_TTflip.v)
+001. [lemma_TTflip2](./lemma_TTflip2.v)
+001. [lemma_TTorder](./lemma_TTorder.v)
+001. [lemma_TTtransitive](./lemma_TTtransitive.v)
+001. [proposition_21](./proposition_21.v)
 
 ## Differences from GeoCoq
 
