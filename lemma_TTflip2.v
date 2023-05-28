@@ -22,7 +22,7 @@ Proof.
 	intros A B C D E F G H.
 	intros TT_A_B_C_D_E_F_G_H.
 
-	destruct TT_A_B_C_D_E_F_G_H as (J & BetS_E_F_J & Cong_FJ_GH & TogetherGreater_A_B_C_D_E_J).
+	destruct TT_A_B_C_D_E_F_G_H as (J & BetS_E_F_J & Cong_FJ_GH & TogetherGreater_AB_CD_EJ).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_E_F_J) as (neq_F_J & _ & _).
 	pose proof (lemma_betweennotequal _ _ _ BetS_E_F_J) as (_ & neq_E_F & _).
@@ -34,7 +34,7 @@ Proof.
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_FJ_GH) as Cong_GH_FJ.
 
-	destruct TogetherGreater_A_B_C_D_E_J as (K & BetS_A_B_K & Cong_BK_CD & Lt_EJ_AK).
+	destruct TogetherGreater_AB_CD_EJ as (K & BetS_A_B_K & Cong_BK_CD & Lt_EJ_AK).
 
 	pose proof (lemma_extension _ _ _ _ neq_H_G neq_F_E) as (L & BetS_H_G_L & Cong_GL_FE).
 
@@ -47,9 +47,9 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_HL_EJ) as Cong_EJ_HL.
 	pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_EJ_AK Cong_EJ_HL) as Lt_HL_AK.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_B_K Cong_BK_CD Lt_HL_AK) as TogetherGreater_A_B_C_D_H_L.
+	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_B_K Cong_BK_CD Lt_HL_AK) as TogetherGreater_AB_CD_HL.
 
-	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_H_G_L Cong_GL_FE TogetherGreater_A_B_C_D_H_L) as TT_A_B_C_D_H_G_F_E.
+	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_H_G_L Cong_GL_FE TogetherGreater_AB_CD_HL) as TT_A_B_C_D_H_G_F_E.
 
 	exact TT_A_B_C_D_H_G_F_E.
 Qed.

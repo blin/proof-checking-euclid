@@ -71,7 +71,7 @@ Proof.
 		{
 			intros neq_b_c.
 
-			pose proof (axiom_nocollapse _ _ B B neq_b_c Cong_bc_BB) as neq_B_B.
+			pose proof (axiom_nocollapse _ _ _ _ neq_b_c Cong_bc_BB) as neq_B_B.
 			assert (eq B B) as eq_B_B by (reflexivity).
 
 			contradict eq_B_B.

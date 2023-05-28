@@ -93,7 +93,7 @@ Proof.
 	pose proof (postulate_Pasch_outer _ _ _ _ _ BetS_A_E_C BetS_B_C_Q nCol_B_Q_A) as (F & BetS_A_F_Q & BetS_B_E_F).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_F_Q) as BetS_Q_F_A.
 
-	pose proof (postulate_Pasch_outer Q B A F P BetS_Q_F_A BetS_B_A_P nCol_B_P_Q) as (W & BetS_Q_W_P & BetS_B_F_W).
+	pose proof (postulate_Pasch_outer _ _ _ _ _ BetS_Q_F_A BetS_B_A_P nCol_B_P_Q) as (W & BetS_Q_W_P & BetS_B_F_W).
 	pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_B_E_F BetS_B_F_W) as BetS_B_E_W.
 
 	pose proof (cn_congruencereverse A P) as Cong_AP_PA.

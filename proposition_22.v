@@ -40,13 +40,13 @@ Lemma proposition_22 :
 	exists X Y, Cong F X B b /\ Cong F Y A a /\ Cong X Y C c /\ OnRay F E X /\ Triangle F X Y.
 Proof.
 	intros A B C E F a b c.
-	intros TogetherGreater_A_a_B_b_C_c.
-	intros TogetherGreater_A_a_C_c_B_b.
-	intros TogetherGreater_B_b_C_c_A_a.
+	intros TogetherGreater_Aa_Bb_Cc.
+	intros TogetherGreater_Aa_Cc_Bb.
+	intros TogetherGreater_Bb_Cc_Aa.
 	intros neq_F_E.
 
-	assert (TogetherGreater_A_a_B_b_C_c2 := TogetherGreater_A_a_B_b_C_c).
-	destruct TogetherGreater_A_a_B_b_C_c2 as (P & BetS_A_a_P & Cong_aP_Bb & Lt_Cc_AP).
+	assert (TogetherGreater_Aa_Bb_Cc2 := TogetherGreater_Aa_Bb_Cc).
+	destruct TogetherGreater_Aa_Bb_Cc2 as (P & BetS_A_a_P & Cong_aP_Bb & Lt_Cc_AP).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_a_P) as (neq_a_P  & neq_A_a & _).
 	pose proof (axiom_nocollapse _ _ _ _ neq_a_P Cong_aP_Bb) as neq_B_b.
@@ -71,7 +71,7 @@ Proof.
 	pose proof (cn_congruencereflexive G H) as Cong_GH_GH.
 	pose proof (cn_congruencereverse D G) as Cong_DG_GD.
 
-	pose proof (lemma_together _ _ _ _ _ _ _ _ _ _ _ TogetherGreater_B_b_C_c_A_a Cong_FG_Bb Cong_GH_Cc BetS_F_G_H Cong_DF_Aa) as (Lt_DF_FH & _).
+	pose proof (lemma_together _ _ _ _ _ _ _ _ _ _ _ TogetherGreater_Bb_Cc_Aa Cong_FG_Bb Cong_GH_Cc BetS_F_G_H Cong_DF_Aa) as (Lt_DF_FH & _).
 	destruct Lt_DF_FH as (M & BetS_F_M_H & Cong_FM_DF).
 
 	pose proof (lemma_orderofpoints_ABC_BCD_ABD _ _ _ _ BetS_D_F_G BetS_F_G_H) as BetS_D_F_H.
@@ -83,8 +83,8 @@ Proof.
 
 	pose proof (lemma_extension _ _ _ _ neq_F_M neq_C_c) as (J & BetS_F_M_J & Cong_MJ_Cc).
 
-	pose proof (lemma_together _ _ _ _ _ _ _ _ _ _ _ TogetherGreater_A_a_C_c_B_b Cong_FM_Aa Cong_MJ_Cc BetS_F_M_J Cong_FG_Bb) as (Lt_FG_FJ & _).
-	pose proof (lemma_together _ _ _ _ _ _ _ _ _ _ _ TogetherGreater_A_a_B_b_C_c Cong_DF_Aa Cong_FG_Bb BetS_D_F_G Cong_Cc_Cc) as (Lt_Cc_DG & _).
+	pose proof (lemma_together _ _ _ _ _ _ _ _ _ _ _ TogetherGreater_Aa_Cc_Bb Cong_FM_Aa Cong_MJ_Cc BetS_F_M_J Cong_FG_Bb) as (Lt_FG_FJ & _).
+	pose proof (lemma_together _ _ _ _ _ _ _ _ _ _ _ TogetherGreater_Aa_Bb_Cc Cong_DF_Aa Cong_FG_Bb BetS_D_F_G Cong_Cc_Cc) as (Lt_Cc_DG & _).
 
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_Cc_DG Cong_DG_GD) as Lt_Cc_GD.
 
@@ -164,7 +164,7 @@ Proof.
 		}
 		{
 			(* case BetS_G_F_K *)
-			destruct TogetherGreater_A_a_B_b_C_c as (S & BetS_A_a_S & Cong_aS_Bb & Lt_Cc_AS).
+			destruct TogetherGreater_Aa_Bb_Cc as (S & BetS_A_a_S & Cong_aS_Bb & Lt_Cc_AS).
 			pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_aS_Bb Cong_Bb_FG) as Cong_aS_FG.
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_G_F_K) as BetS_K_F_G.
 			pose proof (cn_sumofparts _ _ _ _ _ _ Cong_Aa_KF Cong_aS_FG BetS_A_a_S BetS_K_F_G) as Cong_AS_KG.
@@ -178,7 +178,7 @@ Proof.
 		}
 		{
 			(* case BetS_F_G_K *)
-			destruct TogetherGreater_B_b_C_c_A_a as (S & BetS_B_b_S & Cong_bS_Cc & Lt_Aa_BS).
+			destruct TogetherGreater_Bb_Cc_Aa as (S & BetS_B_b_S & Cong_bS_Cc & Lt_Aa_BS).
 			pose proof (lemma_congruencesymmetric _ _ _ _ Cong_bS_Cc) as Cong_Cc_bS.
 			pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_GK_Cc Cong_Cc_bS) as Cong_GK_bS.
 			pose proof (cn_sumofparts _ _ _ _ _ _ Cong_FG_Bb Cong_GK_bS BetS_F_G_K BetS_B_b_S) as Cong_FK_BS.
@@ -193,7 +193,7 @@ Proof.
 		{
 			(* case BetS_F_K_G *)
 
-			destruct TogetherGreater_A_a_C_c_B_b as (S & BetS_A_a_S & Cong_aS_Cc & Lt_Bb_AS).
+			destruct TogetherGreater_Aa_Cc_Bb as (S & BetS_A_a_S & Cong_aS_Cc & Lt_Bb_AS).
 			pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_Bb_AS Cong_Bb_FG) as Lt_FG_AS.
 			pose proof (lemma_congruencesymmetric _ _ _ _ Cong_aS_Cc) as Cong_Cc_aS.
 			pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_GK_Cc Cong_Cc_aS) as Cong_GK_aS.
