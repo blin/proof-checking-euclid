@@ -191,6 +191,7 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_subtractequals](./lemma_subtractequals.v)
 001. [lemma_together](./lemma_together.v)
 001. [proposition_22](./proposition_22.v)
+001. [proposition_23](./proposition_23.v)
 
 ## Differences from GeoCoq
 
