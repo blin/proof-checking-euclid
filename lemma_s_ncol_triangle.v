@@ -11,10 +11,10 @@ Lemma lemma_s_ncol_triangle :
 	nCol A B C.
 Proof.
 	intros A B C.
-	intros Triangle_A_B_C.
+	intros Triangle_ABC.
 
-	unfold Triangle in Triangle_A_B_C.
-	exact Triangle_A_B_C.
+	unfold Triangle in Triangle_ABC.
+	exact Triangle_ABC.
 Qed.
 
 End Euclid.

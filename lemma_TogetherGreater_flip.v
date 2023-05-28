@@ -19,12 +19,12 @@ Lemma lemma_TogetherGreater_flip :
 	TogetherGreater a A B b C c /\ TogetherGreater A a B b c C.
 Proof.
 	intros A B C a b c.
-	intros TogetherGreater_A_a_B_b_C_c.
+	intros TogetherGreater_Aa_Bb_Cc.
 
 	pose proof (cn_congruencereverse A a) as Cong_Aa_aA.
 	pose proof (cn_congruencereverse C c) as Cong_Cc_cC.
 
-	destruct TogetherGreater_A_a_B_b_C_c as (H & BetS_A_a_H & Cong_aH_Bb & Lt_Cc_AH).
+	destruct TogetherGreater_Aa_Bb_Cc as (H & BetS_A_a_H & Cong_aH_Bb & Lt_Cc_AH).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_a_H) as (neq_a_H  & neq_A_a & _).
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_a) as neq_a_A.
@@ -38,12 +38,12 @@ Proof.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_Cc_AH Cong_AH_ah) as Lt_Cc_ah.
 	pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_Cc_AH Cong_Cc_cC) as Lt_cC_AH.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_a_A_h Cong_Ah_Bb Lt_Cc_ah) as TogetherGreater_a_A_B_b_C_c.
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_a_H Cong_aH_Bb Lt_cC_AH) as TogetherGreater_A_a_B_b_c_C.
+	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_a_A_h Cong_Ah_Bb Lt_Cc_ah) as TogetherGreater_aA_Bb_Cc.
+	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_a_H Cong_aH_Bb Lt_cC_AH) as TogetherGreater_Aa_Bb_cC.
 
 	split.
-	exact TogetherGreater_a_A_B_b_C_c.
-	exact TogetherGreater_A_a_B_b_c_C.
+	exact TogetherGreater_aA_Bb_Cc.
+	exact TogetherGreater_Aa_Bb_cC.
 Qed.
 
 End Euclid.

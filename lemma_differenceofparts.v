@@ -100,8 +100,8 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_EC_ec) as (Cong_CE_ce & _).
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_ac) as (Cong_CA_ca & _).
 
-	pose proof (axiom_orderofpoints_ABD_BCD_ABC E A B C BetS_E_A_C BetS_A_B_C) as BetS_E_A_B.
-	pose proof (axiom_orderofpoints_ABD_BCD_ABC e a b c BetS_e_a_c BetS_a_b_c) as BetS_e_a_b.
+	pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_E_A_C BetS_A_B_C) as BetS_E_A_B.
+	pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_e_a_c BetS_a_b_c) as BetS_e_a_b.
 
 	(* BetS E A C -> Col E A C -> DegenerateTriangle E A C *)
 	(* BetS e a c -> Col e a c -> DegenerateTriangle e a c *)

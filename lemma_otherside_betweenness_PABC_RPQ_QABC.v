@@ -51,7 +51,7 @@ Proof.
 	assert (eq S B \/ neq S B) as [eq_S_B|neq_S_B] by (apply Classical_Prop.classic).
 	{
 		(* case eq_S_B *)
-		pose proof (lemma_equalitysymmetric _ _ eq_S_B) as eq_B_S.	
+		pose proof (lemma_equalitysymmetric _ _ eq_S_B) as eq_B_S.
 		assert (Col R B F) as Col_R_B_F by (rewrite eq_B_S; exact Col_R_S_F).
 		assert (~ eq R B) as neq_R_B by (rewrite eq_B_S; exact neq_R_S).
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_R_B_F Col_R_B_A neq_R_B) as Col_B_F_A.
@@ -80,7 +80,7 @@ Proof.
 		assert (eq B R \/ neq B R) as [eq_B_R|neq_B_R] by (apply Classical_Prop.classic).
 		{
 			(* case eq_B_R *)
-			pose proof (lemma_equalitysymmetric _ _ eq_B_R) as eq_R_B.	
+			pose proof (lemma_equalitysymmetric _ _ eq_B_R) as eq_R_B.
 			assert (neq A R) as neq_A_R by (rewrite eq_R_B; exact neq_A_B).
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_R Col_B_A_F neq_B_A) as Col_A_R_F.
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_R Col_B_A_Q neq_B_A) as Col_A_R_Q.

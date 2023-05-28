@@ -15,7 +15,7 @@ Proof.
 	intros A B C D E F G H X.
 	intros BetS_E_F_X.
 	intros Cong_FX_GH.
-	intros TogetherGreater_A_B_C_D_E_X.
+	intros TogetherGreater_AB_CD_EX.
 
 	unfold TT.
 	exists X.
@@ -23,7 +23,7 @@ Proof.
 	exact BetS_E_F_X.
 	split.
 	exact Cong_FX_GH.
-	exact TogetherGreater_A_B_C_D_E_X.
+	exact TogetherGreater_AB_CD_EX.
 Qed.
 
 End Euclid.

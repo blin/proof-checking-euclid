@@ -18,7 +18,7 @@ Proof.
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_C) as (neq_B_C & neq_A_B & _).
 	apply lemma_inequalitysymmetric in neq_A_B as neq_B_A.
-	pose proof (postulate_Euclid2 B A neq_B_A) as (D & BetS_B_A_D).
+	pose proof (postulate_Euclid2 _ _ neq_B_A) as (D & BetS_B_A_D).
 	apply axiom_betweennesssymmetry in BetS_B_A_D as BetS_D_A_B.
 	pose proof (lemma_orderofpoints_ABC_BCD_ABD _ _ _ _ BetS_D_A_B BetS_A_B_C) as BetS_D_A_C.
 	assert (~ Cong A B A C) as nCong_AB_AC.

@@ -13,16 +13,16 @@ Lemma lemma_s_AngleSum :
 	AngleSum A B C D E F P Q R.
 Proof.
 	intros A B C D E F P Q R X.
-	intros CongA_A_B_C_P_Q_X.
-	intros CongA_D_E_F_X_Q_R.
+	intros CongA_ABC_PQX.
+	intros CongA_DEF_XQR.
 	intros BetS_P_X_R.
 
 	unfold AngleSum.
 	exists X.
 	split.
-	exact CongA_A_B_C_P_Q_X.
+	exact CongA_ABC_PQX.
 	split.
-	exact CongA_D_E_F_X_Q_R.
+	exact CongA_DEF_XQR.
 	exact BetS_P_X_R.
 Qed.
 

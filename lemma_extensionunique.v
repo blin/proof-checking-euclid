@@ -54,7 +54,7 @@ Proof.
 	{
 		intro neq_E_F.
 
-		pose proof (axiom_nocollapse E F E E neq_E_F Cong_EF_EE) as neq_E_E.
+		pose proof (axiom_nocollapse _ _ _ _ neq_E_F Cong_EF_EE) as neq_E_E.
 		assert (eq E E) as eq_E_E by (reflexivity).
 
 		contradict eq_E_E.

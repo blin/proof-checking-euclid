@@ -70,7 +70,7 @@ Proof.
 	pose proof (lemma_NChelper _ _ _ _ _ nCol_B_C_A Col_B_C_C Col_B_C_D neq_C_D) as nCol_C_D_A.
 	pose proof (lemma_NCorder _ _ _ nCol_B_D_A) as (_ & _ & _ & _ & nCol_A_D_B).
 	pose proof (lemma_NCorder _ _ _ nCol_C_D_A) as (_ & nCol_D_A_C & _ & _ & _).
-	
+
 	pose proof (proposition_16 _ _ _ _ Triangle_ABC BetS_B_C_D) as (_ & LtA_CBA_ACD).
 
 	pose proof (lemma_angleorderrespectscongruence_smaller _ _ _ _ _ _ _ _ _ LtA_CBA_ACD CongA_ABC_CBA) as LtA_ABC_ACD.
@@ -103,7 +103,7 @@ Proof.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_e) as OnRay_Ce_e.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_E) as OnRay_CE_E.
 	pose proof (lemma_onray_impliescollinear _ _ _ OnRay_CE_e) as Col_C_E_e.
-	
+
 	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_A_E_D) as Col_A_E_D.
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_E_D) as (_ & neq_A_E & _).
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_E) as neq_E_A.

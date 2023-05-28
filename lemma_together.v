@@ -20,7 +20,7 @@ Lemma lemma_together :
 	Lt P Q D G /\ neq A a /\ neq B b /\ neq C c.
 Proof.
 	intros A B C D F G P Q a b c.
-	intros TogetherGreater_A_a_B_b_C_c.
+	intros TogetherGreater_Aa_Bb_Cc.
 	intros Cong_DF_Aa.
 	intros Cong_FG_Bb.
 	intros BetS_D_F_G.
@@ -28,7 +28,7 @@ Proof.
 
 	pose proof (cn_congruencereflexive A a) as Cong_Aa_Aa.
 
-	destruct TogetherGreater_A_a_B_b_C_c as (R & BetS_A_a_R & Cong_aR_Bb & Lt_Cc_AR).
+	destruct TogetherGreater_Aa_Bb_Cc as (R & BetS_A_a_R & Cong_aR_Bb & Lt_Cc_AR).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_a_R) as (neq_a_R & neq_A_a & _).
 

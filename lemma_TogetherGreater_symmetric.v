@@ -17,9 +17,9 @@ Lemma lemma_TogetherGreater_symmetric :
 	TogetherGreater B b A a C c.
 Proof.
 	intros A B C a b c.
-	intros TogetherGreater_A_a_B_b_C_c.
+	intros TogetherGreater_Aa_Bb_Cc.
 
-	destruct TogetherGreater_A_a_B_b_C_c as (H & BetS_A_a_H & Cong_aH_Bb & Lt_Cc_AH).
+	destruct TogetherGreater_Aa_Bb_Cc as (H & BetS_A_a_H & Cong_aH_Bb & Lt_Cc_AH).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_a_H) as (neq_a_H & neq_A_a  & _).
 	pose proof (axiom_nocollapse _ _ _ _ neq_a_H Cong_aH_Bb) as neq_B_b.
@@ -38,9 +38,9 @@ Proof.
 
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_Cc_AH Cong_AH_BF) as Lt_Cc_BF.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_b_F Cong_bF_Aa Lt_Cc_BF) as TogetherGreater_B_b_A_a_C_c.
+	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_b_F Cong_bF_Aa Lt_Cc_BF) as TogetherGreater_Bb_Aa_Cc.
 
-	exact TogetherGreater_B_b_A_a_C_c.
+	exact TogetherGreater_Bb_Aa_Cc.
 Qed.
 
 End Euclid.

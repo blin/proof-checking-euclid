@@ -66,7 +66,7 @@ Proof.
 				intros neq_C_D.
 
 				pose proof (lemma_doublereverse _ _ _ _ Cong_CC_DC) as (Cong_CD_CC & _).
-				pose proof (axiom_nocollapse _ _ C C neq_C_D Cong_CD_CC) as neq_C_C.
+				pose proof (axiom_nocollapse _ _ _ _ neq_C_D Cong_CD_CC) as neq_C_C.
 				unfold neq in neq_C_C.
 				assert (eq C C) as eq_C_C by (reflexivity).
 

@@ -36,7 +36,7 @@ Proof.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_P_S_C) as BetS_C_S_P.
 	pose proof (lemma_betweennotequal _ _ _ BetS_R_Q_P) as (neq_Q_P & neq_R_Q & neq_R_P). (* wanted neq_R_S *)
 
-	pose proof (postulate_Pasch_inner C R P S Q BetS_C_S_P BetS_R_Q_P nCol_C_P_R) as (F & BetS_C_F_Q & BetS_R_F_S).
+	pose proof (postulate_Pasch_inner _ _ _ _ _ BetS_C_S_P BetS_R_Q_P nCol_C_P_R) as (F & BetS_C_F_Q & BetS_R_F_S).
 	assert (Col R S F) as Col_R_S_F by (unfold Col; one_of_disjunct BetS_R_F_S).
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_P) as (neq_A_B & _ & _ & neq_B_A & _).
 	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_R Col_A_B_S neq_A_B) as Col_B_R_S.
