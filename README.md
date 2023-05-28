@@ -186,6 +186,11 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_TTorder](./lemma_TTorder.v)
 001. [lemma_TTtransitive](./lemma_TTtransitive.v)
 001. [proposition_21](./proposition_21.v)
+001. [lemma_lessthannotequal](./lemma_lessthannotequal.v)
+001. [lemma_ondiameter](./lemma_ondiameter.v)
+001. [lemma_subtractequals](./lemma_subtractequals.v)
+001. [lemma_together](./lemma_together.v)
+001. [proposition_22](./proposition_22.v)
 
 ## Differences from GeoCoq
 
