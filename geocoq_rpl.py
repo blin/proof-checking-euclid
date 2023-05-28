@@ -78,10 +78,29 @@ class PropExists(PropABC):
         return f"exists {' '.join(self.points)}, {self.p.to_str()}"
 
     def to_var(self) -> str:
-        raise NotImplementedError
+        ps = " & ".join(self.points)
+        return f"({ps} & {self.p.to_var()})"
 
 
 Prop = Union[PropSimple, PropInversion, PropConjunction, PropDisjunction, PropExists]
+
+
+def collect_disjunction_nodes(prop: Prop) -> list[Prop]:
+    result = []
+    while isinstance(prop, PropDisjunction):
+        result.append(prop.left)
+        prop = prop.right
+    result.append(prop)
+    return result
+
+
+def collect_conjunction_nodes(prop: Prop) -> list[Prop]:
+    result = []
+    while isinstance(prop, PropConjunction):
+        result.append(prop.left)
+        prop = prop.right
+    result.append(prop)
+    return result
 
 
 @dataclass
@@ -120,7 +139,7 @@ class LtacAssertByCasesCase:
 @dataclass
 class LtacAssertByCases:
     prop: Prop
-    on: PropInversion
+    on: PropDisjunction
     cases: list[LtacAssertByCasesCase]
 
 
@@ -213,9 +232,7 @@ class NodeVisitor:
                     return concludes[0]
                 if len(concludes) > 1:
                     raise ValueError(f"unexpected ltac_expr1 with more than one conclude: {vc}")
-                assert all(
-                    [isinstance(e, LtacUnneeded) for e in vc[1:]]
-                ), f"ltac_expr4 with head assert has needed statements: {vc[1:]}"
+                assert all([isinstance(e, LtacUnneeded) for e in vc[1:]]), f"ltac_expr4 with head assert has needed statements: {vc[1:]}"
         return vc[0]
 
     def visit_ltac_expr_ltac_expr1(self, node: Node, vc: list[Any]):
@@ -330,9 +347,7 @@ class NodeVisitor:
         given = preamble[1:-1]
         conclusion = preamble[-1]
         assert all(isinstance(p, get_args(Prop)) for p in given)
-        assert isinstance(
-            conclusion, get_args(Prop)
-        ), f"intro conclusion is not a prop: {conclusion}"
+        assert isinstance(conclusion, get_args(Prop)), f"intro conclusion is not a prop: {conclusion}"
 
         return (name, points, given, conclusion)
 
@@ -360,7 +375,7 @@ class NodeVisitor:
         return PropDisjunction(left=vc[0], right=vc[1])
 
     def visit_exists_prop(self, node: Node, vc: list[Any]):
-        return vc[1]
+        return PropExists(points=vc[0], p=vc[1])
 
 
 def process_parse_tree(parse_tree: Node) -> Top:
