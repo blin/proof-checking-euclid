@@ -27,14 +27,14 @@ Lemma lemma_21helper :
 	TT B A A C B E E C.
 Proof.
 	intros A B C E.
-	intros TogetherGreater_B_A_A_E_B_E.
+	intros TogetherGreater_BA_AE_BE.
 	intros BetS_A_E_C.
 
 	assert (eq B B) as eq_B_B by (reflexivity).
 
 	pose proof (cn_congruencereflexive A E) as Cong_AE_AE.
 
-	destruct TogetherGreater_B_A_A_E_B_E as (H & BetS_B_A_H & Cong_AH_AE & Lt_BE_BH).
+	destruct TogetherGreater_BA_AE_BE as (H & BetS_B_A_H & Cong_AH_AE & Lt_BE_BH).
 	pose proof (lemma_betweennotequal _ _ _ BetS_B_A_H) as (_ & neq_B_A & _).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_E_C) as (neq_E_C  & _ & neq_A_C).
@@ -83,9 +83,9 @@ Proof.
 	pose proof (lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_B_A_H BetS_A_H_F) as BetS_B_H_F.
 	pose proof (lemma_lessthanadditive _ _ _ _ _ _ Lt_BE_BH BetS_B_E_G BetS_B_H_F Cong_EG_HF) as Lt_BG_BF.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_A_F Cong_AF_AC Lt_BG_BF) as TogetherGreater_B_A_A_C_B_G.
+	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_A_F Cong_AF_AC Lt_BG_BF) as TogetherGreater_BA_AC_BG.
 
-	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_B_E_G Cong_EG_EC TogetherGreater_B_A_A_C_B_G) as TT_B_A_A_C_B_E_E_C.
+	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_B_E_G Cong_EG_EC TogetherGreater_BA_AC_BG) as TT_B_A_A_C_B_E_E_C.
 
 	exact TT_B_A_A_C_B_E_E_C.
 Qed.

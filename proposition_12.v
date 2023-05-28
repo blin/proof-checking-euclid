@@ -32,7 +32,7 @@ Proof.
 
 	pose proof (postulate_Euclid2 _ _ neq_C_B) as (E & BetS_C_B_E).
 	pose proof (lemma_betweennotequal _ _ _ BetS_C_B_E) as (_ & _ & neq_C_E).
-	pose proof (postulate_Euclid3 C E neq_C_E) as (K & CI_K_C_CE).
+	pose proof (postulate_Euclid3 _ _ neq_C_E) as (K & CI_K_C_CE).
 
 	pose proof (cn_congruencereflexive C E) as Cong_CE_CE.
 	pose proof (cn_congruencereflexive C B) as Cong_CB_CB.

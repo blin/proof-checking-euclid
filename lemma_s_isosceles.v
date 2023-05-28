@@ -12,13 +12,13 @@ Lemma lemma_s_isosceles :
 	isosceles A B C.
 Proof.
 	intros A B C.
-	intros Triangle_A_B_C.
-	intros Cong_A_B_A_C.
+	intros Triangle_ABC.
+	intros Cong_AB_AC.
 
 	unfold isosceles.
 	split.
-	exact Triangle_A_B_C.
-	exact Cong_A_B_A_C.
+	exact Triangle_ABC.
+	exact Cong_AB_AC.
 Qed.
 
 End Euclid.

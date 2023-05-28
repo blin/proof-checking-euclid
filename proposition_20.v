@@ -96,9 +96,9 @@ Proof.
 
 	pose proof (proposition_19 _ _ _ Triangle_BCD LtA_CDB_BCD) as Lt_BC_BD.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_A_D Cong_AD_AC Lt_BC_BD) as TogetherGreater_B_A_A_C_B_C.
+	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_A_D Cong_AD_AC Lt_BC_BD) as TogetherGreater_BA_AC_BC.
 
-	exact TogetherGreater_B_A_A_C_B_C.
+	exact TogetherGreater_BA_AC_BC.
 Qed.
 
 End Euclid.

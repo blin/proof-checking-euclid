@@ -84,11 +84,11 @@ Proof.
 	pose proof (lemma_s_triangle _ _ _ nCol_C_E_D) as Triangle_CED.
 	pose proof (lemma_s_triangle _ _ _ nCol_E_C_D) as Triangle_ECD.
 
-	pose proof (proposition_20 _ _ _ Triangle_ABE) as TogetherGreater_B_A_A_E_B_E.
-	pose proof (proposition_20 _ _ _ Triangle_ECD) as TogetherGreater_C_E_E_D_C_D.
+	pose proof (proposition_20 _ _ _ Triangle_ABE) as TogetherGreater_BA_AE_BE.
+	pose proof (proposition_20 _ _ _ Triangle_ECD) as TogetherGreater_CE_ED_CD.
 
-	pose proof (lemma_21helper _ _ _ _ TogetherGreater_B_A_A_E_B_E BetS_A_E_C) as TT_B_A_A_C_B_E_E_C.
-	pose proof (lemma_21helper _ _ _ _ TogetherGreater_C_E_E_D_C_D BetS_E_D_B) as TT_C_E_E_B_C_D_D_B.
+	pose proof (lemma_21helper _ _ _ _ TogetherGreater_BA_AE_BE BetS_A_E_C) as TT_B_A_A_C_B_E_E_C.
+	pose proof (lemma_21helper _ _ _ _ TogetherGreater_CE_ED_CD BetS_E_D_B) as TT_C_E_E_B_C_D_D_B.
 	pose proof (lemma_TTorder _ _ _ _ _ _ _ _ TT_C_E_E_B_C_D_D_B) as TT_E_B_C_E_C_D_D_B.
 	pose proof (lemma_TTflip _ _ _ _ _ _ _ _ TT_E_B_C_E_C_D_D_B) as TT_B_E_E_C_C_D_D_B.
 	pose proof (lemma_TTtransitive _ _ _ _ _ _ _ _ _ _ _ _ TT_B_A_A_C_B_E_E_C TT_B_E_E_C_C_D_D_B) as TT_B_A_A_C_C_D_D_B.

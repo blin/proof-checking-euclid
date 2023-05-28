@@ -478,7 +478,7 @@ Proof.
 		assert (BetS D G E) as BetS_D_G_E by (rewrite <- eq_W_G; exact BetS_D_W_E).
 
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_G_E) as BetS_E_G_D.
-		pose proof (axiom_orderofpoints_ABD_BCD_ABC E G F D BetS_E_G_D BetS_G_F_D) as BetS_E_G_F.
+		pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_E_G_D BetS_G_F_D) as BetS_E_G_F.
 
 		assert (~ Col H C E) as n_Col_H_C_E.
 		{
@@ -689,7 +689,6 @@ Proof.
 			BetS_C_H_E
 			Col_A_B_H
 			nCol_A_B_C
-		
 		) as OS_C_AB_E.
 
 		exact OS_C_AB_E.

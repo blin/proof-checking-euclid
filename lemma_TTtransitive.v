@@ -25,11 +25,11 @@ Proof.
 	intros TT_A_B_C_D_E_F_G_H.
 	intros TT_E_F_G_H_P_Q_R_S.
 
-	destruct TT_A_B_C_D_E_F_G_H as (K & BetS_E_F_K & Cong_FK_GH & TogetherGreater_A_B_C_D_E_K).
-	destruct TT_E_F_G_H_P_Q_R_S as (L & BetS_P_Q_L & Cong_QL_RS & TogetherGreater_E_F_G_H_P_L).
+	destruct TT_A_B_C_D_E_F_G_H as (K & BetS_E_F_K & Cong_FK_GH & TogetherGreater_AB_CD_EK).
+	destruct TT_E_F_G_H_P_Q_R_S as (L & BetS_P_Q_L & Cong_QL_RS & TogetherGreater_EF_GH_PL).
 
-	destruct TogetherGreater_A_B_C_D_E_K as (J & BetS_A_B_J & Cong_BJ_CD & Lt_EK_AJ).
-	destruct TogetherGreater_E_F_G_H_P_L as (M & BetS_E_F_M & Cong_FM_GH & Lt_PL_EM).
+	destruct TogetherGreater_AB_CD_EK as (J & BetS_A_B_J & Cong_BJ_CD & Lt_EK_AJ).
+	destruct TogetherGreater_EF_GH_PL as (M & BetS_E_F_M & Cong_FM_GH & Lt_PL_EM).
 
 	assert (eq K K) as eq_K_K by (reflexivity).
 
@@ -45,9 +45,9 @@ Proof.
 
 	pose proof (lemma_lessthantransitive _ _ _ _ _ _ Lt_PL_EK Lt_EK_AJ) as Lt_PL_AJ.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_B_J Cong_BJ_CD Lt_PL_AJ) as TogetherGreater_A_B_C_D_P_L.
+	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_B_J Cong_BJ_CD Lt_PL_AJ) as TogetherGreater_AB_CD_PL.
 
-	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_P_Q_L Cong_QL_RS TogetherGreater_A_B_C_D_P_L) as TT_A_B_C_D_P_Q_R_S.
+	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_P_Q_L Cong_QL_RS TogetherGreater_AB_CD_PL) as TT_A_B_C_D_P_Q_R_S.
 
 	exact TT_A_B_C_D_P_Q_R_S.
 Qed.

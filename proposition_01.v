@@ -24,8 +24,8 @@ Proof.
 	intros neq_A_B.
 	apply lemma_inequalitysymmetric in neq_A_B as neq_B_A.
 
-	pose proof (postulate_Euclid3 A B neq_A_B) as (J & CI_J_A_AB).
-	pose proof (postulate_Euclid3 B A neq_B_A) as (K & CI_K_B_BA).
+	pose proof (postulate_Euclid3 _ _ neq_A_B) as (J & CI_J_A_AB).
+	pose proof (postulate_Euclid3 _ _ neq_B_A) as (K & CI_K_B_BA).
 
 	pose proof (lemma_localextension _ _ _ neq_B_A neq_A_B) as (D & BetS_B_A_D & Cong_AD_AB).
 
@@ -88,8 +88,8 @@ Proof.
 
 	apply (lemma_congruencesymmetric) in Cong_CA_AB as Cong_AB_CA.
 	apply (lemma_congruenceflip) in Cong_AB_CA as (Cong_BA_AC & Cong_BA_CA & Cong_AB_AC).
-	pose proof (axiom_nocollapse A B A C neq_A_B Cong_AB_AC) as neq_A_C.
-	pose proof (axiom_nocollapse A B B C neq_A_B Cong_AB_BC) as neq_B_C.
+	pose proof (axiom_nocollapse _ _ _ _ neq_A_B Cong_AB_AC) as neq_A_C.
+	pose proof (axiom_nocollapse _ _ _ _ neq_A_B Cong_AB_BC) as neq_B_C.
 
 	assert (~ BetS A C B) as nBetS_A_C_B.
 	{
