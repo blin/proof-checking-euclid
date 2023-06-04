@@ -78,10 +78,29 @@ class PropExists(PropABC):
         return f"exists {' '.join(self.points)}, {self.p.to_str()}"
 
     def to_var(self) -> str:
-        raise NotImplementedError
+        ps = " & ".join(self.points)
+        return f"({ps} & {self.p.to_var()})"
 
 
 Prop = Union[PropSimple, PropInversion, PropConjunction, PropDisjunction, PropExists]
+
+
+def collect_disjunction_nodes(prop: Prop) -> list[Prop]:
+    result = []
+    while isinstance(prop, PropDisjunction):
+        result.append(prop.left)
+        prop = prop.right
+    result.append(prop)
+    return result
+
+
+def collect_conjunction_nodes(prop: Prop) -> list[Prop]:
+    result = []
+    while isinstance(prop, PropConjunction):
+        result.append(prop.left)
+        prop = prop.right
+    result.append(prop)
+    return result
 
 
 @dataclass
@@ -120,7 +139,7 @@ class LtacAssertByCasesCase:
 @dataclass
 class LtacAssertByCases:
     prop: Prop
-    on: PropInversion
+    on: PropDisjunction
     cases: list[LtacAssertByCasesCase]
 
 
@@ -360,7 +379,7 @@ class NodeVisitor:
         return PropDisjunction(left=vc[0], right=vc[1])
 
     def visit_exists_prop(self, node: Node, vc: list[Any]):
-        return vc[1]
+        return PropExists(points=vc[0], p=vc[1])
 
 
 def process_parse_tree(parse_tree: Node) -> Top:
