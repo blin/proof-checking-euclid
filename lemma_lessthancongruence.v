@@ -75,16 +75,14 @@ Proof.
 		Q C G D
 		P E H F
 
-		Cong_QC_PE
+		Cong_CG_EH
+		Cong_QD_PF
 		Cong_CD_EF
-		Cong_DQ_FP
-
 		BetS_Q_C_G
 		BetS_P_E_H
-
-		Cong_DC_FE
-		Cong_CG_EH
-	) as Cong_GD_HF.
+		Cong_QC_PE
+	) as Cong_DG_FH.
+	pose proof (lemma_congruenceflip _ _ _ _ Cong_DG_FH) as (Cong_GD_HF & _).
 
 	pose proof (
 		lemma_betweennesspreserved

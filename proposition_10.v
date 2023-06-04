@@ -86,7 +86,7 @@ Proof.
 	destruct equilateral_ABC as (_ & Cong_BC_CA).
 	pose proof (lemma_doublereverse _ _ _ _ Cong_BC_CA) as (Cong_AC_CB & _).
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_CB) as (_ & Cong_CA_CB & _).
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_BC_CA) as (_ & _ & Cong_BC_AC).
+	pose proof (lemma_congruenceflip _ _ _ _ Cong_BC_CA) as (_ & Cong_CB_CA & Cong_BC_AC).
 	(* △CAB and △CBA are SSS congruent. *)
 	(* △BAE and △ABD are SAS congruent. *)
 	(* ∠CAB is supplement to ∠BAE and ∠CBA is supplement to ∠ABD . *)
@@ -96,16 +96,14 @@ Proof.
 		C A E B
 		C B D A
 
-		Cong_CA_CB
+		Cong_AE_BD
+		Cong_CB_CA
 		Cong_AB_BA
-		Cong_BC_AC
-
 		BetS_C_A_E
 		BetS_C_B_D
-
-		Cong_BA_AB
-		Cong_AE_BD
-	) as Cong_EB_DA.
+		Cong_CA_CB
+	) as Cong_BE_AD.
+	pose proof (lemma_congruenceflip _ _ _ _ Cong_BE_AD) as (Cong_EB_DA & _).
 
 	pose proof (lemma_doublereverse _ _ _ _ Cong_EB_DA) as (Cong_AD_BE & _).
 	assert (Triangle A B D) as Triangle_ABD by (exact nCol_A_B_D).

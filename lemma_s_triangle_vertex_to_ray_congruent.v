@@ -58,16 +58,15 @@ Proof.
 		A U B V
 		a u b v
 
-		Cong_AU_au
+		Cong_UB_ub
+		Cong_AV_av
 		Cong_UV_uv
-		Cong_VA_va
-
 		BetS_A_U_B
 		BetS_a_u_b
+		Cong_AU_au
+	) as Cong_VB_vb.
+	pose proof (lemma_congruenceflip _ _ _ _ Cong_VB_vb) as (Cong_BV_bv & _).
 
-		Cong_VU_vu
-		Cong_UB_ub
-	) as Cong_BV_bv.
 	exact Cong_BV_bv.
 Qed.
 

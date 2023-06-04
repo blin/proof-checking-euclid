@@ -75,16 +75,14 @@ Proof.
 		C A M D
 		c a m d
 
-		Cong_CA_ca
+		Cong_AM_am
+		Cong_CD_cd
 		Cong_AD_ad
-		Cong_DC_dc
-
 		BetS_C_A_M
 		BetS_c_a_m
-
-		Cong_DA_da
-		Cong_AM_am
-	) as Cong_MD_md.
+		Cong_CA_ca
+	) as Cong_DM_dm.
+	pose proof (lemma_congruenceflip _ _ _ _ Cong_DM_dm) as (Cong_MD_md & _).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_B_C) as BetS_C_B_A.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_a_b_c) as BetS_c_b_a.
@@ -92,22 +90,21 @@ Proof.
 	pose proof (lemma_orderofpoints_ABC_ACD_BCD _ _ _ _ BetS_C_B_A BetS_C_A_M) as BetS_B_A_M.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_b_a_m) as BetS_m_a_b.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_A_M) as BetS_M_A_B.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_MD_md) as (Cong_DM_dm & _).
+
 	pose proof (
 		axiom_5_line
 		M A B D
 		m a b d
 
-		Cong_MA_ma
+		Cong_AB_ab
+		Cong_MD_md
 		Cong_AD_ad
-		Cong_DM_dm
-
 		BetS_M_A_B
 		BetS_m_a_b
+		Cong_MA_ma
+	) as Cong_DB_db.
+	pose proof (lemma_congruenceflip _ _ _ _ Cong_DB_db) as (Cong_BD_bd & _).
 
-		Cong_DA_da
-		Cong_AB_ab
-	) as Cong_BD_bd.
 	exact Cong_BD_bd.
 Qed.
 

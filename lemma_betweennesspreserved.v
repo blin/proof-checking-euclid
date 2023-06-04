@@ -51,17 +51,15 @@ Proof.
 		A B C C
 		a b d c
 
-		Cong_AB_ab
+		Cong_BC_bd
+		Cong_AC_ac
 		Cong_BC_bc
-		Cong_CA_ca
-
 		BetS_A_B_C
 		BetS_a_b_d
+		Cong_AB_ab
+	) as Cong_CC_cd.
 
-		Cong_CB_cb
-		Cong_BC_bd
-	) as Cong_CC_dc.
-
+	pose proof (lemma_congruenceflip _ _ _ _ Cong_CC_cd) as (Cong_CC_dc & _).
 	pose proof (lemma_doublereverse _ _ _ _ Cong_CC_dc) as (Cong_cd_CC & _).
 
 	assert (~ neq c d) as eq_c_d.

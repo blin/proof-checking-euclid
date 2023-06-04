@@ -64,7 +64,18 @@ Class euclidean_neutral :=
 		forall A B C D, neq A B -> Cong A B C D -> neq C D;
 	(* 6.4 Five-line axiom *)
 	(* Called Five Segment in Tarski *)
+	axiom_5_line :
+		forall A B C D a b c d,
+			Cong B C b c ->
+			Cong A D a d ->
+			Cong B D b d ->
+			BetS A B C ->
+			BetS a b c ->
+			Cong A B a b ->
+			Cong D C d c;
 	(*
+		Below is a version of the five-line axiom that
+		I've used up until having to prove lemma_Euclid4.
 		The order and list of antecedents is changed to make the axiom easier to remember.
 
 		0.	Not stated: ∃ △ABD , △abd , △DBC , △dbc , possibly degenerate.
@@ -84,6 +95,7 @@ Class euclidean_neutral :=
 		This is not done, since axiom_5_line is commonly used to help prove betweenness or equality,
 		which are needed to show that the triangles used are in fact degenerate.
 	*)
+	(*
 	axiom_5_line :
 		forall A B C D a b c d,
 			Cong A B a b ->
@@ -97,6 +109,7 @@ Class euclidean_neutral :=
 			Cong B C b c ->
 
 			Cong C D c d;
+	*)
 
 
 	postulate_Pasch_inner :
