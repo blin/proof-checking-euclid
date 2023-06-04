@@ -119,17 +119,15 @@ Proof.
 
 	pose proof (
 		axiom_5_line
-		_ _ _ _
-		_ _ _ _
-		Cong_UB_ub
+		U B W V
+		u b w v
+		Cong_BW_bw
+		Cong_UV_uv
 		Cong_BV_bv
-		Cong_VU_vu
 		BetS_U_B_W
 		BetS_u_b_w
-		Cong_VB_vb
-		Cong_BW_bw
-	) as Cong_WV_wv.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_WV_wv) as (Cong_VW_vw & _ & _).
+		Cong_UB_ub
+	) as Cong_VW_vw.
 
 	assert (~ Col D B F) as n_Col_D_B_F.
 	{
