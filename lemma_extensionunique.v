@@ -17,7 +17,7 @@ Proof.
 	intros BetS_A_B_F.
 	intros Cong_BE_BF.
 	assert (Cong A B A B) as Cong_AB_AB by (apply cn_congruencereflexive).
-	assert (Cong E A E A) as Cong_EA_EA by (apply cn_congruencereflexive).
+	assert (Cong A E A E) as Cong_AE_AE by (apply cn_congruencereflexive).
 	assert (Cong B E B E) as Cong_BE_BE by (apply cn_congruencereflexive).
 	assert (Cong E B E B) as Cong_EB_EB by (apply cn_congruencereflexive).
 	apply lemma_congruencesymmetric in Cong_BE_BF as Cong_BF_BE.
@@ -37,17 +37,14 @@ Proof.
 		A B E E
 		A B F E
 
-		Cong_AB_AB
+		Cong_BE_BF
+		Cong_AE_AE
 		Cong_BE_BE
-		Cong_EA_EA
-
 		BetS_A_B_E
 		BetS_A_B_F
+		Cong_AB_AB
+	) as Cong_EE_EF.
 
-		Cong_EB_EB
-		Cong_BE_BF
-	) as Cong_EE_FE.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_EE_FE) as (Cong_EE_EF & _).
 	apply lemma_congruencesymmetric in Cong_EE_EF as Cong_EF_EE.
 
 	assert (~ neq E F) as eq_E_F.

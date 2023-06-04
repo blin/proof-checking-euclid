@@ -118,16 +118,14 @@ Proof.
 		E A B C
 		e a b c
 
-		Cong_EA_ea
+		Cong_AB_ab
+		Cong_EC_ec
 		Cong_AC_ac
-		Cong_CE_ce
-
 		BetS_E_A_B
 		BetS_e_a_b
-
-		Cong_CA_ca
-		Cong_AB_ab
-	) as Cong_BC_bc.
+		Cong_EA_ea
+	) as Cong_CB_cb.
+	pose proof (lemma_congruenceflip _ _ _ _ Cong_CB_cb) as (Cong_BC_bc & _ & _).
 
 	exact Cong_BC_bc.
 Qed.

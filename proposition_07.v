@@ -195,32 +195,32 @@ Proof.
 		(* case BetS_B_A_G *)
 		pose proof (
 			axiom_5_line
-			_ _ _ _
-			_ _ _ _
-			Cong_BA_BA
-			Cong_AD_AE
-			Cong_DB_EB
-			BetS_B_A_G
-			BetS_B_A_G
-			Cong_DA_EA
+			B A G D
+			B A G E
 			Cong_AG_AG
-		) as Cong_GD_GE.
+			Cong_BD_BE
+			Cong_AD_AE
+			BetS_B_A_G
+			BetS_B_A_G
+			Cong_BA_BA
+		) as Cong_DG_EG.
+		pose proof (lemma_congruenceflip _ _ _ _ Cong_DG_EG) as (Cong_GD_GE & _ & _).
 		exact Cong_GD_GE.
 	}
 	{
 		(* case BetS_A_B_G *)
 		pose proof (
 			axiom_5_line
-			_ _ _ _
-			_ _ _ _
-			Cong_AB_AB
-			Cong_BD_BE
-			Cong_DA_EA
-			BetS_A_B_G
-			BetS_A_B_G
-			Cong_DB_EB
+			A B G D
+			A B G E
 			Cong_BG_BG
-		) as Cong_GD_GE.
+			Cong_AD_AE
+			Cong_BD_BE
+			BetS_A_B_G
+			BetS_A_B_G
+			Cong_AB_AB
+		) as Cong_DG_EG.
+		pose proof (lemma_congruenceflip _ _ _ _ Cong_DG_EG) as (Cong_GD_GE & _ & _).
 		exact Cong_GD_GE.
 	}
 	{
