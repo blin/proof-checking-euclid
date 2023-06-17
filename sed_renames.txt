@@ -32,12 +32,20 @@ s/collinear5/collinear_ABC_ABD_ABE_CDE/g
 
 s/9_5a/otherside_betweenness_PABC_RPQ_QABC/g
 s/9_5b/otherside_betweenness_PABC_RQP_QABC/g
+s/9_5/otherside_onray_PABC_RQP_QABC/g
+
+s/sameside2/sameside_onray_EFAC_BFG_EGAC/g
 
 s/8_2/right_triangle_symmetric/g
 s/8_3/right_triangle_leg_change/g
+s/8_7/right_triangle_CBA_n_ACB/g
 s/rightangleNC/right_triangle_NC/g
 
+s/10_12/right_triangle_same_base_cong_side_cong_hypotenuse/g
+
 s/supplements/supplements_conga/g
+
+s/angletrichotomy2/angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF/g
 
 s/trichotomy1/trichotomy_equal/g
 s/trichotomy2/trichotomy_asymmetric/g
