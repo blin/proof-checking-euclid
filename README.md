@@ -194,6 +194,11 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_23](./proposition_23.v)
 001. [lemma_equalanglesflip](./lemma_equalanglesflip.v)
 001. [proposition_24](./proposition_24.v)
+001. [proposition_15a](./proposition_15a.v)
+001. [lemma_pointreflectionisometry](./lemma_pointreflectionisometry.v)
+001. [lemma_linereflectionisometry](./lemma_linereflectionisometry.v)
+001. [lemma_right_triangle_same_base_cong_side_cong_hypotenuse](./lemma_right_triangle_same_base_cong_side_cong_hypotenuse.v)
+001. [lemma_Euclid4](./lemma_Euclid4.v)
 
 ## Differences from GeoCoq
 
