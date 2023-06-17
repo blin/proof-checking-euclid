@@ -194,6 +194,21 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_23](./proposition_23.v)
 001. [lemma_equalanglesflip](./lemma_equalanglesflip.v)
 001. [proposition_24](./proposition_24.v)
+001. [lemma_sameside_onray_EFAC_BFG_EGAC](./lemma_sameside_onray_EFAC_BFG_EGAC.v)
+001. [lemma_otherside_onray_PABC_RQP_QABC](./lemma_otherside_onray_PABC_RQP_QABC.v)
+001. [proposition_15a](./proposition_15a.v)
+001. [lemma_pointreflectionisometry](./lemma_pointreflectionisometry.v)
+001. [lemma_linereflectionisometry](./lemma_linereflectionisometry.v)
+001. [lemma_right_triangle_same_base_cong_side_cong_hypotenuse](./lemma_right_triangle_same_base_cong_side_cong_hypotenuse.v)
+001. [lemma_Euclid4](./lemma_Euclid4.v)
+001. [lemma_right_triangle_CBA_n_ACB](./lemma_right_triangle_CBA_n_ACB.v)
+001. [lemma_samesidereflexive](./lemma_samesidereflexive.v)
+001. [lemma_notperp](./lemma_notperp.v)
+001. [proposition_11B](./proposition_11B.v)
+001. [proposition_23B](./proposition_23B.v)
+001. [proposition_23C](./proposition_23C.v)
+001. [lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF](./lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF.v)
+001. [proposition_25](./proposition_25.v)
 
 ## Differences from GeoCoq
 
