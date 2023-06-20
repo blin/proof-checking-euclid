@@ -50,6 +50,8 @@ Definition TogetherGreater A B C D E F := exists X, BetS A B X /\ Cong B X C D /
 Definition TT A B C D E F G H := exists X, BetS E F X /\ Cong F X G H /\ TogetherGreater A B C D E X.
 (* ABC and DEF make together two right angles *)
 Definition SumTwoRT A B C D E F := exists X Y Z U V, Supp X Y U V Z /\ CongA A B C X Y U /\ CongA D E F V Y Z.
+Definition Meet A B C D := exists X, neq A B /\ neq C D /\ Col A B X /\ Col C D X.
+Definition Par A B C D := exists U V u v X, neq A B /\ neq C D /\ Col A B U /\ Col A B V /\ neq U V /\ Col C D u /\ Col C D v /\ neq u v /\ ~ Meet A B C D /\ BetS U X v /\ BetS u X V.
 Definition AngleSum A B C D E F P Q R := exists X, CongA A B C P Q X /\ CongA D E F X Q R /\ BetS P X R.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
