@@ -31,6 +31,7 @@ checkpoints=(
 "proposition_24"
 "lemma_Euclid4"
 "proposition_25"
+"proposition_26A"
 )
 
 make clean >/dev/null

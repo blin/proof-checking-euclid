@@ -209,6 +209,7 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_23C](./proposition_23C.v)
 001. [lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF](./lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF.v)
 001. [proposition_25](./proposition_25.v)
+001. [proposition_26A](./proposition_26A.v)
 
 ## Differences from GeoCoq
 
