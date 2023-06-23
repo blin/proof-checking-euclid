@@ -283,10 +283,12 @@ class LemmaPrinter:
                 A, B, C = a.prop.points
                 match a.prop.head:
                     case "nCol":
+                        self.process_indent()
                         self.w.write(
                             f"pose proof (lemma_s_ncol_triangle _ _ _ Triangle_{A}_{B}_{C}) as nCol_{A}_{B}_{C}.\n"
                         )
                     case "Triangle":
+                        self.process_indent()
                         self.w.write(
                             f"pose proof (lemma_s_triangle _ _ _ nCol_{A}_{B}_{C}) as Triangle_{A}_{B}_{C}.\n"
                         )
@@ -394,7 +396,14 @@ class LemmaPrinter:
             self.context.add_prop(a.prop)
             return
 
-        assert a.by.t == "conclude"
+        # Special case for proposition_27
+        if a.by.t == "unfold":
+            self.process_indent()
+            self.w.write(f"pose proof (???) as {a.prop.to_var()}.\n")
+            self.context.add_prop(a.prop)
+            return
+
+        assert a.by.t == "conclude", a
 
         self.process_indent()
         match a.by.n:
