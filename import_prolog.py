@@ -137,6 +137,7 @@ def prolog_lemmas(
         "TT",
         "TogetherGreater",
         "Triangle",
+        "auto",
         "axiom_betweennessidentity",
         "axiom_betweennesssymmetry",
         "cn_congruencereflexive",
