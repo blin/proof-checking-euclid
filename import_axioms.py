@@ -129,6 +129,26 @@ axioms = {
         ),
         asserts=[],
     ),
+    "postulate_Euclid5": Lemma(
+        name="postulate_Euclid5",
+        points=["a", "p", "q", "r", "s", "t"],
+        given=[
+            PropSimple(head="BetS", points=["r", "t", "s"]),
+            PropSimple(head="BetS", points=["p", "t", "q"]),
+            PropSimple(head="BetS", points=["r", "a", "q"]),
+            PropSimple(head="Cong", points=["p", "t", "q", "t"]),
+            PropSimple(head="Cong", points=["t", "r", "t", "s"]),
+            PropInversion(p=PropSimple(head="Col", points=["p", "q", "s"])),
+        ],
+        conclusion=PropExists(
+            points=["X"],
+            p=PropConjunction(
+                left=PropSimple(head="BetS", points=["p", "a", "X"]),
+                right=PropSimple(head="BetS", points=["s", "q", "X"]),
+            ),
+        ),
+        asserts=[],
+    ),
 }
 
 # TODO: extract from euclidean_defs.v
