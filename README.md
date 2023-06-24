@@ -210,6 +210,11 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF](./lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF.v)
 001. [proposition_25](./proposition_25.v)
 001. [proposition_26A](./proposition_26A.v)
+001. [lemma_s_meet](./lemma_s_meet.v)
+001. [lemma_collinearbetween](./lemma_collinearbetween.v)
+001. [lemma_s_col_ABC_col_ABD_ncol_ACD_eq_AB](./lemma_s_col_ABC_col_ABD_ncol_ACD_eq_AB.v)
+001. [lemma_s_par](./lemma_s_par.v)
+001. [proposition_27](./proposition_27.v)
 
 ## Differences from GeoCoq
 
