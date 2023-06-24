@@ -43,6 +43,7 @@ s/rightangleNC/right_triangle_NC/g
 
 s/10_12/right_triangle_same_base_cong_side_cong_hypotenuse/g
 
+s/supplementsymmetric/supplement_symmetric/g
 s/supplements/supplements_conga/g
 
 s/angletrichotomy2/angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF/g

@@ -144,3 +144,18 @@ Class euclidean_neutral_ruler_compass `(Ax : euclidean_neutral) :=
 			OnCirc P K -> OnCirc Q K ->
 			exists X, OnCirc X J /\ OnCirc X K
 }.
+
+(*
+	Third, we introduce the famous fifth postulate of Euclid,
+	which ensures that the geometry is
+	Euclidean (i.e. not hyperbolic).
+*)
+
+Class euclidean_euclidean `(Ax : euclidean_neutral_ruler_compass) :=
+{
+	postulate_Euclid5 :
+		forall a p q r s t,
+			BetS r t s -> BetS p t q -> BetS r a q ->
+			Cong p t q t -> Cong t r t s -> nCol p q s ->
+			exists X, BetS p a X /\ BetS s q X
+}.
