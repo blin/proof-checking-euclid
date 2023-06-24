@@ -146,7 +146,6 @@ def prolog_lemmas(
         "cn_equalityreflexive",
         "cn_equalitysub",
         "isosceles",
-        "lemma_crossbar",
         "lemma_extension",
         "lemma_onray_assert",
         "lemma_onray_orderofpoints_any",
