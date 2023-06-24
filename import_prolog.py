@@ -133,6 +133,7 @@ def prolog_lemmas(
         "Perp_at",
         "RightTriangle",
         "SS",
+        "SumTwoRT",
         "Supp",
         "TT",
         "TogetherGreater",
