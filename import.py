@@ -262,12 +262,20 @@ class LemmaPrinter:
                 self.assert_by_conclude_def_destruct(a)
                 return
             case PropDisjunction():
+                self.process_indent()
                 self.w.write(f"destruct Col_X_Y_Z as {a.prop.to_var()}.\n")
                 return
 
-        if a.prop.head != a.by.n:
-            self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct *)\n")
-            return
+        match a.prop:
+            case PropSimple():
+                if a.prop.head != a.by.n:
+                    self.process_indent()
+                    self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct *)\n")
+                    return
+            case PropInversion():
+                self.process_indent()
+                self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct *)\n")
+                return
 
         if a.by.n in defs_to_supporting_lemmas_for_defs:
             self.assert_by(
@@ -305,6 +313,7 @@ class LemmaPrinter:
                     f"pose proof (lemma_s_incirc_within_radius _ _ _ _ _ _ _ CI_{J}_{U}_{V}_{W} BetS_{U}_{Y}_{X} Cong_{U}_{X}_{V}_{W} Cong_{U}_{P}_{U}_{Y}) as {a.prop.to_var()}.\n"
                 )
             case _:
+                self.process_indent()
                 self.w.write(f"pose proof ({a.by.n}) as {a.prop.to_var()}. (* conclude_def *)\n")
 
     def assert_by_forward_using(self, a: LtacAssertBy) -> None:
@@ -397,7 +406,7 @@ class LemmaPrinter:
             return
 
         # Special case for proposition_27
-        if a.by.t == "unfold":
+        if a.by.t in ["unfold", "auto"]:
             self.process_indent()
             self.w.write(f"pose proof (???) as {a.prop.to_var()}.\n")
             self.context.add_prop(a.prop)
