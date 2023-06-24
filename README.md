@@ -215,6 +215,7 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_col_ABC_col_ABD_ncol_ACD_eq_AB](./lemma_s_col_ABC_col_ABD_ncol_ACD_eq_AB.v)
 001. [lemma_s_par](./lemma_s_par.v)
 001. [proposition_27](./proposition_27.v)
+001. [proposition_28A](./proposition_28A.v)
 
 ## Differences from GeoCoq
 
