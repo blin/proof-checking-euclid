@@ -254,6 +254,9 @@ class NodeVisitor:
             assert isinstance(by, LtacConclude), f"assert with unknown by: {by}"
             return LtacAssertBy(prop=prop, by=by)
         if tactic_name in {"conclude", "conclude_def", "forward_using", "unfold"}:
+            if isinstance(vc[1], PropSimple):
+                return LtacConclude(t=tactic_name, n=vc[1].head)
+            assert isinstance(vc[1], str), f"conclude that is neither PropSimple nor str: {node}"
             return LtacConclude(t=tactic_name, n=vc[1])
         if tactic_name in {"unshelve", "apply", "eapply", "epose", "pose", "auto"}:
             concludes = [e for e in vc[1:] if isinstance(e, LtacConclude)]
