@@ -125,7 +125,6 @@ lemmas_can_be_forward_using = [
     "proposition_16",
     "proposition_26A",
     "proposition_29",
-    "proposition_29B",
     "proposition_29C",
     "proposition_33",
     "proposition_33B",
@@ -461,7 +460,7 @@ class LemmaPrinter:
                 self.assert_by_lemma_extension(a)
                 self.context.add_prop(a.prop)
                 return
-            case "lemma_onray_orderofpoints_any":
+            case "lemma_onray_orderofpoints_any" | "cn_equalitytransitive":
                 # somehow this is not forward_using
                 proof = a.by.n + "???"
                 self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
