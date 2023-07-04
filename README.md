@@ -218,6 +218,10 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_28A](./proposition_28A.v)
 001. [lemma_parallelflip](./lemma_parallelflip.v)
 001. [proposition_31](./proposition_31.v)
+001. [lemma_crossbar_LtA](./lemma_crossbar_LtA.v)
+001. [lemma_supplement_symmetric](./lemma_supplement_symmetric.v)
+001. [lemma_supplementinequality](./lemma_supplementinequality.v)
+001. [proposition_29](./proposition_29.v)
 
 ## Differences from GeoCoq
 

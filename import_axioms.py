@@ -129,6 +129,26 @@ axioms = {
         ),
         asserts=[],
     ),
+    "postulate_Euclid5": Lemma(
+        name="postulate_Euclid5",
+        points=["a", "p", "q", "r", "s", "t"],
+        given=[
+            PropSimple(head="BetS", points=["r", "t", "s"]),
+            PropSimple(head="BetS", points=["p", "t", "q"]),
+            PropSimple(head="BetS", points=["r", "a", "q"]),
+            PropSimple(head="Cong", points=["p", "t", "q", "t"]),
+            PropSimple(head="Cong", points=["t", "r", "t", "s"]),
+            PropInversion(p=PropSimple(head="Col", points=["p", "q", "s"])),
+        ],
+        conclusion=PropExists(
+            points=["X"],
+            p=PropConjunction(
+                left=PropSimple(head="BetS", points=["p", "a", "X"]),
+                right=PropSimple(head="BetS", points=["s", "q", "X"]),
+            ),
+        ),
+        asserts=[],
+    ),
 }
 
 # TODO: extract from euclidean_defs.v
@@ -290,6 +310,17 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Par", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
+    "lemma_s_sumtwort": Lemma(
+        name="lemma_s_sumtwort",
+        points=["A", "B", "C", "D", "E", "F", "X", "Y", "Z", "U", "V"],
+        given=[
+            PropSimple(head="Supp", points=["X", "Y", "U", "V", "Z"]),
+            PropSimple(head="CongA", points=["A", "B", "C", "X", "Y", "U"]),
+            PropSimple(head="CongA", points=["D", "E", "F", "V", "Y", "Z"]),
+        ],
+        conclusion=PropSimple(head="SumTwoRT", points=["A", "B", "C", "D", "E", "F"]),
+        asserts=[],
+    ),
 }
 
 defs_to_supporting_lemmas_for_defs = {
@@ -305,6 +336,7 @@ defs_to_supporting_lemmas_for_defs = {
     "Par": "lemma_s_par",
     "RightTriangle": "lemma_s_right_triangle",
     "SS": "lemma_s_ss",
+    "SumTwoRT": "lemma_s_sumtwort",
     "Supp": "lemma_s_supp",
 }
 
