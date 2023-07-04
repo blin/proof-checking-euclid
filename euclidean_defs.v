@@ -55,6 +55,8 @@ Definition Meet A B C D := exists X,
 	neq C D /\
 	Col A B X /\
 	Col C D X.
+Definition CR A B C D := exists X, BetS A X B /\ BetS C X D.
+Definition TP A B C D := neq A B /\ neq C D /\ ~ Meet A B C D /\ SS C D A B.
 (* BetS U X v /\ BetS u X V is used as "same plane". See "Tarski-parallel" in the paper. *)
 Definition Par A B C D := exists U V u v X,
 	neq A B /\
@@ -69,6 +71,7 @@ Definition Par A B C D := exists U V u v X,
 	BetS U X v /\
 	BetS u X V.
 Definition AngleSum A B C D E F P Q R := exists X, CongA A B C P Q X /\ CongA D E F X Q R /\ BetS P X R.
+Definition SQ A B C D := Cong A B C D /\ Cong A B B C /\ Cong A B D A /\ RightTriangle D A B /\ RightTriangle A B C /\ RightTriangle B C D /\ RightTriangle C D A.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
 End Definitions.
