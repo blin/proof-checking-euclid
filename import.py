@@ -20,6 +20,7 @@ from import_rpl import (
     Lemma,
     LtacAssertBy,
     LtacAssertByCases,
+    LtacAssertConclude,
     LtacAssertContradiction,
     LtacConclude,
     Prop,
@@ -615,6 +616,14 @@ class LemmaPrinter:
             self.context.pop_scope()
         self.context.add_prop(a.prop)
 
+    def assert_conclude(self, a: LtacAssertConclude) -> None:
+        prop = a.prop
+
+        self.w.write("\n")
+        self.process_indent()
+        self.w.write(f"assert ({prop.to_str()}) as {prop.to_var()}. (* assert_conclude *)\n")
+        self.context.add_prop(prop)
+
     def process_assert(self, a: Assert) -> None:
         match a:
             case LtacAssertBy():
@@ -623,6 +632,10 @@ class LemmaPrinter:
                 self.assert_contradiction(a)
             case LtacAssertByCases():
                 self.assert_by_cases(a)
+            case LtacAssertConclude():
+                self.assert_conclude(a)
+            case _:
+                raise ValueError(f"Unexpected assert type: {a}")
 
     def prepare_prolog(self) -> None:
         prolog_lemmas(

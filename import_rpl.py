@@ -124,6 +124,9 @@ class LtacAssertBy:
     prop: Prop
     by: LtacConclude
 
+@dataclass
+class LtacAssertConclude:
+    prop: Prop
 
 @dataclass
 class LtacAssertContradiction:
@@ -143,7 +146,7 @@ class LtacAssertByCases:
     cases: list[LtacAssertByCasesCase]
 
 
-Assert = Union[LtacAssertBy, LtacAssertContradiction, LtacAssertByCases]
+Assert = Union[LtacAssertBy, LtacAssertContradiction, LtacAssertByCases, LtacAssertConclude]
 
 
 @dataclass
@@ -294,7 +297,7 @@ class NodeVisitor:
 
     def visit_invocation(self, node: Node, vc: list[Any]):
         invocable_id = node["subs"][0]["data"]
-        return LtacConclude(t="invocable", n=invocable_id)
+        return LtacConclude(t="conclude", n=invocable_id)
 
     def visit_command(self, node: Node, vc: list[Any]):
         return Command(data=node["data"])
@@ -327,6 +330,11 @@ class NodeVisitor:
         cases = [e for e in vc[2:] if isinstance(e, LtacAssertByCasesCase)]
 
         return LtacAssertByCases(prop=top_assert.prop, on=on, cases=cases)
+
+    def visit_lemma_compound_assert_conclude(self, node: Node, vc: list[Any]):
+        top_assert = vc[0]
+        assert isinstance(top_assert, LtacAssert)
+        return LtacAssertConclude(prop=top_assert.prop)
 
     def visit_require(self, node: Node, vc: list[Any]):
         return Require(qid=vc[0])
