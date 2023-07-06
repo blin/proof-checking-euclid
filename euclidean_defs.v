@@ -55,6 +55,8 @@ Definition Meet A B C D := exists X,
 	neq C D /\
 	Col A B X /\
 	Col C D X.
+Definition CR A B C D := exists X, BetS A X B /\ BetS C X D.
+Definition TP A B C D := neq A B /\ neq C D /\ ~ Meet A B C D /\ SS C D A B.
 (* BetS U X v /\ BetS u X V is used as "same plane". See "Tarski-parallel" in the paper. *)
 Definition Par A B C D := exists U V u v X,
 	neq A B /\
