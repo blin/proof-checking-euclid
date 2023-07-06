@@ -118,6 +118,7 @@ def prolog_lemmas(
     req_names: list[str], lemmas_by_name: dict[str, Lemma], prolog_lemmas_path: str
 ) -> None:
     req_names = req_names - {
+        "CR",
         "Col",
         "CongA",
         "InCirc",
@@ -135,6 +136,7 @@ def prolog_lemmas(
         "SS",
         "SumTwoRT",
         "Supp",
+        "TP",
         "TT",
         "TogetherGreater",
         "Triangle",
@@ -145,6 +147,7 @@ def prolog_lemmas(
         "cn_congruencereverse",
         "cn_equalityreflexive",
         "cn_equalitysub",
+        "cn_equalitytransitive",
         "isosceles",
         "lemma_extension",
         "lemma_onray_assert",

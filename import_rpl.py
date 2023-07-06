@@ -124,6 +124,9 @@ class LtacAssertBy:
     prop: Prop
     by: LtacConclude
 
+@dataclass
+class LtacAssertConclude:
+    prop: Prop
 
 @dataclass
 class LtacAssertContradiction:
@@ -143,7 +146,7 @@ class LtacAssertByCases:
     cases: list[LtacAssertByCasesCase]
 
 
-Assert = Union[LtacAssertBy, LtacAssertContradiction, LtacAssertByCases]
+Assert = Union[LtacAssertBy, LtacAssertContradiction, LtacAssertByCases, LtacAssertConclude]
 
 
 @dataclass
@@ -254,6 +257,9 @@ class NodeVisitor:
             assert isinstance(by, LtacConclude), f"assert with unknown by: {by}"
             return LtacAssertBy(prop=prop, by=by)
         if tactic_name in {"conclude", "conclude_def", "forward_using", "unfold"}:
+            if isinstance(vc[1], PropSimple):
+                return LtacConclude(t=tactic_name, n=vc[1].head)
+            assert isinstance(vc[1], str), f"conclude that is neither PropSimple nor str: {node}"
             return LtacConclude(t=tactic_name, n=vc[1])
         if tactic_name in {"unshelve", "apply", "eapply", "epose", "pose", "auto"}:
             concludes = [e for e in vc[1:] if isinstance(e, LtacConclude)]
@@ -291,7 +297,7 @@ class NodeVisitor:
 
     def visit_invocation(self, node: Node, vc: list[Any]):
         invocable_id = node["subs"][0]["data"]
-        return LtacConclude(t="invocable", n=invocable_id)
+        return LtacConclude(t="conclude", n=invocable_id)
 
     def visit_command(self, node: Node, vc: list[Any]):
         return Command(data=node["data"])
@@ -324,6 +330,11 @@ class NodeVisitor:
         cases = [e for e in vc[2:] if isinstance(e, LtacAssertByCasesCase)]
 
         return LtacAssertByCases(prop=top_assert.prop, on=on, cases=cases)
+
+    def visit_lemma_compound_assert_conclude(self, node: Node, vc: list[Any]):
+        top_assert = vc[0]
+        assert isinstance(top_assert, LtacAssert)
+        return LtacAssertConclude(prop=top_assert.prop)
 
     def visit_require(self, node: Node, vc: list[Any]):
         return Require(qid=vc[0])
