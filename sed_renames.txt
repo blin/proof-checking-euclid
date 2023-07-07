@@ -7,6 +7,8 @@ s/Per /RightTriangle /g
 s/RT /SumTwoRT /g
 s/SumA /AngleSum /g
 s/TG /TogetherGreater /g
+s/TP /TarskiPar /g
+s/CR /Cross /g
 s/lemma_TG/lemma_TogetherGreater_/g
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
@@ -24,6 +26,9 @@ s/ray4/onray_assert/g
 s/ray5/onray_ABC_ACB/g
 s/raystrict/onray_strict/g
 s/rayimpliescollinear/onray_impliescollinear/
+
+s/parallelcollinear1/tarski_parallel_collinear_ABcd_Ccd_ABCd/g
+s/parallelcollinear2/tarski_parallel_collinear_ABcd_cCd_ABCd/g
 
 s/collinear1/collinear_ABC_BAC/g
 s/collinear2/collinear_ABC_BCA/g
@@ -56,3 +61,6 @@ s/angleorderrespectscongruence2/angleorderrespectscongruence_smaller/g
 s/lessthancongruence2/lessthancongruence_smaller/g
 
 s/crossbar2/crossbar_LtA/g
+
+s/parallelcollinear/collinear_tarski_parallel/g
+s/paralleldef2B/parallel_to_tarski_parallel/g
