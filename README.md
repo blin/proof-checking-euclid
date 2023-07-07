@@ -222,6 +222,21 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_supplement_symmetric](./lemma_supplement_symmetric.v)
 001. [lemma_supplementinequality](./lemma_supplementinequality.v)
 001. [proposition_29](./proposition_29.v)
+001. [lemma_collinearparallel](./lemma_collinearparallel.v)
+001. [lemma_parallelNC](./lemma_parallelNC.v)
+001. [lemma_s_tarski_par](./lemma_s_tarski_par.v)
+001. [lemma_tarski_parallel_collinear_ABcd_Ccd_ABCd](./lemma_tarski_parallel_collinear_ABcd_Ccd_ABCd.v)
+001. [lemma_tarski_parallel_collinear_ABcd_cCd_ABCd](./lemma_tarski_parallel_collinear_ABcd_cCd_ABCd.v)
+001. [lemma_tarskiparallelflip](./lemma_tarskiparallelflip.v)
+001. [lemma_collinear_tarski_parallel](./lemma_collinear_tarski_parallel.v)
+001. [lemma_parallel_to_tarski_parallel](./lemma_parallel_to_tarski_parallel.v)
+001. [lemma_parallelsymmetric](./lemma_parallelsymmetric.v)
+001. [lemma_s_cross](./lemma_s_cross.v)
+001. [lemma_crisscross](./lemma_crisscross.v)
+001. [lemma_30helper](./lemma_30helper.v)
+001. [lemma_crossimpliesopposite](./lemma_crossimpliesopposite.v)
+001. [proposition_30A](./proposition_30A.v)
+001. [proposition_30](./proposition_30.v)
 
 ## Differences from GeoCoq
 
