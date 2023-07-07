@@ -118,6 +118,7 @@ def prolog_lemmas(
     req_names: list[str], lemmas_by_name: dict[str, Lemma], prolog_lemmas_path: str
 ) -> None:
     req_names = req_names - {
+        "AngleSum",
         "Col",
         "CongA",
         "Cross",

@@ -237,6 +237,9 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_crossimpliesopposite](./lemma_crossimpliesopposite.v)
 001. [proposition_30A](./proposition_30A.v)
 001. [proposition_30](./proposition_30.v)
+001. [lemma_s_anglesum](./lemma_s_anglesum.v)
+001. [proposition_31short](./proposition_31short.v)
+001. [proposition_32](./proposition_32.v)
 
 ## Differences from GeoCoq
 
