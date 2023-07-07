@@ -120,6 +120,7 @@ def prolog_lemmas(
     req_names = req_names - {
         "Col",
         "CongA",
+        "Cross",
         "InCirc",
         "Lt",
         "LtA",
@@ -136,6 +137,7 @@ def prolog_lemmas(
         "SumTwoRT",
         "Supp",
         "TT",
+        "TarskiPar",
         "TogetherGreater",
         "Triangle",
         "auto",
@@ -145,6 +147,7 @@ def prolog_lemmas(
         "cn_congruencereverse",
         "cn_equalityreflexive",
         "cn_equalitysub",
+        "cn_equalitytransitive",
         "isosceles",
         "lemma_extension",
         "lemma_onray_assert",
