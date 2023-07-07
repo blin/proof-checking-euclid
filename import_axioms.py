@@ -321,6 +321,18 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="SumTwoRT", points=["A", "B", "C", "D", "E", "F"]),
         asserts=[],
     ),
+    "lemma_s_tarski_par": Lemma(
+        name="lemma_s_tarski_par",
+        points=["A", "B", "C", "D"],
+        given=[
+            PropSimple(head="neq", points=["A", "B"]),
+            PropSimple(head="neq", points=["C", "D"]),
+            PropInversion(p=PropSimple(head="Meet", points=["A", "B", "C", "D"])),
+            PropSimple(head="SS", points=["C", "D", "A", "B"]),
+        ],
+        conclusion=PropSimple(head="TarskiPar", points=["A", "B", "C", "D"]),
+        asserts=[],
+    ),
 }
 
 defs_to_supporting_lemmas_for_defs = {
@@ -338,6 +350,7 @@ defs_to_supporting_lemmas_for_defs = {
     "SS": "lemma_s_ss",
     "SumTwoRT": "lemma_s_sumtwort",
     "Supp": "lemma_s_supp",
+    "TarskiPar": "lemma_s_tarski_par",
 }
 
 assert {l.name for l in supporting_lemmas_for_defs.values()} <= set(
