@@ -77,26 +77,37 @@ def extract_requirements_top(t: Top) -> set[str]:
 
 def print_requirements(w: TextIO, t: Top) -> None:
     rs = extract_requirements_top(t)
+    if "Triangle" in rs:
+        rs |= {"lemma_s_ncol_triangle", "lemma_s_triangle"}
+    if "OnRay" in rs:
+        rs |= {
+            "lemma_s_onray_assert_ABB",
+            "lemma_s_onray_assert_bets_ABE",
+            "lemma_s_onray_assert_bets_AEB",
+        }
+    if "Col" in rs:
+        rs |= {
+            "lemma_s_col_BetS_A_B_C",
+            "lemma_s_col_BetS_A_C_B",
+            "lemma_s_col_BetS_B_A_C",
+            "lemma_s_col_eq_A_B",
+            "lemma_s_col_eq_A_C",
+            "lemma_s_col_eq_B_C",
+        }
+    if "nCol" in rs:
+        rs |= {
+            "lemma_NCdistinct",
+            "lemma_NCorder",
+            "lemma_s_n_col_ncol",
+            "lemma_s_ncol_n_col",
+        }
+    if "isosceles" in rs:
+        rs |= { "lemma_s_isosceles" }
+    if "CI" in rs:
+        rs |= { "lemma_s_oncirc_radius" }
     rs |= {
         "euclidean_axioms",
         "euclidean_defs",
-        "lemma_NCdistinct",
-        "lemma_NCorder",
-        "lemma_s_col_BetS_A_B_C",
-        "lemma_s_col_BetS_A_C_B",
-        "lemma_s_col_BetS_B_A_C",
-        "lemma_s_col_eq_A_B",
-        "lemma_s_col_eq_A_C",
-        "lemma_s_col_eq_B_C",
-        "lemma_s_isosceles",
-        "lemma_s_n_col_ncol",
-        "lemma_s_ncol_n_col",
-        "lemma_s_ncol_triangle",
-        "lemma_s_oncirc_radius",
-        "lemma_s_onray_assert_ABB",
-        "lemma_s_onray_assert_bets_ABE",
-        "lemma_s_onray_assert_bets_AEB",
-        "lemma_s_triangle",
     }
     for r in sorted(rs):
         if any([r.startswith(p) for p in ["cn_", "axiom_", "postulate_"]]):
