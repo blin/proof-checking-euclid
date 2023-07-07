@@ -343,9 +343,21 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Cross", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
+    "lemma_s_anglesum": Lemma(
+        name="lemma_s_anglesum",
+        points=['A', 'B', 'C', 'D', 'E', 'F', 'P', 'Q', 'R', 'X'],
+        given=[
+            PropSimple(head="CongA", points=["A", "B", "C", "P", "Q", "X"]),
+            PropSimple(head="CongA", points=["D", "E", "F", "X", "Q", "R"]),
+            PropSimple(head="BetS", points=["P", "X", "R"]),
+        ],
+        conclusion=PropSimple(head="AngleSum", points=["A", "B", "C", "D", "E", "F", "P", "Q", "R"]),
+        asserts=[],
+    ),
 }
 
 defs_to_supporting_lemmas_for_defs = {
+    "AngleSum": "lemma_s_anglesum",
     "CongA": "lemma_s_conga",
     "Cross": "lemma_s_cross",
     "Lt": "lemma_s_lt",
