@@ -240,6 +240,9 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_s_anglesum](./lemma_s_anglesum.v)
 001. [proposition_31short](./proposition_31short.v)
 001. [proposition_32](./proposition_32.v)
+001. [proposition_27B](./proposition_27B.v)
+001. [proposition_29B](./proposition_29B.v)
+001. [proposition_33](./proposition_33.v)
 
 ## Differences from GeoCoq
 
