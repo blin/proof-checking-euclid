@@ -21,18 +21,18 @@ Proof.
 		F &
 		S &
 		BetS_E_A_F &
-		CongA_F_A_D_A_D_B &
-		CongA_F_A_D_B_D_A &
-		CongA_D_A_F_B_D_A &
-		CongA_E_A_D_A_D_C &
-		CongA_E_A_D_C_D_A &
-		CongA_D_A_E_C_D_A &
-		Par_E_F_B_C &
-		Cong_E_A_D_C &
-		Cong_A_F_B_D &
-		Cong_A_S_S_D &
-		Cong_E_S_S_C &
-		Cong_B_S_S_F &
+		CongA_FAD_ADB &
+		CongA_FAD_BDA &
+		CongA_DAF_BDA &
+		CongA_EAD_ADC &
+		CongA_EAD_CDA &
+		CongA_DAE_CDA &
+		Par_EF_BC &
+		Cong_EA_DC &
+		Cong_AF_BD &
+		Cong_AS_SD &
+		Cong_ES_SC &
+		Cong_BS_SF &
 		BetS_E_S_C &
 		BetS_B_S_F &
 		BetS_A_S_D
@@ -41,9 +41,9 @@ Proof.
 	split.
 	exact BetS_E_A_F.
 	split.
-	exact CongA_E_A_D_A_D_C.
+	exact CongA_EAD_ADC.
 	split.
-	exact Par_E_F_B_C.
+	exact Par_EF_BC.
 	split.
 	exact BetS_E_S_C.
 	exact BetS_A_S_D.

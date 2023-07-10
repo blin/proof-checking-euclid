@@ -64,9 +64,9 @@ Proof.
 	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_D_B_GH OppositeSide_B_GH_A) as OppositeSide_D_GH_A.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_D_GH_A) as OppositeSide_A_GH_D.
 
-	pose proof (proposition_27 _ _ _ _ _ _ BetS_A_G_B BetS_C_H_D CongA_AGH_GHD OppositeSide_A_GH_D) as Par_A_B_C_D.
+	pose proof (proposition_27 _ _ _ _ _ _ BetS_A_G_B BetS_C_H_D CongA_AGH_GHD OppositeSide_A_GH_D) as Par_AB_CD.
 
-	exact Par_A_B_C_D.
+	exact Par_AB_CD.
 Qed.
 
 End Euclid.
