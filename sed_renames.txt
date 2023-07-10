@@ -1,7 +1,7 @@
 s/GeoCoq.Elements.OriginalProofs/ProofCheckingEuclid/
 
-s/OS /SS /g
-s/TS /OS /g
+s/OS /SameSide /g
+s/TS /OppositeSide /g
 s/Out /OnRay /g
 s/Per /RightTriangle /g
 s/RT /SumTwoRT /g
@@ -35,9 +35,9 @@ s/collinear2/collinear_ABC_BCA/g
 s/collinear4/collinear_ABC_ABD_BCD/g
 s/collinear5/collinear_ABC_ABD_ABE_CDE/g
 
-s/9_5a/otherside_betweenness_PABC_RPQ_QABC/g
-s/9_5b/otherside_betweenness_PABC_RQP_QABC/g
-s/9_5/otherside_onray_PABC_RQP_QABC/g
+s/9_5a/oppositeside_betweenness_PABC_RPQ_QABC/g
+s/9_5b/oppositeside_betweenness_PABC_RQP_QABC/g
+s/9_5/oppositeside_onray_PABC_RQP_QABC/g
 
 s/sameside2/sameside_onray_EFAC_BFG_EGAC/g
 

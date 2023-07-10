@@ -19,7 +19,7 @@ Lemma proposition_23C :
 	neq A B ->
 	nCol D C E ->
 	nCol A B P ->
-	exists X Y, OnRay A B Y /\ CongA X A Y D C E /\ SS X P A B.
+	exists X Y, OnRay A B Y /\ CongA X A Y D C E /\ SameSide X P A B.
 Proof.
 	intros A B C D E P.
 	intros neq_A_B.
@@ -47,18 +47,18 @@ Proof.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_Q_B) as (_ & neq_Q_B & _ & neq_Q_A & neq_B_Q & _).
 	pose proof (lemma_NCorder _ _ _ nCol_A_Q_B) as (nCol_Q_A_B & nCol_Q_B_A & nCol_B_A_Q & nCol_A_B_Q & nCol_B_Q_A).
 
-	pose proof (proposition_23B _ _ _ _ _ _ neq_A_B nCol_D_C_E nCol_A_B_Q) as (F & G & OnRay_A_B_G & CongA_F_A_G_D_C_E & OS_F_A_B_Q).
+	pose proof (proposition_23B _ _ _ _ _ _ neq_A_B nCol_D_C_E nCol_A_B_Q) as (F & G & OnRay_A_B_G & CongA_F_A_G_D_C_E & OppositeSide_F_A_B_Q).
 
-	destruct OS_F_A_B_Q as (J & BetS_F_J_Q & Col_A_B_J & nCol_A_B_F).
+	destruct OppositeSide_F_A_B_Q as (J & BetS_F_J_Q & Col_A_B_J & nCol_A_B_F).
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_J Col_A_B_A BetS_F_J_Q BetS_P_A_Q nCol_A_B_F nCol_A_B_P) as SS_F_P_A_B.
+	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_J Col_A_B_A BetS_F_J_Q BetS_P_A_Q nCol_A_B_F nCol_A_B_P) as SameSide_F_P_A_B.
 
 	exists F, G.
 	split.
 	exact OnRay_A_B_G.
 	split.
 	exact CongA_F_A_G_D_C_E.
-	exact SS_F_P_A_B.
+	exact SameSide_F_P_A_B.
 Qed.
 
 End Euclid.

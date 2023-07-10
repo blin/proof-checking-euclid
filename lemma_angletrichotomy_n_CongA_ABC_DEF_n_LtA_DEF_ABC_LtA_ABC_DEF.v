@@ -67,13 +67,13 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_A_B_C) as CongA_A_B_C_A_B_C.
 
-	pose proof (proposition_23C _ _ _ _ _ _ neq_B_A nCol_D_E_F nCol_B_A_C) as (G & J & OnRay_B_A_J & CongA_G_B_J_D_E_F & SS_G_C_B_A).
+	pose proof (proposition_23C _ _ _ _ _ _ neq_B_A nCol_D_E_F nCol_B_A_C) as (G & J & OnRay_B_A_J & CongA_G_B_J_D_E_F & SameSide_G_C_B_A).
 
 	pose proof (cn_congruencereflexive A G) as Cong_A_G_A_G.
 	pose proof (cn_congruencereflexive B G) as Cong_B_G_B_G.
 
-	assert (SS_G_C_B_A2 := SS_G_C_B_A).
-	destruct SS_G_C_B_A2 as (_ & _ & _ & _ & _ & _ & _ & nCol_B_A_G & _).
+	assert (SameSide_G_C_B_A2 := SameSide_G_C_B_A).
+	destruct SameSide_G_C_B_A2 as (_ & _ & _ & _ & _ & _ & _ & nCol_B_A_G & _).
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_B_A_G) as n_Col_B_A_G.
 
 	pose proof (lemma_NCdistinct _ _ _ nCol_B_A_G) as (_ & neq_A_G & neq_B_G & _ & neq_G_A & neq_G_B).
@@ -98,11 +98,11 @@ Proof.
 	pose proof (lemma_extension G A G A neq_G_A neq_G_A) as (P & BetS_G_A_P & Cong_A_P_G_A).
 	pose proof (lemma_s_col_eq_B_C B A A eq_A_A) as Col_B_A_A.
 
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_G_C_B_A) as (SS_C_G_B_A & _ & _).
-	pose proof (lemma_s_os _ _ _ _ _ BetS_G_A_P Col_B_A_A nCol_B_A_G) as OS_G_B_A_P.
-	pose proof (lemma_planeseparation _ _ _ _ _ SS_C_G_B_A OS_G_B_A_P) as OS_C_B_A_P.
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_G_C_B_A) as (SameSide_C_G_B_A & _ & _).
+	pose proof (lemma_s_os _ _ _ _ _ BetS_G_A_P Col_B_A_A nCol_B_A_G) as OppositeSide_G_B_A_P.
+	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_C_G_B_A OppositeSide_G_B_A_P) as OppositeSide_C_B_A_P.
 
-	destruct OS_C_B_A_P as (R & BetS_C_R_P & Col_B_A_R & _).
+	destruct OppositeSide_C_B_A_P as (R & BetS_C_R_P & Col_B_A_R & _).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_R_P) as BetS_P_R_C.
 	pose proof (lemma_betweennotequal _ _ _ BetS_C_R_P) as (_ & _ & neq_C_P).
@@ -121,11 +121,11 @@ Proof.
 
 	(* assert by cases *)
 	assert (LtA A B C D E F) as LtA_A_B_C_D_E_F.
-	assert (OS G B C A \/ ~ OS G B C A) as [OS_G_B_C_A | n_OS_G_B_C_A] by (apply Classical_Prop.classic).
+	assert (OppositeSide G B C A \/ ~ OppositeSide G B C A) as [OppositeSide_G_B_C_A | n_OppositeSide_G_B_C_A] by (apply Classical_Prop.classic).
 	{
-		(* case OS_G_B_C_A *)
+		(* case OppositeSide_G_B_C_A *)
 
-		destruct OS_G_B_C_A as (H & BetS_G_H_A & Col_B_C_H & nCol_B_C_G).
+		destruct OppositeSide_G_B_C_A as (H & BetS_G_H_A & Col_B_C_H & nCol_B_C_G).
 
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_G_H_A) as BetS_A_H_G.
 		pose proof (lemma_betweennotequal _ _ _ BetS_G_H_A) as (neq_H_A & neq_G_H & _).
@@ -160,18 +160,18 @@ Proof.
 		
 		pose proof (lemma_s_onray_assert_bets_AEB A G H BetS_A_H_G neq_A_G) as OnRay_A_G_H.
 
-		pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SS_C_G_B_A Col_B_A_A OnRay_A_G_H) as SS_C_H_B_A.
+		pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SameSide_C_G_B_A Col_B_A_A OnRay_A_G_H) as SameSide_C_H_B_A.
 
 		assert (~ BetS C B H) as n_BetS_C_B_H.
 		{
 			intro BetS_C_B_H.
 
 			pose proof (lemma_s_col_eq_A_C B A B eq_B_B) as Col_B_A_B.
-			pose proof (lemma_s_os _ _ _ _ _ BetS_C_B_H Col_B_A_B nCol_B_A_C) as OS_C_B_A_H.
-			pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_C_B_A_H) as OS_H_B_A_C.
-			pose proof (lemma_planeseparation _ _ _ _ _ SS_C_H_B_A OS_H_B_A_C) as OS_C_B_A_C.
+			pose proof (lemma_s_os _ _ _ _ _ BetS_C_B_H Col_B_A_B nCol_B_A_C) as OppositeSide_C_B_A_H.
+			pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_C_B_A_H) as OppositeSide_H_B_A_C.
+			pose proof (lemma_planeseparation _ _ _ _ _ SameSide_C_H_B_A OppositeSide_H_B_A_C) as OppositeSide_C_B_A_C.
 
-			destruct OS_C_B_A_C as (M & BetS_C_M_C & Col_B_A_M & _).
+			destruct OppositeSide_C_B_A_C as (M & BetS_C_M_C & Col_B_A_M & _).
 			pose proof (axiom_betweennessidentity C M) as n_BetS_C_M_C.
 
 			contradict BetS_C_M_C.
@@ -228,7 +228,7 @@ Proof.
 		exact LtA_A_B_C_D_E_F.
 	}
 	{
-		(* case n_OS_G_B_C_A *)
+		(* case n_OppositeSide_G_B_C_A *)
 
 		(* assert by cases *)
 		assert (LtA A B C D E F) as LtA_A_B_C_D_E_F.
@@ -432,10 +432,10 @@ Proof.
 				intro BetS_A_Q_G.
 
 				pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_Q_G) as BetS_G_Q_A.
-				pose proof (lemma_s_os _ _ _ _ _ BetS_G_Q_A Col_B_C_Q nCol_B_C_G) as OS_G_B_C_A.
+				pose proof (lemma_s_os _ _ _ _ _ BetS_G_Q_A Col_B_C_Q nCol_B_C_G) as OppositeSide_G_B_C_A.
 
-				contradict OS_G_B_C_A.
-				exact n_OS_G_B_C_A.
+				contradict OppositeSide_G_B_C_A.
+				exact n_OppositeSide_G_B_C_A.
 			}
 
 			

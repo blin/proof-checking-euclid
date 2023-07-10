@@ -23,7 +23,7 @@ Proof.
 
 
 	assert (TarskiPar_AB_cd_2 := TarskiPar_AB_cd).
-	destruct TarskiPar_AB_cd_2 as (neq_A_B & neq_c_d & n_Meet_A_B_c_d & SS_c_d_AB).
+	destruct TarskiPar_AB_cd_2 as (neq_A_B & neq_c_d & n_Meet_A_B_c_d & SameSide_c_d_AB).
 
 	pose proof (lemma_tarskiparallelflip _ _ _ _ TarskiPar_AB_cd) as (_ & TarskiPar_AB_dc & _).
 

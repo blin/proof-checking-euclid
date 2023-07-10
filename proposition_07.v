@@ -40,22 +40,22 @@ Lemma proposition_07 :
 	neq A B ->
 	Cong C A D A ->
 	Cong C B D B ->
-	SS C D A B ->
+	SameSide C D A B ->
 	eq C D.
 Proof.
 	intros A B C D.
 	intros neq_A_B.
 	intros Cong_CA_DA.
 	intros Cong_CB_DB.
-	intros SS_C_D_AB.
+	intros SameSide_C_D_AB.
 
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_CA_DA) as (Cong_AC_AD & _ & _).
 	pose proof (lemma_doublereverse _ _ _ _ Cong_CB_DB) as (Cong_BD_BC & Cong_BC_BD).
 
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_C_D_AB) as (SS_D_C_AB & _ & _).
-	destruct SS_C_D_AB as (_ & _ & _ & _ & _ & _ & _ & nCol_A_B_C & _).
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_C_D_AB) as (SameSide_D_C_AB & _ & _).
+	destruct SameSide_C_D_AB as (_ & _ & _ & _ & _ & _ & _ & nCol_A_B_C & _).
 
 	pose proof (proposition_12 _ _ _ nCol_A_B_C) as (F & Perp_at_CF_AB_F).
 	destruct Perp_at_CF_AB_F as (H & _ & Col_A_B_F & Col_A_B_H & RightTriangle_HFC).
@@ -75,9 +75,9 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_FE_FC) as (_ & _ & Cong_FE_CF).
 	pose proof (lemma_doublereverse _ _ _ _ Cong_FE_FC) as (_ & Cong_EF_CF).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_C_F_E Col_A_B_F nCol_A_B_C) as OS_C_AB_E.
-	pose proof (lemma_planeseparation _ _ _ _ _ SS_D_C_AB OS_C_AB_E) as OS_D_AB_E.
-	destruct OS_D_AB_E as (G & BetS_D_G_E & Col_A_B_G & _).
+	pose proof (lemma_s_os _ _ _ _ _ BetS_C_F_E Col_A_B_F nCol_A_B_C) as OppositeSide_C_AB_E.
+	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_D_C_AB OppositeSide_C_AB_E) as OppositeSide_D_AB_E.
+	destruct OppositeSide_D_AB_E as (G & BetS_D_G_E & Col_A_B_G & _).
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_G) as (Col_B_A_G & _ & _ & _ & _).
 	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_G Col_A_B_F neq_A_B) as Col_B_G_F.
 	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_F Col_B_A_G neq_B_A) as Col_A_F_G.

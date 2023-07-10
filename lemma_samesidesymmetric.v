@@ -11,13 +11,13 @@ Context `{Ax:euclidean_neutral}.
 
 Lemma lemma_samesidesymmetric :
 	forall A B P Q,
-	SS P Q A B ->
-	SS Q P A B /\ SS P Q B A /\ SS Q P B A.
+	SameSide P Q A B ->
+	SameSide Q P A B /\ SameSide P Q B A /\ SameSide Q P B A.
 Proof.
 	intros A B P Q.
-	intros SS_P_Q_AB.
+	intros SameSide_P_Q_AB.
 
-	destruct SS_P_Q_AB as (G & E & F & Col_A_B_E & Col_A_B_F & BetS_P_E_G & BetS_Q_F_G & nCol_A_B_P & nCol_A_B_Q).
+	destruct SameSide_P_Q_AB as (G & E & F & Col_A_B_E & Col_A_B_F & BetS_P_E_G & BetS_Q_F_G & nCol_A_B_P & nCol_A_B_Q).
 	pose proof (
 		lemma_s_ss
 		_ _ _ _
@@ -28,7 +28,7 @@ Proof.
 		BetS_P_E_G
 		nCol_A_B_Q
 		nCol_A_B_P
-	) as SS_Q_P_AB.
+	) as SameSide_Q_P_AB.
 
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_E) as (Col_B_A_E & _ & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_F) as (Col_B_A_F & _ & _ & _ & _).
@@ -46,7 +46,7 @@ Proof.
 		BetS_P_E_G
 		nCol_B_A_Q
 		nCol_B_A_P
-	) as SS_Q_P_BA.
+	) as SameSide_Q_P_BA.
 
 	pose proof (
 		lemma_s_ss
@@ -58,13 +58,13 @@ Proof.
 		BetS_Q_F_G
 		nCol_B_A_P
 		nCol_B_A_Q
-	) as SS_P_Q_BA.
+	) as SameSide_P_Q_BA.
 
 	split.
-	exact SS_Q_P_AB.
+	exact SameSide_Q_P_AB.
 	split.
-	exact SS_P_Q_BA.
-	exact SS_Q_P_BA.
+	exact SameSide_P_Q_BA.
+	exact SameSide_Q_P_BA.
 
 Qed.
 

@@ -21,7 +21,7 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
 Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
-Require Import ProofCheckingEuclid.lemma_otherside_onray_PABC_RQP_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_onray_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
@@ -51,7 +51,7 @@ Lemma proposition_23B :
 	neq A B ->
 	nCol D C E ->
 	nCol A B P ->
-	exists X Y, OnRay A B Y /\ CongA X A Y D C E /\ OS X A B P.
+	exists X Y, OnRay A B Y /\ CongA X A Y D C E /\ OppositeSide X A B P.
 Proof.
 	intros A B C D E P.
 	intros neq_A_B.
@@ -136,7 +136,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_J_T_P) as (nCol_T_J_P & nCol_T_P_J & nCol_P_J_T & nCol_J_P_T & nCol_P_T_J).
 
 
-	pose proof (proposition_11B _ _ _ _ BetS_J_H_T nCol_J_T_P) as (Q & RightTriangle_J_H_Q & OS_Q_J_T_P).
+	pose proof (proposition_11B _ _ _ _ BetS_J_H_T nCol_J_T_P) as (Q & RightTriangle_J_H_Q & OppositeSide_Q_J_T_P).
 	pose proof (lemma_right_triangle_NC _ _ _ RightTriangle_J_H_Q) as nCol_J_H_Q.
 	pose proof (lemma_NCdistinct _ _ _ nCol_J_H_Q) as (_ & neq_H_Q & neq_J_Q & _ & neq_Q_H & neq_Q_J).
 	pose proof (lemma_NCorder _ _ _ nCol_J_H_Q) as (nCol_H_J_Q & nCol_H_Q_J & nCol_Q_J_H & nCol_J_Q_H & nCol_Q_H_J).
@@ -279,9 +279,9 @@ Proof.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_F_A_G_S_A_G) as CongA_S_A_G_F_A_G.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_S_A_G_F_A_G CongA_F_A_G_D_C_E) as CongA_S_A_G_D_C_E.
 
-	pose proof (lemma_otherside_onray_PABC_RQP_QABC _ _ _ _ _ _ OS_Q_J_T_P OnRay_H_S_Q Col_J_T_H) as OS_S_J_T_P.
+	pose proof (lemma_oppositeside_onray_PABC_RQP_QABC _ _ _ _ _ _ OppositeSide_Q_J_T_P OnRay_H_S_Q Col_J_T_H) as OppositeSide_S_J_T_P.
 
-	destruct OS_S_J_T_P as (M & BetS_S_M_P & Col_J_T_M & nCol_J_T_S).
+	destruct OppositeSide_S_J_T_P as (M & BetS_S_M_P & Col_J_T_M & nCol_J_T_S).
 
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_J_T_S) as n_Col_J_T_S.
 
@@ -298,7 +298,7 @@ Proof.
 
 	pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_J_T Col_J_T_A Col_J_T_B Col_J_T_M) as Col_A_B_M.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_S_M_P Col_A_B_M nCol_A_B_S) as OS_S_A_B_P.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_S_M_P Col_A_B_M nCol_A_B_S) as OppositeSide_S_A_B_P.
 
 
 	exists S, G.
@@ -306,7 +306,7 @@ Proof.
 	exact OnRay_A_B_G.
 	split.
 	exact CongA_S_A_G_D_C_E.
-	exact OS_S_A_B_P.
+	exact OppositeSide_S_A_B_P.
 Qed.
 
 End Euclid.

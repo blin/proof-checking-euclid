@@ -202,7 +202,7 @@ Proof.
 	}
 	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_d) as nCol_A_B_d.
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_b Col_A_B_M BetS_c_b_P BetS_d_M_P nCol_A_B_c nCol_A_B_d) as SS_c_d_AB.
+	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_b Col_A_B_M BetS_c_b_P BetS_d_M_P nCol_A_B_c nCol_A_B_d) as SameSide_c_d_AB.
 
 	assert (~ Meet A B c d) as n_Meet_A_B_c_d.
 	{
@@ -220,7 +220,7 @@ Proof.
 		exact n_Meet_A_B_C_D.
 	}
 
-	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_c_d n_Meet_A_B_c_d SS_c_d_AB) as TarskiPar_AB_cd.
+	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_c_d n_Meet_A_B_c_d SameSide_c_d_AB) as TarskiPar_AB_cd.
 
 	assert (eq C C) as eq_C_C by (reflexivity).
 	pose proof (lemma_s_col_eq_A_C C D C eq_C_C) as Col_C_D_C.

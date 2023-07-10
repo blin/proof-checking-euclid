@@ -67,9 +67,9 @@ Proof.
 	destruct Par_CA_BD as (_ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & n_Meet_C_A_B_D & _ & _).
 
 	pose proof (lemma_parallel_to_tarski_parallel _ _ _ _ Par_BD_AC) as TarskiPar_BD_AC.
-	destruct TarskiPar_BD_AC as (_ & _ & _ & SS_A_C_BD).
+	destruct TarskiPar_BD_AC as (_ & _ & _ & SameSide_A_C_BD).
 
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_A_C_BD) as (SS_C_A_BD & _ & _).
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_A_C_BD) as (SameSide_C_A_BD & _ & _).
 
 	pose proof (postulate_Euclid2 _ _ neq_A_B) as (E & BetS_A_B_E).
 
@@ -92,10 +92,10 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_E_D) as (nCol_E_A_D & nCol_E_D_A & nCol_D_A_E & nCol_A_D_E & nCol_D_E_A).
 	pose proof (lemma_NCorder _ _ _ nCol_B_E_C) as (nCol_E_B_C & nCol_E_C_B & nCol_C_B_E & nCol_B_C_E & nCol_C_E_B).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_A_B_E Col_B_D_B nCol_B_D_A) as OS_A_BD_E.
-	pose proof (lemma_planeseparation _ _ _ _ _ SS_C_A_BD OS_A_BD_E) as OS_C_BD_E.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_A_B_E Col_B_D_B nCol_B_D_A) as OppositeSide_A_BD_E.
+	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_C_A_BD OppositeSide_A_BD_E) as OppositeSide_C_BD_E.
 
-	destruct OS_C_BD_E as (F & BetS_C_F_E & Col_B_D_F & nCol_B_D_C).
+	destruct OppositeSide_C_BD_E as (F & BetS_C_F_E & Col_B_D_F & nCol_B_D_C).
 
 	assert (eq F F) as eq_F_F by (reflexivity).
 	pose proof (lemma_s_col_eq_A_B F F D eq_F_F) as Col_F_F_D.

@@ -35,9 +35,9 @@ Proof.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_c_C_d) as BetS_d_C_c.
 
-	destruct TarskiPar_AB_cd as (neq_A_B & neq_c_d & n_Meet_A_B_c_d & SS_c_d_AB).
+	destruct TarskiPar_AB_cd as (neq_A_B & neq_c_d & n_Meet_A_B_c_d & SameSide_c_d_AB).
 
-	destruct SS_c_d_AB as (q & p & r & Col_A_B_p & Col_A_B_r & BetS_c_p_q & BetS_d_r_q & nCol_A_B_c & nCol_A_B_d).
+	destruct SameSide_c_d_AB as (q & p & r & Col_A_B_p & Col_A_B_r & BetS_c_p_q & BetS_d_r_q & nCol_A_B_c & nCol_A_B_d).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_c_C_d) as (neq_C_d & _ & _).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_c_p_q) as BetS_q_p_c.
@@ -117,9 +117,9 @@ Proof.
 	pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_q_F_E BetS_q_E_C) as BetS_q_F_C.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_q_F_C) as BetS_C_F_q.
 
-	assert (~ ~ SS C d A B) as n_n_SS_C_d_AB.
+	assert (~ ~ SameSide C d A B) as n_n_SameSide_C_d_AB.
 	{
-		intro n_SS_C_d_AB.
+		intro n_SameSide_C_d_AB.
 
 		assert (~ neq B p) as n_neq_B_p.
 		{
@@ -133,9 +133,9 @@ Proof.
 				intro neq_A_p.
 				pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_p_r Col_A_p_B neq_A_p) as Col_p_r_B.
 				pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_p_r Col_p_r_A Col_p_r_B Col_p_r_F) as Col_A_B_F.
-				pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SS_C_d_AB.
-				contradict SS_C_d_AB.
-				exact n_SS_C_d_AB.
+				pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
+				contradict SameSide_C_d_AB.
+				exact n_SameSide_C_d_AB.
 			}
 			assert (eq_A_p := n_neq_A_p).
 			apply Classical_Prop.NNPP in eq_A_p.
@@ -158,9 +158,9 @@ Proof.
 
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_r_A_F Col_r_A_B neq_r_A) as Col_A_F_B.
 			pose proof (lemma_collinearorder _ _ _ Col_A_F_B) as (_ & _ & _ & Col_A_B_F & _).
-			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SS_C_d_AB.
-			contradict SS_C_d_AB.
-			exact n_SS_C_d_AB.
+			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
+			contradict SameSide_C_d_AB.
+			exact n_SameSide_C_d_AB.
 		}
 		assert (eq_B_p := n_neq_B_p).
 		apply Classical_Prop.NNPP in eq_B_p.
@@ -175,12 +175,12 @@ Proof.
 		pose proof (lemma_collinearorder _ _ _ Col_B_p_r) as (_ & Col_p_r_B & _ & _ & _).
 		pose proof (lemma_collinearorder _ _ _ Col_A_p_r) as (_ & Col_p_r_A & _ & _ & _).
 		pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_p_r Col_p_r_A Col_p_r_B Col_p_r_F) as Col_A_B_F.
-		pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SS_C_d_AB.
-		contradict SS_C_d_AB.
-		exact n_SS_C_d_AB.
+		pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
+		contradict SameSide_C_d_AB.
+		exact n_SameSide_C_d_AB.
 	}
-	assert (SS_C_d_AB := n_n_SS_C_d_AB).
-	apply Classical_Prop.NNPP in SS_C_d_AB.
+	assert (SameSide_C_d_AB := n_n_SameSide_C_d_AB).
+	apply Classical_Prop.NNPP in SameSide_C_d_AB.
 
 
 	assert (~ Meet A B C d) as n_Meet_A_B_C_d.
@@ -197,7 +197,7 @@ Proof.
 		exact n_Meet_A_B_c_d.
 	}
 
-	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_C_d n_Meet_A_B_C_d SS_C_d_AB) as TarskiPar_AB_Cd.
+	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_C_d n_Meet_A_B_C_d SameSide_C_d_AB) as TarskiPar_AB_Cd.
 
 	exact TarskiPar_AB_Cd.
 Qed.

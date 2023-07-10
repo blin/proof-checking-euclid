@@ -11,8 +11,8 @@ Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_otherside_betweenness_PABC_RPQ_QABC.
-Require Import ProofCheckingEuclid.lemma_otherside_betweenness_PABC_RQP_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
@@ -25,19 +25,19 @@ Context `{Ax:euclidean_neutral_ruler_compass}.
 
 Lemma lemma_sameside_onray_EFAC_BFG_EGAC :
 	forall A B C E F G,
-	SS E F A C ->
+	SameSide E F A C ->
 	Col A B C ->
 	OnRay B F G ->
-	SS E G A C.
+	SameSide E G A C.
 Proof.
 	intros A B C E F G.
-	intros SS_E_F_A_C.
+	intros SameSide_E_F_A_C.
 	intros Col_A_B_C.
 	intros OnRay_B_F_G.
 
 
-	destruct SS_E_F_A_C as (Q & U & V & Col_A_C_U & Col_A_C_V & BetS_E_U_Q & BetS_F_V_Q & nCol_A_C_E & nCol_A_C_F).
-	pose proof (lemma_s_os _ _ _ _ _ BetS_F_V_Q Col_A_C_V nCol_A_C_F) as OS_F_A_C_Q.
+	destruct SameSide_E_F_A_C as (Q & U & V & Col_A_C_U & Col_A_C_V & BetS_E_U_Q & BetS_F_V_Q & nCol_A_C_E & nCol_A_C_F).
+	pose proof (lemma_s_os _ _ _ _ _ BetS_F_V_Q Col_A_C_V nCol_A_C_F) as OppositeSide_F_A_C_Q.
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_C) as (_ & _ & _ & Col_A_C_B & _).
 
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_C_E) as (neq_A_C & neq_C_E & neq_A_E & neq_C_A & neq_E_C & neq_E_A).
@@ -49,18 +49,18 @@ Proof.
 	pose proof (lemma_onray_impliescollinear _ _ _ OnRay_B_F_G) as Col_B_F_G.
 	pose proof (lemma_collinearorder _ _ _ Col_B_F_G) as (Col_F_B_G & Col_F_G_B & Col_G_B_F & Col_B_G_F & Col_G_F_B).
 
-	assert (~ ~ OS G A C Q) as n_n_OS_G_A_C_Q.
+	assert (~ ~ OppositeSide G A C Q) as n_n_OppositeSide_G_A_C_Q.
 	{
-		intro n_OS_G_A_C_Q.
+		intro n_OppositeSide_G_A_C_Q.
 
 		assert (~ eq F G) as n_eq_F_G.
 		{
 			intro eq_F_G.
 			
-			assert (OS G A C Q) as OS_G_A_C_Q by (rewrite <- eq_F_G; exact OS_F_A_C_Q).
+			assert (OppositeSide G A C Q) as OppositeSide_G_A_C_Q by (rewrite <- eq_F_G; exact OppositeSide_F_A_C_Q).
 
-			contradict OS_G_A_C_Q.
-			exact n_OS_G_A_C_Q.
+			contradict OppositeSide_G_A_C_Q.
+			exact n_OppositeSide_G_A_C_Q.
 		}
 		assert (neq_F_G := n_eq_F_G).
 
@@ -131,9 +131,9 @@ Proof.
 			}
 			pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_C_G) as nCol_A_C_G.
 
-			pose proof (lemma_s_os _ _ _ _ _ BetS_G_B_Q Col_A_C_B nCol_A_C_G) as OS_G_A_C_Q.
-			contradict OS_G_A_C_Q.
-			exact n_OS_G_A_C_Q.
+			pose proof (lemma_s_os _ _ _ _ _ BetS_G_B_Q Col_A_C_B nCol_A_C_G) as OppositeSide_G_A_C_Q.
+			contradict OppositeSide_G_A_C_Q.
+			exact n_OppositeSide_G_A_C_Q.
 		}
 		assert (neq_B_V := n_eq_B_V).
 
@@ -183,20 +183,20 @@ Proof.
 
 
 		(* assert by cases *)
-		assert (OS G A C Q) as OS_G_A_C_Q.
+		assert (OppositeSide G A C Q) as OppositeSide_G_A_C_Q.
 		epose proof (lemma_onray_orderofpoints_any _ _ _ OnRay_B_F_G) as [BetS_B_G_F | [eq_F_G | BetS_B_F_G]].
 		{
 			(* case BetS_B_G_F *)
-			pose proof (lemma_otherside_betweenness_PABC_RQP_QABC _ _ _ _ _ _ OS_F_A_C_Q BetS_B_G_F nCol_Q_F_B Col_A_C_B) as OS_G_A_C_Q.
+			pose proof (lemma_oppositeside_betweenness_PABC_RQP_QABC _ _ _ _ _ _ OppositeSide_F_A_C_Q BetS_B_G_F nCol_Q_F_B Col_A_C_B) as OppositeSide_G_A_C_Q.
 
-			exact OS_G_A_C_Q.
+			exact OppositeSide_G_A_C_Q.
 		}
 		{
 			(* case eq_F_G *)
 			
-			assert (OS G A C Q) as OS_G_A_C_Q by (rewrite <- eq_F_G; exact OS_F_A_C_Q).
+			assert (OppositeSide G A C Q) as OppositeSide_G_A_C_Q by (rewrite <- eq_F_G; exact OppositeSide_F_A_C_Q).
 
-			exact OS_G_A_C_Q.
+			exact OppositeSide_G_A_C_Q.
 		}
 		{
 			(* case BetS_B_F_G *)
@@ -214,21 +214,21 @@ Proof.
 			}
 			pose proof (lemma_s_n_col_ncol _ _ _ n_Col_B_G_Q) as nCol_B_G_Q.
 
-			pose proof (lemma_otherside_betweenness_PABC_RPQ_QABC _ _ _ _ _ _ OS_F_A_C_Q BetS_B_F_G nCol_B_G_Q Col_A_C_B) as OS_G_A_C_Q.
+			pose proof (lemma_oppositeside_betweenness_PABC_RPQ_QABC _ _ _ _ _ _ OppositeSide_F_A_C_Q BetS_B_F_G nCol_B_G_Q Col_A_C_B) as OppositeSide_G_A_C_Q.
 
-			exact OS_G_A_C_Q.
+			exact OppositeSide_G_A_C_Q.
 		}
-		contradict OS_G_A_C_Q.
-		exact n_OS_G_A_C_Q.
+		contradict OppositeSide_G_A_C_Q.
+		exact n_OppositeSide_G_A_C_Q.
 	}
-	assert (OS_G_A_C_Q := n_n_OS_G_A_C_Q).
-	apply Classical_Prop.NNPP in OS_G_A_C_Q.
+	assert (OppositeSide_G_A_C_Q := n_n_OppositeSide_G_A_C_Q).
+	apply Classical_Prop.NNPP in OppositeSide_G_A_C_Q.
 
 
-	destruct OS_G_A_C_Q as (H & BetS_G_H_Q & Col_A_C_H & nCol_A_C_G).
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_C_U Col_A_C_H BetS_E_U_Q BetS_G_H_Q nCol_A_C_E nCol_A_C_G) as SS_E_G_A_C.
+	destruct OppositeSide_G_A_C_Q as (H & BetS_G_H_Q & Col_A_C_H & nCol_A_C_G).
+	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_C_U Col_A_C_H BetS_E_U_Q BetS_G_H_Q nCol_A_C_E nCol_A_C_G) as SameSide_E_G_A_C.
 
-	exact SS_E_G_A_C.
+	exact SameSide_E_G_A_C.
 Qed.
 
 End Euclid.

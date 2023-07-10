@@ -201,7 +201,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_f_H_K) as (_ & _ & _ & _ & nCol_K_H_f).
 	pose proof (lemma_NChelper _ _ _ _ _ nCol_C_K_H Col_C_K_d Col_C_K_K neq_d_K) as nCol_d_K_H.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_d Col_K_H_K nCol_K_H_C) as OS_C_KH_d.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_d Col_K_H_K nCol_K_H_C) as OppositeSide_C_KH_d.
 
 
 	assert (~ ~ (Cross A f G H \/ Cross A E G H)) as n_n_Cross_Af_GH_or_Cross_AE_GH.
@@ -241,15 +241,15 @@ Proof.
 	destruct Cross_Af_GH_or_Cross_AE_GH as [Cross_Af_GH | Cross_AE_GH].
 	{
 		(* case Cross_Af_GH *)
-		pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_Af_GH nCol_A_G_H) as (OS_A_GH_f & _ & _ & _).
+		pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_Af_GH nCol_A_G_H) as (OppositeSide_A_GH_f & _ & _ & _).
 
 		(* assert by cases *)
 		assert (Par A b C d) as Par_Ab_Cd.
 		destruct Cross_Cf_KH_or_Cross_CE_KH as [Cross_Cf_KH | Cross_CE_KH].
 		{
 			(* case Cross_Cf_KH *)
-			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_Cf_KH nCol_C_K_H) as (_ & _ & _ & OS_f_HK_C).
-			pose proof (proposition_30A _ _ _ _ _ _ _ _ _ Par_Ab_Ef Par_Cd_Ef BetS_G_H_K BetS_A_G_b BetS_E_H_f BetS_C_K_d OS_A_GH_f OS_f_HK_C) as Par_Ab_Cd.
+			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_Cf_KH nCol_C_K_H) as (_ & _ & _ & OppositeSide_f_HK_C).
+			pose proof (proposition_30A _ _ _ _ _ _ _ _ _ Par_Ab_Ef Par_Cd_Ef BetS_G_H_K BetS_A_G_b BetS_E_H_f BetS_C_K_d OppositeSide_A_GH_f OppositeSide_f_HK_C) as Par_Ab_Cd.
 
 			exact Par_Ab_Cd.
 		}
@@ -261,10 +261,10 @@ Proof.
 			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_K_M_H) as Col_K_M_H.
 			pose proof (lemma_collinearorder _ _ _ Col_K_M_H) as (_ & _ & _ & Col_K_H_M & _).
 
-			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_f_H_E BetS_C_M_E nCol_K_H_f nCol_K_H_C) as SS_f_C_KH.
-			pose proof (lemma_planeseparation _ _ _ _ _ SS_f_C_KH OS_C_KH_d) as OS_f_KH_d.
+			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_f_H_E BetS_C_M_E nCol_K_H_f nCol_K_H_C) as SameSide_f_C_KH.
+			pose proof (lemma_planeseparation _ _ _ _ _ SameSide_f_C_KH OppositeSide_C_KH_d) as OppositeSide_f_KH_d.
 
-			destruct OS_f_KH_d as (m & BetS_f_m_d & Col_K_H_m & _).
+			destruct OppositeSide_f_KH_d as (m & BetS_f_m_d & Col_K_H_m & _).
 
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_f_m_d) as BetS_d_m_f.
 
@@ -274,10 +274,10 @@ Proof.
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_H_m_K) as BetS_K_m_H.
 
 			pose proof (lemma_s_cross _ _ _ _ _ BetS_d_m_f BetS_K_m_H) as Cross_df_KH.
-			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_df_KH nCol_d_K_H) as (_ & OS_d_HK_f & _ & _).
-			pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_d_HK_f) as OS_f_HK_d.
+			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_df_KH nCol_d_K_H) as (_ & OppositeSide_d_HK_f & _ & _).
+			pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_d_HK_f) as OppositeSide_f_HK_d.
 
-			pose proof (proposition_30A _ _ _ _ _ _ _ _ _ Par_Ab_Ef Par_dC_Ef BetS_G_H_K BetS_A_G_b BetS_E_H_f BetS_d_K_C OS_A_GH_f OS_f_HK_d) as Par_Ab_dC.
+			pose proof (proposition_30A _ _ _ _ _ _ _ _ _ Par_Ab_Ef Par_dC_Ef BetS_G_H_K BetS_A_G_b BetS_E_H_f BetS_d_K_C OppositeSide_A_GH_f OppositeSide_f_HK_d) as Par_Ab_dC.
 			pose proof (lemma_parallelflip _ _ _ _ Par_Ab_dC) as (_ & Par_Ab_Cd & _).
 
 			exact Par_Ab_Cd.
@@ -299,10 +299,10 @@ Proof.
 			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_K_M_H) as Col_K_M_H.
 			pose proof (lemma_collinearorder _ _ _ Col_K_M_H) as (_ & _ & _ & Col_K_H_M & _).
 
-			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_E_H_f BetS_C_M_f nCol_K_H_E nCol_K_H_C) as SS_E_C_KH.
-			pose proof (lemma_planeseparation _ _ _ _ _ SS_E_C_KH OS_C_KH_d) as OS_E_KH_d.
+			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_E_H_f BetS_C_M_f nCol_K_H_E nCol_K_H_C) as SameSide_E_C_KH.
+			pose proof (lemma_planeseparation _ _ _ _ _ SameSide_E_C_KH OppositeSide_C_KH_d) as OppositeSide_E_KH_d.
 
-			destruct OS_E_KH_d as (m & BetS_E_m_d & Col_K_H_m & _).
+			destruct OppositeSide_E_KH_d as (m & BetS_E_m_d & Col_K_H_m & _).
 
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_m_d) as BetS_d_m_E.
 
@@ -313,22 +313,22 @@ Proof.
 
 			pose proof (lemma_s_cross _ _ _ _ _ BetS_d_m_E BetS_K_m_H) as Cross_dE_KH.
 
-			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_dE_KH nCol_d_K_H) as (_ & OS_d_HK_E & _ & _).
-			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AE_GH nCol_A_G_H) as (OS_A_GH_E & _ & _ & _).
-			pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_d_HK_E) as OS_E_HK_d.
+			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_dE_KH nCol_d_K_H) as (_ & OppositeSide_d_HK_E & _ & _).
+			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AE_GH nCol_A_G_H) as (OppositeSide_A_GH_E & _ & _ & _).
+			pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_d_HK_E) as OppositeSide_E_HK_d.
 
-			pose proof (proposition_30A _ _ _ _ _ _ _ _ _ Par_Ab_fE Par_dC_fE BetS_G_H_K BetS_A_G_b BetS_f_H_E BetS_d_K_C OS_A_GH_E OS_E_HK_d) as Par_Ab_dC.
+			pose proof (proposition_30A _ _ _ _ _ _ _ _ _ Par_Ab_fE Par_dC_fE BetS_G_H_K BetS_A_G_b BetS_f_H_E BetS_d_K_C OppositeSide_A_GH_E OppositeSide_E_HK_d) as Par_Ab_dC.
 			pose proof (lemma_parallelflip _ _ _ _ Par_Ab_dC) as (_ & Par_Ab_Cd & _).
 
 			exact Par_Ab_Cd.
 		}
 		{
 			(* case Cross_CE_KH *)
-			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_CE_KH nCol_C_K_H) as (_ & OS_C_HK_E & _ & _).
-			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AE_GH nCol_A_G_H) as (OS_A_GH_E & _ & _ & _).
-			pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_C_HK_E) as OS_E_HK_C.
+			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_CE_KH nCol_C_K_H) as (_ & OppositeSide_C_HK_E & _ & _).
+			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AE_GH nCol_A_G_H) as (OppositeSide_A_GH_E & _ & _ & _).
+			pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_C_HK_E) as OppositeSide_E_HK_C.
 
-			pose proof (proposition_30A _ _ _ _ _ _ _ _ _ Par_Ab_fE Par_Cd_fE BetS_G_H_K BetS_A_G_b BetS_f_H_E BetS_C_K_d OS_A_GH_E OS_E_HK_C) as Par_Ab_Cd.
+			pose proof (proposition_30A _ _ _ _ _ _ _ _ _ Par_Ab_fE Par_Cd_fE BetS_G_H_K BetS_A_G_b BetS_f_H_E BetS_C_K_d OppositeSide_A_GH_E OppositeSide_E_HK_C) as Par_Ab_Cd.
 
 			exact Par_Ab_Cd.
 		}

@@ -18,14 +18,14 @@ Proof.
 	intros A B C D.
 	intros TarskiPar_AB_CD.
 
-	destruct TarskiPar_AB_CD as (neq_A_B & neq_C_D & n_Meet_A_B_C_D & SS_C_D_AB).
+	destruct TarskiPar_AB_CD as (neq_A_B & neq_C_D & n_Meet_A_B_C_D & SameSide_C_D_AB).
 
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 	pose proof (lemma_inequalitysymmetric _ _ neq_C_D) as neq_D_C.
 
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_C_D_AB) as (SS_D_C_AB & _ & _).
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_C_D_AB) as (_ & SS_C_D_BA & _).
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_C_D_BA) as (SS_D_C_BA & _ & _).
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_C_D_AB) as (SameSide_D_C_AB & _ & _).
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_C_D_AB) as (_ & SameSide_C_D_BA & _).
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_C_D_BA) as (SameSide_D_C_BA & _ & _).
 
 	assert (~ Meet A B D C) as n_Meet_A_B_D_C.
 	{
@@ -40,7 +40,7 @@ Proof.
 		exact n_Meet_A_B_C_D.
 	}
 
-	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_D_C n_Meet_A_B_D_C SS_D_C_AB) as TarskiPar_AB_DC.
+	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_D_C n_Meet_A_B_D_C SameSide_D_C_AB) as TarskiPar_AB_DC.
 
 	assert (~ Meet B A C D) as n_Meet_B_A_C_D.
 	{
@@ -55,7 +55,7 @@ Proof.
 		exact n_Meet_A_B_C_D.
 	}
 
-	pose proof (lemma_s_tarski_par _ _ _ _ neq_B_A neq_C_D n_Meet_B_A_C_D SS_C_D_BA) as TarskiPar_BA_CD.
+	pose proof (lemma_s_tarski_par _ _ _ _ neq_B_A neq_C_D n_Meet_B_A_C_D SameSide_C_D_BA) as TarskiPar_BA_CD.
 
 	assert (~ Meet B A D C) as n_Meet_B_A_D_C.
 	{
@@ -71,7 +71,7 @@ Proof.
 		exact n_Meet_A_B_C_D.
 	}
 
-	pose proof (lemma_s_tarski_par _ _ _ _ neq_B_A neq_D_C n_Meet_B_A_D_C SS_D_C_BA) as TarskiPar_BA_DC.
+	pose proof (lemma_s_tarski_par _ _ _ _ neq_B_A neq_D_C n_Meet_B_A_D_C SameSide_D_C_BA) as TarskiPar_BA_DC.
 
 	split.
 	exact TarskiPar_BA_CD.

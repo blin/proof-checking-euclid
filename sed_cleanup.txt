@@ -18,8 +18,8 @@ s/equilateral_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/equilateral_\1\2\3/g
 
 s/Cong_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Cong_\1\2_\3\4/g
 s/Lt_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Lt_\1\2_\3\4/g
-s/OS_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/OS_\1_\2\3_\4/g
-s/SS_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SS_\1_\2_\3\4/g
+s/OppositeSide_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/OppositeSide_\1_\2\3_\4/g
+s/SameSide_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SameSide_\1_\2_\3\4/g
 s/Par_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Par_\1\2_\3\4/g
 s/TarskiPar_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/TarskiPar_\1\2_\3\4/g
 s/Cross_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Cross_\1\2_\3\4/g
