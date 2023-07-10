@@ -194,8 +194,8 @@ Proof.
 	pose proof (lemma_s_os _ _ _ _ _ BetS_B_M_F Col_A_D_M nCol_A_D_B) as OppositeSide_B_AD_F.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_B_AD_F) as OppositeSide_F_AD_B.
 
-	pose proof (proposition_27 _ _ _ _ _ _ BetS_F_A_E BetS_C_D_B CongA_FAD_ADB OppositeSide_F_AD_B) as Par_F_E_C_B.
-	pose proof (lemma_parallelflip _ _ _ _ Par_F_E_C_B) as (_ & _ & Par_E_F_B_C).
+	pose proof (proposition_27 _ _ _ _ _ _ BetS_F_A_E BetS_C_D_B CongA_FAD_ADB OppositeSide_F_AD_B) as Par_FE_CB.
+	pose proof (lemma_parallelflip _ _ _ _ Par_FE_CB) as (_ & _ & Par_EF_BC).
 
 	exists E, F, M.
 	split.
@@ -213,7 +213,7 @@ Proof.
 	split.
 	exact CongA_DAE_CDA.
 	split.
-	exact Par_E_F_B_C.
+	exact Par_EF_BC.
 	split.
 	exact Cong_EA_DC.
 	split.
