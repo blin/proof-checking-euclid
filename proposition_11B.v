@@ -40,7 +40,7 @@ Lemma proposition_11B :
 	forall A B C P,
 	BetS A C B ->
 	nCol A B P ->
-	exists X, RightTriangle A C X /\ OS X A B P.
+	exists X, RightTriangle A C X /\ OppositeSide X A B P.
 Proof.
 	intros A B C P.
 	intros BetS_A_C_B.
@@ -58,11 +58,11 @@ Proof.
 	pose proof (lemma_s_col_BetS_A_C_B A B C BetS_A_C_B) as Col_A_B_C.
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_C) as (Col_B_A_C & Col_B_C_A & Col_C_A_B & Col_A_C_B & Col_C_B_A).
 
-	pose proof (lemma_notperp _ _ _ _ BetS_A_C_B nCol_A_B_P) as (M & nCol_A_B_M & SS_M_P_A_B & n_RightTriangle_A_C_M).
+	pose proof (lemma_notperp _ _ _ _ BetS_A_C_B nCol_A_B_P) as (M & nCol_A_B_M & SameSide_M_P_A_B & n_RightTriangle_A_C_M).
 
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_M) as n_Col_A_B_M.
 
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_M_P_A_B) as (SS_P_M_A_B & _ & _).
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_M_P_A_B) as (SameSide_P_M_A_B & _ & _).
 
 	pose proof (proposition_12 _ _ _ nCol_A_B_M) as (Q & Perp_at_M_Q_A_B_Q).
 	destruct Perp_at_M_Q_A_B_Q as (E & _ & Col_A_B_Q & Col_A_B_E & RightTriangle_E_Q_M).
@@ -149,9 +149,9 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_G_H_M_G) as Cong_M_G_G_H.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_G_H_M_G) as (Cong_H_G_G_M & _ & _).
 	
-	pose proof (lemma_s_os _ _ _ _ _ BetS_M_G_H Col_A_B_G nCol_A_B_M) as OS_M_A_B_H.
-	pose proof (lemma_planeseparation _ _ _ _ _ SS_P_M_A_B OS_M_A_B_H) as OS_P_A_B_H.
-	pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_P_A_B_H) as OS_H_A_B_P.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_M_G_H Col_A_B_G nCol_A_B_M) as OppositeSide_M_A_B_H.
+	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_P_M_A_B OppositeSide_M_A_B_H) as OppositeSide_P_A_B_H.
+	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_P_A_B_H) as OppositeSide_H_A_B_P.
 
 	pose proof (lemma_s_midpoint _ _ _ BetS_M_G_H Cong_M_G_G_H) as Midpoint_M_G_H.
 
@@ -177,7 +177,7 @@ Proof.
 	exists H.
 	split.
 	exact RightTriangle_A_C_H.
-	exact OS_H_A_B_P.
+	exact OppositeSide_H_A_B_P.
 Qed.
 
 End Euclid.

@@ -33,11 +33,11 @@ Proof.
 	intros TarskiPar_AB_cd.
 	intros BetS_C_c_d.
 
-	destruct TarskiPar_AB_cd as (neq_A_B & _ & n_Meet_A_B_c_d & SS_c_d_AB).
+	destruct TarskiPar_AB_cd as (neq_A_B & _ & n_Meet_A_B_c_d & SameSide_c_d_AB).
 
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 
-	destruct SS_c_d_AB as (q & p & r & Col_A_B_p & Col_A_B_r & BetS_c_p_q & BetS_d_r_q & nCol_A_B_c & nCol_A_B_d).
+	destruct SameSide_c_d_AB as (q & p & r & Col_A_B_p & Col_A_B_r & BetS_c_p_q & BetS_d_r_q & nCol_A_B_c & nCol_A_B_d).
 
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_p) as (Col_B_A_p & Col_B_p_A & Col_p_A_B & Col_A_p_B & Col_p_B_A).
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_r) as (Col_B_A_r & Col_B_r_A & Col_r_A_B & Col_A_r_B & Col_r_B_A).
@@ -245,7 +245,7 @@ Proof.
 
 	pose proof (lemma_NChelper _ _ _ _ _ nCol_F_r_C Col_F_r_A Col_F_r_B neq_A_B) as nCol_A_B_C.
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SS_C_d_AB.
+	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
 
 	assert (~ Meet A B C d) as n_Meet_A_B_C_d.
 	{
@@ -261,7 +261,7 @@ Proof.
 		exact n_Meet_A_B_c_d.
 	}
 
-	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_C_d n_Meet_A_B_C_d SS_C_d_AB) as TarskiPar_AB_Cd.
+	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_C_d n_Meet_A_B_C_d SameSide_C_d_AB) as TarskiPar_AB_Cd.
 
 	exact TarskiPar_AB_Cd.
 Qed.

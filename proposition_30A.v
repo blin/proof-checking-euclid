@@ -36,8 +36,8 @@ Lemma proposition_30A :
 	BetS A G B ->
 	BetS E H F ->
 	BetS C K D ->
-	OS A G H F ->
-	OS F H K C ->
+	OppositeSide A G H F ->
+	OppositeSide F H K C ->
 	Par A B C D.
 Proof.
 	intros A B C D E F G H K.
@@ -47,8 +47,8 @@ Proof.
 	intros BetS_A_G_B.
 	intros BetS_E_H_F.
 	intros BetS_C_K_D.
-	intros OS_A_GH_F.
-	intros OS_F_HK_C.
+	intros OppositeSide_A_GH_F.
+	intros OppositeSide_F_HK_C.
 
 	assert (eq H H) as eq_H_H by (reflexivity).
 	assert (eq K K) as eq_K_K by (reflexivity).
@@ -98,10 +98,10 @@ Proof.
 
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_K_D) as OnRay_KD_D.
 
-	assert (OS_A_GH_F_2 := OS_A_GH_F).
-	destruct OS_A_GH_F_2 as (M & BetS_A_M_F & Col_G_H_M & nCol_G_H_A).
-	assert (OS_F_HK_C_2 := OS_F_HK_C).
-	destruct OS_F_HK_C_2 as (N & BetS_F_N_C & Col_H_K_N & nCol_H_K_F).
+	assert (OppositeSide_A_GH_F_2 := OppositeSide_A_GH_F).
+	destruct OppositeSide_A_GH_F_2 as (M & BetS_A_M_F & Col_G_H_M & nCol_G_H_A).
+	assert (OppositeSide_F_HK_C_2 := OppositeSide_F_HK_C).
+	destruct OppositeSide_F_HK_C_2 as (N & BetS_F_N_C & Col_H_K_N & nCol_H_K_F).
 
 	assert (eq N N) as eq_N_N by (reflexivity).
 
@@ -154,25 +154,25 @@ Proof.
 	pose proof (lemma_equalanglesNC _ _ _ _ _ _ CongA_AGH_AGK) as nCol_A_G_K.
 	pose proof (lemma_NCorder _ _ _ nCol_A_G_K) as (_ & nCol_G_K_A & _ & _ & _).
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_H_K_H Col_H_K_N BetS_E_H_F BetS_C_N_F nCol_H_K_E nCol_H_K_C) as SS_E_C_HK.
-	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_D Col_H_K_K nCol_H_K_C) as OS_C_HK_D.
-	pose proof (lemma_planeseparation _ _ _ _ _ SS_E_C_HK OS_C_HK_D) as OS_E_HK_D.
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_G_K_M Col_G_K_N BetS_A_M_F BetS_C_N_F nCol_G_K_A nCol_G_K_C) as SS_A_C_GK.
-	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_D Col_G_K_K nCol_G_K_C) as OS_C_GK_D.
-	pose proof (lemma_planeseparation _ _ _ _ _ SS_A_C_GK OS_C_GK_D) as OS_A_GK_D.
+	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_H_K_H Col_H_K_N BetS_E_H_F BetS_C_N_F nCol_H_K_E nCol_H_K_C) as SameSide_E_C_HK.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_D Col_H_K_K nCol_H_K_C) as OppositeSide_C_HK_D.
+	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_E_C_HK OppositeSide_C_HK_D) as OppositeSide_E_HK_D.
+	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_G_K_M Col_G_K_N BetS_A_M_F BetS_C_N_F nCol_G_K_A nCol_G_K_C) as SameSide_A_C_GK.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_D Col_G_K_K nCol_G_K_C) as OppositeSide_C_GK_D.
+	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_A_C_GK OppositeSide_C_GK_D) as OppositeSide_A_GK_D.
 
 	pose proof (postulate_Euclid2 _ _ neq_H_G) as (P & BetS_H_G_P).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_H_G_P) as BetS_P_G_H.
 
-	pose proof (proposition_29 _ _ _ _ _ _ _ Par_AB_EF BetS_A_G_B BetS_E_H_F BetS_P_G_H OS_A_GH_F) as (CongA_AGH_GHF & _ & _).
-	pose proof (proposition_29 _ _ _ _ _ _ _ Par_EF_CD BetS_E_H_F BetS_C_K_D BetS_G_H_K OS_E_HK_D) as (_ & CongA_GHF_HKD & _).
+	pose proof (proposition_29 _ _ _ _ _ _ _ Par_AB_EF BetS_A_G_B BetS_E_H_F BetS_P_G_H OppositeSide_A_GH_F) as (CongA_AGH_GHF & _ & _).
+	pose proof (proposition_29 _ _ _ _ _ _ _ Par_EF_CD BetS_E_H_F BetS_C_K_D BetS_G_H_K OppositeSide_E_HK_D) as (_ & CongA_GHF_HKD & _).
 
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_AGK_AGH CongA_AGH_GHF) as CongA_AGK_GHF.
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_HKD_HKD OnRay_KH_G OnRay_KD_D) as CongA_HKD_GKD.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_GHF_HKD CongA_HKD_GKD) as CongA_GHF_GKD.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_AGK_GHF CongA_GHF_GKD) as CongA_AGK_GKD.
 
-	pose proof (proposition_27 _ _ _ _ _ _ BetS_A_G_B BetS_C_K_D CongA_AGK_GKD OS_A_GK_D) as Par_AB_CD.
+	pose proof (proposition_27 _ _ _ _ _ _ BetS_A_G_B BetS_C_K_D CongA_AGK_GKD OppositeSide_A_GK_D) as Par_AB_CD.
 
 	exact Par_AB_CD.
 Qed.

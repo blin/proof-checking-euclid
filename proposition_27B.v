@@ -16,12 +16,12 @@ Context `{Ax:euclidean_neutral_ruler_compass}.
 Lemma proposition_27B :
 	forall A D E F,
 	CongA A E F E F D ->
-	OS A E F D ->
+	OppositeSide A E F D ->
 	Par A E F D.
 Proof.
 	intros A D E F.
 	intros CongA_AEF_EFD.
-	intros OS_A_EF_D.
+	intros OppositeSide_A_EF_D.
 
 	pose proof (lemma_angledistinct _ _ _ _ _ _ CongA_AEF_EFD) as (neq_A_E & _ & _ & _ & _ & _).
 	pose proof (lemma_angledistinct _ _ _ _ _ _ CongA_AEF_EFD) as (_ & _ & _ & _ & neq_F_D & _).
@@ -40,7 +40,7 @@ Proof.
 	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_D_F_C) as Col_D_F_C.
 	pose proof (lemma_collinearorder _ _ _ Col_D_F_C) as (_ & _ & Col_C_D_F & _ & _).
 
-	pose proof (proposition_27 _ _ _ _ _ _ BetS_A_E_B BetS_C_F_D CongA_AEF_EFD OS_A_EF_D) as Par_AB_CD.
+	pose proof (proposition_27 _ _ _ _ _ _ BetS_A_E_B BetS_C_F_D CongA_AEF_EFD OppositeSide_A_EF_D) as Par_AB_CD.
 
 	pose proof (lemma_collinearparallel _ _ _ _ _ Par_AB_CD Col_C_D_F neq_F_D) as Par_AB_FD.
 	pose proof (lemma_parallelsymmetric _ _ _ _ Par_AB_FD) as Par_FD_AB.

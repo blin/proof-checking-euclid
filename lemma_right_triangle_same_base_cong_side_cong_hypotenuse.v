@@ -19,9 +19,9 @@ Context `{Ax:euclidean_neutral_ruler_compass}.
 
 (*
 	There are three notable scenarios here.
-	1. SS C H A B
-	2. OS C A B H
-	3. ~ SS C H A B /\ ~ OS C A B H -> A B C H are not in the same plane.
+	1. SameSide C H A B
+	2. OppositeSide C A B H
+	3. ~ SameSide C H A B /\ ~ OppositeSide C A B H -> A B C H are not in the same plane.
 *)
 Lemma lemma_right_triangle_same_base_cong_side_cong_hypotenuse :
 	forall A B C H,

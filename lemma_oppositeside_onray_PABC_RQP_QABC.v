@@ -9,8 +9,8 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
-Require Import ProofCheckingEuclid.lemma_otherside_betweenness_PABC_RPQ_QABC.
-Require Import ProofCheckingEuclid.lemma_otherside_betweenness_PABC_RQP_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_C_B.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
@@ -22,15 +22,15 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_otherside_onray_PABC_RQP_QABC :
+Lemma lemma_oppositeside_onray_PABC_RQP_QABC :
 	forall A B C P Q R,
-	OS P A B C ->
+	OppositeSide P A B C ->
 	OnRay R Q P ->
 	Col A B R ->
-	OS Q A B C.
+	OppositeSide Q A B C.
 Proof.
 	intros A B C P Q R.
-	intros OS_P_A_B_C.
+	intros OppositeSide_P_A_B_C.
 	intros OnRay_R_Q_P.
 	intros Col_A_B_R.
 
@@ -39,8 +39,8 @@ Proof.
 
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_R) as (Col_B_A_R & Col_B_R_A & Col_R_A_B & Col_A_R_B & Col_R_B_A).
 
-	assert (OS_P_A_B_C2 := OS_P_A_B_C).
-	destruct OS_P_A_B_C2 as (L & BetS_P_L_C & Col_A_B_L & nCol_A_B_P).
+	assert (OppositeSide_P_A_B_C2 := OppositeSide_P_A_B_C).
+	destruct OppositeSide_P_A_B_C2 as (L & BetS_P_L_C & Col_A_B_L & nCol_A_B_P).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_P_L_C) as (_ & _ & neq_P_C).
 	pose proof (lemma_inequalitysymmetric _ _ neq_P_C) as neq_C_P.
@@ -55,7 +55,7 @@ Proof.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_P) as (neq_A_B & neq_B_P & neq_A_P & neq_B_A & neq_P_B & neq_P_A).
 
 	(* assert by cases *)
-	assert (OS Q A B C) as OS_Q_A_B_C.
+	assert (OppositeSide Q A B C) as OppositeSide_Q_A_B_C.
 	assert (Col C P R \/ ~ Col C P R) as [Col_C_P_R|n_Col_C_P_R] by (apply Classical_Prop.classic).
 	{
 		(* case Col_C_P_R *)
@@ -171,9 +171,9 @@ Proof.
 		}
 		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_Q) as nCol_A_B_Q.
 
-		pose proof (lemma_s_os _ _ _ _ _ BetS_Q_R_C Col_A_B_R nCol_A_B_Q) as OS_Q_A_B_C.
+		pose proof (lemma_s_os _ _ _ _ _ BetS_Q_R_C Col_A_B_R nCol_A_B_Q) as OppositeSide_Q_A_B_C.
 
-		exact OS_Q_A_B_C.
+		exact OppositeSide_Q_A_B_C.
 	}
 	{
 		(* case n_Col_C_P_R *)
@@ -181,7 +181,7 @@ Proof.
 		pose proof (lemma_NCorder _ _ _ nCol_C_P_R) as (nCol_P_C_R & nCol_P_R_C & nCol_R_C_P & nCol_C_R_P & nCol_R_P_C).
 
 		(* assert by cases *)
-		assert (OS Q A B C) as OS_Q_A_B_C.
+		assert (OppositeSide Q A B C) as OppositeSide_Q_A_B_C.
 		pose proof (lemma_onray_orderofpoints_any _ _ _ OnRay_R_Q_P) as [BetS_R_P_Q | [eq_Q_P | BetS_R_Q_P]].
 		{
 			(* case BetS_R_P_Q *)
@@ -189,27 +189,27 @@ Proof.
 
 			epose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD R P C Q nCol_R_P_C Col_R_P_Q neq_R_Q) as nCol_R_Q_C.
 
-			pose proof (lemma_otherside_betweenness_PABC_RPQ_QABC _ _ _ _ _ _ OS_P_A_B_C BetS_R_P_Q nCol_R_Q_C Col_A_B_R) as OS_Q_A_B_C.
+			pose proof (lemma_oppositeside_betweenness_PABC_RPQ_QABC _ _ _ _ _ _ OppositeSide_P_A_B_C BetS_R_P_Q nCol_R_Q_C Col_A_B_R) as OppositeSide_Q_A_B_C.
 
-			exact OS_Q_A_B_C.
+			exact OppositeSide_Q_A_B_C.
 		}
 		{
 			(* case eq_Q_P *)
-			assert (OS Q A B C) as OS_Q_A_B_C by (rewrite eq_Q_P; exact OS_P_A_B_C).
+			assert (OppositeSide Q A B C) as OppositeSide_Q_A_B_C by (rewrite eq_Q_P; exact OppositeSide_P_A_B_C).
 
-			exact OS_Q_A_B_C.
+			exact OppositeSide_Q_A_B_C.
 		}
 		{
 			(* case BetS_R_Q_P *)
-			pose proof (lemma_otherside_betweenness_PABC_RQP_QABC _ _ _ _ _ _ OS_P_A_B_C BetS_R_Q_P nCol_C_P_R Col_A_B_R) as OS_Q_A_B_C.
+			pose proof (lemma_oppositeside_betweenness_PABC_RQP_QABC _ _ _ _ _ _ OppositeSide_P_A_B_C BetS_R_Q_P nCol_C_P_R Col_A_B_R) as OppositeSide_Q_A_B_C.
 
-			exact OS_Q_A_B_C.
+			exact OppositeSide_Q_A_B_C.
 		}
 
-		exact OS_Q_A_B_C.
+		exact OppositeSide_Q_A_B_C.
 	}
 
-	exact OS_Q_A_B_C.
+	exact OppositeSide_Q_A_B_C.
 Qed.
 
 End Euclid.

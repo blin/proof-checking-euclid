@@ -41,9 +41,9 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AB_CD) as (_ & Cong_BA_CD & _).
 
 	pose proof (lemma_s_cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
-	pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AD_BC nCol_A_B_C) as (OS_A_BC_D & OS_A_CB_D & _ & _).
+	pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AD_BC nCol_A_B_C) as (OppositeSide_A_BC_D & OppositeSide_A_CB_D & _ & _).
 
-	pose proof (proposition_29B _ _ _ _ Par_AB_CD OS_A_BC_D) as CongA_ABC_BCD.
+	pose proof (proposition_29B _ _ _ _ Par_AB_CD OppositeSide_A_BC_D) as CongA_ABC_BCD.
 
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_ABC_BCD CongA_BCD_DCB) as CongA_ABC_DCB.
 	pose proof (proposition_04 _ _ _ _ _ _ Cong_BA_CD Cong_BC_CB CongA_ABC_DCB) as (Cong_AC_DB & _ & CongA_BCA_CBD).
@@ -52,7 +52,7 @@ Proof.
 
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_ACB_BCA CongA_BCA_CBD) as CongA_ACB_CBD.
 
-	pose proof (proposition_27B _ _ _ _ CongA_ACB_CBD OS_A_CB_D) as Par_AC_BD.
+	pose proof (proposition_27B _ _ _ _ CongA_ACB_CBD OppositeSide_A_CB_D) as Par_AC_BD.
 
 	split.
 	exact Par_AC_BD.

@@ -32,7 +32,7 @@ Lemma lemma_notperp :
 	forall A B C P,
 	BetS A C B ->
 	nCol A B P ->
-	exists X, nCol A B X /\ SS X P A B /\ ~ RightTriangle A C X.
+	exists X, nCol A B X /\ SameSide X P A B /\ ~ RightTriangle A C X.
 Proof.
 	intros A B C P.
 	intros BetS_A_C_B.
@@ -46,7 +46,7 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_C_B) as neq_B_C.
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 
-	pose proof (lemma_samesidereflexive _ _ _ nCol_A_B_P) as SS_P_P_A_B.
+	pose proof (lemma_samesidereflexive _ _ _ nCol_A_B_P) as SameSide_P_P_A_B.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_P) as n_Col_A_B_P.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_P) as (_ & neq_B_P & neq_A_P & _ & neq_P_B & neq_P_A).
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_P) as (nCol_B_A_P & nCol_B_P_A & nCol_P_A_B & nCol_A_P_B & nCol_P_B_A).
@@ -83,8 +83,8 @@ Proof.
 	
 	pose proof (lemma_s_onray_assert_bets_AEB Q P M BetS_Q_M_P neq_Q_P) as OnRay_Q_P_M.
 
-	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SS_P_P_A_B Col_A_Q_B OnRay_Q_P_M) as SS_P_M_A_B.
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_P_M_A_B) as (SS_M_P_A_B & _ & _).
+	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SameSide_P_P_A_B Col_A_Q_B OnRay_Q_P_M) as SameSide_P_M_A_B.
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_P_M_A_B) as (SameSide_M_P_A_B & _ & _).
 
 
 	epose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_P_Q_B Col_P_Q_M neq_P_M) as nCol_P_M_B.
@@ -176,7 +176,7 @@ Proof.
 	split.
 	exact nCol_A_B_M.
 	split.
-	exact SS_M_P_A_B.
+	exact SameSide_M_P_A_B.
 	exact n_RightTriangle_A_C_M.
 Qed.
 

@@ -236,10 +236,10 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_H_D) as (nCol_H_A_D & _ & _ & _ & _).
 	pose proof (lemma_NCorder _ _ _ nCol_H_A_D) as (_ & nCol_A_D_H & _ & _ & _).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_A_T_H Col_C_B_T nCol_C_B_A) as OS_A_C_B_H.
-	pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_A_C_B_H) as OS_H_C_B_A.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_A_T_H Col_C_B_T nCol_C_B_A) as OppositeSide_A_C_B_H.
+	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_A_C_B_H) as OppositeSide_H_C_B_A.
 
-	pose proof (proposition_29 _ _ _ _ _ _ _ Par_H_E_M_A BetS_H_C_E BetS_M_B_A BetS_D_C_B OS_H_C_B_A) as (_ & CongA_D_C_E_C_B_A & _).
+	pose proof (proposition_29 _ _ _ _ _ _ _ Par_H_E_M_A BetS_H_C_E BetS_M_B_A BetS_D_C_B OppositeSide_H_C_B_A) as (_ & CongA_D_C_E_C_B_A & _).
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_D_C_E_C_B_A CongA_C_B_A_A_B_C) as CongA_D_C_E_A_B_C.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_D_C_E_A_B_C) as CongA_A_B_C_D_C_E.
 

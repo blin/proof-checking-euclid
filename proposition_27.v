@@ -57,14 +57,14 @@ Lemma proposition_27 :
 	BetS A E B ->
 	BetS C F D ->
 	CongA A E F E F D ->
-	OS A E F D ->
+	OppositeSide A E F D ->
 	Par A B C D.
 Proof.
 	intros A B C D E F.
 	intros BetS_A_E_B.
 	intros BetS_C_F_D.
 	intros CongA_AEF_EFD.
-	intros OS_A_EF_D.
+	intros OppositeSide_A_EF_D.
 
 	assert (eq A A) as eq_A_A by (reflexivity).
 	assert (eq D D) as eq_D_D by (reflexivity).
@@ -103,7 +103,7 @@ Proof.
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_E_F_D) as CongA_EFD_DFE.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_AEF_EFD CongA_EFD_DFE) as CongA_AEF_DFE.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_D_F_C Col_E_F_F nCol_E_F_D) as OS_D_EF_C.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_D_F_C Col_E_F_F nCol_E_F_D) as OppositeSide_D_EF_C.
 
 	pose proof (lemma_angledistinct _ _ _ _ _ _ CongA_EFD_AEF) as (neq_E_F & _ & _ & _ & _ & _).
 	pose proof (lemma_inequalitysymmetric _ _ neq_E_F) as neq_F_E.
@@ -114,8 +114,8 @@ Proof.
 	pose proof (lemma_supplements_conga _ _ _ _ _ _ _ _ _ _ CongA_AEF_DFE Supp_AEF_FEB Supp_DFE_EFC) as CongA_FEB_EFC.
 	pose proof (lemma_equalanglesflip _ _ _ _ _ _ CongA_FEB_EFC) as CongA_BEF_CFE.
 
-	assert (OS_A_EF_D2 := OS_A_EF_D).
-	destruct OS_A_EF_D2 as (H & BetS_A_H_D & Col_E_F_H & nCol_E_F_A).
+	assert (OppositeSide_A_EF_D2 := OppositeSide_A_EF_D).
+	destruct OppositeSide_A_EF_D2 as (H & BetS_A_H_D & Col_E_F_H & nCol_E_F_A).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_H_D) as BetS_D_H_A.
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_H_D) as (_ & _ & neq_A_D).
@@ -185,11 +185,11 @@ Proof.
 			pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_GEF_BEF CongA_BEF_FEB) as CongA_GEF_FEB.
 			pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_GEF_FEB) as CongA_FEB_GEF.
 
-			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_E_F_H Col_E_F_E BetS_D_H_A BetS_G_E_A nCol_E_F_D nCol_E_F_G) as SS_D_G_EF.
-			pose proof (lemma_samesidesymmetric _ _ _ _ SS_D_G_EF) as (SS_G_D_EF & _ & _).
-			pose proof (lemma_planeseparation _ _ _ _ _ SS_G_D_EF OS_D_EF_C) as OS_G_EF_C.
+			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_E_F_H Col_E_F_E BetS_D_H_A BetS_G_E_A nCol_E_F_D nCol_E_F_G) as SameSide_D_G_EF.
+			pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_D_G_EF) as (SameSide_G_D_EF & _ & _).
+			pose proof (lemma_planeseparation _ _ _ _ _ SameSide_G_D_EF OppositeSide_D_EF_C) as OppositeSide_G_EF_C.
 
-			destruct OS_G_EF_C as (R & BetS_G_R_C & Col_E_F_R & _).
+			destruct OppositeSide_G_EF_C as (R & BetS_G_R_C & Col_E_F_R & _).
 
 			pose proof (lemma_betweennotequal _ _ _ BetS_G_R_C) as (_ & _ & neq_G_C).
 			pose proof (lemma_inequalitysymmetric _ _ neq_G_C) as neq_C_G.
@@ -254,11 +254,11 @@ Proof.
 			}
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_E_G) as BetS_G_E_B.
 
-			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_E_F_E Col_E_F_E BetS_A_E_B BetS_G_E_B nCol_E_F_A nCol_E_F_G) as SS_A_G_EF.
-			pose proof (lemma_samesidesymmetric _ _ _ _ SS_A_G_EF) as (SS_G_A_EF & _ & _).
-			pose proof (lemma_planeseparation _ _ _ _ _ SS_G_A_EF OS_A_EF_D) as OS_G_EF_D.
+			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_E_F_E Col_E_F_E BetS_A_E_B BetS_G_E_B nCol_E_F_A nCol_E_F_G) as SameSide_A_G_EF.
+			pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_A_G_EF) as (SameSide_G_A_EF & _ & _).
+			pose proof (lemma_planeseparation _ _ _ _ _ SameSide_G_A_EF OppositeSide_A_EF_D) as OppositeSide_G_EF_D.
 
-			destruct OS_G_EF_D as (P & BetS_G_P_D & Col_E_F_P & _).
+			destruct OppositeSide_G_EF_D as (P & BetS_G_P_D & Col_E_F_P & _).
 
 			pose proof (lemma_betweennotequal _ _ _ BetS_G_P_D) as (_ & _ & neq_G_D).
 

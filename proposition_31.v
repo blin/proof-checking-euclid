@@ -191,10 +191,10 @@ Proof.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_EAD_CDA CongA_CDA_ADC) as CongA_EAD_ADC.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_DAE_EAD CongA_EAD_CDA) as CongA_DAE_CDA.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_B_M_F Col_A_D_M nCol_A_D_B) as OS_B_AD_F.
-	pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_B_AD_F) as OS_F_AD_B.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_B_M_F Col_A_D_M nCol_A_D_B) as OppositeSide_B_AD_F.
+	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_B_AD_F) as OppositeSide_F_AD_B.
 
-	pose proof (proposition_27 _ _ _ _ _ _ BetS_F_A_E BetS_C_D_B CongA_FAD_ADB OS_F_AD_B) as Par_F_E_C_B.
+	pose proof (proposition_27 _ _ _ _ _ _ BetS_F_A_E BetS_C_D_B CongA_FAD_ADB OppositeSide_F_AD_B) as Par_F_E_C_B.
 	pose proof (lemma_parallelflip _ _ _ _ Par_F_E_C_B) as (_ & _ & Par_E_F_B_C).
 
 	exists E, F, M.

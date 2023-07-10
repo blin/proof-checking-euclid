@@ -10,14 +10,14 @@ Lemma lemma_s_tarski_par :
 	neq A B ->
 	neq C D ->
 	~ Meet A B C D ->
-	SS C D A B ->
+	SameSide C D A B ->
 	TarskiPar A B C D.
 Proof.
 	intros A B C D.
 	intros neq_A_B.
 	intros neq_C_D.
 	intros n_Meet_A_B_C_D.
-	intros SS_C_D_AB.
+	intros SameSide_C_D_AB.
 
 	unfold TarskiPar.
 	split.
@@ -26,7 +26,7 @@ Proof.
 	exact neq_C_D.
 	split.
 	exact n_Meet_A_B_C_D.
-	exact SS_C_D_AB.
+	exact SameSide_C_D_AB.
 Qed.
 
 End Euclid.

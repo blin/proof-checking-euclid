@@ -20,12 +20,12 @@ Context `{Ax:euclidean_euclidean}.
 Lemma proposition_29B :
 	forall A D G H,
 	Par A G H D ->
-	OS A G H D ->
+	OppositeSide A G H D ->
 	CongA A G H G H D.
 Proof.
 	intros A D G H.
 	intros Par_AG_HD.
-	intros OS_A_GH_D.
+	intros OppositeSide_A_GH_D.
 
 	assert (eq G G) as eq_G_G by (reflexivity).
 	assert (eq H H) as eq_H_H by (reflexivity).
@@ -89,7 +89,7 @@ Proof.
 
 	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_A_B neq_C_D Col_A_B_a Col_A_B_g neq_a_g Col_C_D_h Col_C_D_d neq_h_d n_Meet_A_B_C_D BetS_a_m_d BetS_h_m_g) as Par_AB_CD.
 
-	pose proof (proposition_29 _ _ _ _ _ _ _ Par_AB_CD BetS_A_G_B BetS_C_H_D BetS_E_G_H OS_A_GH_D) as (CongA_AGH_GHD & CongA_EGB_GHD & SumTwoRT_BGH_GHD).
+	pose proof (proposition_29 _ _ _ _ _ _ _ Par_AB_CD BetS_A_G_B BetS_C_H_D BetS_E_G_H OppositeSide_A_GH_D) as (CongA_AGH_GHD & CongA_EGB_GHD & SumTwoRT_BGH_GHD).
 
 	exact CongA_AGH_GHD.
 Qed.

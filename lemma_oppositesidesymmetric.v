@@ -20,13 +20,13 @@ Context `{Ax1:euclidean_neutral_ruler_compass}.
 
 Lemma lemma_oppositesidesymmetric :
 	forall A B P Q,
-	OS P A B Q ->
-	OS Q A B P.
+	OppositeSide P A B Q ->
+	OppositeSide Q A B P.
 Proof.
 	intros A B P Q.
-	intros OS_P_AB_Q.
+	intros OppositeSide_P_AB_Q.
 
-	destruct OS_P_AB_Q as (R & BetS_P_R_Q & Col_A_B_R & nCol_A_B_P).
+	destruct OppositeSide_P_AB_Q as (R & BetS_P_R_Q & Col_A_B_R & nCol_A_B_P).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_P_R_Q) as BetS_Q_R_P.
 	pose proof (lemma_betweennotequal _ _ _ BetS_P_R_Q) as (neq_R_Q & _ & _).
@@ -77,9 +77,9 @@ Proof.
 	}
 	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_Q) as nCol_A_B_Q.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_Q_R_P Col_A_B_R nCol_A_B_Q) as OS_Q_AB_P.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_Q_R_P Col_A_B_R nCol_A_B_Q) as OppositeSide_Q_AB_P.
 
-	exact OS_Q_AB_P.
+	exact OppositeSide_Q_AB_P.
 Qed.
 
 End Euclid.

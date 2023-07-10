@@ -1,4 +1,5 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
+Require Import ProofCheckingEuclid.euclidean_defs.
 
 Section Euclid.
 
@@ -9,14 +10,14 @@ Lemma lemma_s_os :
 	BetS P X Q ->
 	Col A B X ->
 	nCol A B P ->
-	OS P A B Q.
+	OppositeSide P A B Q.
 Proof.
 	intros P A B Q X.
 	intros BetS_P_X_Q.
 	intros Col_A_B_X.
 	intros nCol_A_B_P.
 
-	unfold OS.
+	unfold OppositeSide.
 	exists X.
 	split.
 	exact BetS_P_X_Q.
