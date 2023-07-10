@@ -49,7 +49,7 @@ Lemma proposition_29 :
 	BetS A G B ->
 	BetS C H D ->
 	BetS E G H ->
-	OS A G H D ->
+	OppositeSide A G H D ->
 	CongA A G H G H D /\ CongA E G B G H D /\ SumTwoRT B G H G H D.
 Proof.
 	intros A B C D E G H.
@@ -57,7 +57,7 @@ Proof.
 	intros BetS_A_G_B.
 	intros BetS_C_H_D.
 	intros BetS_E_G_H.
-	intros OS_A_GH_D.
+	intros OppositeSide_A_GH_D.
 
 	assert (eq C C) as eq_C_C by (reflexivity).
 	assert (eq G G) as eq_G_G by (reflexivity).
@@ -90,19 +90,19 @@ Proof.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_G_H) as OnRay_GH_H.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_H_G) as OnRay_HG_G.
 
-	pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_A_GH_D) as OS_D_GH_A.
+	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_A_GH_D) as OppositeSide_D_GH_A.
 
-	assert (OS_A_GH_D_2 := OS_A_GH_D).
-	destruct OS_A_GH_D_2 as (R & BetS_A_R_D & Col_G_H_R & nCol_G_H_A).
-	destruct OS_D_GH_A as (_ & _ & _ & nCol_G_H_D).
+	assert (OppositeSide_A_GH_D_2 := OppositeSide_A_GH_D).
+	destruct OppositeSide_A_GH_D_2 as (R & BetS_A_R_D & Col_G_H_R & nCol_G_H_A).
+	destruct OppositeSide_D_GH_A as (_ & _ & _ & nCol_G_H_D).
 
 	pose proof (lemma_NCorder _ _ _ nCol_G_H_A) as (nCol_H_G_A & nCol_H_A_G & nCol_A_G_H & nCol_G_A_H & nCol_A_H_G).
 	pose proof (lemma_NCorder _ _ _ nCol_G_H_D) as (_ & _ & _ & _ & nCol_D_H_G).
 
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_G_A_H Col_G_A_B neq_G_B) as nCol_G_B_H.
 	pose proof (lemma_NCorder _ _ _ nCol_G_B_H) as (nCol_B_G_H & nCol_B_H_G & nCol_H_G_B & nCol_G_H_B & nCol_H_B_G).
-	pose proof (lemma_s_os _ _ _ _ _ BetS_B_G_A Col_G_H_G nCol_G_H_B) as OS_B_GH_A.
-	pose proof (lemma_oppositesidesymmetric _ _ _ _ OS_B_GH_A) as OS_A_GH_B.
+	pose proof (lemma_s_os _ _ _ _ _ BetS_B_G_A Col_G_H_G nCol_G_H_B) as OppositeSide_B_GH_A.
+	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_B_GH_A) as OppositeSide_A_GH_B.
 
 
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_B_G_H) as CongA_BGH_BGH.
@@ -161,9 +161,9 @@ Proof.
 	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_G_S_H) as Col_G_S_H.
 	pose proof (lemma_collinearorder _ _ _ Col_G_S_H) as (_ & _ & _ & Col_G_H_S & _).
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_G_H_R Col_G_H_S BetS_A_R_D BetS_P_S_D nCol_G_H_A nCol_G_H_P) as SS_A_P_GH.
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_A_P_GH) as (SS_P_A_GH & _ & _).
-	pose proof (lemma_planeseparation _ _ _ _ _ SS_P_A_GH OS_A_GH_B) as OS_P_GH_B.
+	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_G_H_R Col_G_H_S BetS_A_R_D BetS_P_S_D nCol_G_H_A nCol_G_H_P) as SameSide_A_P_GH.
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_A_P_GH) as (SameSide_P_A_GH & _ & _).
+	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_P_A_GH OppositeSide_A_GH_B) as OppositeSide_P_GH_B.
 
 	pose proof (lemma_s_supp _ _ _ _ _ OnRay_GH_H BetS_P_G_Q) as Supp_PGH_HGQ.
 	pose proof (lemma_s_supp _ _ _ _ _ OnRay_HG_G BetS_D_H_C) as Supp_DHG_GHC.
@@ -179,7 +179,7 @@ Proof.
 	{
 		intro LtA_HGA_HGP.
 
-		pose proof (lemma_crossbar_LtA _ _ _ _ _ _ LtA_HGA_HGP SS_A_P_GH OnRay_GH_H OnRay_GP_P) as (M & BetS_P_M_H & OnRay_GA_M).
+		pose proof (lemma_crossbar_LtA _ _ _ _ _ _ LtA_HGA_HGP SameSide_A_P_GH OnRay_GH_H OnRay_GP_P) as (M & BetS_P_M_H & OnRay_GA_M).
 
 		pose proof (lemma_onray_strict _ _ _ OnRay_GA_M) as neq_G_M.
 		pose proof (lemma_inequalitysymmetric _ _ neq_G_M) as neq_M_G.
@@ -212,13 +212,13 @@ Proof.
 		pose proof (lemma_angleorderrespectscongruence _ _ _ _ _ _ _ _ _ LtA_PGH_HGA CongA_AGH_HGA) as LtA_PGH_AGH.
 		pose proof (lemma_supplementinequality _ _ _ _ _ _ _ _ _ _ Supp_AGH_HGB Supp_PGH_HGQ LtA_PGH_AGH) as LtA_HGB_HGQ.
 
-		destruct OS_P_GH_B as (L & BetS_P_L_B & Col_G_H_L & _).
+		destruct OppositeSide_P_GH_B as (L & BetS_P_L_B & Col_G_H_L & _).
 
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_P_L_B) as BetS_B_L_P.
 
-		pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_G_H_L Col_G_H_G BetS_B_L_P BetS_Q_G_P nCol_G_H_B nCol_G_H_Q) as SS_B_Q_GH.
+		pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_G_H_L Col_G_H_G BetS_B_L_P BetS_Q_G_P nCol_G_H_B nCol_G_H_Q) as SameSide_B_Q_GH.
 
-		pose proof (lemma_crossbar_LtA _ _ _ _ _ _ LtA_HGB_HGQ SS_B_Q_GH OnRay_GH_H OnRay_GQ_Q) as (M & BetS_Q_M_H & OnRay_GB_M).
+		pose proof (lemma_crossbar_LtA _ _ _ _ _ _ LtA_HGB_HGQ SameSide_B_Q_GH OnRay_GH_H OnRay_GQ_Q) as (M & BetS_Q_M_H & OnRay_GB_M).
 
 		pose proof (lemma_onray_strict _ _ _ OnRay_GB_M) as neq_G_M.
 		pose proof (lemma_inequalitysymmetric _ _ neq_G_M) as neq_M_G.

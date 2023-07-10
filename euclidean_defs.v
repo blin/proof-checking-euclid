@@ -30,9 +30,10 @@ Definition Perp_at P Q A B C := exists X,
 	Col A B X /\
 	RightTriangle X C P.
 Definition InAngle A B C P := exists X Y, OnRay B A X /\ OnRay B C Y /\ BetS X P Y.
+(* C and D are on opposite sides of AB *)
+Definition OppositeSide P A B Q := exists X, BetS P X Q /\ Col A B X /\ nCol A B P.
 (* P and Q are on the same side of AB *)
-(* TODO: rename to SameSide *)
-Definition SS P Q A B := exists X U V,
+Definition SameSide P Q A B := exists X U V,
 	Col A B U /\
 	Col A B V /\
 	BetS P U X /\
@@ -56,7 +57,7 @@ Definition Meet A B C D := exists X,
 	Col A B X /\
 	Col C D X.
 Definition Cross A B C D := exists X, BetS A X B /\ BetS C X D.
-Definition TarskiPar A B C D := neq A B /\ neq C D /\ ~ Meet A B C D /\ SS C D A B.
+Definition TarskiPar A B C D := neq A B /\ neq C D /\ ~ Meet A B C D /\ SameSide C D A B.
 (* BetS U X v /\ BetS u X V is used as "same plane". See "Tarski-parallel" in the paper. *)
 Definition Par A B C D := exists U V u v X,
 	neq A B /\

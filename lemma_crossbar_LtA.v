@@ -36,14 +36,14 @@ Context `{Ax:euclidean_neutral_ruler_compass}.
 Lemma lemma_crossbar_LtA :
 	forall A G H P S T,
 	LtA H G A H G P ->
-	SS A P G H ->
+	SameSide A P G H ->
 	OnRay G H S ->
 	OnRay G P T ->
 	exists X, BetS T X S /\ OnRay G A X.
 Proof.
 	intros A G H P S T.
 	intros LtA_HGA_HGP.
-	intros SS_A_P_GH.
+	intros SameSide_A_P_GH.
 	intros OnRay_GH_S.
 	intros OnRay_GP_T.
 
@@ -76,8 +76,8 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_H_G_A) as (nCol_G_H_A & nCol_G_A_H & nCol_A_H_G & nCol_H_A_G & nCol_A_G_H).
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_H_G_A) as CongA_HGA_HGA.
 
-	assert (SS_A_P_GH_2 := SS_A_P_GH).
-	destruct SS_A_P_GH_2 as (_ & _ & _ & _ & _ & _ & _ &  _ & nCol_G_H_P).
+	assert (SameSide_A_P_GH_2 := SameSide_A_P_GH).
+	destruct SameSide_A_P_GH_2 as (_ & _ & _ & _ & _ & _ & _ &  _ & nCol_G_H_P).
 	pose proof (lemma_NCorder _ _ _ nCol_G_H_P) as (nCol_H_G_P & nCol_H_P_G & nCol_P_G_H & nCol_G_P_H & nCol_P_H_G).
 	pose proof (lemma_NCdistinct _ _ _ nCol_G_H_P) as (neq_G_H & neq_H_P & neq_G_P & neq_H_G & neq_P_H & neq_P_G).
 
@@ -127,12 +127,12 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_HN_HM) as (Cong_NH_MH & _ & _).
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_NH_MH) as Cong_MH_NH.
 
-	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SS_A_P_GH Col_G_G_H OnRay_GP_T) as SS_A_T_GH.
-	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SS_A_T_GH Col_G_S_H OnRay_ST_M) as SS_A_M_GH.
-	pose proof (lemma_samesidesymmetric _ _ _ _ SS_A_M_GH) as (SS_M_A_GH & _ & _).
-	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SS_M_A_GH Col_G_G_H OnRay_GA_N) as SS_M_N_GH.
+	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SameSide_A_P_GH Col_G_G_H OnRay_GP_T) as SameSide_A_T_GH.
+	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SameSide_A_T_GH Col_G_S_H OnRay_ST_M) as SameSide_A_M_GH.
+	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_A_M_GH) as (SameSide_M_A_GH & _ & _).
+	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SameSide_M_A_GH Col_G_G_H OnRay_GA_N) as SameSide_M_N_GH.
 
-	pose proof (proposition_07 _ _ _ _ neq_G_H Cong_MG_NG Cong_MH_NH SS_M_N_GH) as eq_M_N.
+	pose proof (proposition_07 _ _ _ _ neq_G_H Cong_MG_NG Cong_MH_NH SameSide_M_N_GH) as eq_M_N.
 
 	assert (OnRay G A M) as OnRay_GA_M by (rewrite eq_M_N; exact OnRay_GA_N).
 

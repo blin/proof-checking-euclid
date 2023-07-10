@@ -21,9 +21,6 @@ Class euclidean_neutral :=
 	neq A B := ~ eq A B;
 	nCol A B C := neq A B /\ neq A C /\ neq B C /\ ~ BetS A B C /\ ~ BetS A C B /\ ~ BetS B A C;
 	Col A B C := (eq A B \/ eq A C \/ eq B C \/ BetS B A C \/ BetS A B C \/ BetS A C B);
-	(* C and D are on opposite sides of AB *)
-	(* TODO: rename to OppositeSides *)
-	OS P A B Q := exists X, BetS P X Q /\ Col A B X /\ nCol A B P;
 	Triangle A B C := nCol A B C;
 
 

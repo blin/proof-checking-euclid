@@ -13,7 +13,7 @@ Lemma lemma_s_ss :
 	BetS Q V X ->
 	nCol A B P ->
 	nCol A B Q ->
-	SS P Q A B.
+	SameSide P Q A B.
 Proof.
 	intros P Q A B X U V.
 	intros Col_A_B_U.

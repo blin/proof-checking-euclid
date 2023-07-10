@@ -13,8 +13,8 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_otherside_betweenness_PABC_RPQ_QABC.
-Require Import ProofCheckingEuclid.lemma_otherside_betweenness_PABC_RQP_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
@@ -28,7 +28,7 @@ Context `{Ax:euclidean_neutral_ruler_compass}.
 
 Lemma lemma_planeseparation_Col_C_Q_D :
 	forall A B C D E Q G H,
-	OS D A B E ->
+	OppositeSide D A B E ->
 	Col A B G ->
 	Col A B H ->
 	BetS C G Q ->
@@ -37,10 +37,10 @@ Lemma lemma_planeseparation_Col_C_Q_D :
 	nCol A B D ->
 	Col C Q D ->
 	neq C D ->
-	OS C A B E.
+	OppositeSide C A B E.
 Proof.
 	intros A B C D E Q G H.
-	intros OS_D_AB_E.
+	intros OppositeSide_D_AB_E.
 	intros Col_A_B_G.
 	intros Col_A_B_H.
 	intros BetS_C_G_Q.
@@ -50,8 +50,8 @@ Proof.
 	intros Col_C_Q_D.
 	intros neq_C_D.
 
-	assert (OS_D_AB_E2 := OS_D_AB_E).
-	destruct OS_D_AB_E2 as (W & BetS_D_W_E & Col_A_B_W & _).
+	assert (OppositeSide_D_AB_E2 := OppositeSide_D_AB_E).
+	destruct OppositeSide_D_AB_E2 as (W & BetS_D_W_E & Col_A_B_W & _).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_D_W_E) as (neq_W_E & neq_D_W & neq_D_E).
 	assert (Col D W E) as Col_D_W_E by (unfold Col; one_of_disjunct BetS_D_W_E).
@@ -199,9 +199,9 @@ Proof.
 			pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_E_G_D BetS_G_C_D) as BetS_E_G_C.
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_G_C) as BetS_C_G_E.
 
-			pose proof (lemma_s_os _ _ _ _ _ BetS_C_G_E Col_A_B_G nCol_A_B_C) as OS_C_AB_E.
+			pose proof (lemma_s_os _ _ _ _ _ BetS_C_G_E Col_A_B_G nCol_A_B_C) as OppositeSide_C_AB_E.
 
-			exact OS_C_AB_E.
+			exact OppositeSide_C_AB_E.
 		}
 		{
 			(* case nBetS_G_C_D *)
@@ -211,9 +211,9 @@ Proof.
 				pose proof (lemma_orderofpoints_ABC_BCD_ABD _ _ _ _ BetS_E_G_D BetS_G_D_C) as BetS_E_G_C.
 				pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_G_C) as BetS_C_G_E.
 
-				pose proof (lemma_s_os _ _ _ _ _ BetS_C_G_E Col_A_B_G nCol_A_B_C) as OS_C_AB_E.
+				pose proof (lemma_s_os _ _ _ _ _ BetS_C_G_E Col_A_B_G nCol_A_B_C) as OppositeSide_C_AB_E.
 
-				exact OS_C_AB_E.
+				exact OppositeSide_C_AB_E.
 			}
 			{
 				(* case nBetS_G_D_C *)
@@ -290,14 +290,14 @@ Proof.
 		{
 			(* case BetS_G_C_D *)
 			pose proof (
-				lemma_otherside_betweenness_PABC_RQP_QABC
+				lemma_oppositeside_betweenness_PABC_RQP_QABC
 				_ _ _ _ _ _
-				OS_D_AB_E
+				OppositeSide_D_AB_E
 				BetS_G_C_D
 				nCol_E_D_G
 				Col_A_B_G
-			) as OS_C_AB_E.
-			exact OS_C_AB_E.
+			) as OppositeSide_C_AB_E.
+			exact OppositeSide_C_AB_E.
 		}
 		{
 			(* case nBetS_G_C_D *)
@@ -318,14 +318,14 @@ Proof.
 			apply Classical_Prop.NNPP in BetS_G_D_C.
 
 			pose proof (
-				lemma_otherside_betweenness_PABC_RPQ_QABC
+				lemma_oppositeside_betweenness_PABC_RPQ_QABC
 				_ _ _ _ _ _
-				OS_D_AB_E
+				OppositeSide_D_AB_E
 				BetS_G_D_C
 				nCol_G_C_E
 				Col_A_B_G
-			) as OS_C_AB_E.
-			exact OS_C_AB_E.
+			) as OppositeSide_C_AB_E.
+			exact OppositeSide_C_AB_E.
 		}
 	}
 Qed.
@@ -333,7 +333,7 @@ Qed.
 
 Lemma lemma_planeseparation_nCol_C_Q_D :
 	forall A B C D E Q G H,
-	OS D A B E ->
+	OppositeSide D A B E ->
 	Col A B G ->
 	Col A B H ->
 	BetS C G Q ->
@@ -342,10 +342,10 @@ Lemma lemma_planeseparation_nCol_C_Q_D :
 	nCol A B D ->
 	nCol C Q D ->
 	neq C D ->
-	OS C A B E.
+	OppositeSide C A B E.
 Proof.
 	intros A B C D E Q G H.
-	intros OS_D_AB_E.
+	intros OppositeSide_D_AB_E.
 	intros Col_A_B_G.
 	intros Col_A_B_H.
 	intros BetS_C_G_Q.
@@ -355,8 +355,8 @@ Proof.
 	intros nCol_C_Q_D.
 	intros neq_C_D.
 
-	assert (OS_D_AB_E2 := OS_D_AB_E).
-	destruct OS_D_AB_E2 as (W & BetS_D_W_E & Col_A_B_W & _).
+	assert (OppositeSide_D_AB_E2 := OppositeSide_D_AB_E).
+	destruct OppositeSide_D_AB_E2 as (W & BetS_D_W_E & Col_A_B_W & _).
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_D_W_E) as (neq_W_E & neq_D_W & neq_D_E).
 	assert (Col D W E) as Col_D_W_E by (unfold Col; one_of_disjunct BetS_D_W_E).
@@ -548,9 +548,9 @@ Proof.
 			BetS_C_M_E
 			Col_A_B_M
 			nCol_A_B_C
-		) as OS_C_AB_E.
+		) as OppositeSide_C_AB_E.
 
-		exact OS_C_AB_E.
+		exact OppositeSide_C_AB_E.
 	}
 	{
 		(* case nCol_E_D_G *)
@@ -568,28 +568,28 @@ Proof.
 		}
 
 		pose proof (
-			lemma_otherside_betweenness_PABC_RQP_QABC
+			lemma_oppositeside_betweenness_PABC_RQP_QABC
 			_ _ _ _ _ _
-			OS_D_AB_E
+			OppositeSide_D_AB_E
 			BetS_G_F_D
 			nCol_E_D_G
 			Col_A_B_G
-		) as OS_F_AB_E.
+		) as OppositeSide_F_AB_E.
 
 		assert (~ Col H C E \/ ~ ~ Col H C E) as [n_Col_H_C_E|Col_H_C_E] by (apply Classical_Prop.classic).
 		{
 			(* case nCol_H_C_E *)
 			pose proof (lemma_s_n_col_ncol _ _ _ n_Col_H_C_E) as nCol_H_C_E.
 			pose proof (
-				lemma_otherside_betweenness_PABC_RPQ_QABC
+				lemma_oppositeside_betweenness_PABC_RPQ_QABC
 				_ _ _ _ _ _
-				OS_F_AB_E
+				OppositeSide_F_AB_E
 				BetS_H_F_C
 				nCol_H_C_E
 				Col_A_B_H
-			) as OS_C_AB_E.
+			) as OppositeSide_C_AB_E.
 
-			exact OS_C_AB_E.
+			exact OppositeSide_C_AB_E.
 		}
 
 		(* case Col_H_C_E *)
@@ -689,31 +689,31 @@ Proof.
 			BetS_C_H_E
 			Col_A_B_H
 			nCol_A_B_C
-		) as OS_C_AB_E.
+		) as OppositeSide_C_AB_E.
 
-		exact OS_C_AB_E.
+		exact OppositeSide_C_AB_E.
 	}
 
 Qed.
 
 Lemma lemma_planeseparation :
 	forall A B C D E,
-	SS C D A B ->
-	OS D A B E ->
-	OS C A B E.
+	SameSide C D A B ->
+	OppositeSide D A B E ->
+	OppositeSide C A B E.
 Proof.
 	intros A B C D E.
-	intros SS_C_D_AB.
-	intros OS_D_AB_E.
+	intros SameSide_C_D_AB.
+	intros OppositeSide_D_AB_E.
 
-	destruct SS_C_D_AB as (Q & G & H & Col_A_B_G & Col_A_B_H & BetS_C_G_Q & BetS_D_H_Q & nCol_A_B_C & nCol_A_B_D).
+	destruct SameSide_C_D_AB as (Q & G & H & Col_A_B_G & Col_A_B_H & BetS_C_G_Q & BetS_D_H_Q & nCol_A_B_C & nCol_A_B_D).
 
 	assert (eq C D \/ neq C D) as [eq_C_D|neq_C_D] by (apply Classical_Prop.classic).
 	{
 		(* case eq_C_D *)
-		assert (OS C A B E) as OS_C_AB_E by (rewrite eq_C_D; exact OS_D_AB_E).
+		assert (OppositeSide C A B E) as OppositeSide_C_AB_E by (rewrite eq_C_D; exact OppositeSide_D_AB_E).
 
-		exact OS_C_AB_E.
+		exact OppositeSide_C_AB_E.
 	}
 
 	(* case neq_C_D *)
@@ -723,7 +723,7 @@ Proof.
 		pose proof (
 			lemma_planeseparation_Col_C_Q_D
 			A B C D E Q G H
-			OS_D_AB_E
+			OppositeSide_D_AB_E
 			Col_A_B_G
 			Col_A_B_H
 			BetS_C_G_Q
@@ -732,9 +732,9 @@ Proof.
 			nCol_A_B_D
 			Col_C_Q_D
 			neq_C_D
-		) as OS_C_AB_E.
+		) as OppositeSide_C_AB_E.
 
-		exact OS_C_AB_E.
+		exact OppositeSide_C_AB_E.
 	}
 	{
 		(* case n_Col_C_Q_D *)
@@ -743,7 +743,7 @@ Proof.
 		pose proof (
 			lemma_planeseparation_nCol_C_Q_D
 			A B C D E Q G H
-			OS_D_AB_E
+			OppositeSide_D_AB_E
 			Col_A_B_G
 			Col_A_B_H
 			BetS_C_G_Q
@@ -752,9 +752,9 @@ Proof.
 			nCol_A_B_D
 			nCol_C_Q_D
 			neq_C_D
-		) as OS_C_AB_E.
+		) as OppositeSide_C_AB_E.
 
-		exact OS_C_AB_E.
+		exact OppositeSide_C_AB_E.
 	}
 Qed.
 
