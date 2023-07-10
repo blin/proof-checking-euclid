@@ -40,25 +40,25 @@ Proof.
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_P_A_Q) as (neq_A_Q & _ & neq_P_Q).
 
-	pose proof (lemma_s_col_BetS_A_B_C P A Q BetS_P_A_Q) as Col_P_A_Q.
+	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_P_A_Q) as Col_P_A_Q.
 	pose proof (lemma_collinearorder _ _ _ Col_P_A_Q) as (Col_A_P_Q & Col_A_Q_P & Col_Q_P_A & Col_P_Q_A & Col_Q_A_P).
 
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_P_B Col_A_P_Q neq_A_Q) as nCol_A_Q_B.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_Q_B) as (_ & neq_Q_B & _ & neq_Q_A & neq_B_Q & _).
 	pose proof (lemma_NCorder _ _ _ nCol_A_Q_B) as (nCol_Q_A_B & nCol_Q_B_A & nCol_B_A_Q & nCol_A_B_Q & nCol_B_Q_A).
 
-	pose proof (proposition_23B _ _ _ _ _ _ neq_A_B nCol_D_C_E nCol_A_B_Q) as (F & G & OnRay_A_B_G & CongA_F_A_G_D_C_E & OppositeSide_F_A_B_Q).
+	pose proof (proposition_23B _ _ _ _ _ _ neq_A_B nCol_D_C_E nCol_A_B_Q) as (F & G & OnRay_AB_G & CongA_FAG_DCE & OppositeSide_F_AB_Q).
 
-	destruct OppositeSide_F_A_B_Q as (J & BetS_F_J_Q & Col_A_B_J & nCol_A_B_F).
+	destruct OppositeSide_F_AB_Q as (J & BetS_F_J_Q & Col_A_B_J & nCol_A_B_F).
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_J Col_A_B_A BetS_F_J_Q BetS_P_A_Q nCol_A_B_F nCol_A_B_P) as SameSide_F_P_A_B.
+	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_J Col_A_B_A BetS_F_J_Q BetS_P_A_Q nCol_A_B_F nCol_A_B_P) as SameSide_F_P_AB.
 
 	exists F, G.
 	split.
-	exact OnRay_A_B_G.
+	exact OnRay_AB_G.
 	split.
-	exact CongA_F_A_G_D_C_E.
-	exact SameSide_F_P_A_B.
+	exact CongA_FAG_DCE.
+	exact SameSide_F_P_AB.
 Qed.
 
 End Euclid.

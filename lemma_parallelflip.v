@@ -15,9 +15,9 @@ Lemma lemma_parallelflip :
 	Par B A C D /\ Par A B D C /\ Par B A D C.
 Proof.
 	intros A B C D.
-	intros Par_A_B_C_D.
+	intros Par_AB_CD.
 
-	destruct Par_A_B_C_D as (M & a & b & c & d & neq_A_B & neq_C_D & Col_A_B_a & Col_A_B_b & neq_a_b & Col_C_D_c & Col_C_D_d & neq_c_d & n_Meet_A_B_C_D & BetS_a_M_d & BetS_c_M_b).
+	destruct Par_AB_CD as (M & a & b & c & d & neq_A_B & neq_C_D & Col_A_B_a & Col_A_B_b & neq_a_b & Col_C_D_c & Col_C_D_d & neq_c_d & n_Meet_A_B_C_D & BetS_a_M_d & BetS_c_M_b).
 
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 	pose proof (lemma_inequalitysymmetric _ _ neq_C_D) as neq_D_C.
@@ -73,15 +73,15 @@ Proof.
 		exact n_Meet_A_B_C_D.
 	}
 
-	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_B_A neq_C_D Col_B_A_a Col_B_A_b neq_a_b Col_C_D_c Col_C_D_d neq_c_d n_Meet_B_A_C_D BetS_a_M_d BetS_c_M_b) as Par_B_A_C_D.
-	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_A_B neq_D_C Col_A_B_a Col_A_B_b neq_a_b Col_D_C_c Col_D_C_d neq_c_d n_Meet_A_B_D_C BetS_a_M_d BetS_c_M_b) as Par_A_B_D_C.
-	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_B_A neq_D_C Col_B_A_a Col_B_A_b neq_a_b Col_D_C_c Col_D_C_d neq_c_d n_Meet_B_A_D_C BetS_a_M_d BetS_c_M_b) as Par_B_A_D_C.
+	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_B_A neq_C_D Col_B_A_a Col_B_A_b neq_a_b Col_C_D_c Col_C_D_d neq_c_d n_Meet_B_A_C_D BetS_a_M_d BetS_c_M_b) as Par_BA_CD.
+	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_A_B neq_D_C Col_A_B_a Col_A_B_b neq_a_b Col_D_C_c Col_D_C_d neq_c_d n_Meet_A_B_D_C BetS_a_M_d BetS_c_M_b) as Par_AB_DC.
+	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_B_A neq_D_C Col_B_A_a Col_B_A_b neq_a_b Col_D_C_c Col_D_C_d neq_c_d n_Meet_B_A_D_C BetS_a_M_d BetS_c_M_b) as Par_BA_DC.
 
 	split.
-	exact Par_B_A_C_D.
+	exact Par_BA_CD.
 	split.
-	exact Par_A_B_D_C.
-	exact Par_B_A_D_C.
+	exact Par_AB_DC.
+	exact Par_BA_DC.
 Qed.
 
 End Euclid.

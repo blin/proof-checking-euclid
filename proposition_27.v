@@ -378,9 +378,9 @@ Proof.
 	pose proof (lemma_collinearbetween _ _ _ _ _ _ _ Col_A_E_B Col_C_F_D neq_A_B neq_C_D neq_A_E neq_F_D n_Meet_A_B_C_D BetS_A_H_D Col_E_F_H) as BetS_E_H_F.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_H_F) as BetS_F_H_E.
 
-	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_A_B neq_C_D Col_A_B_A Col_A_B_E neq_A_E Col_C_D_F Col_C_D_D neq_F_D n_Meet_A_B_C_D BetS_A_H_D BetS_F_H_E) as Par_A_B_C_D.
+	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_A_B neq_C_D Col_A_B_A Col_A_B_E neq_A_E Col_C_D_F Col_C_D_D neq_F_D n_Meet_A_B_C_D BetS_A_H_D BetS_F_H_E) as Par_AB_CD.
 
-	exact Par_A_B_C_D.
+	exact Par_AB_CD.
 Qed.
 
 End Euclid.

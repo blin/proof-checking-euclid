@@ -53,7 +53,7 @@ Lemma proposition_29 :
 	CongA A G H G H D /\ CongA E G B G H D /\ SumTwoRT B G H G H D.
 Proof.
 	intros A B C D E G H.
-	intros Par_A_B_C_D.
+	intros Par_AB_CD.
 	intros BetS_A_G_B.
 	intros BetS_C_H_D.
 	intros BetS_E_G_H.
@@ -67,7 +67,7 @@ Proof.
 	pose proof (lemma_s_col_eq_A_C G H G eq_G_G) as Col_G_H_G.
 	pose proof (lemma_s_col_eq_B_C D H H eq_H_H) as Col_D_H_H.
 
-	destruct Par_A_B_C_D as (_ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & n_Meet_A_B_C_D & _ & _).
+	destruct Par_AB_CD as (_ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & n_Meet_A_B_C_D & _ & _).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_G_B) as BetS_B_G_A.
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_G_B) as (neq_G_B & neq_A_G & neq_A_B).
