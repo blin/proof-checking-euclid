@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Meet.
+Require Import ProofCheckingEuclid.by_def_Par.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -9,8 +11,6 @@ Require Import ProofCheckingEuclid.lemma_parallelNC.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.by_def_Meet.
-Require Import ProofCheckingEuclid.by_def_Par.
 Require Import ProofCheckingEuclid.proposition_29.
 
 Section Euclid.

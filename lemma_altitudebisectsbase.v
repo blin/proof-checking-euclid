@@ -1,4 +1,7 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_Midpoint.
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -12,13 +15,10 @@ Require Import ProofCheckingEuclid.lemma_extensionunique.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.by_def_CongA.
-Require Import ProofCheckingEuclid.by_def_Midpoint.
-Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.proposition_04.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

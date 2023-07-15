@@ -1,7 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
-Require Import ProofCheckingEuclid.by_def_Supp.
 
 Section Euclid.
 

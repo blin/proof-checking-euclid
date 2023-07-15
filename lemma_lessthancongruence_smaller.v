@@ -1,7 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_congruencetransitive.
-Require Import ProofCheckingEuclid.by_def_Lt.
 
 Section Euclid.
 

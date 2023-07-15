@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -5,10 +7,8 @@ Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_flip.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_symmetric.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_20.
 Require Import ProofCheckingEuclid.proposition_22.
 

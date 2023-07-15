@@ -1,3 +1,8 @@
+Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_TT.
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
+Require Import ProofCheckingEuclid.by_def_isosceles.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -10,11 +15,6 @@ Require Import ProofCheckingEuclid.lemma_lessthanbetween.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence_smaller.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.by_def_TT.
-Require Import ProofCheckingEuclid.by_def_TogetherGreater.
-Require Import ProofCheckingEuclid.by_def_isosceles.
-Require Import ProofCheckingEuclid.by_def_Lt.
-Require Import ProofCheckingEuclid.by_def_OnRay.
 
 Section Euclid.
 

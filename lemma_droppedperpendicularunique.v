@@ -1,4 +1,4 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -14,7 +14,7 @@ Require Import ProofCheckingEuclid.lemma_midpointunique.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_rightreverse.
-Require Import ProofCheckingEuclid.by_def_Midpoint.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

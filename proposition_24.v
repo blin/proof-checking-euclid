@@ -1,3 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_LtA.
+Require Import ProofCheckingEuclid.by_def_Triangle.
+Require Import ProofCheckingEuclid.by_def_isosceles.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -27,16 +31,12 @@ Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_onray_shared_initial_point.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.by_def_isosceles.
-Require Import ProofCheckingEuclid.by_def_Lt.
-Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
-Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_05.
 Require Import ProofCheckingEuclid.proposition_16.

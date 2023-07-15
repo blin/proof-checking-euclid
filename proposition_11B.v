@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_Midpoint.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -23,11 +26,8 @@ Require Import ProofCheckingEuclid.lemma_rightreverse.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_C_B.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.by_def_OppositeSide.
-Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.proposition_10.
 Require Import ProofCheckingEuclid.proposition_12.

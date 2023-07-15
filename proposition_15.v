@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -10,7 +11,6 @@ Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 
 Section Euclid.

@@ -1,8 +1,8 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
+Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_congruencetransitive.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_extensionunique.

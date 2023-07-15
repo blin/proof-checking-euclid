@@ -1,11 +1,11 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

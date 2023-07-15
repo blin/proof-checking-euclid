@@ -8,10 +8,10 @@ Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
-Require Import ProofCheckingEuclid.lemma_s_onray_congruence_betweenness.
 Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
+Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
+Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
+Require Import ProofCheckingEuclid.lemma_s_onray_congruence_betweenness.
 
 Section Euclid.
 

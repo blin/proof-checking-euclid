@@ -1,11 +1,11 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

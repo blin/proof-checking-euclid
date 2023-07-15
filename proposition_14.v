@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_SameSide.
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -14,8 +16,6 @@ Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
-Require Import ProofCheckingEuclid.by_def_SameSide.
-Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_07.

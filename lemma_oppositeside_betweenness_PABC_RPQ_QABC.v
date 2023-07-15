@@ -1,15 +1,15 @@
-Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
+Require Import ProofCheckingEuclid.lemma_NCdistinct.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
-Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_NCdistinct.
 Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
+Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
+Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
+Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

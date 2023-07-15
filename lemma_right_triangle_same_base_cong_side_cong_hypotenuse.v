@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
@@ -10,7 +11,6 @@ Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_linereflectionisometry.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
 Require Import ProofCheckingEuclid.lemma_rightreverse.
-Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.proposition_10.
 
 Section Euclid.
