@@ -153,8 +153,8 @@ axioms = {
 
 # TODO: extract from euclidean_defs.v
 supporting_lemmas_for_defs: dict[str, Lemma] = {
-    "lemma_s_oncirc_radius": Lemma(
-        name="lemma_s_oncirc_radius",
+    "by_def_OnCirc": Lemma(
+        name="by_def_OnCirc",
         points=["B", "J", "U", "X", "Y"],
         given=[
             PropSimple(head="CI", points=["J", "U", "X", "Y"]),
@@ -163,8 +163,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="OnCirc", points=["B", "J"]),
         asserts=[],
     ),
-    "lemma_s_outcirc_beyond_perimeter": Lemma(
-        name="lemma_s_outcirc_beyond_perimeter",
+    "by_def_OutCirc": Lemma(
+        name="by_def_OutCirc",
         points=["P", "J", "U", "V", "W", "X"],
         given=[
             PropSimple(head="CI", points=["J", "U", "V", "W"]),
@@ -174,8 +174,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="OutCirc", points=["P", "J"]),
         asserts=[],
     ),
-    "lemma_s_onray": Lemma(
-        name="lemma_s_onray",
+    "by_def_OnRay": Lemma(
+        name="by_def_OnRay",
         points=["A", "B", "C", "X"],
         given=[
             PropSimple(head="BetS", points=["X", "A", "B"]),
@@ -184,8 +184,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="OnRay", points=["A", "B", "C"]),
         asserts=[],
     ),
-    "lemma_s_os": Lemma(
-        name="lemma_s_os",
+    "by_def_OppositeSide": Lemma(
+        name="by_def_OppositeSide",
         points=["P", "A", "B", "Q", "X"],
         given=[
             PropSimple(head="BetS", points=["P", "X", "Q"]),
@@ -195,8 +195,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="OppositeSide", points=["P", "A", "B", "Q"]),
         asserts=[],
     ),
-    "lemma_s_ss": Lemma(
-        name="lemma_s_ss",
+    "by_def_SameSide": Lemma(
+        name="by_def_SameSide",
         points=["P", "Q", "A", "B", "X", "U", "V"],
         given=[
             PropSimple(head="Col", points=["A", "B", "U"]),
@@ -209,8 +209,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="SameSide", points=["P", "Q", "A", "B"]),
         asserts=[],
     ),
-    "lemma_s_lt": Lemma(
-        name="lemma_s_lt",
+    "by_def_Lt": Lemma(
+        name="by_def_Lt",
         points=["A", "B", "C", "D", "X"],
         given=[
             PropSimple(head="BetS", points=["C", "X", "D"]),
@@ -219,8 +219,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Lt", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
-    "lemma_s_midpoint": Lemma(
-        name="lemma_s_midpoint",
+    "by_def_Midpoint": Lemma(
+        name="by_def_Midpoint",
         points=["A", "B", "C"],
         given=[
             PropSimple(head="BetS", points=["A", "B", "C"]),
@@ -229,8 +229,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Midpoint", points=["A", "B", "C"]),
         asserts=[],
     ),
-    "lemma_s_right_triangle": Lemma(
-        name="lemma_s_right_triangle",
+    "by_def_RightTriangle": Lemma(
+        name="by_def_RightTriangle",
         points=["A", "B", "C", "X"],
         given=[
             PropSimple(head="BetS", points=["A", "B", "X"]),
@@ -241,8 +241,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="RightTriangle", points=["A", "B", "C"]),
         asserts=[],
     ),
-    "lemma_s_lta": Lemma(
-        name="lemma_s_lta",
+    "by_def_LtA": Lemma(
+        name="by_def_LtA",
         points=["A", "B", "C", "D", "E", "F", "U", "X", "V"],
         given=[
             PropSimple(head="BetS", points=["U", "X", "V"]),
@@ -253,8 +253,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="LtA", points=["A", "B", "C", "D", "E", "F"]),
         asserts=[],
     ),
-    "lemma_s_supp": Lemma(
-        name="lemma_s_supp",
+    "by_def_Supp": Lemma(
+        name="by_def_Supp",
         points=["A", "B", "C", "D", "F"],
         given=[
             PropSimple(head="OnRay", points=["B", "C", "D"]),
@@ -263,8 +263,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Supp", points=["A", "B", "C", "D", "F"]),
         asserts=[],
     ),
-    "lemma_s_conga": Lemma(
-        name="lemma_s_conga",
+    "by_def_CongA": Lemma(
+        name="by_def_CongA",
         points=["A", "B", "C", "a", "b", "c", "U", "V", "u", "v"],
         given=[
             PropSimple(head="OnRay", points=["B", "A", "U"]),
@@ -279,8 +279,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="CongA", points=["A", "B", "C", "a", "b", "c"]),
         asserts=[],
     ),
-    "lemma_s_meet": Lemma(
-        name="lemma_s_meet",
+    "by_def_Meet": Lemma(
+        name="by_def_Meet",
         points=["A", "B", "C", "D", "X"],
         given=[
             PropSimple(head="neq", points=["A", "B"]),
@@ -291,8 +291,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Meet", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
-    "lemma_s_par": Lemma(
-        name="lemma_s_par",
+    "by_def_Par": Lemma(
+        name="by_def_Par",
         points=["A", "B", "C", "D", "U", "V", "u", "v", "X"],
         given=[
             PropSimple(head="neq", points=["A", "B"]),
@@ -310,8 +310,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Par", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
-    "lemma_s_sumtwort": Lemma(
-        name="lemma_s_sumtwort",
+    "by_def_SumTwoRT": Lemma(
+        name="by_def_SumTwoRT",
         points=["A", "B", "C", "D", "E", "F", "X", "Y", "Z", "U", "V"],
         given=[
             PropSimple(head="Supp", points=["X", "Y", "U", "V", "Z"]),
@@ -321,8 +321,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="SumTwoRT", points=["A", "B", "C", "D", "E", "F"]),
         asserts=[],
     ),
-    "lemma_s_tarski_par": Lemma(
-        name="lemma_s_tarski_par",
+    "by_def_TarskiPar": Lemma(
+        name="by_def_TarskiPar",
         points=["A", "B", "C", "D"],
         given=[
             PropSimple(head="neq", points=["A", "B"]),
@@ -333,8 +333,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="TarskiPar", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
-    "lemma_s_cross": Lemma(
-        name="lemma_s_cross",
+    "by_def_Cross": Lemma(
+        name="by_def_Cross",
         points=["A", "B", "C", "D", "X"],
         given=[
             PropSimple(head="BetS", points=["A", "X", "B"]),
@@ -343,8 +343,8 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Cross", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
-    "lemma_s_anglesum": Lemma(
-        name="lemma_s_anglesum",
+    "by_def_AngleSum": Lemma(
+        name="by_def_AngleSum",
         points=['A', 'B', 'C', 'D', 'E', 'F', 'P', 'Q', 'R', 'X'],
         given=[
             PropSimple(head="CongA", points=["A", "B", "C", "P", "Q", "X"]),
@@ -357,23 +357,23 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
 }
 
 defs_to_supporting_lemmas_for_defs = {
-    "AngleSum": "lemma_s_anglesum",
-    "CongA": "lemma_s_conga",
-    "Cross": "lemma_s_cross",
-    "Lt": "lemma_s_lt",
-    "LtA": "lemma_s_lta",
-    "Meet": "lemma_s_meet",
-    "Midpoint": "lemma_s_midpoint",
-    "OppositeSide": "lemma_s_os",
-    "OnCirc": "lemma_s_oncirc_radius",
-    "OnRay": "lemma_s_onray",
-    "OutCirc": "lemma_s_outcirc_beyond_perimeter",
-    "Par": "lemma_s_par",
-    "RightTriangle": "lemma_s_right_triangle",
-    "SameSide": "lemma_s_ss",
-    "SumTwoRT": "lemma_s_sumtwort",
-    "Supp": "lemma_s_supp",
-    "TarskiPar": "lemma_s_tarski_par",
+    "AngleSum": "by_def_AngleSum",
+    "CongA": "by_def_CongA",
+    "Cross": "by_def_Cross",
+    "Lt": "by_def_Lt",
+    "LtA": "by_def_LtA",
+    "Meet": "by_def_Meet",
+    "Midpoint": "by_def_Midpoint",
+    "OppositeSide": "by_def_OppositeSide",
+    "OnCirc": "by_def_OnCirc",
+    "OnRay": "by_def_OnRay",
+    "OutCirc": "by_def_OutCirc",
+    "Par": "by_def_Par",
+    "RightTriangle": "by_def_RightTriangle",
+    "SameSide": "by_def_SameSide",
+    "SumTwoRT": "by_def_SumTwoRT",
+    "Supp": "by_def_Supp",
+    "TarskiPar": "by_def_TarskiPar",
 }
 
 assert {l.name for l in supporting_lemmas_for_defs.values()} <= set(

@@ -1,4 +1,3 @@
-Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -8,9 +7,10 @@ Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_doublereverse.
 Require Import ProofCheckingEuclid.lemma_extensionunique.
 Require Import ProofCheckingEuclid.lemma_interior5.
+Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
-Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

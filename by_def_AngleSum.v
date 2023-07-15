@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_anglesum :
+Lemma by_def_AngleSum :
 	forall A B C D E F P Q R X,
 	CongA A B C P Q X ->
 	CongA D E F X Q R ->

@@ -1,4 +1,4 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -12,7 +12,7 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_os.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -77,7 +77,7 @@ Proof.
 	}
 	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_Q) as nCol_A_B_Q.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_Q_R_P Col_A_B_R nCol_A_B_Q) as OppositeSide_Q_AB_P.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_Q_R_P Col_A_B_R nCol_A_B_Q) as OppositeSide_Q_AB_P.
 
 	exact OppositeSide_Q_AB_P.
 Qed.

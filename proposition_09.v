@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_InAngle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -14,8 +16,6 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
-Require Import ProofCheckingEuclid.lemma_s_conga.
-Require Import ProofCheckingEuclid.lemma_s_inangle.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
@@ -59,7 +59,7 @@ Proof.
 	assert (Col B F E) as Col_B_F_E by (unfold Col; one_of_disjunct BetS_B_F_E).
 	pose proof (lemma_collinearorder _ _ _ Col_B_F_E) as (_ & _ & _ & Col_B_E_F & _).
 
-	pose proof (lemma_s_inangle _ _ _ _ _ _ OnRay_AB_B OnRay_AC_E BetS_B_F_E) as InAngle_BAC_F.
+	pose proof (by_def_InAngle _ _ _ _ _ _ OnRay_AB_B OnRay_AC_E BetS_B_F_E) as InAngle_BAC_F.
 
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_E_A Col_B_E_F neq_B_F) as nCol_B_F_A.
 	pose proof (lemma_NCorder _ _ _ nCol_B_F_A) as (_ & _ & _ & nCol_B_A_F & _).
@@ -71,7 +71,7 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_EF_BF) as Cong_BF_EF.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		B A F C A F
 		_ _ _ _
 		OnRay_AB_B

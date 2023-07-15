@@ -1,7 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
-Require Import ProofCheckingEuclid.lemma_s_supp.
 
 Section Euclid.
 
@@ -19,7 +19,7 @@ Proof.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_B_D) as BetS_D_B_A.
 	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_BC_E) as OnRay_BE_C.
-	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BE_C BetS_D_B_A) as Supp_DBE_CBA.
+	pose proof (by_def_Supp _ _ _ _ _ OnRay_BE_C BetS_D_B_A) as Supp_DBE_CBA.
 
 	exact Supp_DBE_CBA.
 Qed.

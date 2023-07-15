@@ -1,6 +1,6 @@
-Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_cut :
+Lemma by_def_Cut :
 	forall A B C D E,
 	BetS A E B ->
 	BetS C E D ->

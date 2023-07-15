@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCorder.
@@ -17,7 +18,6 @@ Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
-Require Import ProofCheckingEuclid.lemma_s_lta.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 
@@ -76,7 +76,7 @@ Proof.
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_ABC_PQH OnRay_QP_P OnRay_QH_K) as CongA_ABC_PQK.
 	pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_U_K_W BetS_U_W_V) as BetS_U_K_V.
 
-	pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_U_K_V OnRay_QP_U OnRay_QR_V CongA_ABC_PQK) as LtA_ABC_PQR.
+	pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_U_K_V OnRay_QP_U OnRay_QR_V CongA_ABC_PQK) as LtA_ABC_PQR.
 
 	exact LtA_ABC_PQR.
 Qed.

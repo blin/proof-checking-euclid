@@ -1,3 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_AngleSum.
+Require Import ProofCheckingEuclid.by_def_Meet.
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -18,16 +22,12 @@ Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABD_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_parallelflip.
-Require Import ProofCheckingEuclid.lemma_s_anglesum.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_B_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.lemma_s_meet.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
-Require Import ProofCheckingEuclid.lemma_s_onray.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_os.
 Require Import ProofCheckingEuclid.proposition_29.
 Require Import ProofCheckingEuclid.proposition_31short.
 
@@ -183,7 +183,7 @@ Proof.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_M_A_B Col_M_A_c neq_M_A) as Col_A_B_c.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_c Col_A_B_F neq_A_B) as Col_B_c_F.
 		pose proof (lemma_collinearorder _ _ _ Col_B_c_F) as (_ & _ & Col_F_B_c & _ & _).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_E_H neq_F_B Col_E_H_c Col_F_B_c) as Meet_E_H_F_B.
+		pose proof (by_def_Meet _ _ _ _ _ neq_E_H neq_F_B Col_E_H_c Col_F_B_c) as Meet_E_H_F_B.
 
 		contradict Meet_E_H_F_B.
 		exact n_Meet_E_H_F_B.
@@ -236,7 +236,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_H_D) as (nCol_H_A_D & _ & _ & _ & _).
 	pose proof (lemma_NCorder _ _ _ nCol_H_A_D) as (_ & nCol_A_D_H & _ & _ & _).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_A_T_H Col_C_B_T nCol_C_B_A) as OppositeSide_A_CB_H.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_T_H Col_C_B_T nCol_C_B_A) as OppositeSide_A_CB_H.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_A_CB_H) as OppositeSide_H_CB_A.
 
 	pose proof (proposition_29 _ _ _ _ _ _ _ Par_HE_MA BetS_H_C_E BetS_M_B_A BetS_D_C_B OppositeSide_H_CB_A) as (_ & CongA_DCE_CBA & _).
@@ -268,7 +268,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_R_C_D) as (_ & _ & _ & _ & nCol_D_C_R).
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_D_C_R) as CongA_DCR_RCD.
 
-	pose proof (lemma_s_onray _ _ _ _ BetS_H_C_E BetS_H_C_R) as OnRay_CE_R.
+	pose proof (by_def_OnRay _ _ _ _ BetS_H_C_E BetS_H_C_R) as OnRay_CE_R.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_A) as OnRay_CA_A.
 
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_BAC_ACE OnRay_CA_A OnRay_CE_R) as CongA_BAC_ACR.
@@ -276,7 +276,7 @@ Proof.
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_ABC_DCE OnRay_CD_D OnRay_CE_R) as CongA_ABC_DCR.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_ABC_DCR CongA_DCR_RCD) as CongA_ABC_RCD.
 
-	pose proof (lemma_s_anglesum _ _ _ _ _ _ _ _ _ _ CongA_CAB_ACR CongA_ABC_RCD BetS_A_R_D) as AngleSum_CAB_ABC_ACD.
+	pose proof (by_def_AngleSum _ _ _ _ _ _ _ _ _ _ CongA_CAB_ACR CongA_ABC_RCD BetS_A_R_D) as AngleSum_CAB_ABC_ACD.
 
 	exact AngleSum_CAB_ABC_ACD.
 Qed.

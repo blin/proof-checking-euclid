@@ -1,4 +1,5 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Triangle.
+Require Import ProofCheckingEuclid.by_def_isosceles.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -11,12 +12,11 @@ Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglesreflexive.
 Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
-Require Import ProofCheckingEuclid.lemma_s_isosceles.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
 Require Import ProofCheckingEuclid.lemma_trichotomy_equal.
 Require Import ProofCheckingEuclid.proposition_05.
 Require Import ProofCheckingEuclid.proposition_18.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -40,14 +40,14 @@ Proof.
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_B_C_A) as CongA_BCA_ACB.
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_A_B_C) as CongA_ABC_ABC.
 
-	pose proof (lemma_s_triangle _ _ _ nCol_A_C_B) as Triangle_ACB.
+	pose proof (by_def_Triangle _ _ _ nCol_A_C_B) as Triangle_ACB.
 
 	assert (~ Cong A C A B) as n_Cong_AC_AB.
 	{
 		intro Cong_AC_AB.
 
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AC_AB) as Cong_AB_AC.
-		pose proof (lemma_s_isosceles _ _ _ Triangle_ABC Cong_AB_AC) as isosceles_A_B_C.
+		pose proof (by_def_isosceles _ _ _ Triangle_ABC Cong_AB_AC) as isosceles_A_B_C.
 		pose proof (proposition_05 _ _ _ isosceles_A_B_C) as CongA_ABC_ACB.
 		pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_ABC_ACB) as CongA_ACB_ABC.
 		pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_BCA_ACB CongA_ACB_ABC) as CongA_BCA_ABC.

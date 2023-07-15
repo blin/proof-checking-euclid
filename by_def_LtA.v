@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_lta :
+Lemma by_def_LtA :
 	forall A B C D E F U X V,
 	BetS U X V ->
 	OnRay E D U ->

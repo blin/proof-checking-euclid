@@ -1,4 +1,4 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -15,13 +15,13 @@ Require Import ProofCheckingEuclid.lemma_equalanglesreflexive.
 Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_s_lta.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.proposition_03.
 Require Import ProofCheckingEuclid.proposition_04.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -86,7 +86,7 @@ Proof.
 		pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_BCD_ACB CongA_ACB_BCA) as CongA_BCD_BCA.
 		pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_BCD_BCA) as CongA_BCA_BCD.
 
-		pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_B_D_A OnRay_CB_B OnRay_CA_A CongA_BCD_BCD) as LtA_BCD_BCA.
+		pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_B_D_A OnRay_CB_B OnRay_CA_A CongA_BCD_BCD) as LtA_BCD_BCA.
 		pose proof (lemma_angleorderrespectscongruence_smaller _ _ _ _ _ _ _ _ _ LtA_BCD_BCA CongA_BCA_BCD) as LtA_BCA_BCA.
 		pose proof (lemma_angletrichotomy _ _ _ _ _ _ LtA_BCA_BCA) as n_LtA_BCA_BCA.
 

@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -7,7 +8,6 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.lemma_s_meet.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 
 Section Euclid.
@@ -67,7 +67,7 @@ Proof.
 		pose proof (lemma_collinearorder _ _ _ Col_A_H_B) as (Col_H_A_B & _ & _ & _ & _).
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_A_B Col_H_A_D neq_H_A) as Col_A_B_D.
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_D Col_C_D_D) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_D Col_C_D_D) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -86,7 +86,7 @@ Proof.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_F_D_A Col_F_D_C neq_F_D) as Col_D_A_C.
 		pose proof (lemma_collinearorder _ _ _ Col_D_A_C) as (_ & _ & Col_C_D_A & _ & _).
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_A Col_C_D_A) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_A Col_C_D_A) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -105,7 +105,7 @@ Proof.
 			pose proof (lemma_collinearorder _ _ _ Col_D_A_E) as (_ & _ & _ & _ & Col_E_A_D).
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_E_A_B Col_E_A_D neq_E_A) as Col_A_B_D.
 
-			pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_D Col_C_D_D) as Meet_A_B_C_D.
+			pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_D Col_C_D_D) as Meet_A_B_C_D.
 
 			contradict Meet_A_B_C_D.
 			exact n_Meet_A_B_C_D.
@@ -125,7 +125,7 @@ Proof.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_F_D_Q Col_F_D_C neq_F_D) as Col_D_Q_C.
 		pose proof (lemma_collinearorder _ _ _ Col_D_Q_C) as (_ & _ & Col_C_D_Q & _ & _).
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_Q Col_C_D_Q) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_Q Col_C_D_Q) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -144,7 +144,7 @@ Proof.
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_F_D_C Col_F_D_A neq_F_D) as Col_D_C_A.
 			pose proof (lemma_collinearorder _ _ _ Col_D_C_A) as (Col_C_D_A & _ & _ & _ & _).
 
-			pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_A Col_C_D_A) as Meet_A_B_C_D.
+			pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_A Col_C_D_A) as Meet_A_B_C_D.
 
 			contradict Meet_A_B_C_D.
 			exact n_Meet_A_B_C_D.
@@ -164,7 +164,7 @@ Proof.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_E_A_R Col_E_A_B neq_E_A) as Col_A_R_B.
 		pose proof (lemma_collinearorder _ _ _ Col_A_R_B) as (_ & _ & _ & Col_A_B_R & _).
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_R Col_C_D_R) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_R Col_C_D_R) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -176,7 +176,7 @@ Proof.
 
 		assert (Col A B F) as Col_A_B_F by (rewrite <- eq_E_F; exact Col_A_B_E).
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_F Col_C_D_F) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_F Col_C_D_F) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.

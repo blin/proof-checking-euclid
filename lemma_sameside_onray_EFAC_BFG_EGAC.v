@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -9,15 +11,13 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
-Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
-Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
+Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
+Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_os.
-Require Import ProofCheckingEuclid.lemma_s_ss.
 
 Section Euclid.
 
@@ -37,7 +37,7 @@ Proof.
 
 
 	destruct SameSide_E_F_AC as (Q & U & V & Col_A_C_U & Col_A_C_V & BetS_E_U_Q & BetS_F_V_Q & nCol_A_C_E & nCol_A_C_F).
-	pose proof (lemma_s_os _ _ _ _ _ BetS_F_V_Q Col_A_C_V nCol_A_C_F) as OppositeSide_F_AC_Q.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_F_V_Q Col_A_C_V nCol_A_C_F) as OppositeSide_F_AC_Q.
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_C) as (_ & _ & _ & Col_A_C_B & _).
 
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_C_E) as (neq_A_C & neq_C_E & neq_A_E & neq_C_A & neq_E_C & neq_E_A).
@@ -131,7 +131,7 @@ Proof.
 			}
 			pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_C_G) as nCol_A_C_G.
 
-			pose proof (lemma_s_os _ _ _ _ _ BetS_G_B_Q Col_A_C_B nCol_A_C_G) as OppositeSide_G_AC_Q.
+			pose proof (by_def_OppositeSide _ _ _ _ _ BetS_G_B_Q Col_A_C_B nCol_A_C_G) as OppositeSide_G_AC_Q.
 			contradict OppositeSide_G_AC_Q.
 			exact n_OppositeSide_G_AC_Q.
 		}
@@ -226,7 +226,7 @@ Proof.
 
 
 	destruct OppositeSide_G_AC_Q as (H & BetS_G_H_Q & Col_A_C_H & nCol_A_C_G).
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_C_U Col_A_C_H BetS_E_U_Q BetS_G_H_Q nCol_A_C_E nCol_A_C_G) as SameSide_E_G_AC.
+	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_C_U Col_A_C_H BetS_E_U_Q BetS_G_H_Q nCol_A_C_E nCol_A_C_G) as SameSide_E_G_AC.
 
 	exact SameSide_E_G_AC.
 Qed.

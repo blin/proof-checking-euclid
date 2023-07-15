@@ -1,4 +1,4 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_angledistinct.
@@ -9,9 +9,9 @@ Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
-Require Import ProofCheckingEuclid.lemma_s_conga.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.proposition_04.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -66,7 +66,7 @@ Proof.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_UV Cong_UV_uv) as Cong_AC_uv.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		_ _ _ _ _ _
 		_ _ _ _
 		OnRay_BA_A

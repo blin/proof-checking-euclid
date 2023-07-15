@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NChelper.
@@ -19,8 +21,6 @@ Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_os.
-Require Import ProofCheckingEuclid.lemma_s_ss.
 Require Import ProofCheckingEuclid.proposition_27.
 Require Import ProofCheckingEuclid.proposition_29.
 
@@ -154,11 +154,11 @@ Proof.
 	pose proof (lemma_equalanglesNC _ _ _ _ _ _ CongA_AGH_AGK) as nCol_A_G_K.
 	pose proof (lemma_NCorder _ _ _ nCol_A_G_K) as (_ & nCol_G_K_A & _ & _ & _).
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_H_K_H Col_H_K_N BetS_E_H_F BetS_C_N_F nCol_H_K_E nCol_H_K_C) as SameSide_E_C_HK.
-	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_D Col_H_K_K nCol_H_K_C) as OppositeSide_C_HK_D.
+	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_H_K_H Col_H_K_N BetS_E_H_F BetS_C_N_F nCol_H_K_E nCol_H_K_C) as SameSide_E_C_HK.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_C_K_D Col_H_K_K nCol_H_K_C) as OppositeSide_C_HK_D.
 	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_E_C_HK OppositeSide_C_HK_D) as OppositeSide_E_HK_D.
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_G_K_M Col_G_K_N BetS_A_M_F BetS_C_N_F nCol_G_K_A nCol_G_K_C) as SameSide_A_C_GK.
-	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_D Col_G_K_K nCol_G_K_C) as OppositeSide_C_GK_D.
+	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_G_K_M Col_G_K_N BetS_A_M_F BetS_C_N_F nCol_G_K_A nCol_G_K_C) as SameSide_A_C_GK.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_C_K_D Col_G_K_K nCol_G_K_C) as OppositeSide_C_GK_D.
 	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_A_C_GK OppositeSide_C_GK_D) as OppositeSide_A_GK_D.
 
 	pose proof (postulate_Euclid2 _ _ neq_H_G) as (P & BetS_H_G_P).

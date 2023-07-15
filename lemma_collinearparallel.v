@@ -1,10 +1,10 @@
+Require Import ProofCheckingEuclid.by_def_Meet.
+Require Import ProofCheckingEuclid.by_def_Par.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_s_meet.
-Require Import ProofCheckingEuclid.lemma_s_par.
 
 Section Euclid.
 
@@ -39,13 +39,13 @@ Proof.
 
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_C_d_E Col_C_d_c neq_C_d) as Col_d_E_c.
 		pose proof (lemma_collinearorder _ _ _ Col_d_E_c) as (_ & _ & Col_c_d_E & _ & _).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_c_d Col_A_B_E Col_c_d_E) as Meet_A_B_c_d.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_c_d Col_A_B_E Col_c_d_E) as Meet_A_B_c_d.
 
 		contradict Meet_A_B_c_d.
 		exact n_Meet_A_B_c_d.
 	}
 
-	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_A_B neq_C_d Col_A_B_a Col_A_B_b neq_a_b Col_C_d_p Col_C_d_q neq_p_q n_Meet_A_B_C_d BetS_a_R_q BetS_p_R_b) as Par_AB_Cd.
+	pose proof (by_def_Par _ _ _ _ _ _ _ _ _ neq_A_B neq_C_d Col_A_B_a Col_A_B_b neq_a_b Col_C_d_p Col_C_d_q neq_p_q n_Meet_A_B_C_d BetS_a_R_q BetS_p_R_b) as Par_AB_Cd.
 
 	exact Par_AB_Cd.
 Qed.

@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCorder.
@@ -11,7 +12,6 @@ Require Import ProofCheckingEuclid.lemma_planeseparation.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_os.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.proposition_15a.
 Require Import ProofCheckingEuclid.proposition_27.
@@ -59,7 +59,7 @@ Proof.
 	pose proof (lemma_equalanglesNC _ _ _ _ _ _ CongA_EGB_AGH) as nCol_A_G_H.
 	pose proof (lemma_NCorder _ _ _ nCol_A_G_H) as (nCol_G_A_H & nCol_G_H_A & nCol_H_A_G & nCol_A_H_G & nCol_H_G_A).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_A_G_B Col_G_H_G nCol_G_H_A) as OppositeSide_A_GH_B.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_G_B Col_G_H_G nCol_G_H_A) as OppositeSide_A_GH_B.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_A_GH_B) as OppositeSide_B_GH_A.
 	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_D_B_GH OppositeSide_B_GH_A) as OppositeSide_D_GH_A.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_D_GH_A) as OppositeSide_A_GH_D.

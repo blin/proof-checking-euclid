@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -13,11 +15,9 @@ Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
-Require Import ProofCheckingEuclid.lemma_s_lt.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_onray.
 
 Section Euclid.
 
@@ -104,8 +104,8 @@ Proof.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BV_CQ Cong_CQ_QC) as Cong_BV_QC.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BU_PA) as Cong_PA_BU.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BV_QC) as Cong_QC_BV.
-	pose proof (lemma_s_lt _ _ _ _ _ BetS_P_A_B Cong_PA_BU) as Lt_BU_PB.
-	pose proof (lemma_s_lt _ _ _ _ _ BetS_Q_C_B Cong_QC_BV) as Lt_BV_QB.
+	pose proof (by_def_Lt _ _ _ _ _ BetS_P_A_B Cong_PA_BU) as Lt_BU_PB.
+	pose proof (by_def_Lt _ _ _ _ _ BetS_Q_C_B Cong_QC_BV) as Lt_BV_QB.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_BU_PB Cong_PB_BP) as Lt_BU_BP.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_BV_QB Cong_QB_BQ) as Lt_BV_BQ.
 	destruct Lt_BU_BP as (S & BetS_B_S_P & Cong_BS_BU).
@@ -131,7 +131,7 @@ Proof.
 	pose proof (lemma_orderofpoints_ABC_BCD_ABD _ _ _ _ BetS_N_B_E BetS_B_E_W) as BetS_N_B_W.
 	pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_N_B_W BetS_B_H_W) as BetS_N_B_H.
 
-	pose proof (lemma_s_onray _ _ _ _ BetS_N_B_E BetS_N_B_H) as OnRay_BE_H.
+	pose proof (by_def_OnRay _ _ _ _ BetS_N_B_E BetS_N_B_H) as OnRay_BE_H.
 
 	exists H.
 	split.

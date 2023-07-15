@@ -1,7 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
-Require Import ProofCheckingEuclid.lemma_s_lta.
 
 Section Euclid.
 
@@ -20,7 +20,7 @@ Proof.
 	destruct LtA_ABC_DEF as (P & Q & R & BetS_P_Q_R & OnRay_ED_P & OnRay_EF_R & CongA_ABC_DEQ).
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_abc_ABC CongA_ABC_DEQ) as CongA_abc_DEQ.
 
-	pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_P_Q_R OnRay_ED_P OnRay_EF_R CongA_abc_DEQ) as LtA_abc_DEF.
+	pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_P_Q_R OnRay_ED_P OnRay_EF_R CongA_abc_DEQ) as LtA_abc_DEF.
 
 	exact LtA_abc_DEF.
 Qed.

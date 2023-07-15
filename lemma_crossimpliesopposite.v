@@ -1,10 +1,10 @@
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_os.
 
 Section Euclid.
 
@@ -30,8 +30,8 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_C_D) as (_ & nCol_C_D_A & _ & _ & _).
 	pose proof (lemma_NCorder _ _ _ nCol_C_D_A) as (nCol_D_C_A & _ & _ & _ & _).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_A_M_B Col_C_D_M nCol_C_D_A) as OppositeSide_A_CD_B.
-	pose proof (lemma_s_os _ _ _ _ _ BetS_A_M_B Col_D_C_M nCol_D_C_A) as OppositeSide_A_DC_B.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_M_B Col_C_D_M nCol_C_D_A) as OppositeSide_A_CD_B.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_M_B Col_D_C_M nCol_D_C_A) as OppositeSide_A_DC_B.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_A_CD_B) as OppositeSide_B_CD_A.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_A_DC_B) as OppositeSide_B_DC_A.
 

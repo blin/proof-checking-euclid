@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_TT.
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -6,9 +9,6 @@ Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_lessthantransitive.
 Require Import ProofCheckingEuclid.lemma_onray_assert.
-Require Import ProofCheckingEuclid.lemma_s_TT.
-Require Import ProofCheckingEuclid.lemma_s_TogetherGreater.
-Require Import ProofCheckingEuclid.lemma_s_onray.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 
 Section Euclid.
@@ -35,7 +35,7 @@ Proof.
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_E_F_K) as (neq_F_K & _ & _).
 	pose proof (lemma_betweennotequal _ _ _ BetS_E_F_M) as (neq_F_M & _ & _).
-	pose proof (lemma_s_onray _ _ _ _ BetS_E_F_K BetS_E_F_M) as OnRay_FK_M.
+	pose proof (by_def_OnRay _ _ _ _ BetS_E_F_K BetS_E_F_M) as OnRay_FK_M.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_F_K) as OnRay_FK_K.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_FM_GH) as Cong_GH_FM.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_FK_GH Cong_GH_FM) as Cong_FK_FM.
@@ -45,9 +45,9 @@ Proof.
 
 	pose proof (lemma_lessthantransitive _ _ _ _ _ _ Lt_PL_EK Lt_EK_AJ) as Lt_PL_AJ.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_B_J Cong_BJ_CD Lt_PL_AJ) as TogetherGreater_AB_CD_PL.
+	pose proof (by_def_TogetherGreater _ _ _ _ _ _ _ BetS_A_B_J Cong_BJ_CD Lt_PL_AJ) as TogetherGreater_AB_CD_PL.
 
-	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_P_Q_L Cong_QL_RS TogetherGreater_AB_CD_PL) as TT_A_B_C_D_P_Q_R_S.
+	pose proof (by_def_TT _ _ _ _ _ _ _ _ _ BetS_P_Q_L Cong_QL_RS TogetherGreater_AB_CD_PL) as TT_A_B_C_D_P_Q_R_S.
 
 	exact TT_A_B_C_D_P_Q_R_S.
 Qed.

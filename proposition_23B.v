@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -34,8 +36,6 @@ Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
-Require Import ProofCheckingEuclid.lemma_s_os.
-Require Import ProofCheckingEuclid.lemma_s_supp.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_11B.
@@ -266,8 +266,8 @@ Proof.
 		{
 			(* case BetS_G_A_H *)
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_G_A_H) as BetS_H_A_G.
-			pose proof (lemma_s_supp _ _ _ _ _ OnRay_AF_F BetS_H_A_G) as Supp_HAF_FAG.
-			pose proof (lemma_s_supp _ _ _ _ _ OnRay_AS_S BetS_H_A_G) as Supp_HAS_SAG.
+			pose proof (by_def_Supp _ _ _ _ _ OnRay_AF_F BetS_H_A_G) as Supp_HAF_FAG.
+			pose proof (by_def_Supp _ _ _ _ _ OnRay_AS_S BetS_H_A_G) as Supp_HAS_SAG.
 			pose proof (lemma_supplements_conga _ _ _ _ _ _ _ _ _ _ CongA_HAF_HAS Supp_HAF_FAG Supp_HAS_SAG) as CongA_FAG_SAG.
 
 			exact CongA_FAG_SAG.
@@ -298,7 +298,7 @@ Proof.
 
 	pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_J_T Col_J_T_A Col_J_T_B Col_J_T_M) as Col_A_B_M.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_S_M_P Col_A_B_M nCol_A_B_S) as OppositeSide_S_AB_P.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_S_M_P Col_A_B_M nCol_A_B_S) as OppositeSide_S_AB_P.
 
 
 	exists S, G.

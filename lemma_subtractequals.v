@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -7,7 +8,6 @@ Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_lessthantransitive.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
-Require Import ProofCheckingEuclid.lemma_s_lt.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
 
@@ -46,7 +46,7 @@ Proof.
 	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_A_B_C neq_A_B) as OnRay_AB_C.
 	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_A_B_E neq_A_B) as OnRay_AB_E.
 
-	pose proof (lemma_s_lt _ _ _ _ _ BetS_B_C_E Cong_BC_BC) as Lt_BC_BE.
+	pose proof (by_def_Lt _ _ _ _ _ BetS_B_C_E Cong_BC_BC) as Lt_BC_BE.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_BC_BE Cong_BE_EB) as Lt_BC_EB.
 
 
@@ -60,7 +60,7 @@ Proof.
 		pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_D_B_C BetS_D_C_E) as BetS_D_B_E.
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_B_E) as BetS_E_B_D.
 
-		pose proof (lemma_s_lt _ _ _ _ _ BetS_E_B_D Cong_EB_EB) as Lt_EB_ED.
+		pose proof (by_def_Lt _ _ _ _ _ BetS_E_B_D Cong_EB_EB) as Lt_EB_ED.
 		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_EB_ED Cong_ED_DE) as Lt_EB_DE.
 		pose proof (lemma_lessthantransitive _ _ _ _ _ _ Lt_BC_EB Lt_EB_DE) as Lt_BC_DE.
 		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_BC_DE Cong_DE_BC) as Lt_BC_BC.

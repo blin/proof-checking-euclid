@@ -1,4 +1,4 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -10,16 +10,16 @@ Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
-Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_os.
 Require Import ProofCheckingEuclid.lemma_twolines2.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -199,7 +199,7 @@ Proof.
 			pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_E_G_D BetS_G_C_D) as BetS_E_G_C.
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_G_C) as BetS_C_G_E.
 
-			pose proof (lemma_s_os _ _ _ _ _ BetS_C_G_E Col_A_B_G nCol_A_B_C) as OppositeSide_C_AB_E.
+			pose proof (by_def_OppositeSide _ _ _ _ _ BetS_C_G_E Col_A_B_G nCol_A_B_C) as OppositeSide_C_AB_E.
 
 			exact OppositeSide_C_AB_E.
 		}
@@ -211,7 +211,7 @@ Proof.
 				pose proof (lemma_orderofpoints_ABC_BCD_ABD _ _ _ _ BetS_E_G_D BetS_G_D_C) as BetS_E_G_C.
 				pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_G_C) as BetS_C_G_E.
 
-				pose proof (lemma_s_os _ _ _ _ _ BetS_C_G_E Col_A_B_G nCol_A_B_C) as OppositeSide_C_AB_E.
+				pose proof (by_def_OppositeSide _ _ _ _ _ BetS_C_G_E Col_A_B_G nCol_A_B_C) as OppositeSide_C_AB_E.
 
 				exact OppositeSide_C_AB_E.
 			}
@@ -543,7 +543,7 @@ Proof.
 
 			exact Col_A_B_M.
 		}
-		pose proof (lemma_s_os
+		pose proof (by_def_OppositeSide
 			_ _ _ _ _
 			BetS_C_M_E
 			Col_A_B_M
@@ -684,7 +684,7 @@ Proof.
 		pose proof (lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_C_F_H BetS_F_H_E) as BetS_C_H_E.
 
 		pose proof (
-			lemma_s_os
+			by_def_OppositeSide
 			_ _ _ _ _
 			BetS_C_H_E
 			Col_A_B_H

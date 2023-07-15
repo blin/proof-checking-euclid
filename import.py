@@ -78,7 +78,7 @@ def extract_requirements_top(t: Top) -> set[str]:
 def print_requirements(w: TextIO, t: Top) -> None:
     rs = extract_requirements_top(t)
     if "Triangle" in rs:
-        rs |= {"lemma_s_ncol_triangle", "lemma_s_triangle"}
+        rs |= {"lemma_s_ncol_triangle", "by_def_Triangle"}
     if "OnRay" in rs:
         rs |= {
             "lemma_s_onray_assert_ABB",
@@ -102,9 +102,9 @@ def print_requirements(w: TextIO, t: Top) -> None:
             "lemma_s_ncol_n_col",
         }
     if "isosceles" in rs:
-        rs |= { "lemma_s_isosceles" }
+        rs |= { "by_def_isosceles" }
     if "CI" in rs:
-        rs |= { "lemma_s_oncirc_radius" }
+        rs |= { "by_def_OnCirc" }
     rs |= {
         "euclidean_axioms",
         "euclidean_defs",
@@ -309,7 +309,7 @@ class LemmaPrinter:
                     case "Triangle":
                         self.process_indent()
                         self.w.write(
-                            f"pose proof (lemma_s_triangle _ _ _ nCol_{A}_{B}_{C}) as Triangle_{A}_{B}_{C}.\n"
+                            f"pose proof (by_def_Triangle _ _ _ nCol_{A}_{B}_{C}) as Triangle_{A}_{B}_{C}.\n"
                         )
             case "Col":
                 self.assert_by_conclude_def_Col(a)

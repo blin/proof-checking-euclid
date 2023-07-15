@@ -1,8 +1,8 @@
+Require Import ProofCheckingEuclid.by_def_TT.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_flip.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_TT.
 
 Section Euclid.
 
@@ -22,7 +22,7 @@ Proof.
 	pose proof (lemma_TogetherGreater_flip _ _ _ _ _ _ TogetherGreater_CD_BA_EJ) as (TogetherGreater_DC_BA_EJ & _).
 	pose proof (lemma_TogetherGreater_symmetric _ _ _ _ _ _ TogetherGreater_DC_BA_EJ) as TogetherGreater_BA_DC_EJ.
 
-	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_E_F_J Cong_FJ_GH TogetherGreater_BA_DC_EJ) as TT_B_A_D_C_E_F_G_H.
+	pose proof (by_def_TT _ _ _ _ _ _ _ _ _ BetS_E_F_J Cong_FJ_GH TogetherGreater_BA_DC_EJ) as TT_B_A_D_C_E_F_G_H.
 
 	exact TT_B_A_D_C_E_F_G_H.
 Qed.

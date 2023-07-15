@@ -1,3 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_OnCirc.
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OutCirc.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -18,11 +22,7 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_oncirc_radius.
-Require Import ProofCheckingEuclid.lemma_s_onray.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
-Require Import ProofCheckingEuclid.lemma_s_outcirc_beyond_perimeter.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
 Require Import ProofCheckingEuclid.lemma_subtractequals.
 Require Import ProofCheckingEuclid.lemma_together.
 Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
@@ -106,7 +106,7 @@ Proof.
 	pose proof (lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_D_F_M BetS_F_M_J) as BetS_D_M_J.
 
 	pose proof (lemma_s_onray_assert_bets_AEB _ _ _ BetS_F_Q_J neq_F_J) as OnRay_FJ_Q.
-	pose proof (lemma_s_onray _ _ _ _ BetS_D_F_G BetS_D_F_J) as OnRay_FG_J.
+	pose proof (by_def_OnRay _ _ _ _ BetS_D_F_G BetS_D_F_J) as OnRay_FG_J.
 	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_FG_J) as OnRay_FJ_G.
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_FJ_Q OnRay_FJ_G Cong_FQ_FG) as eq_Q_G.
 	pose proof (lemma_equalitysymmetric _ _ eq_Q_G) as eq_G_Q.
@@ -118,11 +118,11 @@ Proof.
 	pose proof (postulate_Euclid3 _ _ neq_F_D) as (L & CI_L_F_F_D).
 	pose proof (postulate_Euclid3 _ _ neq_G_H) as (R & CI_R_G_G_H).
 
-	pose proof (lemma_s_outcirc_beyond_perimeter _ _ _ _ _ _ CI_L_F_F_D BetS_F_M_H Cong_FM_FD) as OutCirc_H_L.
+	pose proof (by_def_OutCirc _ _ _ _ _ _ CI_L_F_F_D BetS_F_M_H Cong_FM_FD) as OutCirc_H_L.
 	pose proof (lemma_ondiameter _ _ _ _ _ _ _ CI_L_F_F_D Cong_FD_FD Cong_FM_FD BetS_D_F_M BetS_D_N_M) as InCirc_N_L.
 
-	pose proof (lemma_s_oncirc_radius _ _ _ _ _ CI_R_G_G_H Cong_GH_GH) as OnCirc_H_R.
-	pose proof (lemma_s_oncirc_radius _ _ _ _ _ CI_R_G_G_H Cong_GN_GH) as OnCirc_N_R.
+	pose proof (by_def_OnCirc _ _ _ _ _ CI_R_G_G_H Cong_GH_GH) as OnCirc_H_R.
+	pose proof (by_def_OnCirc _ _ _ _ _ CI_R_G_G_H Cong_GN_GH) as OnCirc_N_R.
 
 	pose proof (postulate_circle_circle _ _ _ _ _ _ _ _ _ _ CI_L_F_F_D InCirc_N_L OutCirc_H_L CI_R_G_G_H OnCirc_N_R OnCirc_H_R) as (K & OnCirc_K_L & OnCirc_K_R).
 
@@ -213,7 +213,7 @@ Proof.
 	}
 	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_F_G_K) as nCol_F_G_K.
 
-	pose proof (lemma_s_triangle _ _ _ nCol_F_G_K) as Triangle_FGK.
+	pose proof (by_def_Triangle _ _ _ nCol_F_G_K) as Triangle_FGK.
 
 	exists G, K.
 	split.

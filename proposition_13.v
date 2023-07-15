@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_SumTwoRT.
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -7,8 +9,6 @@ Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_equalanglesreflexive.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_sumtwort.
-Require Import ProofCheckingEuclid.lemma_s_supp.
 
 Section Euclid.
 
@@ -42,9 +42,9 @@ Proof.
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_A_B_D) as CongA_ABD_ABD.
 	pose proof (lemma_equalanglesreflexive _ _ _ nCol_C_B_A) as CongA_CBA_CBA.
 
-	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BA_A BetS_C_B_D) as Supp_CBA_ABD.
+	pose proof (by_def_Supp _ _ _ _ _ OnRay_BA_A BetS_C_B_D) as Supp_CBA_ABD.
 
-	pose proof (lemma_s_sumtwort _ _ _ _ _ _ _ _ _ _ _ Supp_CBA_ABD CongA_CBA_CBA CongA_ABD_ABD) as SumTwoRT_CBA_ABD.
+	pose proof (by_def_SumTwoRT _ _ _ _ _ _ _ _ _ _ _ Supp_CBA_ABD CongA_CBA_CBA CongA_ABD_ABD) as SumTwoRT_CBA_ABD.
 
 	exact SumTwoRT_CBA_ABD.
 Qed.

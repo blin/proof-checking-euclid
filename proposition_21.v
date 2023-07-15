@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_21helper.
@@ -24,7 +25,6 @@ Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
 Require Import ProofCheckingEuclid.proposition_16.
 Require Import ProofCheckingEuclid.proposition_20.
 
@@ -79,10 +79,10 @@ Proof.
 	pose proof (lemma_NChelper _ _ _ _ _ nCol_E_B_C Col_E_B_D Col_E_B_B neq_D_B) as nCol_D_B_C.
 	pose proof (lemma_NCorder _ _ _ nCol_D_B_C) as (nCol_B_D_C & nCol_B_C_D & nCol_C_D_B & nCol_D_C_B & nCol_C_B_D). (* wanted nCol_B_D_C *)
 
-	pose proof (lemma_s_triangle _ _ _ nCol_A_B_E) as Triangle_ABE.
-	pose proof (lemma_s_triangle _ _ _ nCol_B_A_E) as Triangle_BAE.
-	pose proof (lemma_s_triangle _ _ _ nCol_C_E_D) as Triangle_CED.
-	pose proof (lemma_s_triangle _ _ _ nCol_E_C_D) as Triangle_ECD.
+	pose proof (by_def_Triangle _ _ _ nCol_A_B_E) as Triangle_ABE.
+	pose proof (by_def_Triangle _ _ _ nCol_B_A_E) as Triangle_BAE.
+	pose proof (by_def_Triangle _ _ _ nCol_C_E_D) as Triangle_CED.
+	pose proof (by_def_Triangle _ _ _ nCol_E_C_D) as Triangle_ECD.
 
 	pose proof (proposition_20 _ _ _ Triangle_ABE) as TogetherGreater_BA_AE_BE.
 	pose proof (proposition_20 _ _ _ Triangle_ECD) as TogetherGreater_CE_ED_CD.

@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -7,7 +8,6 @@ Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence_smaller.
-Require Import ProofCheckingEuclid.lemma_s_TogetherGreater.
 
 Section Euclid.
 
@@ -38,8 +38,8 @@ Proof.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_Cc_AH Cong_AH_ah) as Lt_Cc_ah.
 	pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_Cc_AH Cong_Cc_cC) as Lt_cC_AH.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_a_A_h Cong_Ah_Bb Lt_Cc_ah) as TogetherGreater_aA_Bb_Cc.
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_a_H Cong_aH_Bb Lt_cC_AH) as TogetherGreater_Aa_Bb_cC.
+	pose proof (by_def_TogetherGreater _ _ _ _ _ _ _ BetS_a_A_h Cong_Ah_Bb Lt_Cc_ah) as TogetherGreater_aA_Bb_Cc.
+	pose proof (by_def_TogetherGreater _ _ _ _ _ _ _ BetS_A_a_H Cong_aH_Bb Lt_cC_AH) as TogetherGreater_Aa_Bb_cC.
 
 	split.
 	exact TogetherGreater_aA_Bb_Cc.

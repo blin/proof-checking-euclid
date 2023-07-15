@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_Midpoint.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -23,11 +26,8 @@ Require Import ProofCheckingEuclid.lemma_rightreverse.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_C_B.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.lemma_s_midpoint.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_os.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.proposition_10.
 Require Import ProofCheckingEuclid.proposition_12.
@@ -116,7 +116,7 @@ Proof.
 	pose proof (lemma_collinearorder _ _ _ Col_A_G_B) as (_ & _ & _ & Col_A_B_G & _).
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_GQ_GC) as (_ & Cong_QG_GC & _).
-	pose proof (lemma_s_midpoint _ _ _ BetS_Q_G_C Cong_QG_GC) as Midpoint_Q_G_C.
+	pose proof (by_def_Midpoint _ _ _ BetS_Q_G_C Cong_QG_GC) as Midpoint_Q_G_C.
 
 	pose proof (lemma_collinearright _ _ _ _ RightTriangle_CQM Col_C_Q_G neq_G_Q) as RightTriangle_GQM.
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_GQM) as RightTriangle_MQG.
@@ -136,24 +136,24 @@ Proof.
 
 	pose proof (lemma_rightreverse _ _ _ _ RightTriangle_MQG BetS_M_Q_J Cong_MQ_QJ) as Cong_MG_JG.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_MG_JG) as Cong_JG_MG.
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_J_Q_M Cong_JQ_MQ Cong_JG_MG neq_Q_G) as RightTriangle_JQG.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_J_Q_M Cong_JQ_MQ Cong_JG_MG neq_Q_G) as RightTriangle_JQG.
 	pose proof (lemma_right_triangle_NC _ _ _ RightTriangle_JQG) as nCol_J_Q_G.
 	pose proof (lemma_NCdistinct _ _ _ nCol_J_Q_G) as (_ & _ & neq_J_G & _ & _ & neq_G_J).
 
 	pose proof (lemma_extension _ _ _ _ neq_J_G neq_J_G) as (K & BetS_J_G_K & Cong_GK_JG).
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_GK_JG) as Cong_JG_GK.
-	pose proof (lemma_s_midpoint _ _ _ BetS_J_G_K Cong_JG_GK) as Midpoint_J_G_K.
+	pose proof (by_def_Midpoint _ _ _ BetS_J_G_K Cong_JG_GK) as Midpoint_J_G_K.
 
 	pose proof (lemma_extension _ _ _ _ neq_M_G neq_M_G) as (H & BetS_M_G_H & Cong_GH_MG).
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_GH_MG) as Cong_MG_GH.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_GH_MG) as (Cong_HG_GM & _ & _).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_M_G_H Col_A_B_G nCol_A_B_M) as OppositeSide_M_AB_H.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_M_G_H Col_A_B_G nCol_A_B_M) as OppositeSide_M_AB_H.
 	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_P_M_AB OppositeSide_M_AB_H) as OppositeSide_P_AB_H.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_P_AB_H) as OppositeSide_H_AB_P.
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_M_G_H Cong_MG_GH) as Midpoint_M_G_H.
+	pose proof (by_def_Midpoint _ _ _ BetS_M_G_H Cong_MG_GH) as Midpoint_M_G_H.
 
 	pose proof (lemma_pointreflectionisometry _ _ _ _ _ Midpoint_M_G_H Midpoint_Q_G_C neq_M_Q) as Cong_MQ_HC.
 	pose proof (lemma_pointreflectionisometry _ _ _ _ _ Midpoint_Q_G_C Midpoint_J_G_K neq_Q_J) as Cong_QJ_CK.
@@ -170,7 +170,7 @@ Proof.
 
 	pose proof (lemma_betweennesspreserved _ _ _ _ _ _ Cong_MQ_HC Cong_MJ_HK Cong_QJ_CK BetS_M_Q_J) as BetS_H_C_K.
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_H_C_K Cong_HC_KC Cong_HG_KG neq_C_G) as RightTriangle_HCG.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_H_C_K Cong_HC_KC Cong_HG_KG neq_C_G) as RightTriangle_HCG.
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_HCG) as RightTriangle_GCH.
 	pose proof (lemma_collinearright _ _ _ _ RightTriangle_GCH Col_G_C_A neq_A_C) as RightTriangle_ACH.
 

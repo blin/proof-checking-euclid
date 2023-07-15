@@ -1,9 +1,9 @@
+Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.lemma_s_meet.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 
 Section Euclid.
@@ -35,7 +35,7 @@ Proof.
 		intro Col_A_C_D.
 
 		pose proof (lemma_collinearorder _ _ _ Col_A_C_D) as (_ & Col_C_D_A & _ & _ & _).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_A Col_C_D_A) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_A Col_C_D_A) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -47,7 +47,7 @@ Proof.
 	{
 		intro Col_A_B_C.
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_C Col_C_D_C) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_C Col_C_D_C) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -60,7 +60,7 @@ Proof.
 		intro Col_B_C_D.
 
 		pose proof (lemma_collinearorder _ _ _ Col_B_C_D) as (_ & Col_C_D_B & _ & _ & _).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_B Col_C_D_B) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_B Col_C_D_B) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -72,7 +72,7 @@ Proof.
 	{
 		intro Col_A_B_D.
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_D Col_C_D_D) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_D Col_C_D_D) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.

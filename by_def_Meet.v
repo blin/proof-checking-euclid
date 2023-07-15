@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_meet :
+Lemma by_def_Meet :
 	forall A B C D X,
 	neq A B ->
 	neq C D ->

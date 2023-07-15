@@ -1,4 +1,5 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -18,10 +19,9 @@ Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
-Require Import ProofCheckingEuclid.lemma_s_supp.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -60,8 +60,8 @@ Proof.
 	assert (Col C B E) as Col_C_B_E by (unfold Col; one_of_disjunct BetS_C_B_E).
 	pose proof (lemma_collinearorder _ _ _ Col_C_B_E) as (_ & _ & _ & _ & Col_E_B_C).
 
-	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BC_C BetS_A_B_D) as Supp_ABC_CBD.
-	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BA_A BetS_C_B_E) as Supp_CBA_ABE.
+	pose proof (by_def_Supp _ _ _ _ _ OnRay_BC_C BetS_A_B_D) as Supp_ABC_CBD.
+	pose proof (by_def_Supp _ _ _ _ _ OnRay_BA_A BetS_C_B_E) as Supp_CBA_ABE.
 	pose proof (lemma_supplements_conga _ _ _ _ _ _ _ _ _ _ CongA_ABC_CBA Supp_ABC_CBD Supp_CBA_ABE) as CongA_CBD_ABE.
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BE_BC) as Cong_BC_BE.
@@ -86,7 +86,7 @@ Proof.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_CD Cong_CD_EA) as Cong_AC_EA.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_EA) as (_ & Cong_CA_EA & _).
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_C_B_E Cong_CB_EB Cong_CA_EA neq_B_A) as RightTriangle_CBA.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_C_B_E Cong_CB_EB Cong_CA_EA neq_B_A) as RightTriangle_CBA.
 
 	exact RightTriangle_CBA.
 Qed.

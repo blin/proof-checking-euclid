@@ -1,9 +1,9 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglesNC.
-Require Import ProofCheckingEuclid.lemma_s_conga.
+Require Coq.Logic.Classical_Prop.
 
 
 Section Euclid.
@@ -28,7 +28,7 @@ Proof.
 	pose proof (lemma_equalanglesNC _ _ _ _ _ _ CongA_ABC_abc) as nCol_a_b_c.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		a b c A B C
 		_ _ _ _
 		OnRay_ba_u

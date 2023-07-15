@@ -1,11 +1,11 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_s_conga.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -53,7 +53,7 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_BC_EF) as (Cong_CB_FE & _ & _).
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		_ _ _ _ _ _
 		_ _ _ _
 		OnRay_AB_B
@@ -67,7 +67,7 @@ Proof.
 	) as CongA_BAC_EDF.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		_ _ _ _ _ _
 		_ _ _ _
 		OnRay_BC_C
@@ -81,7 +81,7 @@ Proof.
 	) as CongA_CBA_FED.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		A C B D F E
 		_ _ _ _
 		OnRay_CA_A

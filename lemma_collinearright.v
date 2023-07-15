@@ -1,4 +1,5 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -9,9 +10,8 @@ Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_onray.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -43,7 +43,7 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_EB) as Cong_EB_AB.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AD_ED) as Cong_ED_AD.
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_B_A Cong_EB_AB Cong_ED_AD neq_B_D) as RightTriangle_EBD.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_E_B_A Cong_EB_AB Cong_ED_AD neq_B_D) as RightTriangle_EBD.
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EBD) as RightTriangle_DBE.
 
 	assert (RightTriangle D B C) as RightTriangle_DBC.
@@ -73,7 +73,7 @@ Proof.
 	}
 	{
 		(* case BetS_A_B_C *)
-		pose proof (lemma_s_onray _ _ _ _ BetS_A_B_E BetS_A_B_C) as OnRay_BE_C.
+		pose proof (by_def_OnRay _ _ _ _ BetS_A_B_E BetS_A_B_C) as OnRay_BE_C.
 		pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_DBE OnRay_BE_C) as RightTriangle_DBC.
 
 		exact RightTriangle_DBC.

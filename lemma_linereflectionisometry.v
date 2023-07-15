@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -16,7 +17,6 @@ Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
 Require Import ProofCheckingEuclid.lemma_rightreverse.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_midpoint.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.proposition_10.
 
@@ -68,7 +68,7 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AC_AE) as Cong_AE_AC.
 	pose proof (lemma_doublereverse _ _ _ _ Cong_CA_AE) as (Cong_EA_AC & _).
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_E_A_C Cong_EA_AC) as Midpoint_E_A_C.
+	pose proof (by_def_Midpoint _ _ _ BetS_E_A_C Cong_EA_AC) as Midpoint_E_A_C.
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_BD_BF) as (_ & Cong_DB_BF & _).
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BD_BF Cong_BF_FB) as Cong_BD_FB.
@@ -84,7 +84,7 @@ Proof.
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_MA_MB) as Cong_MB_MA.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_MB_MA) as (_ & Cong_BM_MA & _).
-	pose proof (lemma_s_midpoint _ _ _ BetS_B_M_A Cong_BM_MA) as Midpoint_B_M_A.
+	pose proof (by_def_Midpoint _ _ _ BetS_B_M_A Cong_BM_MA) as Midpoint_B_M_A.
 
 	pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_DBA OnRay_BA_M) as RightTriangle_DBM.
 	pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_CAB OnRay_AB_M) as RightTriangle_CAM.
@@ -120,8 +120,8 @@ Proof.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_QM_DM Cong_DM_MR) as Cong_QM_MR.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_QM_MR) as (_ & _ & Cong_QM_RM).
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_D_M_R Cong_DM_MR) as Midpoint_D_M_R.
-	pose proof (lemma_s_midpoint _ _ _ BetS_F_M_Q Cong_FM_MQ) as Midpoint_F_M_Q.
+	pose proof (by_def_Midpoint _ _ _ BetS_D_M_R Cong_DM_MR) as Midpoint_D_M_R.
+	pose proof (by_def_Midpoint _ _ _ BetS_F_M_Q Cong_FM_MQ) as Midpoint_F_M_Q.
 
 	pose proof (lemma_pointreflectionisometry _ _ _ _ _ Midpoint_D_M_R Midpoint_B_M_A neq_D_B) as Cong_DB_RA.
 	pose proof (lemma_pointreflectionisometry _ _ _ _ _ Midpoint_D_M_R Midpoint_F_M_Q neq_D_F) as Cong_DF_RQ.
@@ -138,7 +138,7 @@ Proof.
 
 	pose proof (lemma_betweennesspreserved _ _ _ _ _ _ Cong_FB_QA Cong_FD_QR Cong_BD_AR BetS_F_B_D) as BetS_Q_A_R.
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_Q_A_R Cong_QA_AR) as Midpoint_Q_A_R.
+	pose proof (by_def_Midpoint _ _ _ BetS_Q_A_R Cong_QA_AR) as Midpoint_Q_A_R.
 
 	(* assert by cases *)
 	assert (eq E Q \/ neq E Q) as [eq_E_Q|neq_E_Q] by (apply Classical_Prop.classic).

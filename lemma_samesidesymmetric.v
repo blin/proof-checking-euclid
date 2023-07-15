@@ -1,9 +1,9 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
-Require Import ProofCheckingEuclid.lemma_s_ss.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -19,7 +19,7 @@ Proof.
 
 	destruct SameSide_P_Q_AB as (G & E & F & Col_A_B_E & Col_A_B_F & BetS_P_E_G & BetS_Q_F_G & nCol_A_B_P & nCol_A_B_Q).
 	pose proof (
-		lemma_s_ss
+		by_def_SameSide
 		_ _ _ _
 		_ _ _
 		Col_A_B_F
@@ -37,7 +37,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_Q) as (nCol_B_A_Q & nCol_B_Q_A & nCol_Q_A_B & nCol_A_Q_B & nCol_Q_B_A).
 
 	pose proof (
-		lemma_s_ss
+		by_def_SameSide
 		_ _ _ _
 		_ _ _
 		Col_B_A_F
@@ -49,7 +49,7 @@ Proof.
 	) as SameSide_Q_P_BA.
 
 	pose proof (
-		lemma_s_ss
+		by_def_SameSide
 		P Q B A
 		_ _ _
 		Col_B_A_E
