@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -5,7 +6,6 @@ Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_doublereverse.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
-Require Import ProofCheckingEuclid.by_def_TogetherGreater.
 
 Section Euclid.
 

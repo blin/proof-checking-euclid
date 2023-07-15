@@ -1,9 +1,9 @@
-Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
 Require Import ProofCheckingEuclid.lemma_equalanglesNC.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

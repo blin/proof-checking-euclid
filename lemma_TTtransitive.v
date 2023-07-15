@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_TT.
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -6,9 +9,6 @@ Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_lessthantransitive.
 Require Import ProofCheckingEuclid.lemma_onray_assert.
-Require Import ProofCheckingEuclid.by_def_TT.
-Require Import ProofCheckingEuclid.by_def_TogetherGreater.
-Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 
 Section Euclid.

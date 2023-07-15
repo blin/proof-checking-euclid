@@ -1,8 +1,8 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_onray_shared_initial_point.
-Require Import ProofCheckingEuclid.by_def_CongA.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

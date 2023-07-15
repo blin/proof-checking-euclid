@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Cross.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCorder.
@@ -13,7 +14,6 @@ Require Import ProofCheckingEuclid.lemma_parallelNC.
 Require Import ProofCheckingEuclid.lemma_parallelflip.
 Require Import ProofCheckingEuclid.lemma_parallelsymmetric.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.by_def_Cross.
 
 Section Euclid.
 

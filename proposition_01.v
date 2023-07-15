@@ -1,14 +1,14 @@
+Require Import ProofCheckingEuclid.by_def_OnCirc.
+Require Import ProofCheckingEuclid.by_def_OutCirc.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_congruencetransitive.
-Require Import ProofCheckingEuclid.lemma_s_incirc_centre.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_localextension.
-Require Import ProofCheckingEuclid.by_def_OnCirc.
-Require Import ProofCheckingEuclid.by_def_OutCirc.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
+Require Import ProofCheckingEuclid.lemma_s_incirc_centre.
 
 
 Section Euclid.

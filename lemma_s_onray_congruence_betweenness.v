@@ -1,13 +1,13 @@
+Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_lessthancongruence.
-Require Import ProofCheckingEuclid.lemma_onray_assert.
-Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
-Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
+Require Import ProofCheckingEuclid.lemma_lessthancongruence.
+Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
+Require Import ProofCheckingEuclid.lemma_onray_assert.
 
 Section Euclid.
 

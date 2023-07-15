@@ -1,12 +1,12 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
+Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
-Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
-Require Import ProofCheckingEuclid.by_def_RightTriangle.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

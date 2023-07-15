@@ -1,9 +1,9 @@
+Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
-Require Import ProofCheckingEuclid.by_def_OnRay.
 
 Section Euclid.
 
