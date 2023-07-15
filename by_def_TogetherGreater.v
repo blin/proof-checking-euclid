@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_TogetherGreater :
+Lemma by_def_TogetherGreater :
 	forall A B C D E F X,
 	BetS A B X ->
 	Cong B X C D ->

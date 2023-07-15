@@ -13,11 +13,11 @@ Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_C_B.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.lemma_s_meet.
+Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_ss.
-Require Import ProofCheckingEuclid.lemma_s_tarski_par.
+Require Import ProofCheckingEuclid.by_def_SameSide.
+Require Import ProofCheckingEuclid.by_def_TarskiPar.
 
 Section Euclid.
 
@@ -52,7 +52,7 @@ Proof.
 		pose proof (lemma_betweennotequal _ _ _ BetS_q_p_c) as (_ & neq_q_p & _).
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_q_p_c Col_q_p_d neq_q_p) as Col_p_c_d.
 		pose proof (lemma_collinearorder _ _ _ Col_p_c_d) as (_ & Col_c_d_p & _ & _ & _).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_c_d Col_A_B_p Col_c_d_p) as Meet_A_B_c_d.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_c_d Col_A_B_p Col_c_d_p) as Meet_A_B_c_d.
 		contradict Meet_A_B_c_d.
 		exact n_Meet_A_B_c_d.
 	}
@@ -108,7 +108,7 @@ Proof.
 		intro Col_A_B_C.
 		pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_c_C_d) as Col_c_C_d.
 		pose proof (lemma_collinearorder _ _ _ Col_c_C_d) as (_ & _ & _ & Col_c_d_C & _).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_c_d Col_A_B_C Col_c_d_C) as Meet_A_B_c_d.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_c_d Col_A_B_C Col_c_d_C) as Meet_A_B_c_d.
 		contradict Meet_A_B_c_d.
 		exact n_Meet_A_B_c_d.
 	}
@@ -133,7 +133,7 @@ Proof.
 				intro neq_A_p.
 				pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_p_r Col_A_p_B neq_A_p) as Col_p_r_B.
 				pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_p_r Col_p_r_A Col_p_r_B Col_p_r_F) as Col_A_B_F.
-				pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
+				pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
 				contradict SameSide_C_d_AB.
 				exact n_SameSide_C_d_AB.
 			}
@@ -158,7 +158,7 @@ Proof.
 
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_r_A_F Col_r_A_B neq_r_A) as Col_A_F_B.
 			pose proof (lemma_collinearorder _ _ _ Col_A_F_B) as (_ & _ & _ & Col_A_B_F & _).
-			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
+			pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
 			contradict SameSide_C_d_AB.
 			exact n_SameSide_C_d_AB.
 		}
@@ -175,7 +175,7 @@ Proof.
 		pose proof (lemma_collinearorder _ _ _ Col_B_p_r) as (_ & Col_p_r_B & _ & _ & _).
 		pose proof (lemma_collinearorder _ _ _ Col_A_p_r) as (_ & Col_p_r_A & _ & _ & _).
 		pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_p_r Col_p_r_A Col_p_r_B Col_p_r_F) as Col_A_B_F.
-		pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
+		pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_B_F Col_A_B_r BetS_C_F_q BetS_d_r_q nCol_A_B_C nCol_A_B_d) as SameSide_C_d_AB.
 		contradict SameSide_C_d_AB.
 		exact n_SameSide_C_d_AB.
 	}
@@ -192,12 +192,12 @@ Proof.
 		pose proof (lemma_collinearorder _ _ _ Col_c_C_d) as (_ & Col_C_d_c & _ & _ & _).
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_C_d_c Col_C_d_R neq_C_d) as Col_d_c_R.
 		pose proof (lemma_collinearorder _ _ _ Col_d_c_R) as (Col_c_d_R & _ & _ & _ & _).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_c_d Col_A_B_R Col_c_d_R) as Meet_A_B_c_d.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_c_d Col_A_B_R Col_c_d_R) as Meet_A_B_c_d.
 		contradict Meet_A_B_c_d.
 		exact n_Meet_A_B_c_d.
 	}
 
-	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_C_d n_Meet_A_B_C_d SameSide_C_d_AB) as TarskiPar_AB_Cd.
+	pose proof (by_def_TarskiPar _ _ _ _ neq_A_B neq_C_d n_Meet_A_B_C_d SameSide_C_d_AB) as TarskiPar_AB_Cd.
 
 	exact TarskiPar_AB_Cd.
 Qed.

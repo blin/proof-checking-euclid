@@ -27,16 +27,16 @@ Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_onray_shared_initial_point.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_isosceles.
-Require Import ProofCheckingEuclid.lemma_s_lt.
-Require Import ProofCheckingEuclid.lemma_s_lta.
+Require Import ProofCheckingEuclid.by_def_isosceles.
+Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_05.
 Require Import ProofCheckingEuclid.proposition_16.
@@ -112,7 +112,7 @@ Proof.
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_B_Q Col_A_B_P neq_A_P) as nCol_A_P_Q.
 	pose proof (lemma_NCorder _ _ _ nCol_A_P_Q) as (nCol_P_A_Q & nCol_P_Q_A & nCol_Q_A_P & nCol_A_Q_P & nCol_Q_P_A).
 
-	pose proof (lemma_s_triangle _ _ _ nCol_Q_A_P) as Triangle_QAP.
+	pose proof (by_def_Triangle _ _ _ nCol_Q_A_P) as Triangle_QAP.
 
 	pose proof (lemma_crossbar _ _ _ _ _ _ Triangle_QAP BetS_Q_T_P OnRay_AQ_C OnRay_AP_B) as (J & OnRay_AT_J & BetS_C_J_B).
 
@@ -143,7 +143,7 @@ Proof.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_H_C) as (_ & neq_H_C & _ & _ & neq_C_H & _).
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_C_H) as n_Col_A_C_H.
 
-	pose proof (lemma_s_triangle _ _ _ nCol_C_A_H) as Triangle_CAH.
+	pose proof (by_def_Triangle _ _ _ nCol_C_A_H) as Triangle_CAH.
 
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_A_H_C) as CongA_AHC_CHA.
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_A_C_H) as CongA_ACH_HCA.
@@ -162,8 +162,8 @@ Proof.
 	pose proof (cn_congruencereverse C B) as Cong_CB_BC.
 	pose proof (cn_congruencereverse F E) as Cong_FE_EF.
 
-	pose proof (lemma_s_triangle _ _ _ nCol_A_C_H) as Triangle_ACH.
-	pose proof (lemma_s_isosceles _ _ _ Triangle_ACH Cong_AC_AH) as isosceles_A_C_H.
+	pose proof (by_def_Triangle _ _ _ nCol_A_C_H) as Triangle_ACH.
+	pose proof (by_def_isosceles _ _ _ Triangle_ACH Cong_AC_AH) as isosceles_A_C_H.
 	pose proof (proposition_05 _ _ _ isosceles_A_C_H) as CongA_ACH_AHC.
 
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_EDF_BAT OnRay_AB_B OnRay_AT_H) as CongA_EDF_BAH.
@@ -188,8 +188,8 @@ Proof.
 		pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_C_J_H Col_C_J_B neq_C_B) as nCol_C_B_H.
 		pose proof (lemma_NCorder _ _ _ nCol_C_B_H) as (nCol_B_C_H & nCol_B_H_C & nCol_H_C_B & nCol_C_H_B & nCol_H_B_C).
 
-		pose proof (lemma_s_triangle _ _ _ nCol_B_H_C) as Triangle_BHC.
-		pose proof (lemma_s_triangle _ _ _ nCol_C_J_H) as Triangle_CJH.
+		pose proof (by_def_Triangle _ _ _ nCol_B_H_C) as Triangle_BHC.
+		pose proof (by_def_Triangle _ _ _ nCol_C_J_H) as Triangle_CJH.
 
 		pose proof (lemma_ABCequalsCBA _ _ _ nCol_B_H_C) as CongA_BHC_CHB.
 		pose proof (lemma_ABCequalsCBA _ _ _ nCol_H_C_J) as CongA_HCJ_JCH.
@@ -202,7 +202,7 @@ Proof.
 		pose proof (proposition_16 _ _ _ _ Triangle_CJH BetS_J_H_A) as (LtA_JCH_CHA & _).
 		pose proof (proposition_16 _ _ _ _ Triangle_CAH BetS_A_H_J) as (LtA_ACH_CHJ & _).
 
-		pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_C_J_B OnRay_HC_C OnRay_HB_B CongA_CHJ_CHJ) as LtA_CHJ_CHB.
+		pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_C_J_B OnRay_HC_C OnRay_HB_B CongA_CHJ_CHJ) as LtA_CHJ_CHB.
 		pose proof (lemma_angleorderrespectscongruence_smaller _ _ _ _ _ _ _ _ _ LtA_JCH_CHA CongA_HCJ_JCH) as LtA_HCJ_CHA.
 		pose proof (lemma_angleorderrespectscongruence _ _ _ _ _ _ _ _ _ LtA_HCJ_CHA CongA_AHC_CHA) as LtA_HCJ_AHC.
 		pose proof (lemma_angleorderrespectscongruence _ _ _ _ _ _ _ _ _ LtA_HCJ_AHC CongA_ACH_AHC) as LtA_HCJ_ACH.
@@ -224,7 +224,7 @@ Proof.
 		assert (BetS C H B) as BetS_C_H_B by (rewrite <- eq_J_H; exact BetS_C_J_B).
 
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_H_B) as BetS_B_H_C.
-		pose proof (lemma_s_lt _ _ _ _ _ BetS_B_H_C Cong_BH_HB) as Lt_HB_BC.
+		pose proof (by_def_Lt _ _ _ _ _ BetS_B_H_C Cong_BH_HB) as Lt_HB_BC.
 		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_HB_BC Cong_BC_CB) as Lt_HB_CB.
 
 		exact Lt_HB_CB.
@@ -243,7 +243,7 @@ Proof.
 		pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_C_J_H Col_C_J_B neq_C_B) as nCol_C_B_H.
 		pose proof (lemma_NCorder _ _ _ nCol_C_B_H) as (nCol_B_C_H & nCol_B_H_C & nCol_H_C_B & nCol_C_H_B & nCol_H_B_C).
 
-		pose proof (lemma_s_triangle _ _ _ nCol_B_H_C) as Triangle_BHC.
+		pose proof (by_def_Triangle _ _ _ nCol_B_H_C) as Triangle_BHC.
 
 		pose proof (lemma_equalanglesreflexive _ _ _ nCol_H_C_B) as CongA_HCB_HCB.
 		pose proof (lemma_ABCequalsCBA _ _ _ nCol_B_C_H) as CongA_BCH_HCB.
@@ -253,8 +253,8 @@ Proof.
 		pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_HCB_HCB OnRay_CH_H OnRay_CB_J) as CongA_HCB_HCJ.
 		pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_AHC_CHA OnRay_HC_C OnRay_HA_J) as CongA_AHC_CHJ.
 
-		pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_H_J_A OnRay_CH_H OnRay_CA_A CongA_HCB_HCJ) as LtA_HCB_HCA.
-		pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_C_J_B OnRay_HC_C OnRay_HB_B CongA_AHC_CHJ) as LtA_AHC_CHB.
+		pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_H_J_A OnRay_CH_H OnRay_CA_A CongA_HCB_HCJ) as LtA_HCB_HCA.
+		pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_C_J_B OnRay_HC_C OnRay_HB_B CongA_AHC_CHJ) as LtA_AHC_CHB.
 
 		pose proof (lemma_angleorderrespectscongruence_smaller _ _ _ _ _ _ _ _ _ LtA_HCB_HCA CongA_BCH_HCB) as LtA_BCH_HCA.
 		pose proof (lemma_angleorderrespectscongruence _ _ _ _ _ _ _ _ _ LtA_BCH_HCA CongA_ACH_HCA) as LtA_BCH_ACH.

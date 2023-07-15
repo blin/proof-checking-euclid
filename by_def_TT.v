@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_TT :
+Lemma by_def_TT :
 	forall A B C D E F G H X,
 	BetS E F X ->
 	Cong F X G H ->

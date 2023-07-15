@@ -5,21 +5,16 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_isosceles :
+Lemma by_def_Triangle :
 	forall A B C,
-	Triangle A B C ->
-	Cong A B A C ->
-	isosceles A B C.
+	nCol A B C ->
+	Triangle A B C.
 Proof.
 	intros A B C.
-	intros Triangle_ABC.
-	intros Cong_AB_AC.
+	intros nCol_A_B_C.
 
-	unfold isosceles.
-	split.
-	exact Triangle_ABC.
-	exact Cong_AB_AC.
+	unfold Triangle.
+	exact nCol_A_B_C.
 Qed.
 
 End Euclid.
-

@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_inangle :
+Lemma by_def_InAngle :
 	forall A B C P X Y,
 	OnRay B A X ->
 	OnRay B C Y ->

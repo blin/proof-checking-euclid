@@ -13,7 +13,7 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_midpointunique.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
 Require Import ProofCheckingEuclid.lemma_s_congruence_null_segment.
-Require Import ProofCheckingEuclid.lemma_s_midpoint.
+Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
@@ -41,13 +41,13 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_DC) as (Cong_CA_CD & _ & Cong_AC_CD).
 	pose proof (lemma_doublereverse _ _ _ _ Cong_AC_DC) as (Cong_CD_CA & _).
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_A_B_D Cong_AB_BD) as Midpoint_A_B_D.
+	pose proof (by_def_Midpoint _ _ _ BetS_A_B_D Cong_AB_BD) as Midpoint_A_B_D.
 
 	assert (~ BetS A C D) as nBetS_A_C_D.
 	{
 		intros BetS_A_C_D.
 
-		pose proof (lemma_s_midpoint _ _ _ BetS_A_C_D Cong_AC_CD) as Midpoint_A_C_D.
+		pose proof (by_def_Midpoint _ _ _ BetS_A_C_D Cong_AC_CD) as Midpoint_A_C_D.
 		pose proof (lemma_midpointunique _ _ _ _ Midpoint_A_B_D Midpoint_A_C_D) as eq_B_C.
 
 		contradict eq_B_C.

@@ -9,10 +9,10 @@ Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_doublereverse.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
-Require Import ProofCheckingEuclid.lemma_s_cut.
+Require Import ProofCheckingEuclid.by_def_Cut.
 Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_ncol_ADE.
 Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_ncol_BDE.
-Require Import ProofCheckingEuclid.lemma_s_lt.
+Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.lemma_twolines.
 
 Section Euclid.
@@ -60,7 +60,7 @@ Proof.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_F_E) as BetS_E_F_B.
 
 	pose proof (cn_congruencereflexive B F) as Cong_BF_BF.
-	pose proof (lemma_s_lt _ _ _ _ _ BetS_B_F_E Cong_BF_BF) as Lt_BF_BE.
+	pose proof (by_def_Lt _ _ _ _ _ BetS_B_F_E Cong_BF_BF) as Lt_BF_BE.
 	pose proof (
 		lemma_lessthancongruence _ _ _ _ _ _ Lt_BF_BE Cong_BE_AD
 	) as (G & BetS_A_G_D & Cong_AG_BF).
@@ -115,8 +115,8 @@ Proof.
 	) as BetS_B_G_E.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_G_E) as BetS_E_G_B.
 
-	pose proof (lemma_s_cut _ _ _ _ _ BetS_A_G_D BetS_E_G_B nCol_A_D_E nCol_A_D_B) as Cut_AD_EB_G.
-	pose proof (lemma_s_cut _ _ _ _ _ BetS_A_F_D BetS_E_F_B nCol_A_D_E nCol_A_D_B) as Cut_AD_EB_F.
+	pose proof (by_def_Cut _ _ _ _ _ BetS_A_G_D BetS_E_G_B nCol_A_D_E nCol_A_D_B) as Cut_AD_EB_G.
+	pose proof (by_def_Cut _ _ _ _ _ BetS_A_F_D BetS_E_F_B nCol_A_D_E nCol_A_D_B) as Cut_AD_EB_F.
 
 	pose proof (lemma_twolines _ _ _ _ _ _ Cut_AD_EB_G Cut_AD_EB_F nCol_D_E_B) as eq_G_F.
 	assert (Cong A F B F) as Cong_AF_BF by (setoid_rewrite <- eq_G_F at 2; exact Cong_AF_BG).

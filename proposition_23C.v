@@ -7,7 +7,7 @@ Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ss.
+Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.proposition_23B.
 
 Section Euclid.
@@ -51,7 +51,7 @@ Proof.
 
 	destruct OppositeSide_F_AB_Q as (J & BetS_F_J_Q & Col_A_B_J & nCol_A_B_F).
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_J Col_A_B_A BetS_F_J_Q BetS_P_A_Q nCol_A_B_F nCol_A_B_P) as SameSide_F_P_AB.
+	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_B_J Col_A_B_A BetS_F_J_Q BetS_P_A_Q nCol_A_B_F nCol_A_B_P) as SameSide_F_P_AB.
 
 	exists F, G.
 	split.

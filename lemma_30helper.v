@@ -13,7 +13,7 @@ Require Import ProofCheckingEuclid.lemma_parallelNC.
 Require Import ProofCheckingEuclid.lemma_parallelflip.
 Require Import ProofCheckingEuclid.lemma_parallelsymmetric.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_cross.
+Require Import ProofCheckingEuclid.by_def_Cross.
 
 Section Euclid.
 
@@ -120,7 +120,7 @@ Proof.
 
 	pose proof (lemma_collinearbetween _ _ _ _ _ _ _ Col_G_A_B Col_F_E_H neq_G_B neq_F_H neq_G_A neq_E_H n_Meet_G_B_F_H BetS_G_m_H Col_A_E_m) as BetS_A_m_E.
 
-	pose proof (lemma_s_cross _ _ _ _ _ BetS_A_m_E BetS_G_m_H) as Cross_AE_GH.
+	pose proof (by_def_Cross _ _ _ _ _ BetS_A_m_E BetS_G_m_H) as Cross_AE_GH.
 
 	exact Cross_AE_GH.
 Qed.

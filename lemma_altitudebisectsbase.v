@@ -12,12 +12,12 @@ Require Import ProofCheckingEuclid.lemma_extensionunique.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_conga.
-Require Import ProofCheckingEuclid.lemma_s_midpoint.
-Require Import ProofCheckingEuclid.lemma_s_onray.
+Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_Midpoint.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.proposition_04.
 
 Section Euclid.
@@ -55,7 +55,7 @@ Proof.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_M_C) as BetS_C_M_A.
 	pose proof (lemma_betweennotequal _ _ _ BetS_P_M_Q) as (_ & neq_P_M & _).
-	pose proof (lemma_s_onray _ _ _ _ BetS_A_M_C BetS_A_M_B) as OnRay_MC_B.
+	pose proof (by_def_OnRay _ _ _ _ BetS_A_M_C BetS_A_M_B) as OnRay_MC_B.
 	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_P_M_Q neq_P_M) as OnRay_PM_Q.
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AM_CM) as Cong_CM_AM.
@@ -65,7 +65,7 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AP_CP) as Cong_CP_AP.
 	pose proof (lemma_doublereverse _ _ _ _ Cong_PA_QA) as (Cong_AQ_AP & _).
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_C_M_A Cong_CM_AM Cong_CP_AP neq_M_P) as RightTriangle_CMP.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_C_M_A Cong_CM_AM Cong_CP_AP neq_M_P) as RightTriangle_CMP.
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_CMP) as RightTriangle_PMC.
 	pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_PMC OnRay_MC_B) as RightTriangle_PMB.
 
@@ -90,7 +90,7 @@ Proof.
 	pose proof (cn_congruencereflexive P M) as Cong_PM_PM.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		_ _ _ _ _ _
 		_ _ _ _
 		OnRay_PA_A
@@ -112,7 +112,7 @@ Proof.
 	) as (Cong_AM_BM & _ & _).
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AM_BM) as (_ & _ & Cong_AM_MB).
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_A_M_B Cong_AM_MB) as Midpoint_A_M_B.
+	pose proof (by_def_Midpoint _ _ _ BetS_A_M_B Cong_AM_MB) as Midpoint_A_M_B.
 
 	exact Midpoint_A_M_B.
 Qed.

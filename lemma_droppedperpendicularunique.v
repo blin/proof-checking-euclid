@@ -14,7 +14,7 @@ Require Import ProofCheckingEuclid.lemma_midpointunique.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_rightreverse.
-Require Import ProofCheckingEuclid.lemma_s_midpoint.
+Require Import ProofCheckingEuclid.by_def_Midpoint.
 
 Section Euclid.
 
@@ -72,7 +72,7 @@ Proof.
 		pose proof (lemma_collinearright _ _ _ _ RightTriangle_AMP Col_A_M_F neq_F_M) as RightTriangle_FMP.
 		pose proof (lemma_rightreverse _ _ _ _ RightTriangle_FMP BetS_F_M_E Cong_FM_ME) as Cong_FP_EP.
 		pose proof (lemma_altitudebisectsbase _ _ _ _ BetS_F_J_E Cong_FP_EP RightTriangle_FJP) as Midpoint_F_J_E.
-		pose proof (lemma_s_midpoint _ _ _ BetS_F_M_E Cong_FM_ME) as Midpoint_F_M_E.
+		pose proof (by_def_Midpoint _ _ _ BetS_F_M_E Cong_FM_ME) as Midpoint_F_M_E.
 		pose proof (lemma_midpointunique _ _ _ _ Midpoint_F_J_E Midpoint_F_M_E) as eq_J_M.
 
 		contradict eq_J_M.

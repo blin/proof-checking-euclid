@@ -9,8 +9,8 @@ Require Import ProofCheckingEuclid.lemma_parallelNC.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.lemma_s_meet.
-Require Import ProofCheckingEuclid.lemma_s_par.
+Require Import ProofCheckingEuclid.by_def_Meet.
+Require Import ProofCheckingEuclid.by_def_Par.
 Require Import ProofCheckingEuclid.proposition_29.
 
 Section Euclid.
@@ -81,13 +81,13 @@ Proof.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_G Col_B_A_M neq_B_A) as Col_A_G_M.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_C_D_H Col_C_D_M neq_C_D) as Col_D_H_M.
 		pose proof (lemma_collinearorder _ _ _ Col_D_H_M) as (Col_H_D_M & _ & _ & _ & _).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_G neq_H_D Col_A_G_M Col_H_D_M) as Meet_A_G_H_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_G neq_H_D Col_A_G_M Col_H_D_M) as Meet_A_G_H_D.
 
 		contradict Meet_A_G_H_D.
 		exact n_Meet_A_G_H_D.
 	}
 
-	pose proof (lemma_s_par _ _ _ _ _ _ _ _ _ neq_A_B neq_C_D Col_A_B_a Col_A_B_g neq_a_g Col_C_D_h Col_C_D_d neq_h_d n_Meet_A_B_C_D BetS_a_m_d BetS_h_m_g) as Par_AB_CD.
+	pose proof (by_def_Par _ _ _ _ _ _ _ _ _ neq_A_B neq_C_D Col_A_B_a Col_A_B_g neq_a_g Col_C_D_h Col_C_D_d neq_h_d n_Meet_A_B_C_D BetS_a_m_d BetS_h_m_g) as Par_AB_CD.
 
 	pose proof (proposition_29 _ _ _ _ _ _ _ Par_AB_CD BetS_A_G_B BetS_C_H_D BetS_E_G_H OppositeSide_A_GH_D) as (CongA_AGH_GHD & CongA_EGB_GHD & SumTwoRT_BGH_GHD).
 

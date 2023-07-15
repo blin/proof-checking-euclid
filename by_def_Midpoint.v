@@ -5,20 +5,20 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_supp :
-	forall A B C D F,
-	OnRay B C D ->
-	BetS A B F ->
-	Supp A B C D F.
+Lemma by_def_Midpoint :
+	forall A B C,
+	BetS A B C ->
+	Cong A B B C ->
+	Midpoint A B C.
 Proof.
-	intros A B C D F.
-	intros OnRay_BC_D.
-	intros BetS_A_B_F.
+	intros A B C.
+	intros BetS_A_B_C.
+	intros Cong_AB_BC.
 
-	unfold Supp.
+	unfold Midpoint.
 	split.
-	exact OnRay_BC_D.
-	exact BetS_A_B_F.
+	exact BetS_A_B_C.
+	exact Cong_AB_BC.
 Qed.
 
 End Euclid.

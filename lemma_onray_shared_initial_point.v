@@ -5,7 +5,7 @@ Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.lemma_s_onray.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 
 Section Euclid.
 
@@ -63,7 +63,7 @@ Proof.
 	}
 	apply Classical_Prop.NNPP in BetS_E_B_V.
 
-	pose proof (lemma_s_onray _ _ _ _ BetS_E_B_D BetS_E_B_V) as OnRay_BD_V.
+	pose proof (by_def_OnRay _ _ _ _ BetS_E_B_D BetS_E_B_V) as OnRay_BD_V.
 	exact OnRay_BD_V.
 Qed.
 

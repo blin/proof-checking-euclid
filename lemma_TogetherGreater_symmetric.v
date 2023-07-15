@@ -5,7 +5,7 @@ Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_doublereverse.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
-Require Import ProofCheckingEuclid.lemma_s_TogetherGreater.
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
 
 Section Euclid.
 
@@ -38,7 +38,7 @@ Proof.
 
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_Cc_AH Cong_AH_BF) as Lt_Cc_BF.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_b_F Cong_bF_Aa Lt_Cc_BF) as TogetherGreater_Bb_Aa_Cc.
+	pose proof (by_def_TogetherGreater _ _ _ _ _ _ _ BetS_B_b_F Cong_bF_Aa Lt_Cc_BF) as TogetherGreater_Bb_Aa_Cc.
 
 	exact TogetherGreater_Bb_Aa_Cc.
 Qed.

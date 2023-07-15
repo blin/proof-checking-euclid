@@ -17,9 +17,9 @@ Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.lemma_s_lt.
+Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_onray.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.proposition_03.
 Require Import ProofCheckingEuclid.proposition_04.
@@ -112,10 +112,10 @@ Proof.
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_A_P) as BetS_P_A_B.
 
 		pose proof (lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_P_A_B BetS_A_B_C) as BetS_P_B_C.
-		pose proof (lemma_s_onray _ _ _ _ BetS_P_B_C BetS_P_B_Q) as OnRay_BC_Q.
+		pose proof (by_def_OnRay _ _ _ _ BetS_P_B_C BetS_P_B_Q) as OnRay_BC_Q.
 		pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_BC_Q) as OnRay_BQ_C.
 
-		pose proof (lemma_s_lt _ _ _ _ _ BetS_B_A_P Cong_BA_CB) as Lt_CB_BP.
+		pose proof (by_def_Lt _ _ _ _ _ BetS_B_A_P Cong_BA_CB) as Lt_CB_BP.
 		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_CB_BP Cong_BP_BQ) as Lt_CB_BQ.
 		pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_CB_BQ Cong_CB_BC) as Lt_BC_BQ.
 
@@ -175,9 +175,9 @@ Proof.
 		(* case BetS_A_P_B *)
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_P_B) as BetS_B_P_A.
 		pose proof (lemma_orderofpoints_ABC_ACD_BCD _ _ _ _ BetS_A_P_B BetS_A_B_C) as BetS_P_B_C.
-		pose proof (lemma_s_onray _ _ _ _ BetS_P_B_C BetS_P_B_Q) as OnRay_BC_Q.
+		pose proof (by_def_OnRay _ _ _ _ BetS_P_B_C BetS_P_B_Q) as OnRay_BC_Q.
 
-		pose proof (lemma_s_lt _ _ _ _ _ BetS_B_P_A Cong_BP_QB) as Lt_QB_BA.
+		pose proof (by_def_Lt _ _ _ _ _ BetS_B_P_A Cong_BP_QB) as Lt_QB_BA.
 		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_QB_BA Cong_BA_BC) as Lt_QB_BC.
 		pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_QB_BC Cong_QB_BQ) as Lt_BQ_BC.
 

@@ -17,7 +17,7 @@ Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.lemma_sameside_onray_EFAC_BFG_EGAC.
 Require Import ProofCheckingEuclid.lemma_samesidereflexive.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
@@ -116,7 +116,7 @@ Proof.
 		pose proof (lemma_right_triangle_NC _ _ _ RightTriangle_ACM) as nCol_A_C_M.
 		pose proof (lemma_NCdistinct _ _ _ nCol_A_C_M) as (_ & neq_C_M & neq_A_M & neq_C_A & neq_M_C & neq_M_A).
 
-		pose proof (lemma_s_right_triangle _ _ _ _ BetS_Q_M_P Cong_QM_PM Cong_QC_PC neq_M_C) as RightTriangle_QMC.
+		pose proof (by_def_RightTriangle _ _ _ _ BetS_Q_M_P Cong_QM_PM Cong_QC_PC neq_M_C) as RightTriangle_QMC.
 
 		assert (~ neq R C) as n_neq_R_C.
 		{

@@ -5,20 +5,21 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_midpoint :
+Lemma by_def_isosceles :
 	forall A B C,
-	BetS A B C ->
-	Cong A B B C ->
-	Midpoint A B C.
+	Triangle A B C ->
+	Cong A B A C ->
+	isosceles A B C.
 Proof.
 	intros A B C.
-	intros BetS_A_B_C.
-	intros Cong_AB_BC.
+	intros Triangle_ABC.
+	intros Cong_AB_AC.
 
-	unfold Midpoint.
+	unfold isosceles.
 	split.
-	exact BetS_A_B_C.
-	exact Cong_AB_BC.
+	exact Triangle_ABC.
+	exact Cong_AB_AC.
 Qed.
 
 End Euclid.
+

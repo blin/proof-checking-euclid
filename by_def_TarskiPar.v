@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_tarski_par :
+Lemma by_def_TarskiPar :
 	forall A B C D,
 	neq A B ->
 	neq C D ->

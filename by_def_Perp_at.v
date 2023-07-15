@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_perp_at :
+Lemma by_def_Perp_at :
 	forall P Q A B C X,
 	Col P Q C ->
 	Col A B C ->

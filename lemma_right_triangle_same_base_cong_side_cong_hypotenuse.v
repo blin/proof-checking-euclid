@@ -10,7 +10,7 @@ Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_linereflectionisometry.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
 Require Import ProofCheckingEuclid.lemma_rightreverse.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.proposition_10.
 
 Section Euclid.
@@ -91,7 +91,7 @@ Proof.
 	(* case neq_B_M *)
 	pose proof (lemma_inequalitysymmetric _ _ neq_B_M) as neq_M_B.
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_C_M_H Cong_CM_HM Cong_CB_HB neq_M_B) as RightTriangle_CMB.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_C_M_H Cong_CM_HM Cong_CB_HB neq_M_B) as RightTriangle_CMB.
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_CMB) as RightTriangle_BMC.
 
 	(*
@@ -112,7 +112,7 @@ Proof.
 	) as Cong_MA_MD.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_MA_MD) as (Cong_AM_DM & _ & _).
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_A_B_D Cong_AB_DB Cong_AM_DM neq_B_M) as RightTriangle_ABM.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_A_B_D Cong_AB_DB Cong_AM_DM neq_B_M) as RightTriangle_ABM.
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_ABM) as RightTriangle_MBA.
 
 	(* Points C and A are reflected across line MB. *)

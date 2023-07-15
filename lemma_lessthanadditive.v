@@ -12,7 +12,7 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.lemma_s_lt.
+Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
@@ -65,7 +65,7 @@ Proof.
 	pose proof (cn_congruencereverse F D) as Cong_FD_DF.
 	pose proof (cn_congruencereverse F b) as Cong_Fb_bF.
 
-	pose proof (lemma_s_lt _ _ _ _ _ BetS_F_D_b Cong_FD_FD) as Lt_FD_Fb.
+	pose proof (by_def_Lt _ _ _ _ _ BetS_F_D_b Cong_FD_FD) as Lt_FD_Fb.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_FD_Fb Cong_Fb_bF) as Lt_FD_bF.
 	pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_FD_bF Cong_FD_BE) as Lt_BE_bF.
 	pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_FD_bF Cong_FD_DF) as Lt_DF_bF.
@@ -122,7 +122,7 @@ Proof.
 
 	pose proof (lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_C_b_e BetS_b_e_F) as BetS_C_e_F.
 
-	pose proof (lemma_s_lt _ _ _ _ _ BetS_C_e_F Cong_Ce_AE) as Lt_AE_CF.
+	pose proof (by_def_Lt _ _ _ _ _ BetS_C_e_F Cong_Ce_AE) as Lt_AE_CF.
 
 	exact Lt_AE_CF.
 Qed.

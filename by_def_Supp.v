@@ -5,21 +5,20 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_lt :
-	forall A B C D X,
-	BetS C X D ->
-	Cong C X A B ->
-	Lt A B C D.
+Lemma by_def_Supp :
+	forall A B C D F,
+	OnRay B C D ->
+	BetS A B F ->
+	Supp A B C D F.
 Proof.
-	intros A B C D X.
-	intros BetS_C_X_D.
-	intros Cong_CX_AB.
+	intros A B C D F.
+	intros OnRay_BC_D.
+	intros BetS_A_B_F.
 
-	unfold Lt.
-	exists X.
+	unfold Supp.
 	split.
-	exact BetS_C_X_D.
-	exact Cong_CX_AB.
+	exact OnRay_BC_D.
+	exact BetS_A_B_F.
 Qed.
 
 End Euclid.

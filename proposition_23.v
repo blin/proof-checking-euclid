@@ -5,10 +5,10 @@ Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_flip.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_symmetric.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_s_conga.
+Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_20.
 Require Import ProofCheckingEuclid.proposition_22.
 
@@ -29,9 +29,9 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_D_C_E) as (_ & nCol_C_E_D & _ & _ & nCol_E_C_D).
 	pose proof (lemma_NCdistinct _ _ _ nCol_D_C_E) as (_ & neq_C_E & _ & neq_C_D & _ & _).
 
-	pose proof (lemma_s_triangle _ _ _ nCol_D_C_E) as Triangle_DCE.
-	pose proof (lemma_s_triangle _ _ _ nCol_C_E_D) as Triangle_CED.
-	pose proof (lemma_s_triangle _ _ _ nCol_E_C_D) as Triangle_ECD.
+	pose proof (by_def_Triangle _ _ _ nCol_D_C_E) as Triangle_DCE.
+	pose proof (by_def_Triangle _ _ _ nCol_C_E_D) as Triangle_CED.
+	pose proof (by_def_Triangle _ _ _ nCol_E_C_D) as Triangle_ECD.
 	pose proof (proposition_20 _ _ _ Triangle_DCE) as TogetherGreater_CD_DE_CE.
 	pose proof (proposition_20 _ _ _ Triangle_ECD) as TogetherGreater_CE_ED_CD.
 	pose proof (proposition_20 _ _ _ Triangle_CED) as TogetherGreater_EC_CD_ED.
@@ -57,7 +57,7 @@ Proof.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_D) as OnRay_CD_D.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_E) as OnRay_CE_E.
 
-	pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_AF_F OnRay_AG_G OnRay_CD_D OnRay_CE_E Cong_AF_CD Cong_AG_CE Cong_FG_DE nCol_F_A_G) as CongA_FAG_DCE.
+	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_AF_F OnRay_AG_G OnRay_CD_D OnRay_CE_E Cong_AF_CD Cong_AG_CE Cong_FG_DE nCol_F_A_G) as CongA_FAG_DCE.
 
 	exists F,G.
 	split.

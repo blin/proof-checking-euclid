@@ -4,7 +4,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral}.
 
-Lemma lemma_s_outcirc_beyond_perimeter :
+Lemma by_def_OutCirc :
 	forall P J U V W X,
 	CI J U V W ->
 	BetS U X P ->

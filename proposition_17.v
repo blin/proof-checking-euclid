@@ -17,7 +17,7 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
 Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
-Require Import ProofCheckingEuclid.lemma_s_AngleSum.
+Require Import ProofCheckingEuclid.by_def_AngleSum.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
@@ -25,7 +25,7 @@ Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_16.
 
 Section Euclid.
@@ -90,7 +90,7 @@ Proof.
 	pose proof (lemma_NChelper _ _ _ _ _ nCol_C_A_d Col_C_A_C Col_C_A_a neq_C_a) as nCol_C_a_d.
 	pose proof (lemma_NCorder _ _ _ nCol_C_a_d) as (nCol_a_C_d & _ & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_C_A_a) as (Col_A_C_a & _ & _ & _ & _).
-	pose proof (lemma_s_triangle _ _ _ nCol_a_C_d) as Triangle_aCd.
+	pose proof (by_def_Triangle _ _ _ nCol_a_C_d) as Triangle_aCd.
 
 	pose proof (lemma_crossbar _ _ _ _ _ _ Triangle_aCd BetS_a_e_d OnRay_Ca_A OnRay_Cd_D) as (E & OnRay_Ce_E & BetS_A_E_D).
 
@@ -148,7 +148,7 @@ Proof.
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_BCA_BCA OnRay_CB_B OnRay_CA_F) as CongA_BCA_BCF.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_BCA_BCF CongA_BCF_FCB) as CongA_BCA_FCB.
 
-	pose proof (lemma_s_AngleSum _ _ _ _ _ _ _ _ _ _ CongA_ABC_ECF CongA_BCA_FCB BetS_E_F_B) as AngleSum_ABC_BCA_ECB.
+	pose proof (by_def_AngleSum _ _ _ _ _ _ _ _ _ _ CongA_ABC_ECF CongA_BCA_FCB BetS_E_F_B) as AngleSum_ABC_BCA_ECB.
 
 	exists E, C, B.
 	exact AngleSum_ABC_BCA_ECB.
