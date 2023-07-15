@@ -5,7 +5,7 @@ Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_s_onray.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 
 Section Euclid.
 
@@ -29,7 +29,7 @@ Proof.
 
 	pose proof (lemma_extension _ _ _ _ neq_E_A neq_C_D) as (P & BetS_E_A_P & Cong_AP_CD).
 
-	pose proof (lemma_s_onray _ _ _ _ BetS_E_A_B BetS_E_A_P) as OnRay_AB_P.
+	pose proof (by_def_OnRay _ _ _ _ BetS_E_A_B BetS_E_A_P) as OnRay_AB_P.
 
 	exists P.
 	split.

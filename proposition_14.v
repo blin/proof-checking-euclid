@@ -14,8 +14,8 @@ Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
-Require Import ProofCheckingEuclid.lemma_s_ss.
-Require Import ProofCheckingEuclid.lemma_s_supp.
+Require Import ProofCheckingEuclid.by_def_SameSide.
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_07.
@@ -71,7 +71,7 @@ Proof.
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_BT_BE) as (Cong_TB_EB & _ & _).
 
-	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BC_D BetS_A_B_T) as Supp_ABC_DBT.
+	pose proof (by_def_Supp _ _ _ _ _ OnRay_BC_D BetS_A_B_T) as Supp_ABC_DBT.
 	pose proof (lemma_supplements_conga _ _ _ _ _ _ _ _ _ _ CongA_abc_ABC Supp_abc_dbe Supp_ABC_DBT) as CongA_dbe_DBT.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_DBE_dbe CongA_dbe_DBT) as CongA_DBE_DBT.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_DBE_DBT) as CongA_DBT_DBE.
@@ -82,11 +82,11 @@ Proof.
 	destruct OppositeSide_A_DB_E as (m & BetS_A_m_E & Col_D_B_m & _).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_m_E) as BetS_E_m_A.
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_D_B_B Col_D_B_m BetS_T_B_A BetS_E_m_A nCol_D_B_T nCol_D_B_E) as SameSide_T_E_DB.
+	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_D_B_B Col_D_B_m BetS_T_B_A BetS_E_m_A nCol_D_B_T nCol_D_B_E) as SameSide_T_E_DB.
 	pose proof (proposition_07 _ _ _ _ neq_D_B Cong_TD_ED Cong_TB_EB SameSide_T_E_DB) as eq_T_E.
 	assert (BetS A B E) as BetS_A_B_E by (rewrite <- eq_T_E; exact BetS_A_B_T).
 
-	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BC_D BetS_A_B_E) as Supp_ABC_DBE.
+	pose proof (by_def_Supp _ _ _ _ _ OnRay_BC_D BetS_A_B_E) as Supp_ABC_DBE.
 
 	split.
 	exact Supp_ABC_DBE.

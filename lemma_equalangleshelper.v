@@ -2,7 +2,7 @@ Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_onray_shared_initial_point.
-Require Import ProofCheckingEuclid.lemma_s_conga.
+Require Import ProofCheckingEuclid.by_def_CongA.
 
 Section Euclid.
 
@@ -26,7 +26,7 @@ Proof.
 	pose proof (lemma_onray_shared_initial_point _ _ _ _ OnRay_bc_q OnRay_bc_v) as OnRay_bq_v.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		A B C p b q
 		_ _ _ _
 		OnRay_BA_U

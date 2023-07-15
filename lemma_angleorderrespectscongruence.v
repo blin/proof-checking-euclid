@@ -15,8 +15,8 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
-Require Import ProofCheckingEuclid.lemma_s_lt.
-Require Import ProofCheckingEuclid.lemma_s_lta.
+Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.proposition_03.
@@ -43,7 +43,7 @@ Proof.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_G_J) as OnRay_GJ_J.
 
 	pose proof (cn_congruencereflexive G H) as Cong_GH_GH.
-	pose proof (lemma_s_lt _ _ _ _ _ BetS_G_H_J Cong_GH_GH) as Lt_GH_GJ.
+	pose proof (by_def_Lt _ _ _ _ _ BetS_G_H_J Cong_GH_GH) as Lt_GH_GJ.
 
 	pose proof (lemma_onray_strict _ _ _ OnRay_ED_G) as neq_E_G.
 	pose proof (lemma_onray_strict _ _ _ OnRay_EF_J) as neq_E_J.
@@ -108,7 +108,7 @@ Proof.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_ABC_GEH CongA_GEH_UbW) as CongA_ABC_UbW.
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_ABC_UbW OnRay_bU_a OnRay_bW_W) as CongA_ABC_abW.
 
-	pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_U_W_V OnRay_ba_U OnRay_bc_V CongA_ABC_abW) as LtA_ABC_abc.
+	pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_U_W_V OnRay_ba_U OnRay_bc_V CongA_ABC_abW) as LtA_ABC_abc.
 
 	exact LtA_ABC_abc.
 Qed.

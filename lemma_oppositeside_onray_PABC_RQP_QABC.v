@@ -16,7 +16,7 @@ Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_C_B.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_os.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 
 Section Euclid.
 
@@ -171,7 +171,7 @@ Proof.
 		}
 		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_Q) as nCol_A_B_Q.
 
-		pose proof (lemma_s_os _ _ _ _ _ BetS_Q_R_C Col_A_B_R nCol_A_B_Q) as OppositeSide_Q_AB_C.
+		pose proof (by_def_OppositeSide _ _ _ _ _ BetS_Q_R_C Col_A_B_R nCol_A_B_Q) as OppositeSide_Q_AB_C.
 
 		exact OppositeSide_Q_AB_C.
 	}

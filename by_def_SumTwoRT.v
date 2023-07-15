@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_sumtwort :
+Lemma by_def_SumTwoRT :
 	forall A B C D E F X Y Z U V,
 	Supp X Y U V Z ->
 	CongA A B C X Y U ->

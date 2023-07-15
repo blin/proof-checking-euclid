@@ -7,8 +7,8 @@ Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence_smaller.
-Require Import ProofCheckingEuclid.lemma_s_TT.
-Require Import ProofCheckingEuclid.lemma_s_TogetherGreater.
+Require Import ProofCheckingEuclid.by_def_TT.
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
 
 Section Euclid.
 
@@ -47,9 +47,9 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_HL_EJ) as Cong_EJ_HL.
 	pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_EJ_AK Cong_EJ_HL) as Lt_HL_AK.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_A_B_K Cong_BK_CD Lt_HL_AK) as TogetherGreater_AB_CD_HL.
+	pose proof (by_def_TogetherGreater _ _ _ _ _ _ _ BetS_A_B_K Cong_BK_CD Lt_HL_AK) as TogetherGreater_AB_CD_HL.
 
-	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_H_G_L Cong_GL_FE TogetherGreater_AB_CD_HL) as TT_A_B_C_D_H_G_F_E.
+	pose proof (by_def_TT _ _ _ _ _ _ _ _ _ BetS_H_G_L Cong_GL_FE TogetherGreater_AB_CD_HL) as TT_A_B_C_D_H_G_F_E.
 
 	exact TT_A_B_C_D_H_G_F_E.
 Qed.

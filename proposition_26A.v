@@ -9,8 +9,8 @@ Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
-Require Import ProofCheckingEuclid.lemma_s_conga.
-Require Import ProofCheckingEuclid.lemma_s_lta.
+Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
@@ -76,14 +76,14 @@ Proof.
 		pose proof (cn_congruencereflexive B G) as Cong_BG_BG.
 		pose proof (cn_congruencereflexive G C) as Cong_GC_GC.
 
-		pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_BA_G OnRay_BC_C OnRay_BG_G OnRay_BC_C Cong_BG_BG Cong_BC_BC Cong_GC_GC nCol_A_B_C) as CongA_ABC_GBC.
+		pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_BA_G OnRay_BC_C OnRay_BG_G OnRay_BC_C Cong_BG_BG Cong_BC_BC Cong_GC_GC nCol_A_B_C) as CongA_ABC_GBC.
 		pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_ABC_GBC) as CongA_GBC_ABC.
 		pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_GBC_ABC CongA_ABC_DEF) as CongA_GBC_DEF.
 
 		pose proof (proposition_04 _ _ _ _ _ _ Cong_BG_ED Cong_BC_EF CongA_GBC_DEF) as (_ & _ & CongA_BCG_EFD).
 		pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_BCG_EFD CongA_EFD_BCA) as CongA_BCG_BCA.
 		pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_BCG_BCA) as CongA_BCA_BCG.
-		pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_B_G_A OnRay_CB_B OnRay_CA_A CongA_BCA_BCG) as LtA_BCA_BCA.
+		pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_B_G_A OnRay_CB_B OnRay_CA_A CongA_BCA_BCG) as LtA_BCA_BCA.
 		pose proof (lemma_angletrichotomy _ _ _ _ _ _ LtA_BCA_BCA) as n_LtA_BCA_BCA.
 
 		contradict LtA_BCA_BCA.
@@ -106,14 +106,14 @@ Proof.
 		pose proof (cn_congruencereflexive E G) as Cong_EG_EG.
 		pose proof (cn_congruencereflexive G F) as Cong_GF_GF.
 
-		pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_ED_G OnRay_EF_F OnRay_EG_G OnRay_EF_F Cong_EG_EG Cong_EF_EF Cong_GF_GF nCol_D_E_F) as CongA_DEF_GEF.
+		pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_ED_G OnRay_EF_F OnRay_EG_G OnRay_EF_F Cong_EG_EG Cong_EF_EF Cong_GF_GF nCol_D_E_F) as CongA_DEF_GEF.
 		pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_DEF_GEF) as CongA_GEF_DEF.
 		pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_GEF_DEF CongA_DEF_ABC) as CongA_GEF_ABC.
 
 		pose proof (proposition_04 _ _ _ _ _ _ Cong_EG_BA Cong_EF_BC CongA_GEF_ABC) as (_ & _ & CongA_EFG_BCA).
 		pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_EFG_BCA CongA_BCA_EFD) as CongA_EFG_EFD.
 		pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_EFG_EFD) as CongA_EFD_EFG.
-		pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_E_G_D OnRay_FE_E OnRay_FD_D CongA_EFD_EFG) as LtA_EFD_EFD.
+		pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_E_G_D OnRay_FE_E OnRay_FD_D CongA_EFD_EFG) as LtA_EFD_EFD.
 		pose proof (lemma_angletrichotomy _ _ _ _ _ _ LtA_EFD_EFD) as n_LtA_EFD_EFD.
 
 		contradict LtA_EFD_EFD.

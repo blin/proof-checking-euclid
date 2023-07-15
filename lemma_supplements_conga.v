@@ -16,10 +16,10 @@ Require Import ProofCheckingEuclid.lemma_onray_shared_initial_point.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_s_conga.
+Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_onray.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 
 Section Euclid.
 
@@ -111,8 +111,8 @@ Proof.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_u_b_w) as BetS_w_b_u.
 	pose proof (lemma_supplements_conga_onray_before _ _ _ _ OnRay_BA_U BetS_W_B_U) as BetS_A_B_W.
 	pose proof (lemma_supplements_conga_onray_before _ _ _ _ OnRay_ba_u BetS_w_b_u) as BetS_a_b_w.
-	pose proof (lemma_s_onray _ _ _ _	BetS_A_B_F BetS_A_B_W) as OnRay_BF_W.
-	pose proof (lemma_s_onray _ _ _ _	BetS_a_b_f BetS_a_b_w) as OnRay_bf_w.
+	pose proof (by_def_OnRay _ _ _ _	BetS_A_B_F BetS_A_B_W) as OnRay_BF_W.
+	pose proof (by_def_OnRay _ _ _ _	BetS_a_b_f BetS_a_b_w) as OnRay_bf_w.
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_bw_UB) as Cong_UB_bw.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BW_UB Cong_UB_bw) as Cong_BW_bw.
@@ -144,7 +144,7 @@ Proof.
 	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_D_B_F) as nCol_D_B_F.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		D B F d b f
 		_ _ _ _
 		OnRay_BD_V

@@ -18,11 +18,11 @@ Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_same_base_cong_side_cong_hypotenuse.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_conga.
+Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_20.
 Require Import ProofCheckingEuclid.proposition_22.
 
@@ -89,9 +89,9 @@ Proof.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_b_q) as OnRay_bq_q.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_b_p) as OnRay_bp_p.
 
-	pose proof (lemma_s_triangle _ _ _ nCol_p_b_q) as Triangle_pbq.
-	pose proof (lemma_s_triangle _ _ _ nCol_b_q_p) as Triangle_bqp.
-	pose proof (lemma_s_triangle _ _ _ nCol_q_p_b) as Triangle_qpb.
+	pose proof (by_def_Triangle _ _ _ nCol_p_b_q) as Triangle_pbq.
+	pose proof (by_def_Triangle _ _ _ nCol_b_q_p) as Triangle_bqp.
+	pose proof (by_def_Triangle _ _ _ nCol_q_p_b) as Triangle_qpb.
 
 	pose proof (proposition_20 _ _ _ Triangle_pbq) as TogetherGreater_bp_pq_bq.
 	pose proof (proposition_20 _ _ _ Triangle_bqp) as TogetherGreater_qb_bp_qp.
@@ -149,15 +149,15 @@ Proof.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AF_qr Cong_qr_FD) as Cong_AF_FD.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AF_FD) as (_ & _ & Cong_AF_DF).
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_A_B_D Cong_AB_DB Cong_AF_DF neq_B_F) as RightTriangle_ABF.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_A_B_D Cong_AB_DB Cong_AF_DF neq_B_F) as RightTriangle_ABF.
 
 	pose proof (lemma_right_triangle_NC _ _ _ RightTriangle_ABF) as nCol_A_B_F.
 
 	pose proof (lemma_right_triangle_same_base_cong_side_cong_hypotenuse _ _ _ _ RightTriangle_ABC RightTriangle_ABF Cong_BC_BF) as Cong_AC_AF.
 
-	pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_BA_A OnRay_BC_C OnRay_BA_A OnRay_BF_F Cong_BA_BA Cong_BC_BF Cong_AC_AF nCol_A_B_C) as CongA_ABC_ABF.
-	pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_BA_E OnRay_BF_F OnRay_bp_p OnRay_bq_q Cong_BE_bp Cong_BF_bq Cong_EF_pq nCol_A_B_F) as CongA_ABF_pbq.
-	pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_ba_p OnRay_bc_q OnRay_bp_p OnRay_bq_q Cong_bp_bp Cong_bq_bq Cong_pq_pq nCol_a_b_c) as CongA_abc_pbq.
+	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_BA_A OnRay_BC_C OnRay_BA_A OnRay_BF_F Cong_BA_BA Cong_BC_BF Cong_AC_AF nCol_A_B_C) as CongA_ABC_ABF.
+	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_BA_E OnRay_BF_F OnRay_bp_p OnRay_bq_q Cong_BE_bp Cong_BF_bq Cong_EF_pq nCol_A_B_F) as CongA_ABF_pbq.
+	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_ba_p OnRay_bc_q OnRay_bp_p OnRay_bq_q Cong_bp_bp Cong_bq_bq Cong_pq_pq nCol_a_b_c) as CongA_abc_pbq.
 
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_abc_pbq) as CongA_pbq_abc.
 

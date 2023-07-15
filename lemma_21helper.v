@@ -10,11 +10,11 @@ Require Import ProofCheckingEuclid.lemma_lessthanbetween.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence_smaller.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_s_TT.
-Require Import ProofCheckingEuclid.lemma_s_TogetherGreater.
-Require Import ProofCheckingEuclid.lemma_s_isosceles.
-Require Import ProofCheckingEuclid.lemma_s_lt.
-Require Import ProofCheckingEuclid.lemma_s_onray.
+Require Import ProofCheckingEuclid.by_def_TT.
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
+Require Import ProofCheckingEuclid.by_def_isosceles.
+Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 
 Section Euclid.
 
@@ -72,8 +72,8 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AF_AC) as Cong_AC_AF.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AH_AE) as Cong_AE_AH.
 
-	pose proof (lemma_s_onray _ _ _ _ BetS_B_A_H BetS_B_A_F) as OnRay_AH_F.
-	pose proof (lemma_s_lt _ _ _ _ _ BetS_A_E_C Cong_AE_AE) as Lt_AE_AC.
+	pose proof (by_def_OnRay _ _ _ _ BetS_B_A_H BetS_B_A_F) as OnRay_AH_F.
+	pose proof (by_def_Lt _ _ _ _ _ BetS_A_E_C Cong_AE_AE) as Lt_AE_AC.
 	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_AE_AC Cong_AC_AF) as Lt_AE_AF.
 	pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_AE_AF Cong_AE_AH) as Lt_AH_AF.
 	pose proof (lemma_lessthanbetween _ _ _ Lt_AH_AF OnRay_AH_F) as BetS_A_H_F.
@@ -83,9 +83,9 @@ Proof.
 	pose proof (lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_B_A_H BetS_A_H_F) as BetS_B_H_F.
 	pose proof (lemma_lessthanadditive _ _ _ _ _ _ Lt_BE_BH BetS_B_E_G BetS_B_H_F Cong_EG_HF) as Lt_BG_BF.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_A_F Cong_AF_AC Lt_BG_BF) as TogetherGreater_BA_AC_BG.
+	pose proof (by_def_TogetherGreater _ _ _ _ _ _ _ BetS_B_A_F Cong_AF_AC Lt_BG_BF) as TogetherGreater_BA_AC_BG.
 
-	pose proof (lemma_s_TT _ _ _ _ _ _ _ _ _ BetS_B_E_G Cong_EG_EC TogetherGreater_BA_AC_BG) as TT_B_A_A_C_B_E_E_C.
+	pose proof (by_def_TT _ _ _ _ _ _ _ _ _ BetS_B_E_G Cong_EG_EC TogetherGreater_BA_AC_BG) as TT_B_A_A_C_B_E_E_C.
 
 	exact TT_B_A_A_C_B_E_E_C.
 Qed.

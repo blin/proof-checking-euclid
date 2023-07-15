@@ -3,7 +3,7 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
-Require Import ProofCheckingEuclid.lemma_s_onray.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 
 Section Euclid.
 
@@ -26,19 +26,19 @@ Proof.
 	{
 		(* case BetS_A_E_B *)
 		pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_J_A_B BetS_A_E_B) as BetS_J_A_E.
-		pose proof (lemma_s_onray _ _ _ _ BetS_J_A_B BetS_J_A_E) as OnRay_AB_E.
+		pose proof (by_def_OnRay _ _ _ _ BetS_J_A_B BetS_J_A_E) as OnRay_AB_E.
 		exact OnRay_AB_E.
 	}
 	{
 		(* case eq_E_B *)
 		assert (BetS J A E) as BetS_J_A_E by (rewrite eq_E_B; exact BetS_J_A_B).
-		pose proof (lemma_s_onray _ _ _ _ BetS_J_A_B BetS_J_A_E) as OnRay_AB_E.
+		pose proof (by_def_OnRay _ _ _ _ BetS_J_A_B BetS_J_A_E) as OnRay_AB_E.
 		exact OnRay_AB_E.
 	}
 	{
 		(* case BetS_A_B_E *)
 		pose proof (lemma_orderofpoints_ABC_BCD_ABD _ _ _ _ BetS_J_A_B BetS_A_B_E) as BetS_J_A_E.
-		pose proof (lemma_s_onray _ _ _ _ BetS_J_A_B BetS_J_A_E) as OnRay_AB_E.
+		pose proof (by_def_OnRay _ _ _ _ BetS_J_A_B BetS_J_A_E) as OnRay_AB_E.
 		exact OnRay_AB_E.
 	}
 Qed.

@@ -10,10 +10,10 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.lemma_s_meet.
+Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ss.
-Require Import ProofCheckingEuclid.lemma_s_tarski_par.
+Require Import ProofCheckingEuclid.by_def_SameSide.
+Require Import ProofCheckingEuclid.by_def_TarskiPar.
 Require Import ProofCheckingEuclid.lemma_tarskiparallelflip.
 
 Section Euclid.
@@ -81,7 +81,7 @@ Proof.
 
 			exact Col_A_B_R.
 		}
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_R Col_C_D_R) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_R Col_C_D_R) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -122,7 +122,7 @@ Proof.
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_d_e_a Col_d_e_b neq_d_e) as Col_e_a_b.
 			pose proof (lemma_collinearorder _ _ _ Col_a_e_d) as (Col_e_a_d & _ & _ & _ & _).
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_e_a_b Col_e_a_d neq_e_a) as Col_a_b_d.
-			pose proof (lemma_s_meet _ _ _ _ _ neq_a_b neq_C_D Col_a_b_d Col_C_D_d) as Meet_a_b_C_D.
+			pose proof (by_def_Meet _ _ _ _ _ neq_a_b neq_C_D Col_a_b_d Col_C_D_d) as Meet_a_b_C_D.
 
 			contradict Meet_a_b_C_D.
 			exact n_Meet_a_b_C_D.
@@ -139,7 +139,7 @@ Proof.
 		pose proof (lemma_collinearorder _ _ _ Col_B_a_b) as (_ & _ & _ & _ & Col_b_a_B).
 		pose proof (lemma_collinearorder _ _ _ Col_b_a_c) as (Col_a_b_c & _ & _ & _ & _).
 		assert (eq c c) as eq_c_c by (reflexivity).
-		pose proof (lemma_s_meet _ _ _ _ _ neq_a_b neq_C_D Col_a_b_c Col_C_D_c) as Meet_a_b_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_a_b neq_C_D Col_a_b_c Col_C_D_c) as Meet_a_b_C_D.
 
 		contradict Meet_a_b_C_D.
 		exact n_Meet_a_b_C_D.
@@ -183,7 +183,7 @@ Proof.
 	{
 		intro Col_A_B_c.
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_c Col_C_D_c) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_c Col_C_D_c) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
@@ -195,14 +195,14 @@ Proof.
 	{
 		intro Col_A_B_d.
 
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_d Col_C_D_d) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_d Col_C_D_d) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
 	}
 	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_d) as nCol_A_B_d.
 
-	pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_A_B_b Col_A_B_M BetS_c_b_P BetS_d_M_P nCol_A_B_c nCol_A_B_d) as SameSide_c_d_AB.
+	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_B_b Col_A_B_M BetS_c_b_P BetS_d_M_P nCol_A_B_c nCol_A_B_d) as SameSide_c_d_AB.
 
 	assert (~ Meet A B c d) as n_Meet_A_B_c_d.
 	{
@@ -214,13 +214,13 @@ Proof.
 		pose proof (lemma_collinearorder _ _ _ Col_C_c_d) as (_ & Col_c_d_C & _ & _ & _).
 		pose proof (lemma_collinearorder _ _ _ Col_D_c_d) as (_ & Col_c_d_D & _ & _ & _).
 		pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_c_d Col_c_d_C Col_c_d_D Col_c_d_R) as Col_C_D_R.
-		pose proof (lemma_s_meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_R Col_C_D_R) as Meet_A_B_C_D.
+		pose proof (by_def_Meet _ _ _ _ _ neq_A_B neq_C_D Col_A_B_R Col_C_D_R) as Meet_A_B_C_D.
 
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
 	}
 
-	pose proof (lemma_s_tarski_par _ _ _ _ neq_A_B neq_c_d n_Meet_A_B_c_d SameSide_c_d_AB) as TarskiPar_AB_cd.
+	pose proof (by_def_TarskiPar _ _ _ _ neq_A_B neq_c_d n_Meet_A_B_c_d SameSide_c_d_AB) as TarskiPar_AB_cd.
 
 	assert (eq C C) as eq_C_C by (reflexivity).
 	pose proof (lemma_s_col_eq_A_C C D C eq_C_C) as Col_C_D_C.

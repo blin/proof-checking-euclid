@@ -23,11 +23,11 @@ Require Import ProofCheckingEuclid.lemma_planeseparation.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_onray.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_os.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.proposition_12.
 
@@ -75,7 +75,7 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_FE_FC) as (_ & _ & Cong_FE_CF).
 	pose proof (lemma_doublereverse _ _ _ _ Cong_FE_FC) as (_ & Cong_EF_CF).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_C_F_E Col_A_B_F nCol_A_B_C) as OppositeSide_C_AB_E.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_C_F_E Col_A_B_F nCol_A_B_C) as OppositeSide_C_AB_E.
 	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_D_C_AB OppositeSide_C_AB_E) as OppositeSide_D_AB_E.
 	destruct OppositeSide_D_AB_E as (G & BetS_D_G_E & Col_A_B_G & _).
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_G) as (Col_B_A_G & _ & _ & _ & _).
@@ -249,8 +249,8 @@ Proof.
 		assert (neq G B) as neq_G_B by (rewrite <- eq_A_G; exact neq_A_B).
 		assert (BetS E A D) as BetS_E_A_D by (rewrite eq_A_G; exact BetS_E_G_D).
 
-		pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_G_D Cong_EG_DG Cong_EB_DB neq_G_B) as RightTriangle_EGB.
-		pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_A_D Cong_EA_DA Cong_EB_DB neq_A_B) as RightTriangle_EAB.
+		pose proof (by_def_RightTriangle _ _ _ _ BetS_E_G_D Cong_EG_DG Cong_EB_DB neq_G_B) as RightTriangle_EGB.
+		pose proof (by_def_RightTriangle _ _ _ _ BetS_E_A_D Cong_EA_DA Cong_EB_DB neq_A_B) as RightTriangle_EAB.
 		pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EAB) as RightTriangle_BAE.
 		pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EGB) as RightTriangle_BGE.
 
@@ -261,7 +261,7 @@ Proof.
 			intros eq_F_B.
 
 			assert (BetS E B C) as BetS_E_B_C by (rewrite <- eq_F_B; exact BetS_E_F_C).
-			pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_B_C Cong_EB_CB Cong_EA_CA neq_B_A) as RightTriangle_EBA.
+			pose proof (by_def_RightTriangle _ _ _ _ BetS_E_B_C Cong_EB_CB Cong_EA_CA neq_B_A) as RightTriangle_EBA.
 			pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_EBA OnRay_BA_J) as RightTriangle_EBJ.
 			pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EBJ) as RightTriangle_JBE.
 			pose proof (lemma_droppedperpendicularunique _ _ _ _ RightTriangle_JAE RightTriangle_JBE Col_J_A_B) as eq_A_B.
@@ -270,7 +270,7 @@ Proof.
 			exact neq_A_B.
 		}
 
-		pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_F_C Cong_EF_CF Cong_EB_CB neq_F_B) as RightTriangle_EFB.
+		pose proof (by_def_RightTriangle _ _ _ _ BetS_E_F_C Cong_EF_CF Cong_EB_CB neq_F_B) as RightTriangle_EFB.
 		pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EFB) as RightTriangle_BFE.
 		pose proof (lemma_droppedperpendicularunique _ _ _ _ RightTriangle_BGE RightTriangle_BFE Col_B_G_F) as eq_G_F.
 		pose proof (lemma_equalitysymmetric _ _ eq_G_F) as eq_F_G.
@@ -280,7 +280,7 @@ Proof.
 	{
 		(* case neq_A_G *)
 		pose proof (lemma_inequalitysymmetric _ _ neq_A_G) as neq_G_A.
-		pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_G_D Cong_EG_DG Cong_EA_DA neq_G_A) as RightTriangle_EGA.
+		pose proof (by_def_RightTriangle _ _ _ _ BetS_E_G_D Cong_EG_DG Cong_EA_DA neq_G_A) as RightTriangle_EGA.
 		pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EGA) as RightTriangle_AGE.
 
 		assert (eq A F \/ neq A F) as [eq_A_F|neq_A_F] by (apply Classical_Prop.classic).
@@ -288,8 +288,8 @@ Proof.
 			(* case eq_A_F *)
 			assert (neq F B) as neq_F_B by (rewrite <- eq_A_F; exact neq_A_B).
 			assert (BetS E A C) as BetS_E_A_C by (rewrite eq_A_F; exact BetS_E_F_C).
-			pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_F_C Cong_EF_CF Cong_EB_CB neq_F_B) as RightTriangle_EFB.
-			pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_A_C Cong_EA_CA Cong_EB_CB neq_A_B) as RightTriangle_EAB.
+			pose proof (by_def_RightTriangle _ _ _ _ BetS_E_F_C Cong_EF_CF Cong_EB_CB neq_F_B) as RightTriangle_EFB.
+			pose proof (by_def_RightTriangle _ _ _ _ BetS_E_A_C Cong_EA_CA Cong_EB_CB neq_A_B) as RightTriangle_EAB.
 			pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_EAB OnRay_AB_K) as RightTriangle_EAK.
 			pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EFB) as RightTriangle_BFE.
 			pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EAB) as RightTriangle_BAE.
@@ -300,7 +300,7 @@ Proof.
 				intros eq_B_G.
 
 				assert (BetS E B D) as BetS_E_B_D by (rewrite eq_B_G; exact BetS_E_G_D).
-				pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_B_D Cong_EB_DB Cong_EA_DA neq_B_A) as RightTriangle_EBA.
+				pose proof (by_def_RightTriangle _ _ _ _ BetS_E_B_D Cong_EB_DB Cong_EA_DA neq_B_A) as RightTriangle_EBA.
 				pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EBA) as RightTriangle_ABE.
 				pose proof (lemma_collinearright _ _ _ _ RightTriangle_ABE Col_A_B_K neq_K_B) as RightTriangle_KBE.
 
@@ -311,7 +311,7 @@ Proof.
 			}
 
 			pose proof (lemma_inequalitysymmetric _ _ neq_B_G) as neq_G_B.
-			pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_G_D Cong_EG_DG Cong_EB_DB neq_G_B) as RightTriangle_EGB.
+			pose proof (by_def_RightTriangle _ _ _ _ BetS_E_G_D Cong_EG_DG Cong_EB_DB neq_G_B) as RightTriangle_EGB.
 			pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EGB) as RightTriangle_BGE.
 			pose proof (lemma_droppedperpendicularunique _ _ _ _ RightTriangle_BGE RightTriangle_BFE Col_B_G_F) as eq_G_F.
 			pose proof (lemma_equalitysymmetric _ _ eq_G_F) as eq_F_G.
@@ -321,7 +321,7 @@ Proof.
 		{
 			(* case neq_A_F *)
 			pose proof (lemma_inequalitysymmetric _ _ neq_A_F) as neq_F_A.
-			pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_F_C Cong_EF_CF Cong_EA_CA neq_F_A) as RightTriangle_EFA.
+			pose proof (by_def_RightTriangle _ _ _ _ BetS_E_F_C Cong_EF_CF Cong_EA_CA neq_F_A) as RightTriangle_EFA.
 			pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_EFA) as RightTriangle_AFE.
 			pose proof (lemma_droppedperpendicularunique _ _ _ _ RightTriangle_AFE RightTriangle_AGE Col_A_F_G) as eq_F_G.
 
@@ -334,7 +334,7 @@ Proof.
 	assert (Cong F B G B) as Cong_FB_GB by (rewrite <- eq_F_G; exact Cong_FB_FB).
 
 	assert (BetS E F D) as BetS_E_F_D by (rewrite eq_F_G; exact BetS_E_G_D).
-	pose proof (lemma_s_onray _ _ _ _ BetS_E_F_D BetS_E_F_C) as OnRay_FD_C.
+	pose proof (by_def_OnRay _ _ _ _ BetS_E_F_D BetS_E_F_C) as OnRay_FD_C.
 	pose proof (lemma_betweennotequal _ _ _ BetS_E_F_D) as (neq_F_D & _ & _).
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_F_D) as OnRay_FD_D.
 

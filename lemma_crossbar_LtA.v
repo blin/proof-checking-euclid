@@ -23,7 +23,7 @@ Require Import ProofCheckingEuclid.lemma_s_col_eq_A_B.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.lemma_sameside_onray_EFAC_BFG_EGAC.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.proposition_04.
@@ -93,7 +93,7 @@ Proof.
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_G_H_J Col_G_H_L neq_G_L) as nCol_G_L_J.
 	pose proof (lemma_NCorder _ _ _ nCol_G_L_J) as (nCol_L_G_J & nCol_L_J_G & nCol_J_G_L & nCol_G_J_L & nCol_J_L_G).
 
-	pose proof (lemma_s_triangle _ _ _ nCol_L_G_J) as Triangle_LGJ.
+	pose proof (by_def_Triangle _ _ _ nCol_L_G_J) as Triangle_LGJ.
 
 	pose proof (lemma_crossbar _ _ _ _ _ _ Triangle_LGJ BetS_L_K_J OnRay_GL_S OnRay_GJ_T) as (M & OnRay_GK_M & BetS_S_M_T).
 

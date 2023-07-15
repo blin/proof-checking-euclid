@@ -19,11 +19,11 @@ Require Import ProofCheckingEuclid.lemma_pointreflectionisometry.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.lemma_s_conga.
-Require Import ProofCheckingEuclid.lemma_s_midpoint.
+Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_os.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.proposition_10.
 Require Import ProofCheckingEuclid.proposition_27.
 
@@ -98,8 +98,8 @@ Proof.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_M_B) as (_ & neq_M_B & _ & _ & neq_B_M & _).
 	pose proof (lemma_NCorder _ _ _ nCol_A_M_B) as (nCol_M_A_B & nCol_M_B_A & nCol_B_A_M & nCol_A_B_M & nCol_B_M_A).
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_A_M_D Cong_AM_MD) as Midpoint_A_M_D.
-	pose proof (lemma_s_midpoint _ _ _ BetS_D_M_A Cong_DM_MA) as Midpoint_D_M_A.
+	pose proof (by_def_Midpoint _ _ _ BetS_A_M_D Cong_AM_MD) as Midpoint_A_M_D.
+	pose proof (by_def_Midpoint _ _ _ BetS_D_M_A Cong_DM_MA) as Midpoint_D_M_A.
 
 	pose proof (lemma_extension _ _ _ _ neq_C_M neq_M_C) as (E & BetS_C_M_E & Cong_ME_MC).
 
@@ -112,8 +112,8 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_CM_ME) as (Cong_MC_EM & _ & _).
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_MC_EM) as Cong_EM_MC.
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_C_M_E Cong_CM_ME) as Midpoint_C_M_E.
-	pose proof (lemma_s_midpoint _ _ _ BetS_E_M_C Cong_EM_MC) as Midpoint_E_M_C.
+	pose proof (by_def_Midpoint _ _ _ BetS_C_M_E Cong_CM_ME) as Midpoint_C_M_E.
+	pose proof (by_def_Midpoint _ _ _ BetS_E_M_C Cong_EM_MC) as Midpoint_E_M_C.
 
 	pose proof (lemma_extension _ _ _ _ neq_B_M neq_M_B) as (F & BetS_B_M_F & Cong_MF_MB).
 
@@ -130,7 +130,7 @@ Proof.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_MF_MB) as (_ & _ & Cong_MF_BM).
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_MF_BM) as Cong_BM_MF.
 
-	pose proof (lemma_s_midpoint _ _ _ BetS_B_M_F Cong_BM_MF) as Midpoint_B_M_F.
+	pose proof (by_def_Midpoint _ _ _ BetS_B_M_F Cong_BM_MF) as Midpoint_B_M_F.
 
 	pose proof (lemma_NChelper _ _ _ _ _ nCol_B_M_A Col_B_M_F Col_B_M_M neq_F_M) as nCol_F_M_A.
 	pose proof (lemma_NCorder _ _ _ nCol_F_M_A) as (nCol_M_F_A & nCol_M_A_F & nCol_A_F_M & nCol_F_A_M & nCol_A_M_F).
@@ -179,8 +179,8 @@ Proof.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_E) as OnRay_AE_E.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_F) as OnRay_AF_F.
 
-	pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_AF_F OnRay_AD_D OnRay_DB_B OnRay_DA_A Cong_AF_DB Cong_AD_DA Cong_FD_BA nCol_F_A_D) as CongA_FAD_BDA.
-	pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_AE_E OnRay_AD_D OnRay_DC_C OnRay_DA_A Cong_AE_DC Cong_AD_DA Cong_ED_CA nCol_E_A_D) as CongA_EAD_CDA.
+	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_AF_F OnRay_AD_D OnRay_DB_B OnRay_DA_A Cong_AF_DB Cong_AD_DA Cong_FD_BA nCol_F_A_D) as CongA_FAD_BDA.
+	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_AE_E OnRay_AD_D OnRay_DC_C OnRay_DA_A Cong_AE_DC Cong_AD_DA Cong_ED_CA nCol_E_A_D) as CongA_EAD_CDA.
 
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_FAD_BDA CongA_BDA_ADB) as CongA_FAD_ADB.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_FAD_ADB) as CongA_ADB_FAD.
@@ -191,7 +191,7 @@ Proof.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_EAD_CDA CongA_CDA_ADC) as CongA_EAD_ADC.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_DAE_EAD CongA_EAD_CDA) as CongA_DAE_CDA.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_B_M_F Col_A_D_M nCol_A_D_B) as OppositeSide_B_AD_F.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_B_M_F Col_A_D_M nCol_A_D_B) as OppositeSide_B_AD_F.
 	pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_B_AD_F) as OppositeSide_F_AD_B.
 
 	pose proof (proposition_27 _ _ _ _ _ _ BetS_F_A_E BetS_C_D_B CongA_FAD_ADB OppositeSide_F_AD_B) as Par_FE_CB.

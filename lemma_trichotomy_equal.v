@@ -6,7 +6,7 @@ Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.lemma_s_lt.
+Require Import ProofCheckingEuclid.by_def_Lt.
 
 Section Euclid.
 
@@ -41,7 +41,7 @@ Proof.
 	{
 		intros BetS_A_B_E.
 
-		pose proof (lemma_s_lt _ _ _ _ _ BetS_A_B_E Cong_AB_AB) as Lt_AB_AE.
+		pose proof (by_def_Lt _ _ _ _ _ BetS_A_B_E Cong_AB_AB) as Lt_AB_AE.
 		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_AB_AE Cong_AE_CD) as Lt_AB_CD.
 
 		contradict Lt_AB_CD.
@@ -52,7 +52,7 @@ Proof.
 	{
 		intros BetS_A_E_B.
 
-		pose proof (lemma_s_lt _ _ _ _ _ BetS_A_E_B Cong_AE_CD) as Lt_CD_AB.
+		pose proof (by_def_Lt _ _ _ _ _ BetS_A_E_B Cong_AE_CD) as Lt_CD_AB.
 		contradict Lt_CD_AB.
 
 		exact n_Lt_CD_AB.

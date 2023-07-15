@@ -19,9 +19,9 @@ Require Import ProofCheckingEuclid.lemma_planeseparation.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.lemma_s_cross.
-Require Import ProofCheckingEuclid.lemma_s_os.
-Require Import ProofCheckingEuclid.lemma_s_ss.
+Require Import ProofCheckingEuclid.by_def_Cross.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.proposition_30A.
 
 Section Euclid.
@@ -201,7 +201,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_f_H_K) as (_ & _ & _ & _ & nCol_K_H_f).
 	pose proof (lemma_NChelper _ _ _ _ _ nCol_C_K_H Col_C_K_d Col_C_K_K neq_d_K) as nCol_d_K_H.
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_C_K_d Col_K_H_K nCol_K_H_C) as OppositeSide_C_KH_d.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_C_K_d Col_K_H_K nCol_K_H_C) as OppositeSide_C_KH_d.
 
 
 	assert (~ ~ (Cross A f G H \/ Cross A E G H)) as n_n_Cross_Af_GH_or_Cross_AE_GH.
@@ -261,7 +261,7 @@ Proof.
 			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_K_M_H) as Col_K_M_H.
 			pose proof (lemma_collinearorder _ _ _ Col_K_M_H) as (_ & _ & _ & Col_K_H_M & _).
 
-			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_f_H_E BetS_C_M_E nCol_K_H_f nCol_K_H_C) as SameSide_f_C_KH.
+			pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_f_H_E BetS_C_M_E nCol_K_H_f nCol_K_H_C) as SameSide_f_C_KH.
 			pose proof (lemma_planeseparation _ _ _ _ _ SameSide_f_C_KH OppositeSide_C_KH_d) as OppositeSide_f_KH_d.
 
 			destruct OppositeSide_f_KH_d as (m & BetS_f_m_d & Col_K_H_m & _).
@@ -273,7 +273,7 @@ Proof.
 			pose proof (lemma_collinearbetween _ _ _ _ _ _ _ Col_f_H_E Col_C_K_d neq_f_E neq_C_d neq_f_H neq_K_d n_Meet_f_E_C_d BetS_f_m_d Col_H_K_m) as BetS_H_m_K.
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_H_m_K) as BetS_K_m_H.
 
-			pose proof (lemma_s_cross _ _ _ _ _ BetS_d_m_f BetS_K_m_H) as Cross_df_KH.
+			pose proof (by_def_Cross _ _ _ _ _ BetS_d_m_f BetS_K_m_H) as Cross_df_KH.
 			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_df_KH nCol_d_K_H) as (_ & OppositeSide_d_HK_f & _ & _).
 			pose proof (lemma_oppositesidesymmetric _ _ _ _ OppositeSide_d_HK_f) as OppositeSide_f_HK_d.
 
@@ -299,7 +299,7 @@ Proof.
 			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_K_M_H) as Col_K_M_H.
 			pose proof (lemma_collinearorder _ _ _ Col_K_M_H) as (_ & _ & _ & Col_K_H_M & _).
 
-			pose proof (lemma_s_ss _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_E_H_f BetS_C_M_f nCol_K_H_E nCol_K_H_C) as SameSide_E_C_KH.
+			pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_E_H_f BetS_C_M_f nCol_K_H_E nCol_K_H_C) as SameSide_E_C_KH.
 			pose proof (lemma_planeseparation _ _ _ _ _ SameSide_E_C_KH OppositeSide_C_KH_d) as OppositeSide_E_KH_d.
 
 			destruct OppositeSide_E_KH_d as (m & BetS_E_m_d & Col_K_H_m & _).
@@ -311,7 +311,7 @@ Proof.
 			pose proof (lemma_collinearbetween _ _ _ _ _ _ _ Col_E_H_f Col_C_K_d neq_E_f neq_C_d neq_E_H neq_K_d n_Meet_E_f_C_d BetS_E_m_d Col_H_K_m) as BetS_H_m_K.
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_H_m_K) as BetS_K_m_H.
 
-			pose proof (lemma_s_cross _ _ _ _ _ BetS_d_m_E BetS_K_m_H) as Cross_dE_KH.
+			pose proof (by_def_Cross _ _ _ _ _ BetS_d_m_E BetS_K_m_H) as Cross_dE_KH.
 
 			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_dE_KH nCol_d_K_H) as (_ & OppositeSide_d_HK_E & _ & _).
 			pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AE_GH nCol_A_G_H) as (OppositeSide_A_GH_E & _ & _ & _).

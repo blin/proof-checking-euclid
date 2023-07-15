@@ -22,11 +22,11 @@ Require Import ProofCheckingEuclid.lemma_onray_shared_initial_point.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_lta.
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_supp.
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 
 Section Euclid.
@@ -112,7 +112,7 @@ Proof.
 
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_F) as OnRay_BF_F.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_R) as OnRay_BR_R.
-	pose proof (lemma_s_supp _ _ _ _ _ OnRay_BR_R BetS_A_B_F) as Supp_ABR_RBF.
+	pose proof (by_def_Supp _ _ _ _ _ OnRay_BR_R BetS_A_B_F) as Supp_ABR_RBF.
 
 	pose proof (lemma_supplements_conga _ _ _ _ _ _ _ _ _ _ CongA_ABR_abc Supp_ABR_RBF Supp_abc_dbf) as CongA_RBF_dbf.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_RBF_dbf) as CongA_dbf_RBF.
@@ -164,7 +164,7 @@ Proof.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_FBQ_FBD CongA_FBD_DBF) as CongA_FBQ_DBF.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_FBQ_DBF) as CongA_DBF_FBQ.
 
-	pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_F_M_R OnRay_BF_F OnRay_BR_R CongA_FBQ_FBM) as LtA_FBQ_FBR.
+	pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_F_M_R OnRay_BF_F OnRay_BR_R CongA_FBQ_FBM) as LtA_FBQ_FBR.
 	pose proof (lemma_angleorderrespectscongruence _ _ _ _ _ _ _ _ _ LtA_FBQ_FBR CongA_fbd_FBR) as LtA_FBQ_fbd.
 	pose proof (lemma_angleorderrespectscongruence_smaller _ _ _ _ _ _ _ _ _ LtA_FBQ_fbd CongA_DBF_FBQ) as LtA_DBF_fbd.
 

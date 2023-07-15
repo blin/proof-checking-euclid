@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_right_triangle :
+Lemma by_def_RightTriangle :
 	forall A B C X,
 	BetS A B X ->
 	Cong A B X B ->

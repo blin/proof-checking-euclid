@@ -6,7 +6,7 @@ Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_crossimpliesopposite.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_parallelNC.
-Require Import ProofCheckingEuclid.lemma_s_cross.
+Require Import ProofCheckingEuclid.by_def_Cross.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_27B.
 Require Import ProofCheckingEuclid.proposition_29B.
@@ -40,7 +40,7 @@ Proof.
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AB_CD) as (_ & Cong_BA_CD & _).
 
-	pose proof (lemma_s_cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
+	pose proof (by_def_Cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
 	pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AD_BC nCol_A_B_C) as (OppositeSide_A_BC_D & OppositeSide_A_CB_D & _ & _).
 
 	pose proof (proposition_29B _ _ _ _ Par_AB_CD OppositeSide_A_BC_D) as CongA_ABC_BCD.

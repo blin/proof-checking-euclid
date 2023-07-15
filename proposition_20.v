@@ -14,16 +14,16 @@ Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_s_TogetherGreater.
+Require Import ProofCheckingEuclid.by_def_TogetherGreater.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_conga.
-Require Import ProofCheckingEuclid.lemma_s_isosceles.
-Require Import ProofCheckingEuclid.lemma_s_lta.
+Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_isosceles.
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_triangle.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_05.
 Require Import ProofCheckingEuclid.proposition_19.
 
@@ -77,18 +77,18 @@ Proof.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_D_B) as OnRay_DB_B.
 	pose proof (lemma_s_onray_assert_ABB _ _ neq_D_C) as OnRay_DC_C.
 
-	pose proof (lemma_s_triangle _ _ _ nCol_A_D_C) as Triangle_ADC.
-	pose proof (lemma_s_triangle _ _ _ nCol_B_C_D) as Triangle_BCD.
+	pose proof (by_def_Triangle _ _ _ nCol_A_D_C) as Triangle_ADC.
+	pose proof (by_def_Triangle _ _ _ nCol_B_C_D) as Triangle_BCD.
 
-	pose proof (lemma_s_isosceles _ _ _ Triangle_ADC Cong_AD_AC) as isosceles_A_D_C.
+	pose proof (by_def_isosceles _ _ _ Triangle_ADC Cong_AD_AC) as isosceles_A_D_C.
 	pose proof (proposition_05 _ _ _ isosceles_A_D_C) as CongA_ADC_ACD.
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_A_C_D) as CongA_ACD_DCA.
 	pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_ADC_ACD CongA_ACD_DCA) as CongA_ADC_DCA.
 
-	pose proof (lemma_s_conga _ _ _ _ _ _ _ _ _ _ OnRay_DA_B OnRay_DC_C OnRay_DB_B OnRay_DC_C Cong_DB_DB Cong_DC_DC Cong_BC_BC nCol_A_D_C) as CongA_ADC_BDC.
+	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_DA_B OnRay_DC_C OnRay_DB_B OnRay_DC_C Cong_DB_DB Cong_DC_DC Cong_BC_BC nCol_A_D_C) as CongA_ADC_BDC.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_ADC_BDC) as CongA_BDC_ADC.
 
-	pose proof (lemma_s_lta _ _ _ _ _ _ _ _ _ BetS_D_A_B OnRay_CD_D OnRay_CB_B CongA_DCA_DCA) as LtA_DCA_DCB.
+	pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_D_A_B OnRay_CD_D OnRay_CB_B CongA_DCA_DCA) as LtA_DCA_DCB.
 	pose proof (lemma_angleorderrespectscongruence_smaller _ _ _ _ _ _ _ _ _ LtA_DCA_DCB CongA_ADC_DCA) as LtA_ADC_DCB.
 	pose proof (lemma_angleorderrespectscongruence_smaller _ _ _ _ _ _ _ _ _ LtA_ADC_DCB CongA_BDC_ADC) as LtA_BDC_DCB.
 	pose proof (lemma_angleorderrespectscongruence_smaller _ _ _ _ _ _ _ _ _ LtA_BDC_DCB CongA_CDB_BDC) as LtA_CDB_DCB.
@@ -96,7 +96,7 @@ Proof.
 
 	pose proof (proposition_19 _ _ _ Triangle_BCD LtA_CDB_BCD) as Lt_BC_BD.
 
-	pose proof (lemma_s_TogetherGreater _ _ _ _ _ _ _ BetS_B_A_D Cong_AD_AC Lt_BC_BD) as TogetherGreater_BA_AC_BC.
+	pose proof (by_def_TogetherGreater _ _ _ _ _ _ _ BetS_B_A_D Cong_AD_AC Lt_BC_BD) as TogetherGreater_BA_AC_BC.
 
 	exact TogetherGreater_BA_AC_BC.
 Qed.

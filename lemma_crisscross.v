@@ -20,9 +20,9 @@ Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_B.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.lemma_s_cross.
+Require Import ProofCheckingEuclid.by_def_Cross.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_os.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 
 Section Euclid.
@@ -92,7 +92,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_E_D) as (nCol_E_A_D & nCol_E_D_A & nCol_D_A_E & nCol_A_D_E & nCol_D_E_A).
 	pose proof (lemma_NCorder _ _ _ nCol_B_E_C) as (nCol_E_B_C & nCol_E_C_B & nCol_C_B_E & nCol_B_C_E & nCol_C_E_B).
 
-	pose proof (lemma_s_os _ _ _ _ _ BetS_A_B_E Col_B_D_B nCol_B_D_A) as OppositeSide_A_BD_E.
+	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_B_E Col_B_D_B nCol_B_D_A) as OppositeSide_A_BD_E.
 	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_C_A_BD OppositeSide_A_BD_E) as OppositeSide_C_BD_E.
 
 	destruct OppositeSide_C_BD_E as (F & BetS_C_F_E & Col_B_D_F & nCol_B_D_C).
@@ -140,7 +140,7 @@ Proof.
 		assert (BetS A M D) as BetS_A_M_D by (rewrite eq_D_F; exact BetS_A_M_F).
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_M_B) as BetS_B_M_C.
 
-		pose proof (lemma_s_cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
+		pose proof (by_def_Cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
 
 		exact Cross_AD_BC.
 	}
@@ -164,7 +164,7 @@ Proof.
 
 		pose proof (lemma_collinearbetween _ _ _ _ _ _ _ Col_C_A_A Col_B_B_D neq_C_A neq_B_D neq_C_A neq_B_D n_Meet_C_A_B_D BetS_C_M_D Col_A_B_M) as BetS_A_M_B.
 
-		pose proof (lemma_s_cross _ _ _ _ _ BetS_A_M_B BetS_C_M_D) as Cross_AB_CD.
+		pose proof (by_def_Cross _ _ _ _ _ BetS_A_M_B BetS_C_M_D) as Cross_AB_CD.
 
 		contradict Cross_AB_CD.
 		exact n_Cross_AB_CD.
@@ -188,7 +188,7 @@ Proof.
 
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_M_B) as BetS_B_M_C.
 
-		pose proof (lemma_s_cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
+		pose proof (by_def_Cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
 
 		exact Cross_AD_BC.
 	}
@@ -219,7 +219,7 @@ Proof.
 		pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_A_M_Q BetS_A_Q_D) as BetS_A_M_D.
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_M_B) as BetS_B_M_C.
 
-		pose proof (lemma_s_cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
+		pose proof (by_def_Cross _ _ _ _ _ BetS_A_M_D BetS_B_M_C) as Cross_AD_BC.
 
 		exact Cross_AD_BC.
 	}

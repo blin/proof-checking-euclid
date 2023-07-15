@@ -13,7 +13,7 @@ Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 
 Section Euclid.
 
@@ -64,7 +64,7 @@ Proof.
 
 		assert (Cong E A B A) as Cong_EA_BA by (rewrite <- eq_F_E; exact Cong_FA_BA).
 
-		pose proof (lemma_s_right_triangle _ _ _ _ BetS_E_C_B Cong_EC_BC Cong_EA_BA neq_C_A) as RightTriangle_ECA.
+		pose proof (by_def_RightTriangle _ _ _ _ BetS_E_C_B Cong_EC_BC Cong_EA_BA neq_C_A) as RightTriangle_ECA.
 
 		pose proof (lemma_droppedperpendicularunique _ _ _ _ RightTriangle_ECA RightTriangle_EBA Col_E_C_B) as eq_C_B.
 

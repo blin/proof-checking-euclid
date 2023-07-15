@@ -9,7 +9,7 @@ Require Import ProofCheckingEuclid.lemma_doublereverse.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_right_triangle.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.proposition_01.
 
 Section Euclid.
@@ -44,7 +44,7 @@ Proof.
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_E_F Col_A_E_C neq_A_C) as nCol_A_C_F.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_C_F) as (_ & neq_C_F & _ & _ & _ & _).
 
-	pose proof (lemma_s_right_triangle _ _ _ _ BetS_A_C_E Cong_AC_EC Cong_AF_EF neq_C_F) as RightTriangle_ACF.
+	pose proof (by_def_RightTriangle _ _ _ _ BetS_A_C_E Cong_AC_EC Cong_AF_EF neq_C_F) as RightTriangle_ACF.
 
 	exists F.
 	exact RightTriangle_ACF.

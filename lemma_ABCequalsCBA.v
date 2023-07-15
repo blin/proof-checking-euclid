@@ -7,7 +7,7 @@ Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_doublereverse.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_onray_assert.
-Require Import ProofCheckingEuclid.lemma_s_conga.
+Require Import ProofCheckingEuclid.by_def_CongA.
 
 Section Euclid.
 
@@ -46,7 +46,7 @@ Proof.
 	pose proof (lemma_onray_assert _ _ _ BetS_B_F_C_or_eq_F_C_or_BetS_B_C_F neq_B_C) as OnRay_BC_F.
 
 	pose proof (
-		lemma_s_conga
+		by_def_CongA
 		_ _ _ _ _ _ _ _ _ _
 		OnRay_BA_E
 		OnRay_BC_F
