@@ -1,3 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_AngleSum.
+Require Import ProofCheckingEuclid.by_def_Meet.
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -18,16 +22,12 @@ Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABD_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_parallelflip.
-Require Import ProofCheckingEuclid.by_def_AngleSum.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_B_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
-Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.proposition_29.
 Require Import ProofCheckingEuclid.proposition_31short.
 

@@ -1,3 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_OnCirc.
+Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OutCirc.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -18,11 +22,7 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.by_def_OnCirc.
-Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
-Require Import ProofCheckingEuclid.by_def_OutCirc.
-Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.lemma_subtractequals.
 Require Import ProofCheckingEuclid.lemma_together.
 Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.

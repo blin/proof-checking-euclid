@@ -1,6 +1,6 @@
 Require Import ProofCheckingEuclid.euclidean_axioms.
-Require Import ProofCheckingEuclid.lemma_collinear_ABC_BCA.
 Require Import ProofCheckingEuclid.lemma_collinear_ABC_BAC.
+Require Import ProofCheckingEuclid.lemma_collinear_ABC_BCA.
 
 Section Euclid.
 

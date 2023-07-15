@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_21helper.
@@ -24,7 +25,6 @@ Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_16.
 Require Import ProofCheckingEuclid.proposition_20.
 

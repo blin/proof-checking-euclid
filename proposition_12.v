@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Perp_at.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -11,8 +13,6 @@ Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_s_incirc_within_radius.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.by_def_Perp_at.
-Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.proposition_10.
 
 Section Euclid.

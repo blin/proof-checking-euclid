@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
+Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -18,11 +21,8 @@ Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_same_base_cong_side_cong_hypotenuse.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.by_def_RightTriangle.
-Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.proposition_20.
 Require Import ProofCheckingEuclid.proposition_22.
 

@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -17,9 +19,7 @@ Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.proposition_03.
 Require Import ProofCheckingEuclid.proposition_04.

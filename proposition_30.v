@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_Cross.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_30helper.
@@ -19,9 +22,6 @@ Require Import ProofCheckingEuclid.lemma_planeseparation.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.by_def_Cross.
-Require Import ProofCheckingEuclid.by_def_OppositeSide.
-Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.proposition_30A.
 
 Section Euclid.

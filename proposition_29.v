@@ -1,3 +1,8 @@
+Require Import ProofCheckingEuclid.by_def_Meet.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_SameSide.
+Require Import ProofCheckingEuclid.by_def_SumTwoRT.
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -25,13 +30,8 @@ Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_B_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.by_def_OppositeSide.
-Require Import ProofCheckingEuclid.by_def_SameSide.
-Require Import ProofCheckingEuclid.by_def_SumTwoRT.
-Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.lemma_supplement_symmetric.
 Require Import ProofCheckingEuclid.lemma_supplementinequality.

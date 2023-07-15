@@ -1,9 +1,9 @@
+Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
-Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 
 Section Euclid.

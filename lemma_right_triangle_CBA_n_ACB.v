@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -13,7 +14,6 @@ Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
 Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.by_def_RightTriangle.
 
 Section Euclid.
 

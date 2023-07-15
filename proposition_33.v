@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Cross.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -6,7 +7,6 @@ Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_crossimpliesopposite.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_parallelNC.
-Require Import ProofCheckingEuclid.by_def_Cross.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_27B.
 Require Import ProofCheckingEuclid.proposition_29B.

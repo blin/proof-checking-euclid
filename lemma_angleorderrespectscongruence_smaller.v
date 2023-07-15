@@ -1,7 +1,7 @@
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
-Require Import ProofCheckingEuclid.by_def_LtA.
 
 Section Euclid.
 

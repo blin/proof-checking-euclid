@@ -1,4 +1,4 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
@@ -6,7 +6,7 @@ Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_lessthantransitive.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
-Require Import ProofCheckingEuclid.by_def_Lt.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

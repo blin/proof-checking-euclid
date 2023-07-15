@@ -1,10 +1,10 @@
-Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

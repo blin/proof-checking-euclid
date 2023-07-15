@@ -1,8 +1,8 @@
+Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
 Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.by_def_SameSide.
 
 Section Euclid.
 

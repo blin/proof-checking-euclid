@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Cut.
+Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -9,10 +11,8 @@ Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_doublereverse.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
-Require Import ProofCheckingEuclid.by_def_Cut.
 Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_ncol_ADE.
 Require Import ProofCheckingEuclid.lemma_s_intersecting_triangles_ncol_BDE.
-Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.lemma_twolines.
 
 Section Euclid.

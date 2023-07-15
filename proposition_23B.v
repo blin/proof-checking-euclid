@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -34,8 +36,6 @@ Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
-Require Import ProofCheckingEuclid.by_def_OppositeSide.
-Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_11B.

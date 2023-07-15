@@ -1,8 +1,8 @@
+Require Import ProofCheckingEuclid.by_def_TT.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_flip.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_symmetric.
-Require Import ProofCheckingEuclid.by_def_TT.
 
 Section Euclid.
 

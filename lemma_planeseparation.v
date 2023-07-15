@@ -1,4 +1,4 @@
-Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -10,16 +10,16 @@ Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
+Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
-Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.lemma_twolines2.
+Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 

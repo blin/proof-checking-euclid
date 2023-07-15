@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCorder.
@@ -17,7 +18,6 @@ Require Import ProofCheckingEuclid.lemma_onray_impliescollinear.
 Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
-Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 
