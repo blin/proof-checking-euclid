@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -10,7 +11,6 @@ Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 
 Section Euclid.
@@ -42,9 +42,9 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_A_E_C) as (nCol_E_A_C & nCol_E_C_A & _ & _ & _).
 	pose proof (lemma_ABCequalsCBA _ _ _ nCol_A_E_C) as CongA_AEC_CEA.
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_E_B) as OnRay_EB_B.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_E_C) as OnRay_EC_C.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_E_D) as OnRay_ED_D.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_E_B) as OnRay_EB_B.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_E_C) as OnRay_EC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_E_D) as OnRay_ED_D.
 
 	pose proof (by_def_Supp _ _ _ _ _ OnRay_EB_B BetS_C_E_D) as Supp_CEB_BED.
 	pose proof (by_def_Supp _ _ _ _ _ OnRay_EB_B BetS_D_E_C) as Supp_DEB_BEC.

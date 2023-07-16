@@ -1,5 +1,9 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_Midpoint.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -19,11 +23,7 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
 Require Import ProofCheckingEuclid.lemma_parallelflip.
 Require Import ProofCheckingEuclid.lemma_pointreflectionisometry.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.proposition_10.
 Require Import ProofCheckingEuclid.proposition_27.
 
@@ -46,8 +46,8 @@ Proof.
 
 	pose proof (cn_congruencereverse A D) as Cong_AD_DA.
 
-	pose proof (lemma_s_col_eq_A_C A D A eq_A_A) as Col_A_D_A.
-	pose proof (lemma_s_col_eq_B_C B D D eq_D_D) as Col_B_D_D.
+	pose proof (by_def_Col_from_eq_A_C A D A eq_A_A) as Col_A_D_A.
+	pose proof (by_def_Col_from_eq_B_C B D D eq_D_D) as Col_B_D_D.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_D_C) as BetS_C_D_B.
 	pose proof (lemma_betweennotequal _ _ _ BetS_B_D_C) as (_ & neq_B_D & _).
@@ -55,7 +55,7 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_B_D) as neq_D_B.
 	pose proof (lemma_inequalitysymmetric _ _ neq_D_C) as neq_C_D.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_B_D_C) as Col_B_D_C.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_D_C) as Col_B_D_C.
 	pose proof (lemma_collinearorder _ _ _ Col_B_D_C) as (Col_D_B_C & Col_D_C_B & Col_C_B_D & Col_B_C_D & Col_C_D_B).
 
 	pose proof (lemma_NCdistinct _ _ _ nCol_B_C_A) as (neq_B_C & neq_C_A & neq_B_A & neq_C_B & neq_A_C & neq_A_B).
@@ -72,14 +72,14 @@ Proof.
 
 	assert (eq M M) as eq_M_M by (reflexivity).
 
-	pose proof (lemma_s_col_eq_A_C A M A eq_A_A) as Col_A_M_A.
-	pose proof (lemma_s_col_eq_B_C B M M eq_M_M) as Col_B_M_M.
+	pose proof (by_def_Col_from_eq_A_C A M A eq_A_A) as Col_A_M_A.
+	pose proof (by_def_Col_from_eq_B_C B M M eq_M_M) as Col_B_M_M.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_M_D) as BetS_D_M_A.
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_M_D) as (_ & neq_A_M & _).
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_M_D) as (neq_M_D & _ & _).
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_A_M_D) as Col_A_M_D.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_M_D) as Col_A_M_D.
 	pose proof (lemma_collinearorder _ _ _ Col_A_M_D) as (Col_M_A_D & Col_M_D_A & Col_D_A_M & Col_A_D_M & Col_D_M_A).
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_MA_MD) as Cong_MD_MA.
@@ -119,12 +119,12 @@ Proof.
 
 	assert (eq F F) as eq_F_F by (reflexivity).
 
-	pose proof (lemma_s_col_eq_B_C F A A eq_A_A) as Col_F_A_A.
+	pose proof (by_def_Col_from_eq_B_C F A A eq_A_A) as Col_F_A_A.
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_B_M_F) as (neq_M_F & _ & _).
 	pose proof (lemma_inequalitysymmetric _ _ neq_M_F) as neq_F_M.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_B_M_F) as Col_B_M_F.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_M_F) as Col_B_M_F.
 	pose proof (lemma_collinearorder _ _ _ Col_B_M_F) as (Col_M_B_F & Col_M_F_B & Col_F_B_M & Col_B_F_M & Col_F_M_B).
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_MF_MB) as (_ & _ & Cong_MF_BM).
@@ -161,7 +161,7 @@ Proof.
 	pose proof (lemma_betweennotequal _ _ _ BetS_E_A_F) as (_ & neq_E_A & _).
 	pose proof (lemma_inequalitysymmetric _ _ neq_E_A) as neq_A_E.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_E_A_F) as Col_E_A_F.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_E_A_F) as Col_E_A_F.
 	pose proof (lemma_collinearorder _ _ _ Col_E_A_F) as (Col_A_E_F & Col_A_F_E & Col_F_E_A & Col_E_F_A & Col_F_A_E).
 
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_F_D Col_A_F_E neq_A_E) as nCol_A_E_D.
@@ -172,12 +172,12 @@ Proof.
 	pose proof (lemma_pointreflectionisometry _ _ _ _ _ Midpoint_E_M_C Midpoint_D_M_A neq_E_D) as Cong_ED_CA.
 	pose proof (lemma_pointreflectionisometry _ _ _ _ _ Midpoint_A_M_D Midpoint_E_M_C neq_A_E) as Cong_AE_DC.
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_D_C) as OnRay_DC_C.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_D_B) as OnRay_DB_B.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_D_A) as OnRay_DA_A.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_D) as OnRay_AD_D.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_E) as OnRay_AE_E.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_F) as OnRay_AF_F.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_D_C) as OnRay_DC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_D_B) as OnRay_DB_B.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_D_A) as OnRay_DA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_D) as OnRay_AD_D.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_E) as OnRay_AE_E.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_F) as OnRay_AF_F.
 
 	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_AF_F OnRay_AD_D OnRay_DB_B OnRay_DA_A Cong_AF_DB Cong_AD_DA Cong_FD_BA nCol_F_A_D) as CongA_FAD_BDA.
 	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_AE_E OnRay_AD_D OnRay_DC_C OnRay_DA_A Cong_AE_DC Cong_AD_DA Cong_ED_CA nCol_E_A_D) as CongA_EAD_CDA.

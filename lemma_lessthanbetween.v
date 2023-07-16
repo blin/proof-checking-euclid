@@ -1,9 +1,9 @@
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 
 Section Euclid.
 
@@ -23,7 +23,7 @@ Proof.
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_M_C) as (_ & neq_A_M & _).
 
-	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_A_M_C neq_A_M) as OnRay_AM_C.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_A_M_C neq_A_M) as OnRay_AM_C.
 	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_AM_C) as OnRay_AC_M.
 	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_AB_C) as OnRay_AC_B.
 

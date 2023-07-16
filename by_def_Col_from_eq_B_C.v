@@ -5,16 +5,16 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_col_BetS_A_C_B :
+Lemma by_def_Col_from_eq_B_C :
 	forall A B C,
-	BetS A C B ->
+	eq B C ->
 	Col A B C.
 Proof.
 	intros A B C.
-	intros BetS_A_C_B.
+	intros eq_B_C.
 
 	unfold Col.
-	repeat (exact BetS_A_C_B || (left; exact BetS_A_C_B) || right).
+	repeat (exact eq_B_C || (left; exact eq_B_C) || right).
 Qed.
 
 End Euclid.

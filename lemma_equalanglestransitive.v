@@ -1,4 +1,5 @@
 Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_angledistinct.
@@ -9,7 +10,6 @@ Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Coq.Logic.Classical_Prop.
 
@@ -37,8 +37,8 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_D_E) as neq_E_D.
 	pose proof (lemma_inequalitysymmetric _ _ neq_P_Q) as neq_Q_P.
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_A) as OnRay_BA_A.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_C) as OnRay_BC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_C) as OnRay_BC_C.
 
 	pose proof (lemma_layoff _ _ _ _ neq_E_D neq_B_A) as (U & OnRay_ED_U & Cong_EU_BA).
 	pose proof (lemma_layoff _ _ _ _ neq_E_F neq_B_C) as (V & OnRay_EF_V & Cong_EV_BC).

@@ -1,4 +1,5 @@
 Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -22,7 +23,6 @@ Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_same_base_cong_side_cong_hypotenuse.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.proposition_20.
 Require Import ProofCheckingEuclid.proposition_22.
 
@@ -59,8 +59,8 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 	pose proof (lemma_inequalitysymmetric _ _ neq_a_b) as neq_b_a.
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_A) as OnRay_BA_A.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_C) as OnRay_BC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_C) as OnRay_BC_C.
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AB_DB) as (_ & _ & Cong_AB_BD).
 
@@ -86,8 +86,8 @@ Proof.
 
 	destruct RightTriangle_pbq as (r & BetS_p_b_r & Cong_pb_rb & Cong_pq_rq & neq_b_q).
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_b_q) as OnRay_bq_q.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_b_p) as OnRay_bp_p.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_b_q) as OnRay_bq_q.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_b_p) as OnRay_bp_p.
 
 	pose proof (by_def_Triangle _ _ _ nCol_p_b_q) as Triangle_pbq.
 	pose proof (by_def_Triangle _ _ _ nCol_b_q_p) as Triangle_bqp.
@@ -110,7 +110,7 @@ Proof.
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BF_bq) as Cong_bq_BF.
 	pose proof (axiom_nocollapse _ _ _ _ neq_b_q Cong_bq_BF) as neq_B_F.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_F) as OnRay_BF_F.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_F) as OnRay_BF_F.
 
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BE_bp Cong_bp_BA) as Cong_BE_BA.
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_BA_E OnRay_BA_A Cong_BE_BA) as eq_E_A.

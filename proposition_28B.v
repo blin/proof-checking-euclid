@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -10,8 +12,6 @@ Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
 Require Import ProofCheckingEuclid.lemma_planeseparation.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.lemma_supplement_symmetric.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
@@ -36,7 +36,7 @@ Proof.
 	intros SameSide_B_D_GH.
 
 	assert (eq G G) as eq_G_G by (reflexivity).
-	pose proof (lemma_s_col_eq_A_C G H G eq_G_G) as Col_G_H_G.
+	pose proof (by_def_Col_from_eq_A_C G H G eq_G_G) as Col_G_H_G.
 
 	destruct SumTwoRT_BGH_GHD as (a & b & c & d & e & Supp_abc_ebd & CongA_BGH_abc & CongA_GHD_ebd).
 
@@ -46,7 +46,7 @@ Proof.
 
 	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_B_D_GH) as (SameSide_D_B_GH & _ & _).
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_G_H) as OnRay_GH_H.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_G_H) as OnRay_GH_H.
 
 	pose proof (by_def_Supp _ _ _ _ _ OnRay_GH_H BetS_A_G_B) as Supp_AGH_HGB.
 	pose proof (lemma_supplement_symmetric _ _ _ _ _ Supp_AGH_HGB) as Supp_BGH_HGA.

@@ -1,10 +1,10 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 
 Section Euclid.
 
@@ -23,7 +23,7 @@ Proof.
 
 	destruct Cross_AB_CD as (M & BetS_A_M_B & BetS_C_M_D).
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_C_M_D) as Col_C_M_D.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_M_D) as Col_C_M_D.
 	pose proof (lemma_collinearorder _ _ _ Col_C_M_D) as (_ & _ & _ & Col_C_D_M & _).
 	pose proof (lemma_collinearorder _ _ _ Col_C_D_M) as (Col_D_C_M & _ & _ & _ & _).
 

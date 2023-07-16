@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -18,7 +19,6 @@ Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Coq.Logic.Classical_Prop.
@@ -46,8 +46,8 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_B_C) as neq_C_B.
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_A) as OnRay_BA_A.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_C) as OnRay_BC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_C) as OnRay_BC_C.
 
 	pose proof (lemma_doublereverse _ _ _ _ Cong_AB_DB) as (Cong_BD_BA & _).
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_DC) as (_ & _ & Cong_AC_CD).

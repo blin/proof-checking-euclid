@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -12,8 +14,6 @@ Require Import ProofCheckingEuclid.lemma_extensionunique.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 
 Section Euclid.
 
@@ -35,14 +35,14 @@ Proof.
 	pose proof (lemma_extension _ _ _ _ neq_B_C neq_C_B) as (E & BetS_B_C_E & Cong_CE_CB).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_C_E) as BetS_E_C_B.
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_B_C_E) as Col_B_C_E.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_C_E) as Col_B_C_E.
 	pose proof (lemma_collinearorder _ _ _ Col_B_C_E) as (_ & _ & _ & _ & Col_E_C_B).
 
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_CE_CB) as (_ & _ & Cong_CE_BC).
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_CE_BC) as Cong_BC_CE.
 	pose proof (lemma_congruenceflip _ _ _ _ Cong_CE_CB) as (Cong_EC_BC & _ & _).
 
-	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_B_C_E neq_B_C) as OnRay_BC_E.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_B_C_E neq_B_C) as OnRay_BC_E.
 	pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_ABC OnRay_BC_E) as RightTriangle_ABE.
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_ABE) as RightTriangle_EBA.
 

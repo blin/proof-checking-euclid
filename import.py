@@ -81,18 +81,18 @@ def print_requirements(w: TextIO, t: Top) -> None:
         rs |= {"lemma_s_ncol_triangle", "by_def_Triangle"}
     if "OnRay" in rs:
         rs |= {
-            "lemma_s_onray_assert_ABB",
-            "lemma_s_onray_assert_bets_ABE",
-            "lemma_s_onray_assert_bets_AEB",
+            "by_def_OnRay_from_neq_A_B",
+            "by_def_OnRay_from_BetS_A_B_E",
+            "by_def_OnRay_from_BetS_A_E_B",
         }
     if "Col" in rs:
         rs |= {
-            "lemma_s_col_BetS_A_B_C",
-            "lemma_s_col_BetS_A_C_B",
-            "lemma_s_col_BetS_B_A_C",
-            "lemma_s_col_eq_A_B",
-            "lemma_s_col_eq_A_C",
-            "lemma_s_col_eq_B_C",
+            "by_def_Col_from_BetS_A_B_C",
+            "by_def_Col_from_BetS_A_C_B",
+            "by_def_Col_from_BetS_B_A_C",
+            "by_def_Col_from_eq_A_B",
+            "by_def_Col_from_eq_A_C",
+            "by_def_Col_from_eq_B_C",
         }
     if "nCol" in rs:
         rs |= {
@@ -221,17 +221,17 @@ class LemmaPrinter:
             X, Y = hh.points
             if [X, Y] == [A, B]:
                 self.w.write(
-                    f"pose proof (lemma_s_col_eq_A_B {A} {B} {C} eq_{A}_{B}) as Col_{A}_{B}_{C}.\n"
+                    f"pose proof (by_def_Col_from_eq_A_B {A} {B} {C} eq_{A}_{B}) as Col_{A}_{B}_{C}.\n"
                 )
                 break
             elif [X, Y] == [A, C]:
                 self.w.write(
-                    f"pose proof (lemma_s_col_eq_A_C {A} {B} {C} eq_{A}_{C}) as Col_{A}_{B}_{C}.\n"
+                    f"pose proof (by_def_Col_from_eq_A_C {A} {B} {C} eq_{A}_{C}) as Col_{A}_{B}_{C}.\n"
                 )
                 break
             elif [X, Y] == [B, C]:
                 self.w.write(
-                    f"pose proof (lemma_s_col_eq_B_C {A} {B} {C} eq_{B}_{C}) as Col_{A}_{B}_{C}.\n"
+                    f"pose proof (by_def_Col_from_eq_B_C {A} {B} {C} eq_{B}_{C}) as Col_{A}_{B}_{C}.\n"
                 )
                 break
         for hh in hhs_bets:
@@ -240,17 +240,17 @@ class LemmaPrinter:
             X, Y, Z = hh.points
             if [X, Y, Z] == [B, A, C]:
                 self.w.write(
-                    f"pose proof (lemma_s_col_BetS_B_A_C {A} {B} {C} BetS_{B}_{A}_{C}) as Col_{A}_{B}_{C}.\n"
+                    f"pose proof (by_def_Col_from_BetS_B_A_C {A} {B} {C} BetS_{B}_{A}_{C}) as Col_{A}_{B}_{C}.\n"
                 )
                 break
             elif [X, Y, Z] == [A, B, C]:
                 self.w.write(
-                    f"pose proof (lemma_s_col_BetS_A_B_C {A} {B} {C} BetS_{A}_{B}_{C}) as Col_{A}_{B}_{C}.\n"
+                    f"pose proof (by_def_Col_from_BetS_A_B_C {A} {B} {C} BetS_{A}_{B}_{C}) as Col_{A}_{B}_{C}.\n"
                 )
                 break
             elif [X, Y, Z] == [A, C, B]:
                 self.w.write(
-                    f"pose proof (lemma_s_col_BetS_A_C_B {A} {B} {C} BetS_{A}_{C}_{B}) as Col_{A}_{B}_{C}.\n"
+                    f"pose proof (by_def_Col_from_BetS_A_C_B {A} {B} {C} BetS_{A}_{C}_{B}) as Col_{A}_{B}_{C}.\n"
                 )
                 break
 
@@ -351,15 +351,15 @@ class LemmaPrinter:
         A, B, E = e.points
         if B == E:
             self.w.write(
-                f"pose proof (lemma_s_onray_assert_ABB {A} {B} neq_{A}_{B}) as {e.to_var()}.\n"
+                f"pose proof (by_def_OnRay_from_neq_A_B {A} {B} neq_{A}_{B}) as {e.to_var()}.\n"
             )
         else:
             # fmt: off
             self.w.write("\n")
             self.process_indent()
-            self.w.write(f"pose proof (lemma_s_onray_assert_bets_ABE {A} {B} {E} BetS_{A}_{B}_{E} neq_{A}_{B}) as {e.to_var()}.\n")
+            self.w.write(f"pose proof (by_def_OnRay_from_BetS_A_B_E {A} {B} {E} BetS_{A}_{B}_{E} neq_{A}_{B}) as {e.to_var()}.\n")
             self.process_indent()
-            self.w.write(f"pose proof (lemma_s_onray_assert_bets_AEB {A} {B} {E} BetS_{A}_{E}_{B} neq_{A}_{B}) as {e.to_var()}.\n")
+            self.w.write(f"pose proof (by_def_OnRay_from_BetS_A_E_B {A} {B} {E} BetS_{A}_{E}_{B} neq_{A}_{B}) as {e.to_var()}.\n")
             self.w.write("\n")
             # fmt: on
 

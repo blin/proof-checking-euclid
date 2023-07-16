@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -12,8 +14,6 @@ Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_C_B.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
@@ -45,7 +45,7 @@ Proof.
 	pose proof (lemma_betweennotequal _ _ _ BetS_P_L_C) as (_ & _ & neq_P_C).
 	pose proof (lemma_inequalitysymmetric _ _ neq_P_C) as neq_C_P.
 
-	pose proof (lemma_s_col_BetS_A_C_B _ _ _ BetS_P_L_C) as Col_P_C_L.
+	pose proof (by_def_Col_from_BetS_A_C_B _ _ _ BetS_P_L_C) as Col_P_C_L.
 	pose proof (lemma_collinearorder _ _ _ Col_P_C_L) as (Col_C_P_L & Col_C_L_P & Col_L_P_C & Col_P_L_C & Col_L_C_P).
 
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_L) as (Col_B_A_L & Col_B_L_A & Col_L_A_B & Col_A_L_B & Col_L_B_A).
@@ -130,7 +130,7 @@ Proof.
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_R_Q) as BetS_Q_R_C.
 		pose proof (lemma_betweennotequal _ _ _ BetS_Q_R_C) as (_ & neq_Q_R & _).
 
-		pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_Q_R_C) as Col_Q_R_C.
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_Q_R_C) as Col_Q_R_C.
 		pose proof (lemma_collinearorder _ _ _ Col_Q_R_C) as (Col_R_Q_C & Col_R_C_Q & Col_C_Q_R & Col_Q_C_R & Col_C_R_Q).
 
 		assert (~ Col A B Q) as n_Col_A_B_Q.
