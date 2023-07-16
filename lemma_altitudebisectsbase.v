@@ -1,6 +1,8 @@
 Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -15,8 +17,6 @@ Require Import ProofCheckingEuclid.lemma_extensionunique.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Coq.Logic.Classical_Prop.
 
@@ -47,7 +47,7 @@ Proof.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_M_P) as (_ & _ & neq_A_P & _ & _ & neq_P_A).
 	pose proof (lemma_NCorder _ _ _ nCol_A_M_P) as (_ & _ & _ & nCol_A_P_M & _).
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_P_A) as OnRay_PA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_P_A) as OnRay_PA_A.
 
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_AMP) as RightTriangle_PMA.
 	destruct RightTriangle_AMP as (C & BetS_A_M_C & Cong_AM_CM & Cong_AP_CP & neq_M_P).
@@ -56,7 +56,7 @@ Proof.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_M_C) as BetS_C_M_A.
 	pose proof (lemma_betweennotequal _ _ _ BetS_P_M_Q) as (_ & neq_P_M & _).
 	pose proof (by_def_OnRay _ _ _ _ BetS_A_M_C BetS_A_M_B) as OnRay_MC_B.
-	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_P_M_Q neq_P_M) as OnRay_PM_Q.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_P_M_Q neq_P_M) as OnRay_PM_Q.
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AM_CM) as Cong_CM_AM.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_PM_QM) as Cong_QM_PM.
@@ -71,7 +71,7 @@ Proof.
 
 	pose proof (lemma_right_triangle_NC _ _ _ RightTriangle_PMB) as nCol_P_M_B.
 	pose proof (lemma_NCdistinct _ _ _ nCol_P_M_B) as (_ & _ & neq_P_B & _ & _ & _).
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_P_B) as OnRay_PB_B.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_P_B) as OnRay_PB_B.
 
 	destruct RightTriangle_PMB as (E & BetS_P_M_E & Cong_PM_EM & Cong_PB_EB & _).
 

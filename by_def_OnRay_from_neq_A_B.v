@@ -7,7 +7,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_onray_assert_ABB :
+Lemma by_def_OnRay_from_neq_A_B :
 	forall A B,
 	neq A B ->
 	OnRay A B B.

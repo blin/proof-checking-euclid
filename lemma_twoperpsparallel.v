@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_SumTwoRT.
 Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -12,8 +14,6 @@ Require Import ProofCheckingEuclid.lemma_parallelflip.
 Require Import ProofCheckingEuclid.lemma_parallelsymmetric.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.proposition_28C.
 
 Section Euclid.
@@ -39,7 +39,7 @@ Proof.
 
 	pose proof (lemma_right_triangle_NC _ _ _ RightTriangle_BCD) as nCol_B_C_D.
 	pose proof (lemma_NCdistinct _ _ _ nCol_B_C_D) as (_ & neq_C_D & _ & _ & _ & _).
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_D) as OnRay_CD_D.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_D) as OnRay_CD_D.
 
 	pose proof (postulate_Euclid2 _ _ neq_B_C) as (E & BetS_B_C_E).
 
@@ -48,7 +48,7 @@ Proof.
 
 	pose proof (by_def_Supp _ _ _ _ _ OnRay_CD_D BetS_B_C_E) as Supp_BCD_DCE.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_B_C_E) as Col_B_C_E.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_C_E) as Col_B_C_E.
 	pose proof (lemma_collinearright _ _ _ _ RightTriangle_BCD Col_B_C_E neq_E_C) as RightTriangle_ECD.
 	pose proof (lemma_right_triangle_symmetric _ _ _ RightTriangle_ECD) as RightTriangle_DCE.
 

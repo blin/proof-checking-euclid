@@ -1,4 +1,5 @@
 Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -10,7 +11,6 @@ Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
@@ -66,7 +66,7 @@ Proof.
 	}
 	{
 		(* case BetS_B_A_C *)
-		pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_B_A_C neq_B_A) as OnRay_BA_C.
+		pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_B_A_C neq_B_A) as OnRay_BA_C.
 		pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_DBA OnRay_BA_C) as RightTriangle_DBC.
 
 		exact RightTriangle_DBC.
@@ -81,7 +81,7 @@ Proof.
 	{
 		(* case BetS_A_C_B *)
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_C_B) as BetS_B_C_A.
-		pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_B_C_A neq_B_C) as OnRay_BC_A.
+		pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_B_C_A neq_B_C) as OnRay_BC_A.
 		pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_BC_A) as OnRay_BA_C.
 		pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_DBA OnRay_BA_C) as RightTriangle_DBC.
 

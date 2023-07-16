@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -15,7 +16,6 @@ Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
@@ -141,7 +141,7 @@ Proof.
 		assert (~ Col Q F B) as n_Col_Q_F_B.
 		{
 			intro Col_Q_F_B.
-			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_F_V_Q) as Col_F_V_Q.
+			pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_F_V_Q) as Col_F_V_Q.
 			pose proof (lemma_collinearorder _ _ _ Col_F_V_Q) as (_ & _ & Col_Q_F_V & _ & _).
 			pose proof (lemma_betweennotequal _ _ _ BetS_F_V_Q) as (_ & _ & neq_F_Q).
 			pose proof (lemma_inequalitysymmetric _ _ neq_F_Q) as neq_Q_F.

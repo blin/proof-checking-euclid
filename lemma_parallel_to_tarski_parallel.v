@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.by_def_TarskiPar.
@@ -11,8 +13,6 @@ Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_tarskiparallelflip.
 
@@ -97,11 +97,11 @@ Proof.
 	{
 		intro Col_a_d_P.
 
-		pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_a_e_d) as Col_a_e_d.
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_a_e_d) as Col_a_e_d.
 		pose proof (lemma_collinearorder _ _ _ Col_a_e_d) as (_ & _ & _ & Col_a_d_e & _).
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_a_d_P Col_a_d_e neq_a_d) as Col_d_P_e.
 		pose proof (lemma_collinearorder _ _ _ Col_d_P_e) as (_ & _ & _ & _ & Col_e_P_d).
-		pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_e_b_P) as Col_e_b_P.
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_e_b_P) as Col_e_b_P.
 		pose proof (lemma_collinearorder _ _ _ Col_e_b_P) as (_ & _ & _ & Col_e_P_b & _).
 		pose proof (lemma_betweennotequal _ _ _ BetS_e_b_P) as (_ & _ & neq_e_P).
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_e_P_d Col_e_P_b neq_e_P) as Col_P_d_b.
@@ -112,9 +112,9 @@ Proof.
 		{
 			intro eq_d_P.
 
-			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_c_b_P) as Col_c_b_P.
+			pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_c_b_P) as Col_c_b_P.
 			assert (Col c b d) as Col_c_b_d by (rewrite eq_d_P; exact Col_c_b_P).
-			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_b_e_c) as Col_b_e_c.
+			pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_b_e_c) as Col_b_e_c.
 			pose proof (lemma_collinearorder _ _ _ Col_b_e_c) as (_ & _ & Col_c_b_e & _ & _).
 			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_c_b_d Col_c_b_e neq_c_b) as Col_b_d_e.
 			pose proof (lemma_collinearorder _ _ _ Col_a_d_e) as (_ & Col_d_e_a & _ & _ & _).
@@ -131,7 +131,7 @@ Proof.
 
 
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_d_P_b Col_d_P_a neq_d_P) as Col_P_b_a.
-		pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_P_b_c) as Col_P_b_c.
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_P_b_c) as Col_P_b_c.
 		pose proof (lemma_betweennotequal _ _ _ BetS_e_b_P) as (neq_b_P & _ & _).
 		pose proof (lemma_inequalitysymmetric _ _ neq_b_P) as neq_P_b.
 		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_P_b_a Col_P_b_c neq_P_b) as Col_b_a_c.
@@ -149,7 +149,7 @@ Proof.
 	pose proof (postulate_Pasch_outer _ _ _ _ _ BetS_P_b_e BetS_a_e_d nCol_a_d_P) as (M & BetS_P_M_d & BetS_a_b_M).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_a_b_M) as BetS_M_b_a.
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_a_b_M) as Col_a_b_M.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_a_b_M) as Col_a_b_M.
 	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_a Col_A_B_b neq_A_B) as Col_B_a_b.
 	pose proof (lemma_collinearorder _ _ _ Col_B_a_b) as (_ & _ & _ & _ & Col_b_a_B).
 	pose proof (lemma_collinearorder _ _ _ Col_a_b_M) as (Col_b_a_M & _ & _ & _ & _).
@@ -223,7 +223,7 @@ Proof.
 	pose proof (by_def_TarskiPar _ _ _ _ neq_A_B neq_c_d n_Meet_A_B_c_d SameSide_c_d_AB) as TarskiPar_AB_cd.
 
 	assert (eq C C) as eq_C_C by (reflexivity).
-	pose proof (lemma_s_col_eq_A_C C D C eq_C_C) as Col_C_D_C.
+	pose proof (by_def_Col_from_eq_A_C C D C eq_C_C) as Col_C_D_C.
 	pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_C_D Col_C_D_c Col_C_D_d Col_C_D_C) as Col_c_d_C.
 
 	assert (~ ~ TarskiPar A B C D) as n_n_TarskiPar_AB_CD.

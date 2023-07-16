@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -10,7 +11,6 @@ Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
 Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
 Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.lemma_s_onray_congruence_betweenness.
 
 Section Euclid.
@@ -92,7 +92,7 @@ Proof.
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_ab) as Cong_ab_AB.
 	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_ab_AB Cong_AB_au) as Cong_ab_au.
 	pose proof (lemma_onray_neq_A_B _ _ _ OnRay_ab_u) as neq_a_b.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_a_b) as OnRay_ab_b.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_a_b) as OnRay_ab_b.
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_ab_b OnRay_ab_u Cong_ab_au) as eq_b_u.
 
 	assert (Cong B V u v) as Cong_BV_uv by (rewrite eq_B_U; exact Cong_UV_uv).

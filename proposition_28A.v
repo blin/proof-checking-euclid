@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -9,8 +11,6 @@ Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_oppositesidesymmetric.
 Require Import ProofCheckingEuclid.lemma_planeseparation.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.proposition_15a.
@@ -37,13 +37,13 @@ Proof.
 	intros SameSide_B_D_GH.
 
 	assert (eq G G) as eq_G_G by (reflexivity).
-	pose proof (lemma_s_col_eq_A_C G H G eq_G_G) as Col_G_H_G.
+	pose proof (by_def_Col_from_eq_A_C G H G eq_G_G) as Col_G_H_G.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_G_B) as BetS_B_G_A.
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_G_B) as (_ & neq_A_G & _).
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_A_G_B) as Col_A_G_B.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_G_B) as Col_A_G_B.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_E_G_H) as Col_E_G_H.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_E_G_H) as Col_E_G_H.
 	pose proof (lemma_collinearorder _ _ _ Col_E_G_H) as (_ & _ & _ & _ & Col_H_G_E).
 
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_EGB_GHD) as CongA_GHD_EGB.

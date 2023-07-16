@@ -1,5 +1,7 @@
 Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_LtA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -12,8 +14,6 @@ Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.lemma_trichotomy_equal.
 Require Import ProofCheckingEuclid.proposition_04.
 
@@ -48,12 +48,12 @@ Proof.
 	pose proof (lemma_s_ncol_triangle _ _ _ Triangle_DEF) as nCol_D_E_F.
 	pose proof (lemma_NCdistinct _ _ _ nCol_D_E_F) as (neq_D_E & neq_E_F & neq_D_F & neq_E_D & neq_F_E & neq_F_D).
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_F_D) as OnRay_FD_D.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_F_E) as OnRay_FE_E.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_E_F) as OnRay_EF_F.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_A) as OnRay_CA_A.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_B) as OnRay_CB_B.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_C) as OnRay_BC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_F_D) as OnRay_FD_D.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_F_E) as OnRay_FE_E.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_E_F) as OnRay_EF_F.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_A) as OnRay_CA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_B) as OnRay_CB_B.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_C) as OnRay_BC_C.
 
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_ABC_DEF) as CongA_DEF_ABC.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_BCA_EFD) as CongA_EFD_BCA.
@@ -69,8 +69,8 @@ Proof.
 		destruct Lt_DE_BA as (G & BetS_B_G_A & Cong_BG_DE).
 
 		pose proof (lemma_betweennotequal _ _ _ BetS_B_G_A) as (_ & neq_B_G & _).
-		pose proof (lemma_s_onray_assert_ABB _ _ neq_B_G) as OnRay_BG_G.
-		pose proof (lemma_s_onray_assert_bets_AEB _ _ _ BetS_B_G_A neq_B_A) as OnRay_BA_G.
+		pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_G) as OnRay_BG_G.
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_B_G_A neq_B_A) as OnRay_BA_G.
 
 		pose proof (lemma_congruenceflip _ _ _ _ Cong_BG_DE) as (_ & _ & Cong_BG_ED).
 		pose proof (cn_congruencereflexive B G) as Cong_BG_BG.
@@ -98,9 +98,9 @@ Proof.
 
 		destruct Lt_AB_ED as (G & BetS_E_G_D & Cong_EG_AB).
 
-		pose proof (lemma_s_onray_assert_bets_AEB _ _ _ BetS_E_G_D neq_E_D) as OnRay_ED_G.
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_E_G_D neq_E_D) as OnRay_ED_G.
 		pose proof (lemma_onray_strict _ _ _ OnRay_ED_G) as neq_E_G.
-		pose proof (lemma_s_onray_assert_ABB _ _ neq_E_G) as OnRay_EG_G.
+		pose proof (by_def_OnRay_from_neq_A_B _ _ neq_E_G) as OnRay_EG_G.
 
 		pose proof (lemma_congruenceflip _ _ _ _ Cong_EG_AB) as (_ & _ & Cong_EG_BA).
 		pose proof (cn_congruencereflexive E G) as Cong_EG_EG.

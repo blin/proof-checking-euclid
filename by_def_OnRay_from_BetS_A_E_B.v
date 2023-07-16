@@ -7,18 +7,18 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_onray_assert_bets_ABE :
+Lemma by_def_OnRay_from_BetS_A_E_B :
 	forall A B E,
-	BetS A B E ->
+	BetS A E B ->
 	neq A B ->
 	OnRay A B E.
 Proof.
 	intros A B E.
-	intros BetS_A_B_E.
+	intros BetS_A_E_B.
 	intros neq_A_B.
 
 	assert (BetS A E B \/ eq E B \/ BetS A B E) as BetS_A_E_B_or_eq_E_B_or_BetS_A_B_E.
-	one_of_disjunct BetS_A_B_E.
+	one_of_disjunct BetS_A_E_B.
 
 	pose proof (lemma_onray_assert _ _ _ BetS_A_E_B_or_eq_E_B_or_BetS_A_B_E neq_A_B) as OnRay_AB_E.
 	exact OnRay_AB_E.

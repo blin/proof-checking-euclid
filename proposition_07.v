@@ -1,4 +1,6 @@
 Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -25,8 +27,6 @@ Require Import ProofCheckingEuclid.lemma_planeseparation.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 Require Import ProofCheckingEuclid.proposition_12.
 Require Coq.Logic.Classical_Prop.
@@ -87,8 +87,8 @@ Proof.
 
 	pose proof (lemma_extension _ _ _ _ neq_A_B neq_B_A) as (K & BetS_A_B_K & Cong_BK_BA).
 	pose proof (lemma_extension _ _ _ _ neq_B_A neq_A_B) as (J & BetS_B_A_J & Cong_AJ_AB).
-	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_A_B_K neq_A_B) as OnRay_AB_K.
-	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_B_A_J neq_B_A) as OnRay_BA_J.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_A_B_K neq_A_B) as OnRay_AB_K.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_B_A_J neq_B_A) as OnRay_BA_J.
 	assert (Col A B J) as Col_A_B_J by (unfold Col; one_of_disjunct BetS_B_A_J).
 	assert (Col B A K) as Col_B_A_K by (unfold Col; one_of_disjunct BetS_A_B_K).
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_J) as (Col_B_A_J & _ & _ & _ & _).
@@ -336,7 +336,7 @@ Proof.
 	assert (BetS E F D) as BetS_E_F_D by (rewrite eq_F_G; exact BetS_E_G_D).
 	pose proof (by_def_OnRay _ _ _ _ BetS_E_F_D BetS_E_F_C) as OnRay_FD_C.
 	pose proof (lemma_betweennotequal _ _ _ BetS_E_F_D) as (neq_F_D & _ & _).
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_F_D) as OnRay_FD_D.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_F_D) as OnRay_FD_D.
 
 	pose proof (
 		lemma_fiveline
