@@ -1,4 +1,6 @@
 Require Import ProofCheckingEuclid.by_def_LtA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -17,8 +19,6 @@ Require Import ProofCheckingEuclid.lemma_equalanglestransitive.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.proposition_03.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Coq.Logic.Classical_Prop.
@@ -50,9 +50,9 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_C) as neq_C_A.
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_C) as OnRay_BC_C.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_A) as OnRay_CA_A.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_B) as OnRay_CB_B.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_C) as OnRay_BC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_A) as OnRay_CA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_B) as OnRay_CB_B.
 
 	pose proof (cn_congruencereflexive B C) as Cong_BC_BC.
 	pose proof (cn_congruencereverse B A) as Cong_BA_AB.
@@ -69,7 +69,7 @@ Proof.
 		assert (Col B D A) as Col_B_D_A by (unfold Col; one_of_disjunct BetS_B_D_A).
 		pose proof (lemma_collinearorder _ _ _ Col_B_D_A) as (_ & _ & _ & Col_B_A_D & _).
 
-		pose proof (lemma_s_onray_assert_bets_AEB _ _ _ BetS_B_D_A neq_B_A) as OnRay_BA_D.
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_B_D_A neq_B_A) as OnRay_BA_D.
 		pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_ABC_ABC OnRay_BA_D OnRay_BC_C) as CongA_ABC_DBC.
 		pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_ABC_DBC) as CongA_DBC_ABC.
 		pose proof (lemma_equalanglestransitive _ _ _ _ _ _ _ _ _ CongA_DBC_ABC CongA_ABC_ACB) as CongA_DBC_ACB.

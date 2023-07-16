@@ -1,10 +1,10 @@
 Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
@@ -33,18 +33,18 @@ Proof.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
 	pose proof (lemma_NCdistinct _ _ _ nCol_D_E_F) as (neq_D_E & neq_E_F & neq_D_F & neq_E_D & neq_F_E & neq_F_D).
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_D_E) as OnRay_DE_E.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_D_F) as OnRay_DF_F.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_B) as OnRay_AB_B.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_C) as OnRay_AC_C.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_E_F) as OnRay_EF_F.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_E_D) as OnRay_ED_D.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_C) as OnRay_BC_C.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_A) as OnRay_BA_A.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_F_D) as OnRay_FD_D.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_F_E) as OnRay_FE_E.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_A) as OnRay_CA_A.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_B) as OnRay_CB_B.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_D_E) as OnRay_DE_E.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_D_F) as OnRay_DF_F.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_B) as OnRay_AB_B.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_C) as OnRay_AC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_E_F) as OnRay_EF_F.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_E_D) as OnRay_ED_D.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_C) as OnRay_BC_C.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_F_D) as OnRay_FD_D.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_F_E) as OnRay_FE_E.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_A) as OnRay_CA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_B) as OnRay_CB_B.
 
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (nCol_B_A_C & _ & _ & nCol_A_C_B & nCol_C_B_A).
 

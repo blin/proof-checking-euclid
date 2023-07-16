@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_SumTwoRT.
 Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -8,7 +9,6 @@ Require Import ProofCheckingEuclid.lemma_NChelper.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_equalanglesreflexive.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 
 Section Euclid.
 
@@ -31,7 +31,7 @@ Proof.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_C) as (_ & _ & _ & neq_B_A & _ & _).
 	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & _ & _ & _ & nCol_C_B_A).
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_B_A) as OnRay_BA_A.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
 
 	assert (eq B B) as eq_B_B by (reflexivity).
 	assert (Col C B B) as Col_C_B_B by (unfold Col; one_of_disjunct eq_B_B).

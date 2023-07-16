@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -5,8 +7,6 @@ Require Import ProofCheckingEuclid.lemma_NCdistinct.
 Require Import ProofCheckingEuclid.lemma_NCorder.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.proposition_23B.
 
@@ -27,7 +27,7 @@ Proof.
 	intros nCol_A_B_P.
 
 	assert (eq A A) as eq_A_A by (reflexivity).
-	pose proof (lemma_s_col_eq_A_C A B A eq_A_A) as Col_A_B_A.
+	pose proof (by_def_Col_from_eq_A_C A B A eq_A_A) as Col_A_B_A.
 
 	pose proof (lemma_NCdistinct _ _ _ nCol_D_C_E) as (neq_D_C & neq_C_E & neq_D_E & neq_C_D & neq_E_C & neq_E_D).
 	pose proof (lemma_NCorder _ _ _ nCol_D_C_E) as (nCol_C_D_E & nCol_C_E_D & nCol_E_D_C & nCol_D_E_C & nCol_E_C_D).
@@ -40,7 +40,7 @@ Proof.
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_P_A_Q) as (neq_A_Q & _ & neq_P_Q).
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_P_A_Q) as Col_P_A_Q.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_P_A_Q) as Col_P_A_Q.
 	pose proof (lemma_collinearorder _ _ _ Col_P_A_Q) as (Col_A_P_Q & Col_A_Q_P & Col_Q_P_A & Col_P_Q_A & Col_Q_A_P).
 
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_P_B Col_A_P_Q neq_A_Q) as nCol_A_Q_B.

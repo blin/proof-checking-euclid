@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.by_def_Par.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -8,9 +11,6 @@ Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_parallelNC.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
 Require Import ProofCheckingEuclid.proposition_29.
 
 Section Euclid.
@@ -30,8 +30,8 @@ Proof.
 	assert (eq G G) as eq_G_G by (reflexivity).
 	assert (eq H H) as eq_H_H by (reflexivity).
 
-	pose proof (lemma_s_col_eq_A_C H D H eq_H_H) as Col_H_D_H.
-	pose proof (lemma_s_col_eq_B_C A G G eq_G_G) as Col_A_G_G.
+	pose proof (by_def_Col_from_eq_A_C H D H eq_H_H) as Col_H_D_H.
+	pose proof (by_def_Col_from_eq_B_C A G G eq_G_G) as Col_A_G_G.
 
 	pose proof (lemma_parallelNC _ _ _ _ Par_AG_HD) as (nCol_A_G_H & _).
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_G_H) as (neq_A_G & neq_G_H & neq_A_H & neq_G_A & neq_H_G & neq_H_A).
@@ -50,7 +50,7 @@ Proof.
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_G_B) as (_ & _ & neq_A_B).
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_A_G_B) as Col_A_G_B.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_G_B) as Col_A_G_B.
 	pose proof (lemma_collinearorder _ _ _ Col_A_G_B) as (Col_G_A_B & _ & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_A_G_B) as (_ & _ & Col_B_A_G & _ & _).
 
@@ -58,7 +58,7 @@ Proof.
 	pose proof (lemma_betweennotequal _ _ _ BetS_D_H_C) as (_ & _ & neq_D_C).
 	pose proof (lemma_inequalitysymmetric _ _ neq_D_C) as neq_C_D.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_D_H_C) as Col_D_H_C.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_H_C) as Col_D_H_C.
 	pose proof (lemma_collinearorder _ _ _ Col_D_H_C) as (Col_H_D_C & _ & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_D_H_C) as (_ & _ & Col_C_D_H & _ & _).
 

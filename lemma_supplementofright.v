@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_betweennotequal.
@@ -5,7 +6,6 @@ Require Import ProofCheckingEuclid.lemma_collinearright.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_right_triangle_leg_change.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 
 Section Euclid.
 
@@ -27,7 +27,7 @@ Proof.
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_F) as (neq_B_F & _ & _).
 	pose proof (lemma_inequalitysymmetric _ _ neq_B_F) as neq_F_B.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_A_B_F) as Col_A_B_F.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_B_F) as Col_A_B_F.
 
 	pose proof (lemma_collinearright _ _ _ _ RightTriangle_ABC Col_A_B_F neq_F_B) as RightTriangle_FBC.
 	pose proof (lemma_right_triangle_leg_change _ _ _ _ RightTriangle_FBC OnRay_BC_D) as RightTriangle_FBD.

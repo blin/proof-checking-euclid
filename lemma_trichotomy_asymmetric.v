@@ -1,5 +1,14 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_B_A_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_B.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.by_def_LtA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.by_def_isosceles.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -11,18 +20,9 @@ Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_C_B.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_B_A_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_B.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 
 Section Euclid.
 

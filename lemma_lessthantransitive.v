@@ -1,4 +1,7 @@
 Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
@@ -13,9 +16,6 @@ Require Import ProofCheckingEuclid.lemma_onray_assert.
 Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_ABE.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
@@ -40,9 +40,9 @@ Proof.
 
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_EH_CD) as Cong_CD_EH.
 
-	pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_C_G_D neq_C_G) as OnRay_CG_D.
-	pose proof (lemma_s_onray_assert_bets_AEB _ _ _ BetS_C_G_D neq_C_D) as OnRay_CD_G.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_G) as OnRay_CG_G.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_C_G_D neq_C_G) as OnRay_CG_D.
+	pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_C_G_D neq_C_D) as OnRay_CD_G.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_G) as OnRay_CG_G.
 
 	pose proof (lemma_layoff _ _ _ _ neq_E_H neq_C_G) as (K & OnRay_EH_K & Cong_EK_CG).
 	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_EK_CG) as Cong_CG_EK.
@@ -69,7 +69,7 @@ Proof.
 		(* case BetS_E_H_K *)
 		pose proof (lemma_betweennotequal _ _ _ BetS_E_H_K) as (neq_H_K & _ & _).
 		pose proof (lemma_extension _ _ _ _ neq_C_D neq_H_K) as (J & BetS_C_D_J & Cong_DJ_HK).
-		pose proof (lemma_s_onray_assert_bets_ABE _ _ _ BetS_C_D_J neq_C_D) as OnRay_CD_J.
+		pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_C_D_J neq_C_D) as OnRay_CD_J.
 		pose proof (cn_sumofparts _ _ _ _ _ _ Cong_CD_EH Cong_DJ_HK BetS_C_D_J BetS_E_H_K) as Cong_CJ_EK.
 		pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_CJ_EK Cong_EK_CG) as Cong_CJ_CG.
 		pose proof (lemma_layoffunique _ _ _ _ OnRay_CD_J OnRay_CD_G Cong_CJ_CG) as eq_J_G.

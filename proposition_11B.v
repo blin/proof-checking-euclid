@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
@@ -23,9 +26,6 @@ Require Import ProofCheckingEuclid.lemma_pointreflectionisometry.
 Require Import ProofCheckingEuclid.lemma_right_triangle_NC.
 Require Import ProofCheckingEuclid.lemma_right_triangle_symmetric.
 Require Import ProofCheckingEuclid.lemma_rightreverse.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_C_B.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
@@ -47,7 +47,7 @@ Proof.
 	intros nCol_A_B_P.
 
 	assert (eq A A) as eq_A_A by (reflexivity).
-	pose proof (lemma_s_col_eq_A_C A B A eq_A_A) as Col_A_B_A.
+	pose proof (by_def_Col_from_eq_A_C A B A eq_A_A) as Col_A_B_A.
 
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_C_B) as (_ & _ & neq_A_B).
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_C_B) as (_ & neq_A_C & _).
@@ -55,7 +55,7 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_C) as neq_C_A.
 
-	pose proof (lemma_s_col_BetS_A_C_B _ _ _ BetS_A_C_B) as Col_A_B_C.
+	pose proof (by_def_Col_from_BetS_A_C_B _ _ _ BetS_A_C_B) as Col_A_B_C.
 	pose proof (lemma_collinearorder _ _ _ Col_A_B_C) as (Col_B_A_C & Col_B_C_A & Col_C_A_B & Col_A_C_B & Col_C_B_A).
 
 	pose proof (lemma_notperp _ _ _ _ BetS_A_C_B nCol_A_B_P) as (M & nCol_A_B_M & SameSide_M_P_AB & n_RightTriangle_ACM).
@@ -106,7 +106,7 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_Q_G) as neq_G_Q.
 	pose proof (lemma_inequalitysymmetric _ _ neq_G_C) as neq_C_G.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_Q_G_C) as Col_Q_G_C.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_Q_G_C) as Col_Q_G_C.
 	pose proof (lemma_collinearorder _ _ _ Col_Q_G_C) as (Col_G_Q_C & Col_G_C_Q & Col_C_Q_G & Col_Q_C_G & Col_C_G_Q).
 
 	pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_A_B Col_A_B_Q Col_A_B_C Col_A_B_A) as Col_Q_C_A.

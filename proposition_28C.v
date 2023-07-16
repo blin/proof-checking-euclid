@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
@@ -5,7 +6,6 @@ Require Import ProofCheckingEuclid.lemma_collinearorder.
 Require Import ProofCheckingEuclid.lemma_collinearparallel.
 Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_parallelsymmetric.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
 Require Import ProofCheckingEuclid.proposition_28B.
 
 Section Euclid.
@@ -34,13 +34,13 @@ Proof.
 	pose proof (postulate_Euclid2 _ _ neq_B_G) as (A & BetS_B_G_A).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_G_A) as BetS_A_G_B.
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_B_G_A) as Col_B_G_A.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_G_A) as Col_B_G_A.
 	pose proof (lemma_collinearorder _ _ _ Col_B_G_A) as (_ & _ & Col_A_B_G & _ & _).
 
 	pose proof (postulate_Euclid2 _ _ neq_D_H) as (C & BetS_D_H_C).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_H_C) as BetS_C_H_D.
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_D_H_C) as Col_D_H_C.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_H_C) as Col_D_H_C.
 	pose proof (lemma_collinearorder _ _ _ Col_D_H_C) as (_ & _ & Col_C_D_H & _ & _).
 
 	pose proof (proposition_28B _ _ _ _ _ _ BetS_A_G_B BetS_C_H_D SumTwoRT_BGH_GHD SameSide_B_D_GH) as Par_AB_CD.

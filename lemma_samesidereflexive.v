@@ -1,8 +1,8 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCdistinct.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
 
 Section Euclid.
 
@@ -17,7 +17,7 @@ Proof.
 	intros nCol_A_B_P.
 
 	assert (eq A A) as eq_A_A by (reflexivity).
-	pose proof (lemma_s_col_eq_A_C A B A eq_A_A) as Col_A_B_A.
+	pose proof (by_def_Col_from_eq_A_C A B A eq_A_A) as Col_A_B_A.
 
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_P) as (_ & _ & neq_A_P & _ & _ & neq_P_A).
 

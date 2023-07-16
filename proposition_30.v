@@ -1,3 +1,6 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Cross.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_SameSide.
@@ -19,9 +22,6 @@ Require Import ProofCheckingEuclid.lemma_parallelNC.
 Require Import ProofCheckingEuclid.lemma_parallelflip.
 Require Import ProofCheckingEuclid.lemma_parallelsymmetric.
 Require Import ProofCheckingEuclid.lemma_planeseparation.
-Require Import ProofCheckingEuclid.lemma_s_col_BetS_A_B_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
 Require Import ProofCheckingEuclid.proposition_30A.
 
 Section Euclid.
@@ -67,10 +67,10 @@ Proof.
 	assert (eq H H) as eq_H_H by (reflexivity).
 	assert (eq K K) as eq_K_K by (reflexivity).
 
-	pose proof (lemma_s_col_eq_A_C K H K eq_K_K) as Col_K_H_K.
-	pose proof (lemma_s_col_eq_B_C C K K eq_K_K) as Col_C_K_K.
-	pose proof (lemma_s_col_eq_B_C E H H eq_H_H) as Col_E_H_H.
-	pose proof (lemma_s_col_eq_B_C K H H eq_H_H) as Col_K_H_H.
+	pose proof (by_def_Col_from_eq_A_C K H K eq_K_K) as Col_K_H_K.
+	pose proof (by_def_Col_from_eq_B_C C K K eq_K_K) as Col_C_K_K.
+	pose proof (by_def_Col_from_eq_B_C E H H eq_H_H) as Col_E_H_H.
+	pose proof (by_def_Col_from_eq_B_C K H H eq_H_H) as Col_K_H_H.
 
 	pose proof (lemma_parallelsymmetric _ _ _ _ Par_AB_EF) as Par_EF_AB.
 	pose proof (lemma_parallelflip _ _ _ _ Par_EF_AB) as (_ & Par_EF_BA & _).
@@ -116,7 +116,7 @@ Proof.
 	pose proof (lemma_betweennotequal _ _ _ BetS_A_G_b) as (_ & _ & neq_A_b).
 	pose proof (lemma_inequalitysymmetric _ _ neq_A_b) as neq_b_A.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_A_G_b) as Col_A_G_b.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_G_b) as Col_A_G_b.
 	pose proof (lemma_collinearorder _ _ _ Col_A_G_b) as (Col_G_A_b & _ & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_G_A_b) as (_ & Col_A_b_G & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_A_b_G) as (Col_b_A_G & _ & _ & _ & _).
@@ -131,7 +131,7 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_H_f) as neq_f_H.
 	pose proof (lemma_inequalitysymmetric _ _ neq_E_f) as neq_f_E.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_E_H_f) as Col_E_H_f.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_E_H_f) as Col_E_H_f.
 	pose proof (lemma_collinearorder _ _ _ Col_E_H_f) as (Col_H_E_f & _ & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_H_E_f) as (_ & Col_E_f_H & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_E_f_H) as (Col_f_E_H & _ & _ & _ & _).
@@ -146,7 +146,7 @@ Proof.
 	pose proof (lemma_inequalitysymmetric _ _ neq_C_d) as neq_d_C.
 	pose proof (lemma_inequalitysymmetric _ _ neq_K_d) as neq_d_K.
 
-	pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_C_K_d) as Col_C_K_d.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_K_d) as Col_C_K_d.
 	pose proof (lemma_collinearorder _ _ _ Col_C_K_d) as (Col_K_C_d & _ & _ & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_C_K_d) as (_ & _ & Col_d_C_K & _ & _).
 	pose proof (lemma_collinearorder _ _ _ Col_C_D_K) as (_ & _ & Col_K_C_D & _ & _).
@@ -258,7 +258,7 @@ Proof.
 
 			destruct Cross_CE_KH as (M & BetS_C_M_E & BetS_K_M_H).
 
-			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_K_M_H) as Col_K_M_H.
+			pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_K_M_H) as Col_K_M_H.
 			pose proof (lemma_collinearorder _ _ _ Col_K_M_H) as (_ & _ & _ & Col_K_H_M & _).
 
 			pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_f_H_E BetS_C_M_E nCol_K_H_f nCol_K_H_C) as SameSide_f_C_KH.
@@ -296,7 +296,7 @@ Proof.
 
 			destruct Cross_Cf_KH as (M & BetS_C_M_f & BetS_K_M_H).
 
-			pose proof (lemma_s_col_BetS_A_B_C _ _ _ BetS_K_M_H) as Col_K_M_H.
+			pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_K_M_H) as Col_K_M_H.
 			pose proof (lemma_collinearorder _ _ _ Col_K_M_H) as (_ & _ & _ & Col_K_H_M & _).
 
 			pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_K_H_H Col_K_H_M BetS_E_H_f BetS_C_M_f nCol_K_H_E nCol_K_H_C) as SameSide_E_C_KH.

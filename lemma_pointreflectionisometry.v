@@ -1,5 +1,6 @@
 Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
@@ -20,7 +21,6 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.proposition_03.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_15a.
@@ -121,7 +121,7 @@ Proof.
 
 		pose proof (proposition_03 _ _ _ _ _ _ Lt_BC_BQ Cong_BQ_BQ) as (H & BetS_B_H_Q & Cong_BH_BC).
 
-		pose proof (lemma_s_onray_assert_bets_AEB _ _ _ BetS_B_H_Q neq_B_Q) as OnRay_BQ_H.
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_B_H_Q neq_B_Q) as OnRay_BQ_H.
 
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BH_BC) as Cong_BC_BH.
 
@@ -183,7 +183,7 @@ Proof.
 
 		pose proof (proposition_03 _ _ _ _ _ _ Lt_BQ_BC Cong_BC_BC) as (H & BetS_B_H_C & Cong_BH_BQ).
 
-		pose proof (lemma_s_onray_assert_bets_AEB _ _ _ BetS_B_H_C neq_B_C) as OnRay_BC_H.
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_B_H_C neq_B_C) as OnRay_BC_H.
 
 		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BH_BQ) as Cong_BQ_BH.
 

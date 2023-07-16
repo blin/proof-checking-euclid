@@ -1,4 +1,5 @@
 Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -8,7 +9,6 @@ Require Import ProofCheckingEuclid.lemma_TogetherGreater_flip.
 Require Import ProofCheckingEuclid.lemma_TogetherGreater_symmetric.
 Require Import ProofCheckingEuclid.lemma_congruenceflip.
 Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 Require Import ProofCheckingEuclid.proposition_20.
 Require Import ProofCheckingEuclid.proposition_22.
 
@@ -52,10 +52,10 @@ Proof.
 	pose proof (lemma_NCdistinct _ _ _ nCol_A_G_F) as (neq_A_G & _ & neq_A_F & _ & _ & _).
 	pose proof (lemma_NCorder _ _ _ nCol_A_G_F) as (_ & _ & nCol_F_A_G & _ & _).
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_F) as OnRay_AF_F.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_A_G) as OnRay_AG_G.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_D) as OnRay_CD_D.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_C_E) as OnRay_CE_E.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_F) as OnRay_AF_F.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_G) as OnRay_AG_G.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_D) as OnRay_CD_D.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_E) as OnRay_CE_E.
 
 	pose proof (by_def_CongA _ _ _ _ _ _ _ _ _ _ OnRay_AF_F OnRay_AG_G OnRay_CD_D OnRay_CE_E Cong_AF_CD Cong_AG_CE Cong_FG_DE nCol_F_A_G) as CongA_FAG_DCE.
 

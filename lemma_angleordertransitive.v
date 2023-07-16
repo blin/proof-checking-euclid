@@ -1,4 +1,5 @@
 Require Import ProofCheckingEuclid.by_def_LtA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_NCorder.
@@ -19,7 +20,6 @@ Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
 Require Import ProofCheckingEuclid.lemma_onray_strict.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_ABB.
 
 Section Euclid.
 
@@ -39,13 +39,13 @@ Proof.
 
 	pose proof (lemma_onray_neq_A_B _ _ _ OnRay_QP_U) as neq_Q_P.
 	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_QP_U) as OnRay_QU_P.
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_Q_P) as OnRay_QP_P.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_Q_P) as OnRay_QP_P.
 
 	pose proof (lemma_onray_impliescollinear _ _ _ OnRay_QP_U) as Col_Q_P_U.
 	pose proof (lemma_collinearorder _ _ _ Col_Q_P_U) as (_ & _ & Col_U_Q_P & _ & _).
 
 	pose proof (lemma_angledistinct _ _ _ _ _ _ CongA_DEF_PQW) as (_ & _ & _ & _ & neq_Q_W & _).
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_Q_W) as OnRay_QW_W.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_Q_W) as OnRay_QW_W.
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_DEF_PQW OnRay_QP_U OnRay_QW_W) as CongA_DEF_UQW.
 	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_DEF_UQW) as CongA_UQW_DEF.
 	pose proof (lemma_angleorderrespectscongruence _ _ _ _ _ _ _ _ _ LtA_ABC_DEF CongA_UQW_DEF) as LtA_ABC_UQW.
@@ -69,7 +69,7 @@ Proof.
 	pose proof (lemma_NCorder _ _ _ nCol_Q_S_T) as (nCol_S_Q_T & _ & _ & _ & _).
 	assert (Triangle S Q T) as Triangle_SQT by (unfold Triangle; exact nCol_S_Q_T ).
 
-	pose proof (lemma_s_onray_assert_ABB _ _ neq_Q_H) as OnRay_QH_H.
+	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_Q_H) as OnRay_QH_H.
 	pose proof (lemma_equalangleshelper _ _ _ _ _ _ _ _ CongA_ABC_UQH OnRay_QU_P OnRay_QH_H) as CongA_ABC_PQH.
 
 	pose proof (lemma_crossbar _ _ _ _ _ _ Triangle_SQT BetS_S_H_T OnRay_QS_U OnRay_QT_W) as (K & OnRay_QH_K & BetS_U_K_W).

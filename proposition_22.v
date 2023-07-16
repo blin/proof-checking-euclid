@@ -1,5 +1,6 @@
 Require Import ProofCheckingEuclid.by_def_OnCirc.
 Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_def_OutCirc.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -22,7 +23,6 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_onray_assert_bets_AEB.
 Require Import ProofCheckingEuclid.lemma_subtractequals.
 Require Import ProofCheckingEuclid.lemma_together.
 Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
@@ -105,7 +105,7 @@ Proof.
 	pose proof (lemma_betweennotequal _ _ _ BetS_F_M_J) as (_ & _ & neq_F_J).
 	pose proof (lemma_orderofpoints_ABC_BCD_ACD _ _ _ _ BetS_D_F_M BetS_F_M_J) as BetS_D_M_J.
 
-	pose proof (lemma_s_onray_assert_bets_AEB _ _ _ BetS_F_Q_J neq_F_J) as OnRay_FJ_Q.
+	pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_F_Q_J neq_F_J) as OnRay_FJ_Q.
 	pose proof (by_def_OnRay _ _ _ _ BetS_D_F_G BetS_D_F_J) as OnRay_FG_J.
 	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_FG_J) as OnRay_FJ_G.
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_FJ_Q OnRay_FJ_G Cong_FQ_FG) as eq_Q_G.

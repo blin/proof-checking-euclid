@@ -1,9 +1,9 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_collinearorder.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_A_C.
-Require Import ProofCheckingEuclid.lemma_s_col_eq_B_C.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 
 Section Euclid.
@@ -23,10 +23,10 @@ Proof.
 	assert (eq C C) as eq_C_C by (reflexivity).
 	assert (eq D D) as eq_D_D by (reflexivity).
 
-	pose proof (lemma_s_col_eq_A_C A B A eq_A_A) as Col_A_B_A.
-	pose proof (lemma_s_col_eq_A_C C D C eq_C_C) as Col_C_D_C.
-	pose proof (lemma_s_col_eq_B_C A B B eq_B_B) as Col_A_B_B.
-	pose proof (lemma_s_col_eq_B_C C D D eq_D_D) as Col_C_D_D.
+	pose proof (by_def_Col_from_eq_A_C A B A eq_A_A) as Col_A_B_A.
+	pose proof (by_def_Col_from_eq_A_C C D C eq_C_C) as Col_C_D_C.
+	pose proof (by_def_Col_from_eq_B_C A B B eq_B_B) as Col_A_B_B.
+	pose proof (by_def_Col_from_eq_B_C C D D eq_D_D) as Col_C_D_D.
 
 	destruct Par_AB_CD as (a & b & c & d & M & neq_A_B & neq_C_D & Col_A_B_a & Col_A_B_b & neq_a_b & Col_C_D_c & Col_C_D_d & neq_c_d & n_Meet_A_B_C_D & BetS_a_M_d & BetS_c_M_b).
 
