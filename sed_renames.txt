@@ -9,6 +9,7 @@ s/SumA /AngleSum /g
 s/TG /TogetherGreater /g
 s/TP /TarskiPar /g
 s/CR /Cross /g
+s/SQ /Square /g
 s/lemma_TG/lemma_TogetherGreater_/g
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
