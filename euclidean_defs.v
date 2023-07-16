@@ -72,6 +72,14 @@ Definition Par A B C D := exists U V u v X,
 	BetS U X v /\
 	BetS u X V.
 Definition AngleSum A B C D E F P Q R := exists X, CongA A B C P Q X /\ CongA D E F X Q R /\ BetS P X R.
+Definition Square A B C D :=
+	Cong A B C D /\
+	Cong A B B C /\
+	Cong A B D A /\
+	RightTriangle D A B /\
+	RightTriangle A B C /\
+	RightTriangle B C D /\
+	RightTriangle C D A.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
 End Definitions.
