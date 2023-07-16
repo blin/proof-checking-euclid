@@ -244,6 +244,18 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_29B](./proposition_29B.v)
 001. [proposition_33](./proposition_33.v)
 
+The following were done ahead of their time to prove something unrelated:
+
+001. [lemma_equaltorightisright](./lemma_equaltorightisright.v)
+001. [lemma_oppositesideflip](./lemma_oppositesideflip.v)
+001. [lemma_supplementofright](./lemma_supplementofright.v)
+001. [proposition_28B](./proposition_28B.v)
+001. [proposition_28C](./proposition_28C.v)
+001. [lemma_twoperpsparallel](./lemma_twoperpsparallel.v)
+001. [lemma_samenotopposite](./lemma_samenotopposite.v)
+001. [proposition_33B](./proposition_33B.v)
+001. [lemma_road_to_reality_2_7](./lemma_road_to_reality_2_7.v)
+
 ## Differences from GeoCoq
 
 * `cn_equalityreverse` is renamed to `cn_congruencereverse`.
