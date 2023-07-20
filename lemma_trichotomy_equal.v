@@ -1,11 +1,11 @@
 Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
+Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
+Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
+Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_extension.
-Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
 
 Section Euclid.
@@ -26,12 +26,12 @@ Proof.
 	intros neq_A_B.
 	intros neq_C_D.
 
-	pose proof (lemma_inequalitysymmetric _ _ neq_A_B) as neq_B_A.
+	pose proof (by_prop_neq_symmetric _ _ neq_A_B) as neq_B_A.
 
 	pose proof (lemma_extension _ _ _ _ neq_B_A neq_A_B) as (P & BetS_B_A_P & _).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_A_P) as BetS_P_A_B.
-	pose proof (lemma_betweennotequal _ _ _ BetS_B_A_P) as (neq_A_P & _ & _).
-	pose proof (lemma_inequalitysymmetric _ _ neq_A_P) as neq_P_A.
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_A_P) as (neq_A_P & _ & _).
+	pose proof (by_prop_neq_symmetric _ _ neq_A_P) as neq_P_A.
 
 	pose proof (lemma_extension _ _ _ _ neq_P_A neq_C_D) as (E & BetS_P_A_E & Cong_AE_CD).
 
@@ -42,7 +42,7 @@ Proof.
 		intros BetS_A_B_E.
 
 		pose proof (by_def_Lt _ _ _ _ _ BetS_A_B_E Cong_AB_AB) as Lt_AB_AE.
-		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_AB_AE Cong_AE_CD) as Lt_AB_CD.
+		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_AB_AE Cong_AE_CD) as Lt_AB_CD.
 
 		contradict Lt_AB_CD.
 		exact n_Lt_AB_CD.
@@ -62,7 +62,7 @@ Proof.
 
 	assert (Cong A B A E) as Cong_AB_AE by (rewrite eq_E_B; exact Cong_AB_AB).
 
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AB_AE Cong_AE_CD) as Cong_AB_CD.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_AB_AE Cong_AE_CD) as Cong_AB_CD.
 
 	exact Cong_AB_CD.
 

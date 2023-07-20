@@ -1,8 +1,8 @@
+Require Import ProofCheckingEuclid.by_prop_CongA_ABCequalsCBA.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_ABCequalsCBA.
-Require Import ProofCheckingEuclid.lemma_NCorder.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.proposition_04.
 
 Section Euclid.
@@ -19,11 +19,11 @@ Proof.
 
 	destruct isosceles_A_B_C as (Triangle_ABC & Cong_AB_AC).
 
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_AC) as Cong_AC_AB.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AB_AC) as Cong_AC_AB.
 
 	assert (nCol A B C) as nCol_A_B_C by (exact Triangle_ABC).
-	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & _ & nCol_C_A_B & _).
-	pose proof (lemma_ABCequalsCBA _ _ _ nCol_C_A_B) as CongA_CAB_BAC.
+	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (_ & _ & nCol_C_A_B & _).
+	pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_C_A_B) as CongA_CAB_BAC.
 
 	pose proof (
 		proposition_04

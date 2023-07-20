@@ -1,7 +1,7 @@
+Require Import ProofCheckingEuclid.by_prop_OnRay_assert.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
-Require Import ProofCheckingEuclid.lemma_onray_assert.
 
 Section Euclid.
 
@@ -20,7 +20,7 @@ Proof.
 	assert (BetS A E B \/ eq E B \/ BetS A B E) as BetS_A_E_B_or_eq_E_B_or_BetS_A_B_E.
 	one_of_disjunct BetS_A_B_E.
 
-	pose proof (lemma_onray_assert _ _ _ BetS_A_E_B_or_eq_E_B_or_BetS_A_B_E neq_A_B) as OnRay_AB_E.
+	pose proof (by_prop_OnRay_assert _ _ _ BetS_A_E_B_or_eq_E_B_or_BetS_A_B_E neq_A_B) as OnRay_AB_E.
 	exact OnRay_AB_E.
 Qed.
 

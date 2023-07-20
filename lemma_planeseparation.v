@@ -1,15 +1,16 @@
+Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
+Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_ABE_CDE.
+Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
+Require Import ProofCheckingEuclid.by_prop_Col_order.
+Require Import ProofCheckingEuclid.by_prop_eq_symmetric.
+Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
+Require Import ProofCheckingEuclid.by_prop_nCol_order.
+Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
-Require Import ProofCheckingEuclid.lemma_NCdistinct.
-Require Import ProofCheckingEuclid.lemma_NCorder.
-Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_ABE_CDE.
-Require Import ProofCheckingEuclid.lemma_collinear_ABC_ABD_BCD.
-Require Import ProofCheckingEuclid.lemma_collinearorder.
-Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
@@ -19,7 +20,6 @@ Require Import ProofCheckingEuclid.lemma_outerconnectivity.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_twolines2.
-Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -53,65 +53,65 @@ Proof.
 	assert (OppositeSide_D_AB_E2 := OppositeSide_D_AB_E).
 	destruct OppositeSide_D_AB_E2 as (W & BetS_D_W_E & Col_A_B_W & _).
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_D_W_E) as (neq_W_E & neq_D_W & neq_D_E).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_W_E) as (neq_W_E & neq_D_W & neq_D_E).
 	assert (Col D W E) as Col_D_W_E by (unfold Col; one_of_disjunct BetS_D_W_E).
-	pose proof (lemma_collinearorder _ _ _ Col_D_W_E) as (Col_W_D_E & Col_W_E_D & Col_E_D_W & Col_D_E_W & Col_E_W_D).
+	pose proof (by_prop_Col_order _ _ _ Col_D_W_E) as (Col_W_D_E & Col_W_E_D & Col_E_D_W & Col_D_E_W & Col_E_W_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_W_E) as BetS_E_W_D.
-	pose proof (lemma_collinearorder _ _ _ Col_A_B_W) as (Col_B_A_W & Col_B_W_A & Col_W_A_B & Col_A_W_B & Col_W_B_A).
+	pose proof (by_prop_Col_order _ _ _ Col_A_B_W) as (Col_B_A_W & Col_B_W_A & Col_W_A_B & Col_A_W_B & Col_W_B_A).
 
-	pose proof (lemma_collinearorder _ _ _ Col_A_B_G) as (Col_B_A_G & Col_B_G_A & Col_G_A_B & Col_A_G_B & Col_G_B_A).
-	pose proof (lemma_collinearorder _ _ _ Col_A_B_H) as (Col_B_A_H & Col_B_H_A & Col_H_A_B & Col_A_H_B & Col_H_B_A).
+	pose proof (by_prop_Col_order _ _ _ Col_A_B_G) as (Col_B_A_G & Col_B_G_A & Col_G_A_B & Col_A_G_B & Col_G_B_A).
+	pose proof (by_prop_Col_order _ _ _ Col_A_B_H) as (Col_B_A_H & Col_B_H_A & Col_H_A_B & Col_A_H_B & Col_H_B_A).
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_C_G_Q) as (neq_G_Q & neq_C_G & neq_C_Q).
-	pose proof (lemma_betweennotequal _ _ _ BetS_D_H_Q) as (neq_H_Q & neq_D_H & neq_D_Q).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_G_Q) as (neq_G_Q & neq_C_G & neq_C_Q).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_H_Q) as (neq_H_Q & neq_D_H & neq_D_Q).
 	assert (Col C G Q) as Col_C_G_Q by (unfold Col; one_of_disjunct BetS_C_G_Q).
 	assert (Col D H Q) as Col_D_H_Q by (unfold Col; one_of_disjunct BetS_D_H_Q).
-	pose proof (lemma_collinearorder _ _ _ Col_C_G_Q) as (Col_G_C_Q & Col_G_Q_C & Col_Q_C_G & Col_C_Q_G & Col_Q_G_C).
-	pose proof (lemma_collinearorder _ _ _ Col_D_H_Q) as (Col_H_D_Q & Col_H_Q_D & Col_Q_D_H & Col_D_Q_H & Col_Q_H_D).
+	pose proof (by_prop_Col_order _ _ _ Col_C_G_Q) as (Col_G_C_Q & Col_G_Q_C & Col_Q_C_G & Col_C_Q_G & Col_Q_G_C).
+	pose proof (by_prop_Col_order _ _ _ Col_D_H_Q) as (Col_H_D_Q & Col_H_Q_D & Col_Q_D_H & Col_D_Q_H & Col_Q_H_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_G_Q) as BetS_Q_G_C.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_H_Q) as BetS_Q_H_D.
 
-	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
-	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_D) as (_ & neq_B_D & neq_A_D & _ & neq_D_B & neq_D_A).
-	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
-	pose proof (lemma_NCorder _ _ _ nCol_A_B_D) as (nCol_B_A_D & nCol_B_D_A & nCol_D_A_B & nCol_A_D_B & nCol_D_B_A).
+	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
+	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_D) as (_ & neq_B_D & neq_A_D & _ & neq_D_B & neq_D_A).
+	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
+	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_D) as (nCol_B_A_D & nCol_B_D_A & nCol_D_A_B & nCol_A_D_B & nCol_D_B_A).
 
 
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_D) as n_Col_A_B_D.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_C_A_B) as n_Col_C_A_B.
 
-	pose proof (lemma_inequalitysymmetric _ _ neq_C_G) as neq_G_C.
-	pose proof (lemma_inequalitysymmetric _ _ neq_C_Q) as neq_Q_C.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_E) as neq_E_D.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_H) as neq_H_D.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_Q) as neq_Q_D.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_W) as neq_W_D.
-	pose proof (lemma_inequalitysymmetric _ _ neq_H_Q) as neq_Q_H.
-	pose proof (lemma_inequalitysymmetric _ _ neq_W_E) as neq_E_W.
+	pose proof (by_prop_neq_symmetric _ _ neq_C_G) as neq_G_C.
+	pose proof (by_prop_neq_symmetric _ _ neq_C_Q) as neq_Q_C.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_E) as neq_E_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_H) as neq_H_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_Q) as neq_Q_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_W) as neq_W_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_H_Q) as neq_Q_H.
+	pose proof (by_prop_neq_symmetric _ _ neq_W_E) as neq_E_W.
 
-	pose proof (lemma_collinearorder _ _ _ Col_C_Q_D) as (Col_Q_C_D & Col_Q_D_C & Col_D_C_Q & Col_C_D_Q & Col_D_Q_C).
+	pose proof (by_prop_Col_order _ _ _ Col_C_Q_D) as (Col_Q_C_D & Col_Q_D_C & Col_D_C_Q & Col_C_D_Q & Col_D_Q_C).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_Q_C_G Col_Q_C_D neq_Q_C) as Col_C_G_D.
-	pose proof (lemma_collinearorder _ _ _ Col_C_G_D) as (Col_G_C_D & Col_G_D_C & Col_D_C_G & Col_C_D_G & Col_D_G_C).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_Q_C_G Col_Q_C_D neq_Q_C) as Col_C_G_D.
+	pose proof (by_prop_Col_order _ _ _ Col_C_G_D) as (Col_G_C_D & Col_G_D_C & Col_D_C_G & Col_C_D_G & Col_D_G_C).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_D_Q_H Col_D_Q_C neq_D_Q) as Col_Q_H_C.
-	pose proof (lemma_collinearorder _ _ _ Col_Q_H_C) as (Col_H_Q_C & Col_H_C_Q & Col_C_Q_H & Col_Q_C_H & Col_C_H_Q).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_D_Q_H Col_D_Q_C neq_D_Q) as Col_Q_H_C.
+	pose proof (by_prop_Col_order _ _ _ Col_Q_H_C) as (Col_H_Q_C & Col_H_C_Q & Col_C_Q_H & Col_Q_C_H & Col_C_H_Q).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_Q_D_C Col_Q_D_H neq_Q_D) as Col_D_C_H.
-	pose proof (lemma_collinearorder _ _ _ Col_D_C_H) as (Col_C_D_H & Col_C_H_D & Col_H_D_C & Col_D_H_C & Col_H_C_D).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_Q_D_C Col_Q_D_H neq_Q_D) as Col_D_C_H.
+	pose proof (by_prop_Col_order _ _ _ Col_D_C_H) as (Col_C_D_H & Col_C_H_D & Col_H_D_C & Col_D_H_C & Col_H_C_D).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_W Col_A_B_G neq_A_B) as Col_B_W_G.
-	pose proof (lemma_collinearorder _ _ _ Col_B_W_G) as (Col_W_B_G & Col_W_G_B & Col_G_B_W & Col_B_G_W & Col_G_W_B).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_A_B_W Col_A_B_G neq_A_B) as Col_B_W_G.
+	pose proof (by_prop_Col_order _ _ _ Col_B_W_G) as (Col_W_B_G & Col_W_G_B & Col_G_B_W & Col_B_G_W & Col_G_W_B).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_W Col_B_A_G neq_B_A) as Col_A_W_G.
-	pose proof (lemma_collinearorder _ _ _ Col_A_W_G) as (Col_W_A_G & Col_W_G_A & Col_G_A_W & Col_A_G_W & Col_G_W_A).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_B_A_W Col_B_A_G neq_B_A) as Col_A_W_G.
+	pose proof (by_prop_Col_order _ _ _ Col_A_W_G) as (Col_W_A_G & Col_W_G_A & Col_G_A_W & Col_A_G_W & Col_G_W_A).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_H Col_B_A_G neq_B_A) as Col_A_H_G.
-	pose proof (lemma_collinearorder _ _ _ Col_A_H_G) as (Col_H_A_G & Col_H_G_A & Col_G_A_H & Col_A_G_H & Col_G_H_A).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_B_A_H Col_B_A_G neq_B_A) as Col_A_H_G.
+	pose proof (by_prop_Col_order _ _ _ Col_A_H_G) as (Col_H_A_G & Col_H_G_A & Col_G_A_H & Col_A_G_H & Col_G_H_A).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_H Col_A_B_G neq_A_B) as Col_B_H_G.
-	pose proof (lemma_collinearorder _ _ _ Col_B_H_G) as (Col_H_B_G & Col_H_G_B & Col_G_B_H & Col_B_G_H & Col_G_H_B).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_A_B_H Col_A_B_G neq_A_B) as Col_B_H_G.
+	pose proof (by_prop_Col_order _ _ _ Col_B_H_G) as (Col_H_B_G & Col_H_G_B & Col_G_B_H & Col_B_G_H & Col_G_H_B).
 
 	assert (~ (Col C A B /\ Col D A B)) as n_Col_C_A_B_and_Col_D_A_B.
 	{
@@ -130,25 +130,25 @@ Proof.
 
 	assert (BetS Q G D) as BetS_Q_G_D by (rewrite eq_G_H; exact BetS_Q_H_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_Q_G_D) as BetS_D_G_Q.
-	pose proof (lemma_betweennotequal _ _ _ BetS_Q_G_D) as (neq_G_D & _ & _).
-	pose proof (lemma_inequalitysymmetric _ _ neq_G_D) as neq_D_G.
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_Q_G_D) as (neq_G_D & _ & _).
+	pose proof (by_prop_neq_symmetric _ _ neq_G_D) as neq_D_G.
 
 	assert (Col Q G D) as Col_Q_G_D by (unfold Col; one_of_disjunct BetS_Q_G_D).
-	pose proof (lemma_collinearorder _ _ _ Col_Q_G_D) as (Col_G_Q_D & Col_G_D_Q & Col_D_Q_G & Col_Q_D_G & Col_D_G_Q).
+	pose proof (by_prop_Col_order _ _ _ Col_Q_G_D) as (Col_G_Q_D & Col_G_D_Q & Col_D_Q_G & Col_Q_D_G & Col_D_G_Q).
 
 	assert (Col E D G \/ ~ Col E D G) as [Col_E_D_G|n_Col_E_D_G] by (apply Classical_Prop.classic).
 	{
 		(* case Col_E_D_G *)
-		pose proof (lemma_collinearorder _ _ _ Col_E_D_G) as (Col_D_E_G & Col_D_G_E & Col_G_E_D & Col_E_G_D & Col_G_D_E).
+		pose proof (by_prop_Col_order _ _ _ Col_E_D_G) as (Col_D_E_G & Col_D_G_E & Col_G_E_D & Col_E_G_D & Col_G_D_E).
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_D_G_E Col_D_G_Q neq_D_G) as Col_G_E_Q.
-		pose proof (lemma_collinearorder _ _ _ Col_G_E_Q) as (Col_E_G_Q & Col_E_Q_G & Col_Q_G_E & Col_G_Q_E & Col_Q_E_G).
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_D_G_E Col_D_G_Q neq_D_G) as Col_G_E_Q.
+		pose proof (by_prop_Col_order _ _ _ Col_G_E_Q) as (Col_E_G_Q & Col_E_Q_G & Col_Q_G_E & Col_G_Q_E & Col_Q_E_G).
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_D_E_W Col_D_E_G neq_D_E) as Col_E_W_G.
-		pose proof (lemma_collinearorder _ _ _ Col_E_W_G) as (Col_W_E_G & Col_W_G_E & Col_G_E_W & Col_E_G_W & Col_G_W_E).
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_D_E_W Col_D_E_G neq_D_E) as Col_E_W_G.
+		pose proof (by_prop_Col_order _ _ _ Col_E_W_G) as (Col_W_E_G & Col_W_G_E & Col_G_E_W & Col_E_G_W & Col_G_W_E).
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_E_W_G Col_E_W_D neq_E_W) as Col_W_G_D.
-		pose proof (lemma_collinearorder _ _ _ Col_W_G_D) as (Col_G_W_D & Col_G_D_W & Col_D_W_G & Col_W_D_G & Col_D_G_W).
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_E_W_G Col_E_W_D neq_E_W) as Col_W_G_D.
+		pose proof (by_prop_Col_order _ _ _ Col_W_G_D) as (Col_G_W_D & Col_G_D_W & Col_D_W_G & Col_W_D_G & Col_D_G_W).
 
 		assert (~ ~ eq W G) as eq_W_G.
 		{
@@ -158,17 +158,17 @@ Proof.
 			{
 				intros neq_G_B.
 				(* case neq_G_B *)
-				pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_W_G_D Col_W_G_B neq_W_G) as Col_G_D_B.
-				pose proof (lemma_collinearorder _ _ _ Col_G_D_B) as (Col_D_G_B & Col_D_B_G & Col_B_G_D & Col_G_B_D & Col_B_D_G).
-				pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_G_B_D Col_G_B_A neq_G_B) as Col_B_D_A.
-				pose proof (lemma_collinearorder _ _ _ Col_B_D_A) as (_ & _ & Col_A_B_D & _ & _).
+				pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_W_G_D Col_W_G_B neq_W_G) as Col_G_D_B.
+				pose proof (by_prop_Col_order _ _ _ Col_G_D_B) as (Col_D_G_B & Col_D_B_G & Col_B_G_D & Col_G_B_D & Col_B_D_G).
+				pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_B_D Col_G_B_A neq_G_B) as Col_B_D_A.
+				pose proof (by_prop_Col_order _ _ _ Col_B_D_A) as (_ & _ & Col_A_B_D & _ & _).
 
 				contradict Col_A_B_D.
 				exact n_Col_A_B_D.
 			}
 			apply Classical_Prop.NNPP in eq_G_B.
 
-			pose proof (lemma_equalitysymmetric _ _ eq_G_B) as eq_B_G.
+			pose proof (by_prop_eq_symmetric _ _ eq_G_B) as eq_B_G.
 
 			assert (~ eq G A) as neq_G_A.
 			{
@@ -179,17 +179,17 @@ Proof.
 				contradict eq_B_A.
 				exact neq_B_A.
 			}
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_W_G_D Col_W_G_A neq_W_G) as Col_G_D_A.
-			pose proof (lemma_collinearorder _ _ _ Col_G_D_A) as (_ & _ & _ & Col_G_A_D & _).
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_G_A_D Col_G_A_B neq_G_A) as Col_A_D_B.
-			pose proof (lemma_collinearorder _ _ _ Col_A_D_B) as (_ & _ & _ & Col_A_B_D & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_W_G_D Col_W_G_A neq_W_G) as Col_G_D_A.
+			pose proof (by_prop_Col_order _ _ _ Col_G_D_A) as (_ & _ & _ & Col_G_A_D & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_A_D Col_G_A_B neq_G_A) as Col_A_D_B.
+			pose proof (by_prop_Col_order _ _ _ Col_A_D_B) as (_ & _ & _ & Col_A_B_D & _).
 
 			contradict Col_A_B_D.
 			exact n_Col_A_B_D.
 		}
 		apply Classical_Prop.NNPP in eq_W_G.
 
-		pose proof (lemma_equalitysymmetric _ _ eq_W_G) as eq_G_W.
+		pose proof (by_prop_eq_symmetric _ _ eq_W_G) as eq_G_W.
 		assert (BetS D G E) as BetS_D_G_E by (rewrite eq_G_W; exact BetS_D_W_E).
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_G_E) as BetS_E_G_D.
 
@@ -232,7 +232,7 @@ Proof.
 				destruct Col_G_C_D as [eq_G_C|[eq_G_D|[eq_C_D|[BetS_C_G_D|[BetS_G_C_D|BetS_G_D_C]]]]].
 				{
 					(* case eq_G_C *)
-					pose proof (lemma_equalitysymmetric _ _ eq_G_C) as eq_C_G.
+					pose proof (by_prop_eq_symmetric _ _ eq_G_C) as eq_C_G.
 					assert (Col A B C) as Col_A_B_C by (rewrite eq_C_G; exact Col_A_B_G).
 
 					contradict Col_A_B_C.
@@ -240,7 +240,7 @@ Proof.
 				}
 				{
 					(* case eq_G_D *)
-					pose proof (lemma_equalitysymmetric _ _ eq_G_D) as eq_D_G.
+					pose proof (by_prop_eq_symmetric _ _ eq_G_D) as eq_D_G.
 					assert (Col A B D) as Col_A_B_D by (rewrite eq_D_G; exact Col_A_B_G).
 
 					contradict Col_A_B_D.
@@ -276,15 +276,15 @@ Proof.
 		assert (~ Col E C G) as n_Col_E_C_G.
 		{
 			intros Col_E_C_G.
-			pose proof (lemma_collinearorder _ _ _ Col_E_C_G) as (_ & Col_C_G_E & _ & _ & _).
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_C_G_D Col_C_G_E neq_C_G) as Col_G_D_E.
-			pose proof (lemma_collinearorder _ _ _ Col_G_D_E) as (_ & _ & _ & _ & Col_E_D_G).
+			pose proof (by_prop_Col_order _ _ _ Col_E_C_G) as (_ & Col_C_G_E & _ & _ & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_C_G_D Col_C_G_E neq_C_G) as Col_G_D_E.
+			pose proof (by_prop_Col_order _ _ _ Col_G_D_E) as (_ & _ & _ & _ & Col_E_D_G).
 
 			contradict Col_E_D_G.
 			exact n_Col_E_D_G.
 		}
 		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_E_C_G) as nCol_E_C_G.
-		pose proof (lemma_NCorder _ _ _ nCol_E_C_G) as (nCol_C_E_G & nCol_C_G_E & nCol_G_E_C & nCol_E_G_C & nCol_G_C_E).
+		pose proof (by_prop_nCol_order _ _ _ nCol_E_C_G) as (nCol_C_E_G & nCol_C_G_E & nCol_G_E_C & nCol_E_G_C & nCol_G_C_E).
 
 		assert (BetS G C D \/ ~ BetS G C D) as [BetS_G_C_D|nBetS_G_C_D] by (apply Classical_Prop.classic).
 		{
@@ -358,43 +358,43 @@ Proof.
 	assert (OppositeSide_D_AB_E2 := OppositeSide_D_AB_E).
 	destruct OppositeSide_D_AB_E2 as (W & BetS_D_W_E & Col_A_B_W & _).
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_D_W_E) as (neq_W_E & neq_D_W & neq_D_E).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_W_E) as (neq_W_E & neq_D_W & neq_D_E).
 	assert (Col D W E) as Col_D_W_E by (unfold Col; one_of_disjunct BetS_D_W_E).
-	pose proof (lemma_collinearorder _ _ _ Col_D_W_E) as (Col_W_D_E & Col_W_E_D & Col_E_D_W & Col_D_E_W & Col_E_W_D).
+	pose proof (by_prop_Col_order _ _ _ Col_D_W_E) as (Col_W_D_E & Col_W_E_D & Col_E_D_W & Col_D_E_W & Col_E_W_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_W_E) as BetS_E_W_D.
-	pose proof (lemma_collinearorder _ _ _ Col_A_B_W) as (Col_B_A_W & Col_B_W_A & Col_W_A_B & Col_A_W_B & Col_W_B_A).
+	pose proof (by_prop_Col_order _ _ _ Col_A_B_W) as (Col_B_A_W & Col_B_W_A & Col_W_A_B & Col_A_W_B & Col_W_B_A).
 
-	pose proof (lemma_collinearorder _ _ _ Col_A_B_G) as (Col_B_A_G & Col_B_G_A & Col_G_A_B & Col_A_G_B & Col_G_B_A).
-	pose proof (lemma_collinearorder _ _ _ Col_A_B_H) as (Col_B_A_H & Col_B_H_A & Col_H_A_B & Col_A_H_B & Col_H_B_A).
+	pose proof (by_prop_Col_order _ _ _ Col_A_B_G) as (Col_B_A_G & Col_B_G_A & Col_G_A_B & Col_A_G_B & Col_G_B_A).
+	pose proof (by_prop_Col_order _ _ _ Col_A_B_H) as (Col_B_A_H & Col_B_H_A & Col_H_A_B & Col_A_H_B & Col_H_B_A).
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_C_G_Q) as (neq_G_Q & neq_C_G & neq_C_Q).
-	pose proof (lemma_betweennotequal _ _ _ BetS_D_H_Q) as (neq_H_Q & neq_D_H & neq_D_Q).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_G_Q) as (neq_G_Q & neq_C_G & neq_C_Q).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_H_Q) as (neq_H_Q & neq_D_H & neq_D_Q).
 	assert (Col C G Q) as Col_C_G_Q by (unfold Col; one_of_disjunct BetS_C_G_Q).
 	assert (Col D H Q) as Col_D_H_Q by (unfold Col; one_of_disjunct BetS_D_H_Q).
-	pose proof (lemma_collinearorder _ _ _ Col_C_G_Q) as (Col_G_C_Q & Col_G_Q_C & Col_Q_C_G & Col_C_Q_G & Col_Q_G_C).
-	pose proof (lemma_collinearorder _ _ _ Col_D_H_Q) as (Col_H_D_Q & Col_H_Q_D & Col_Q_D_H & Col_D_Q_H & Col_Q_H_D).
+	pose proof (by_prop_Col_order _ _ _ Col_C_G_Q) as (Col_G_C_Q & Col_G_Q_C & Col_Q_C_G & Col_C_Q_G & Col_Q_G_C).
+	pose proof (by_prop_Col_order _ _ _ Col_D_H_Q) as (Col_H_D_Q & Col_H_Q_D & Col_Q_D_H & Col_D_Q_H & Col_Q_H_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_G_Q) as BetS_Q_G_C.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_H_Q) as BetS_Q_H_D.
 
-	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
-	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_D) as (_ & neq_B_D & neq_A_D & _ & neq_D_B & neq_D_A).
-	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
-	pose proof (lemma_NCorder _ _ _ nCol_A_B_D) as (nCol_B_A_D & nCol_B_D_A & nCol_D_A_B & nCol_A_D_B & nCol_D_B_A).
+	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
+	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_D) as (_ & neq_B_D & neq_A_D & _ & neq_D_B & neq_D_A).
+	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
+	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_D) as (nCol_B_A_D & nCol_B_D_A & nCol_D_A_B & nCol_A_D_B & nCol_D_B_A).
 
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_D) as n_Col_A_B_D.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_C_A_B) as n_Col_C_A_B.
 
-	pose proof (lemma_inequalitysymmetric _ _ neq_C_G) as neq_G_C.
-	pose proof (lemma_inequalitysymmetric _ _ neq_C_Q) as neq_Q_C.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_E) as neq_E_D.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_H) as neq_H_D.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_Q) as neq_Q_D.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_W) as neq_W_D.
-	pose proof (lemma_inequalitysymmetric _ _ neq_H_Q) as neq_Q_H.
-	pose proof (lemma_inequalitysymmetric _ _ neq_W_E) as neq_E_W.
+	pose proof (by_prop_neq_symmetric _ _ neq_C_G) as neq_G_C.
+	pose proof (by_prop_neq_symmetric _ _ neq_C_Q) as neq_Q_C.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_E) as neq_E_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_H) as neq_H_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_Q) as neq_Q_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_W) as neq_W_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_H_Q) as neq_Q_H.
+	pose proof (by_prop_neq_symmetric _ _ neq_W_E) as neq_E_W.
 
-	pose proof (lemma_NCorder _ _ _ nCol_C_Q_D) as (nCol_Q_C_D & nCol_Q_D_C & nCol_D_C_Q & nCol_C_D_Q & nCol_D_Q_C).
+	pose proof (by_prop_nCol_order _ _ _ nCol_C_Q_D) as (nCol_Q_C_D & nCol_Q_D_C & nCol_D_C_Q & nCol_C_D_Q & nCol_D_Q_C).
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_Q_C_D) as n_Col_Q_C_D.
 	pose proof (lemma_s_ncol_n_col _ _ _ nCol_C_Q_D) as n_Col_C_Q_D.
 
@@ -406,16 +406,16 @@ Proof.
 	) as (F & BetS_C_F_H & BetS_D_F_G).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_F_H) as BetS_H_F_C.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_F_G) as BetS_G_F_D.
-	pose proof (lemma_betweennotequal _ _ _ BetS_C_F_H) as (neq_F_H & neq_C_F & neq_C_H).
-	pose proof (lemma_betweennotequal _ _ _ BetS_D_F_G) as (feq_F_G & neq_D_F & neq_D_G).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_F_H) as (neq_F_H & neq_C_F & neq_C_H).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_F_G) as (feq_F_G & neq_D_F & neq_D_G).
 
-	pose proof (lemma_inequalitysymmetric _ _ neq_C_H) as neq_H_C.
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_F) as neq_F_D.
+	pose proof (by_prop_neq_symmetric _ _ neq_C_H) as neq_H_C.
+	pose proof (by_prop_neq_symmetric _ _ neq_D_F) as neq_F_D.
 
 	assert (Col C F H) as Col_C_F_H by (unfold Col; one_of_disjunct BetS_C_F_H).
-	pose proof (lemma_collinearorder _ _ _ Col_C_F_H) as (Col_F_C_H & Col_F_H_C & Col_H_C_F & Col_C_H_F & Col_H_F_C).
+	pose proof (by_prop_Col_order _ _ _ Col_C_F_H) as (Col_F_C_H & Col_F_H_C & Col_H_C_F & Col_C_H_F & Col_H_F_C).
 	assert (Col G F D) as Col_G_F_D by (unfold Col; one_of_disjunct BetS_G_F_D).
-	pose proof (lemma_collinearorder _ _ _ Col_G_F_D) as (Col_F_G_D & Col_F_D_G & Col_D_G_F & Col_G_D_F & Col_D_F_G).
+	pose proof (by_prop_Col_order _ _ _ Col_G_F_D) as (Col_F_G_D & Col_F_D_G & Col_D_G_F & Col_G_D_F & Col_D_F_G).
 
 	assert (~ eq G H) as neq_G_H.
 	{
@@ -423,26 +423,26 @@ Proof.
 
 		assert (Col Q H C) as Col_Q_H_C by (rewrite <- eq_G_H; exact Col_Q_G_C).
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_Q_H_D Col_Q_H_C neq_Q_H) as Col_H_D_C.
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_Q_H_D Col_Q_H_C neq_Q_H) as Col_H_D_C.
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_D_C Col_H_D_Q neq_H_D) as Col_D_C_Q.
-		pose proof (lemma_collinearorder _ _ _ Col_D_C_Q) as (_ & Col_C_Q_D & _ & _ & _).
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_D_C Col_H_D_Q neq_H_D) as Col_D_C_Q.
+		pose proof (by_prop_Col_order _ _ _ Col_D_C_Q) as (_ & Col_C_Q_D & _ & _ & _).
 
 		contradict Col_C_Q_D.
 		exact n_Col_C_Q_D.
 	}
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_G Col_A_B_W neq_A_B) as Col_B_G_W.
-	pose proof (lemma_collinearorder _ _ _ Col_B_G_W) as (_ & _ & Col_W_B_G & _ & _).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_A_B_G Col_A_B_W neq_A_B) as Col_B_G_W.
+	pose proof (by_prop_Col_order _ _ _ Col_B_G_W) as (_ & _ & Col_W_B_G & _ & _).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_A_B_H Col_A_B_G neq_A_B) as Col_B_H_G.
-	pose proof (lemma_collinearorder _ _ _ Col_B_H_G) as (_ & Col_H_G_B & _ & _ & _).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_A_B_H Col_A_B_G neq_A_B) as Col_B_H_G.
+	pose proof (by_prop_Col_order _ _ _ Col_B_H_G) as (_ & Col_H_G_B & _ & _ & _).
 
-	pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_B_A_H Col_B_A_G neq_B_A) as Col_A_H_G.
-	pose proof (lemma_collinearorder _ _ _ Col_A_H_G) as (_ & Col_H_G_A & _ & _ & _).
+	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_B_A_H Col_B_A_G neq_B_A) as Col_A_H_G.
+	pose proof (by_prop_Col_order _ _ _ Col_A_H_G) as (_ & Col_H_G_A & _ & _ & _).
 
-	pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_A_B Col_A_B_G Col_A_B_H Col_A_B_W) as Col_G_H_W.
-	pose proof (lemma_collinearorder _ _ _ Col_G_H_W) as (Col_H_G_W & Col_H_W_G & Col_W_G_H & Col_G_W_H & Col_W_H_G).
+	pose proof (by_prop_Col_ABC_ABD_ABE_CDE _ _ _ _ _ neq_A_B Col_A_B_G Col_A_B_H Col_A_B_W) as Col_G_H_W.
+	pose proof (by_prop_Col_order _ _ _ Col_G_H_W) as (Col_H_G_W & Col_H_W_G & Col_W_G_H & Col_G_W_H & Col_W_H_G).
 
 	assert (Col E D G \/ ~ Col E D G) as [Col_E_D_G|n_Col_E_D_G] by (apply Classical_Prop.classic).
 	{
@@ -451,24 +451,24 @@ Proof.
 		{
 			intros neq_W_G.
 
-			pose proof (lemma_inequalitysymmetric _ _ neq_W_G) as neq_G_W.
+			pose proof (by_prop_neq_symmetric _ _ neq_W_G) as neq_G_W.
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_E_D_G Col_E_D_W neq_E_D) as Col_D_G_W.
-			pose proof (lemma_collinearorder _ _ _ Col_D_G_W) as (_ & Col_G_W_D & _ & _ & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_E_D_G Col_E_D_W neq_E_D) as Col_D_G_W.
+			pose proof (by_prop_Col_order _ _ _ Col_D_G_W) as (_ & Col_G_W_D & _ & _ & _).
 
 			assert (eq B B) as eq_B_B by (reflexivity).
 			assert (Col A B B) as Col_A_B_B by (unfold Col; one_of_disjunct eq_B_B).
 
-			pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_A_B Col_A_B_G Col_A_B_W Col_A_B_B) as Col_G_W_B.
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_G_W_D Col_G_W_B neq_G_W) as Col_W_D_B.
+			pose proof (by_prop_Col_ABC_ABD_ABE_CDE _ _ _ _ _ neq_A_B Col_A_B_G Col_A_B_W Col_A_B_B) as Col_G_W_B.
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_W_D Col_G_W_B neq_G_W) as Col_W_D_B.
 
 			assert (eq A A) as eq_A_A by (reflexivity).
 			assert (Col B A A) as Col_B_A_A by (unfold Col; one_of_disjunct eq_A_A).
-			pose proof (lemma_collinear_ABC_ABD_ABE_CDE _ _ _ _ _ neq_B_A Col_B_A_G Col_B_A_W Col_B_A_A) as Col_G_W_A.
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_G_W_D Col_G_W_A neq_G_W) as Col_W_D_A.
+			pose proof (by_prop_Col_ABC_ABD_ABE_CDE _ _ _ _ _ neq_B_A Col_B_A_G Col_B_A_W Col_B_A_A) as Col_G_W_A.
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_W_D Col_G_W_A neq_G_W) as Col_W_D_A.
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_W_D_B Col_W_D_A neq_W_D) as Col_D_B_A.
-			pose proof (lemma_collinearorder _ _ _ Col_D_B_A) as (_ & _ & _ & _ & Col_A_B_D).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_W_D_B Col_W_D_A neq_W_D) as Col_D_B_A.
+			pose proof (by_prop_Col_order _ _ _ Col_D_B_A) as (_ & _ & _ & _ & Col_A_B_D).
 
 			contradict Col_A_B_D.
 			exact n_Col_A_B_D.
@@ -483,26 +483,26 @@ Proof.
 		assert (~ Col H C E) as n_Col_H_C_E.
 		{
 			intros Col_H_C_E.
-			pose proof (lemma_collinearorder _ _ _ Col_H_C_E) as (Col_C_H_E & Col_C_E_H & Col_E_H_C & Col_H_E_C & Col_E_C_H).
+			pose proof (by_prop_Col_order _ _ _ Col_H_C_E) as (Col_C_H_E & Col_C_E_H & Col_E_H_C & Col_H_E_C & Col_E_C_H).
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_C_F Col_H_C_E neq_H_C) as Col_C_F_E.
-			pose proof (lemma_collinearorder _ _ _ Col_C_F_E) as (_ & _ & _ & _ & Col_E_F_C).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_C_F Col_H_C_E neq_H_C) as Col_C_F_E.
+			pose proof (by_prop_Col_order _ _ _ Col_C_F_E) as (_ & _ & _ & _ & Col_E_F_C).
 
 			pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_D_F_G BetS_D_G_E) as BetS_D_F_E.
-			pose proof (lemma_betweennotequal _ _ _ BetS_D_F_E) as (neq_F_E & _ & _).
-			pose proof (lemma_inequalitysymmetric _ _ neq_F_E) as neq_E_F.
+			pose proof (by_prop_BetS_notequal _ _ _ BetS_D_F_E) as (neq_F_E & _ & _).
+			pose proof (by_prop_neq_symmetric _ _ neq_F_E) as neq_E_F.
 
 			assert (Col D F E) as Col_D_F_E by (unfold Col; one_of_disjunct BetS_D_F_E).
-			pose proof (lemma_collinearorder _ _ _ Col_D_F_E) as (_ & _ & _ & _ & Col_E_F_D).
+			pose proof (by_prop_Col_order _ _ _ Col_D_F_E) as (_ & _ & _ & _ & Col_E_F_D).
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_E_F_C Col_E_F_D neq_E_F) as Col_F_C_D.
-			pose proof (lemma_collinearorder _ _ _ Col_F_C_D) as (_ & _ & _ & Col_F_D_C & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_E_F_C Col_E_F_D neq_E_F) as Col_F_C_D.
+			pose proof (by_prop_Col_order _ _ _ Col_F_C_D) as (_ & _ & _ & Col_F_D_C & _).
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_F_D_C Col_F_D_G neq_F_D) as Col_D_C_G.
-			pose proof (lemma_collinearorder _ _ _ Col_D_C_G) as (_ & _ & _ & _ & Col_G_C_D).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_F_D_C Col_F_D_G neq_F_D) as Col_D_C_G.
+			pose proof (by_prop_Col_order _ _ _ Col_D_C_G) as (_ & _ & _ & _ & Col_G_C_D).
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_G_C_D Col_G_C_Q neq_G_C) as Col_C_D_Q.
-			pose proof (lemma_collinearorder _ _ _ Col_C_D_Q) as (_ & _ & Col_Q_C_D & _ & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_C_D Col_G_C_Q neq_G_C) as Col_C_D_Q.
+			pose proof (by_prop_Col_order _ _ _ Col_C_D_Q) as (_ & _ & Col_Q_C_D & _ & _).
 
 			contradict Col_Q_C_D.
 			exact n_Col_Q_C_D.
@@ -517,13 +517,13 @@ Proof.
 		) as (M & BetS_E_M_C & BetS_H_G_M).
 
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_M_C) as BetS_C_M_E.
-		pose proof (lemma_betweennotequal _ _ _ BetS_H_G_M) as (_ & neq_H_G & _).
+		pose proof (by_prop_BetS_notequal _ _ _ BetS_H_G_M) as (_ & neq_H_G & _).
 
 		assert (Col H G M) as Col_H_G_M by (unfold Col; one_of_disjunct BetS_H_G_M).
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_G_M Col_H_G_B neq_H_G) as Col_G_M_B.
-		pose proof (lemma_collinearorder _ _ _ Col_G_M_B) as (_ & _ & _ & Col_G_B_M & _).
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_G_M Col_H_G_B neq_H_G) as Col_G_M_B.
+		pose proof (by_prop_Col_order _ _ _ Col_G_M_B) as (_ & _ & _ & Col_G_B_M & _).
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_G_A Col_H_G_M neq_H_G) as Col_G_A_M.
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_G_A Col_H_G_M neq_H_G) as Col_G_A_M.
 
 		assert (Col A B M) as Col_A_B_M.
 		assert (eq B G \/ neq B G) as [eq_B_G|neq_B_G] by (apply Classical_Prop.classic).
@@ -531,15 +531,15 @@ Proof.
 			(* case eq_B_G *)
 
 			assert (Col B A M) as Col_B_A_M by (rewrite eq_B_G; exact Col_G_A_M).
-			pose proof (lemma_collinearorder _ _ _ Col_B_A_M) as (Col_A_B_M & _ & _ & _ & _).
+			pose proof (by_prop_Col_order _ _ _ Col_B_A_M) as (Col_A_B_M & _ & _ & _ & _).
 
 			exact Col_A_B_M.
 		}
 		{
 			(* case neq_B_G *)
-			pose proof (lemma_inequalitysymmetric _ _ neq_B_G) as neq_G_B.
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_G_B_M Col_G_B_A neq_G_B) as Col_B_M_A.
-			pose proof (lemma_collinearorder _ _ _ Col_B_M_A) as (_ & _ & Col_A_B_M & _ & _).
+			pose proof (by_prop_neq_symmetric _ _ neq_B_G) as neq_G_B.
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_B_M Col_G_B_A neq_G_B) as Col_B_M_A.
+			pose proof (by_prop_Col_order _ _ _ Col_B_M_A) as (_ & _ & Col_A_B_M & _ & _).
 
 			exact Col_A_B_M.
 		}
@@ -555,13 +555,13 @@ Proof.
 	{
 		(* case nCol_E_D_G *)
 		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_E_D_G) as nCol_E_D_G.
-		pose proof (lemma_NCorder _ _ _ nCol_E_D_G) as (nCol_D_E_G & nCol_D_G_E & nCol_G_E_D & nCol_E_G_D & nCol_G_D_E).
+		pose proof (by_prop_nCol_order _ _ _ nCol_E_D_G) as (nCol_D_E_G & nCol_D_G_E & nCol_G_E_D & nCol_E_G_D & nCol_G_D_E).
 
 		assert (~ eq G W) as neq_G_W.
 		{
 			intros eq_G_W.
 			assert (Col D G E) as Col_D_G_E by (rewrite eq_G_W; exact Col_D_W_E).
-			pose proof (lemma_collinearorder _ _ _ Col_D_G_E) as (_ & _ & Col_E_D_G & _ & _).
+			pose proof (by_prop_Col_order _ _ _ Col_D_G_E) as (_ & _ & Col_E_D_G & _ & _).
 
 			contradict Col_E_D_G.
 			exact n_Col_E_D_G.
@@ -594,7 +594,7 @@ Proof.
 
 		(* case Col_H_C_E *)
 		apply Classical_Prop.NNPP in Col_H_C_E.
-		pose proof (lemma_collinearorder _ _ _ Col_H_C_E) as (Col_C_H_E & Col_C_E_H & Col_E_H_C & Col_H_E_C & Col_E_C_H).
+		pose proof (by_prop_Col_order _ _ _ Col_H_C_E) as (Col_C_H_E & Col_C_E_H & Col_E_H_C & Col_H_E_C & Col_E_C_H).
 
 		pose proof (
 			postulate_Pasch_inner
@@ -603,23 +603,23 @@ Proof.
 			BetS_G_F_D
 			nCol_E_D_G
 		) as (J & BetS_E_J_F & BetS_G_J_W).
-		pose proof (lemma_betweennotequal _ _ _ BetS_E_J_F) as (_ & _ & neq_E_F).
-		pose proof (lemma_inequalitysymmetric _ _ neq_E_F) as neq_F_E.
+		pose proof (by_prop_BetS_notequal _ _ _ BetS_E_J_F) as (_ & _ & neq_E_F).
+		pose proof (by_prop_neq_symmetric _ _ neq_E_F) as neq_F_E.
 
 		assert (Col G J W) as Col_G_J_W by (unfold Col; one_of_disjunct BetS_G_J_W).
 		assert (Col E F J) as Col_E_F_J by (unfold Col; one_of_disjunct BetS_E_J_F).
 
-		pose proof (lemma_collinearorder _ _ _ Col_G_J_W) as (_ & _ & _ & Col_G_W_J & _).
-		pose proof (lemma_collinearorder _ _ _ Col_E_F_J) as (Col_F_E_J & _ & _ & _ & _).
+		pose proof (by_prop_Col_order _ _ _ Col_G_J_W) as (_ & _ & _ & Col_G_W_J & _).
+		pose proof (by_prop_Col_order _ _ _ Col_E_F_J) as (Col_F_E_J & _ & _ & _ & _).
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_C_H_F Col_C_H_E neq_C_H) as Col_H_F_E.
-		pose proof (lemma_collinearorder _ _ _ Col_H_F_E) as (_ & Col_F_E_H & _ & _ & _).
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_C_H_F Col_C_H_E neq_C_H) as Col_H_F_E.
+		pose proof (by_prop_Col_order _ _ _ Col_H_F_E) as (_ & Col_F_E_H & _ & _ & _).
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_F_E_J Col_F_E_H neq_F_E) as Col_E_J_H.
-		pose proof (lemma_collinearorder _ _ _ Col_E_J_H) as (Col_J_E_H & Col_J_H_E & Col_H_E_J & Col_E_H_J & Col_H_J_E).
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_F_E_J Col_F_E_H neq_F_E) as Col_E_J_H.
+		pose proof (by_prop_Col_order _ _ _ Col_E_J_H) as (Col_J_E_H & Col_J_H_E & Col_H_E_J & Col_E_H_J & Col_H_J_E).
 
-		pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_G_W_J Col_G_W_H neq_G_W) as Col_W_J_H.
-		pose proof (lemma_collinearorder _ _ _ Col_W_J_H) as (_ & Col_J_H_W & _ & _ & _).
+		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_W_J Col_G_W_H neq_G_W) as Col_W_J_H.
+		pose proof (by_prop_Col_order _ _ _ Col_W_J_H) as (_ & Col_J_H_W & _ & _ & _).
 
 		assert (~ eq H W) as neq_H_W.
 		{
@@ -627,19 +627,19 @@ Proof.
 
 			assert (Col D H E) as Col_D_H_E by ( rewrite eq_H_W; exact Col_D_W_E).
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_D_H_E Col_D_H_Q neq_D_H) as Col_H_E_Q.
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_D_H_E Col_D_H_Q neq_D_H) as Col_H_E_Q.
 
 			assert (neq H E) as neq_H_E by (rewrite eq_H_W; exact neq_W_E).
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_E_Q Col_H_E_C neq_H_E) as Col_E_Q_C.
-			pose proof (lemma_collinearorder _ _ _ Col_E_Q_C) as (_ & _ & _ & Col_E_C_Q & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_E_Q Col_H_E_C neq_H_E) as Col_E_Q_C.
+			pose proof (by_prop_Col_order _ _ _ Col_E_Q_C) as (_ & _ & _ & Col_E_C_Q & _).
 
 			assert (~ neq E C) as eq_E_C.
 			{
 				intros neq_E_C.
-				pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_E_C_Q Col_E_C_H neq_E_C) as Col_C_Q_H.
-				pose proof (lemma_collinearorder _ _ _ Col_C_Q_H) as (_ & _ & _ & _ & Col_H_Q_C).
+				pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_E_C_Q Col_E_C_H neq_E_C) as Col_C_Q_H.
+				pose proof (by_prop_Col_order _ _ _ Col_C_Q_H) as (_ & _ & _ & _ & Col_H_Q_C).
 
-				pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_Q_C Col_H_Q_D neq_H_Q) as Col_Q_C_D.
+				pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_Q_C Col_H_Q_D neq_H_Q) as Col_Q_C_D.
 
 				contradict Col_Q_C_D.
 				exact n_Col_Q_C_D.
@@ -650,13 +650,13 @@ Proof.
 
 			assert (Col C H D) as Col_C_H_D by (rewrite eq_H_W; exact Col_C_W_D).
 
-			pose proof (lemma_collinearorder _ _ _ Col_C_H_D) as (_ & _ & _ & _ & Col_D_H_C).
+			pose proof (by_prop_Col_order _ _ _ Col_C_H_D) as (_ & _ & _ & _ & Col_D_H_C).
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_D_H_C Col_D_H_Q neq_D_H) as Col_H_C_Q.
-			pose proof (lemma_collinearorder _ _ _ Col_H_C_Q) as (_ & _ & _ & Col_H_Q_C & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_D_H_C Col_D_H_Q neq_D_H) as Col_H_C_Q.
+			pose proof (by_prop_Col_order _ _ _ Col_H_C_Q) as (_ & _ & _ & Col_H_Q_C & _).
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_Q_C Col_H_Q_D neq_H_Q) as Col_Q_C_D.
-			pose proof (lemma_collinearorder _ _ _ Col_Q_C_D) as (Col_C_Q_D & _ & _ & _ & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_Q_C Col_H_Q_D neq_H_Q) as Col_Q_C_D.
+			pose proof (by_prop_Col_order _ _ _ Col_Q_C_D) as (Col_C_Q_D & _ & _ & _ & _).
 
 			contradict Col_C_Q_D.
 			exact n_Col_C_Q_D.
@@ -665,13 +665,13 @@ Proof.
 		assert (~ neq J H) as eq_J_H.
 		{
 			intros neq_J_H.
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_J_H_E Col_J_H_W neq_J_H) as Col_H_E_W.
-			pose proof (lemma_collinearorder _ _ _ Col_H_E_W) as (_ & _ & _ & Col_H_W_E & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_J_H_E Col_J_H_W neq_J_H) as Col_H_E_W.
+			pose proof (by_prop_Col_order _ _ _ Col_H_E_W) as (_ & _ & _ & Col_H_W_E & _).
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_H_W_E Col_H_W_G neq_H_W) as Col_W_E_G.
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_W_E Col_H_W_G neq_H_W) as Col_W_E_G.
 
-			pose proof (lemma_collinear_ABC_ABD_BCD _ _ _ _ Col_W_E_G Col_W_E_D neq_W_E) as Col_E_G_D.
-			pose proof (lemma_collinearorder _ _ _ Col_E_G_D) as (_ & _ & _ & Col_E_D_G & _).
+			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_W_E_G Col_W_E_D neq_W_E) as Col_E_G_D.
+			pose proof (by_prop_Col_order _ _ _ Col_E_G_D) as (_ & _ & _ & Col_E_D_G & _).
 
 			contradict Col_E_D_G.
 			exact n_Col_E_D_G.

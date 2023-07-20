@@ -1,16 +1,16 @@
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
+Require Import ProofCheckingEuclid.by_prop_OnRay_ABC_ACB.
+Require Import ProofCheckingEuclid.by_prop_OnRay_neq_A_B.
+Require Import ProofCheckingEuclid.by_prop_OnRay_orderofpoints_any.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
-Require Import ProofCheckingEuclid.lemma_onray_ABC_ACB.
-Require Import ProofCheckingEuclid.lemma_onray_neq_A_B.
-Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_s_onray_congruence_betweenness.
 
 Section Euclid.
@@ -35,7 +35,7 @@ Proof.
 	intros Cong_AV_av.
 	intros Cong_UV_uv.
 
-	pose proof (lemma_onray_ABC_ACB _ _ _ OnRay_ab_u) as OnRay_au_b.
+	pose proof (by_prop_OnRay_ABC_ACB _ _ _ OnRay_ab_u) as OnRay_au_b.
 	pose proof (
 		lemma_s_onray_congruence_betweenness
 		_ _ _ _ _ _
@@ -46,8 +46,8 @@ Proof.
 	pose proof (
 		lemma_differenceofparts _ _ _ _ _ _ Cong_AU_au Cong_AB_ab BetS_A_U_B BetS_a_u_b
 	) as Cong_UB_ub.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_AV_av) as (Cong_VA_va & _).
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_UV_uv) as (Cong_VU_vu & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AV_av) as (Cong_VA_va & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_UV_uv) as (Cong_VU_vu & _).
 
 	(* △AUV and △auv are SSS congruent. *)
 	(* △VUB and △vub are SAS congruent. *)
@@ -65,7 +65,7 @@ Proof.
 		BetS_a_u_b
 		Cong_AU_au
 	) as Cong_VB_vb.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_VB_vb) as (Cong_BV_bv & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_VB_vb) as (Cong_BV_bv & _).
 
 	exact Cong_BV_bv.
 Qed.
@@ -89,9 +89,9 @@ Proof.
 	intros Cong_UV_uv.
 
 	assert (Cong A B a u) as Cong_AB_au by (rewrite eq_B_U; exact Cong_AU_au).
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_ab) as Cong_ab_AB.
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_ab_AB Cong_AB_au) as Cong_ab_au.
-	pose proof (lemma_onray_neq_A_B _ _ _ OnRay_ab_u) as neq_a_b.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AB_ab) as Cong_ab_AB.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_ab_AB Cong_AB_au) as Cong_ab_au.
+	pose proof (by_prop_OnRay_neq_A_B _ _ _ OnRay_ab_u) as neq_a_b.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_a_b) as OnRay_ab_b.
 	pose proof (lemma_layoffunique _ _ _ _ OnRay_ab_b OnRay_ab_u Cong_ab_au) as eq_b_u.
 
@@ -165,7 +165,7 @@ Proof.
 	intros Cong_UV_uv.
 
 	pose proof (
-		lemma_onray_orderofpoints_any _ _ _ OnRay_AB_U
+		by_prop_OnRay_orderofpoints_any _ _ _ OnRay_AB_U
 	) as [BetS_A_U_B | [eq_B_U | BetS_A_B_U]].
 	{
 		(* case BetS_A_U_B *)

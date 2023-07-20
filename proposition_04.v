@@ -1,9 +1,9 @@
+Require Import ProofCheckingEuclid.by_prop_CongA_NC.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
-Require Import ProofCheckingEuclid.lemma_NCorder.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_equalanglesNC.
 Require Import ProofCheckingEuclid.lemma_s_conga_sss.
 Require Import ProofCheckingEuclid.lemma_s_triangle_vertex_to_ray_congruent.
 
@@ -23,7 +23,7 @@ Proof.
 	intros Cong_AC_ac.
 	intros CongA_BAC_bac.
 
-	pose proof (lemma_equalanglesNC _ _ _ _ _ _ CongA_BAC_bac) as  nCol_b_a_c.
+	pose proof (by_prop_CongA_NC _ _ _ _ _ _ CongA_BAC_bac) as  nCol_b_a_c.
 
 	unfold CongA in CongA_BAC_bac.
 	destruct CongA_BAC_bac as (
@@ -45,7 +45,7 @@ Proof.
 		Cong_UV_uv
 	) as Cong_BV_bv.
 
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_BV_bv) as (Cong_VB_vb & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_BV_bv) as (Cong_VB_vb & _).
 	pose proof (
 		lemma_s_triangle_vertex_to_ray_congruent
 		_ _ _ _ _ _ _ _
@@ -56,14 +56,14 @@ Proof.
 		Cong_AB_ab
 		Cong_VB_vb
 	) as Cong_CB_cb.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_CB_cb) as (Cong_BC_bc & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_CB_cb) as (Cong_BC_bc & _).
 
 	pose proof (
-		lemma_NCorder _ _ _ nCol_B_A_C
+		by_prop_nCol_order _ _ _ nCol_B_A_C
 	) as (nCol_A_B_C & nCol_A_C_B & _).
 
 	pose proof (
-		lemma_NCorder _ _ _ nCol_b_a_c
+		by_prop_nCol_order _ _ _ nCol_b_a_c
 	) as (nCol_a_b_c & nCol_a_c_b & _).
 
 	pose proof (
