@@ -1,7 +1,7 @@
-Require Import ProofCheckingEuclid.euclidean_axioms.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.euclidean_axioms.
 
 Section Euclid.
 
@@ -20,7 +20,7 @@ Proof.
 	assert (Cong A E A E) as Cong_AE_AE by (apply cn_congruencereflexive).
 	assert (Cong B E B E) as Cong_BE_BE by (apply cn_congruencereflexive).
 	assert (Cong E B E B) as Cong_EB_EB by (apply cn_congruencereflexive).
-	apply lemma_congruencesymmetric in Cong_BE_BF as Cong_BF_BE.
+	apply by_prop_Cong_symmetric in Cong_BE_BF as Cong_BF_BE.
 
 	(* BetS A B E -> Col A B E -> DegenerateTriangle A B E *)
 	(* BetS A B E -> Col A B E -> DegenerateTriangle A B E *)
@@ -45,7 +45,7 @@ Proof.
 		Cong_AB_AB
 	) as Cong_EE_EF.
 
-	apply lemma_congruencesymmetric in Cong_EE_EF as Cong_EF_EE.
+	apply by_prop_Cong_symmetric in Cong_EE_EF as Cong_EF_EE.
 
 	assert (~ neq E F) as eq_E_F.
 	{

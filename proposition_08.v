@@ -1,11 +1,11 @@
+Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
+Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_NCdistinct.
-Require Import ProofCheckingEuclid.lemma_NCorder.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -30,8 +30,8 @@ Proof.
 	assert (nCol A B C) as nCol_A_B_C by (unfold Triangle in Triangle_ABC; exact Triangle_ABC).
 	assert (nCol D E F) as nCol_D_E_F by (unfold Triangle in Triangle_DEF; exact Triangle_DEF).
 
-	pose proof (lemma_NCdistinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
-	pose proof (lemma_NCdistinct _ _ _ nCol_D_E_F) as (neq_D_E & neq_E_F & neq_D_F & neq_E_D & neq_F_E & neq_F_D).
+	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
+	pose proof (by_prop_nCol_distinct _ _ _ nCol_D_E_F) as (neq_D_E & neq_E_F & neq_D_F & neq_E_D & neq_F_E & neq_F_D).
 
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_D_E) as OnRay_DE_E.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_D_F) as OnRay_DF_F.
@@ -46,11 +46,11 @@ Proof.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_A) as OnRay_CA_A.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_B) as OnRay_CB_B.
 
-	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (nCol_B_A_C & _ & _ & nCol_A_C_B & nCol_C_B_A).
+	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & _ & _ & nCol_A_C_B & nCol_C_B_A).
 
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_AB_DE) as (Cong_BA_ED & _ & _).
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_DF) as (Cong_CA_FD & _ & _).
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_BC_EF) as (Cong_CB_FE & _ & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_DE) as (Cong_BA_ED & _ & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AC_DF) as (Cong_CA_FD & _ & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_BC_EF) as (Cong_CB_FE & _ & _).
 
 	pose proof (
 		by_def_CongA

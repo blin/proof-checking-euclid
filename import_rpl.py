@@ -229,7 +229,7 @@ class NodeVisitor:
         head = vc[0]
         if len(vc) != 1:
             if isinstance(head, get_args(Assert)):
-                # assert (nCol A B C) by (assert (nCol B C A) by auto; (forward_using lemma_NCorder)).
+                # assert (nCol A B C) by (assert (nCol B C A) by auto; (forward_using by_prop_nCol_order)).
                 concludes = [e for e in vc[1:] if isinstance(e, LtacConclude)]
                 if len(concludes) == 1:
                     return concludes[0]
