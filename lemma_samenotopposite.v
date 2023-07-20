@@ -1,7 +1,7 @@
+Require Import ProofCheckingEuclid.by_prop_SameSide_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_planeseparation.
-Require Import ProofCheckingEuclid.lemma_samesidesymmetric.
 
 
 Section Euclid.
@@ -16,7 +16,7 @@ Proof.
 	intros A B C D.
 	intros SameSide_A_B_CD.
 
-	pose proof (lemma_samesidesymmetric _ _ _ _ SameSide_A_B_CD) as (SameSide_B_A_CD & _ & _).
+	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_A_B_CD) as (SameSide_B_A_CD & _ & _).
 
 	assert (~ OppositeSide A C D B) as n_OppositeSide_A_CD_B.
 	{

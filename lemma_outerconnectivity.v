@@ -1,8 +1,8 @@
+Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
 Require Import ProofCheckingEuclid.euclidean_axioms.
-Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_congruencetransitive.
 Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_extensionunique.
@@ -28,8 +28,8 @@ Proof.
 	intros nBetS_B_C_D.
 	intros nBetS_B_D_C.
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_C) as (_ & _ & neq_A_C).
-	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_D) as (_ & _ & neq_A_D).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_B_C) as (_ & _ & neq_A_C).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_B_D) as (_ & _ & neq_A_D).
 	pose proof (lemma_extension _ _ _ _ neq_A_C neq_A_D) as (E & BetS_A_C_E & Cong_CE_AD).
 	pose proof (lemma_extension _ _ _ _ neq_A_D neq_A_C) as (F & BetS_A_D_F & Cong_DF_AC).
 
@@ -38,15 +38,15 @@ Proof.
 	pose proof (lemma_orderofpoints_ABD_BCD_ACD _ _ _ _ BetS_F_D_A BetS_D_B_A) as BetS_F_B_A.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_F_B_A) as BetS_A_B_F.
 	pose proof (cn_congruencereverse F D) as Cong_FD_DF.
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_FD_DF Cong_DF_AC) as Cong_FD_AC.
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_CE_AD) as Cong_AD_CE.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_FD_DF Cong_DF_AC) as Cong_FD_AC.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_CE_AD) as Cong_AD_CE.
 	pose proof (cn_congruencereverse D A) as Cong_DA_AD.
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_DA_AD Cong_AD_CE) as Cong_DA_CE.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_DA_AD Cong_AD_CE) as Cong_DA_CE.
 	pose proof (
 		cn_sumofparts _ _ _ _ _ _ Cong_FD_AC Cong_DA_CE BetS_F_D_A BetS_A_C_E
 	) as Cong_FA_AE.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_FA_AE) as (_ & Cong_AF_AE & _).
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AF_AE) as Cong_AE_AF.
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_FA_AE) as (_ & Cong_AF_AE & _).
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AF_AE) as Cong_AE_AF.
 
 	pose proof (cn_congruencereflexive A B) as Cong_AB_AB.
 	pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_A_B_C BetS_A_C_E) as BetS_A_B_E.

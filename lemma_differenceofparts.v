@@ -1,11 +1,11 @@
-Require Import ProofCheckingEuclid.euclidean_axioms.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_congruencetransitive.
-Require Import ProofCheckingEuclid.lemma_doublereverse.
-Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_localextension.
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_prop_Cong_doublereverse.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
+Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
+Require Import ProofCheckingEuclid.euclidean_axioms.
+Require Import ProofCheckingEuclid.lemma_localextension.
 
 
 Section Euclid.
@@ -23,7 +23,7 @@ Proof.
 	intros eq_B_A.
 
 	assert (Cong A A a b) as Cong_AA_ab by (setoid_rewrite <- eq_B_A at 2; exact Cong_AB_ab).
-	apply lemma_congruencesymmetric in Cong_AA_ab as Cong_ab_AA.
+	apply by_prop_Cong_symmetric in Cong_AA_ab as Cong_ab_AA.
 
 	assert (~ neq a b) as eq_a_b.
 	{
@@ -44,10 +44,10 @@ Proof.
 	pose proof(cn_congruencereflexive a c) as Cong_ac_ac.
 	assert (Cong b c a c) as Cong_bc_ac by (rewrite <- eq_a_b; exact Cong_ac_ac).
 
-	apply lemma_congruencesymmetric in Cong_bc_ac as Cong_ac_bc.
+	apply by_prop_Cong_symmetric in Cong_bc_ac as Cong_ac_bc.
 
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_ac Cong_ac_bc) as Cong_AC_bc.
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BC_AC Cong_AC_bc) as Cong_BC_bc.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_AC_ac Cong_ac_bc) as Cong_AC_bc.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_BC_AC Cong_AC_bc) as Cong_BC_bc.
 
 	exact Cong_BC_bc.
 Qed.
@@ -75,20 +75,20 @@ Proof.
 		exact nBetS_A_B_A.
 	}
 
-	apply lemma_inequalitysymmetric in neq_C_A as neq_A_C.
+	apply by_prop_neq_symmetric in neq_C_A as neq_A_C.
 
 	pose proof (lemma_localextension _ _ _ neq_C_A neq_A_C) as (E & BetS_C_A_E & Cong_AE_AC).
 
 	pose proof (axiom_nocollapse _ _ _ _ neq_A_C Cong_AC_ac) as neq_a_c.
-	apply lemma_inequalitysymmetric in neq_a_c as neq_c_a.
+	apply by_prop_neq_symmetric in neq_a_c as neq_c_a.
 	pose proof (lemma_localextension _ _ _ neq_c_a neq_a_c) as (e & BetS_c_a_e & Cong_ae_ac).
 
-	apply lemma_congruencesymmetric in Cong_ae_ac as Cong_ac_ae.
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AC_ac Cong_ac_ae) as Cong_AC_ae.
-	apply lemma_congruencesymmetric in Cong_AC_ae as Cong_ae_AC.
-	apply lemma_congruencesymmetric in Cong_AE_AC as Cong_AC_AE.
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_ae_AC Cong_AC_AE) as Cong_ae_AE.
-	apply lemma_doublereverse in Cong_ae_AE as (Cong_EA_ea & Cong_ea_EA).
+	apply by_prop_Cong_symmetric in Cong_ae_ac as Cong_ac_ae.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_AC_ac Cong_ac_ae) as Cong_AC_ae.
+	apply by_prop_Cong_symmetric in Cong_AC_ae as Cong_ae_AC.
+	apply by_prop_Cong_symmetric in Cong_AE_AC as Cong_AC_AE.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_ae_AC Cong_AC_AE) as Cong_ae_AE.
+	apply by_prop_Cong_doublereverse in Cong_ae_AE as (Cong_EA_ea & Cong_ea_EA).
 
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_A_E) as BetS_E_A_C.
@@ -97,8 +97,8 @@ Proof.
 	pose proof (
 		cn_sumofparts E A C e a c Cong_EA_ea Cong_AC_ac BetS_E_A_C BetS_e_a_c
 	) as Cong_EC_ec.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_EC_ec) as (Cong_CE_ce & _).
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_ac) as (Cong_CA_ca & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_EC_ec) as (Cong_CE_ce & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AC_ac) as (Cong_CA_ca & _).
 
 	pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_E_A_C BetS_A_B_C) as BetS_E_A_B.
 	pose proof (axiom_orderofpoints_ABD_BCD_ABC _ _ _ _ BetS_e_a_c BetS_a_b_c) as BetS_e_a_b.
@@ -125,7 +125,7 @@ Proof.
 		BetS_e_a_b
 		Cong_EA_ea
 	) as Cong_CB_cb.
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_CB_cb) as (Cong_BC_bc & _ & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_CB_cb) as (Cong_BC_bc & _ & _).
 
 	exact Cong_BC_bc.
 Qed.

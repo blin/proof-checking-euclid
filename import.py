@@ -96,8 +96,8 @@ def print_requirements(w: TextIO, t: Top) -> None:
         }
     if "nCol" in rs:
         rs |= {
-            "lemma_NCdistinct",
-            "lemma_NCorder",
+            "by_prop_nCol_distinct",
+            "by_prop_nCol_order",
             "lemma_s_n_col_ncol",
             "lemma_s_ncol_n_col",
         }
@@ -128,7 +128,7 @@ lemmas_can_be_forward_using = [
     "lemma_crossimpliesopposite",
     "lemma_legsmallerhypotenuse",
     "lemma_righttogether",
-    "lemma_supplementofright",
+    "by_prop_RightTriangle_supplement",
     "lemma_together",
     "lemma_togethera",
     "proposition_04",
@@ -343,7 +343,7 @@ class LemmaPrinter:
         self.process_indent()
         self.w.write(f"pose proof ({proof}) as ({asss}).\n")
 
-    def assert_by_lemma_onray_assert(self, a: LtacAssertBy) -> None:
+    def assert_by_by_prop_OnRay_assert(self, a: LtacAssertBy) -> None:
         e = a.prop
         hhs = self.context.get_props()
         hhs = [h for h in hhs if isinstance(h, PropSimple)]
@@ -464,15 +464,15 @@ class LemmaPrinter:
                 self.assert_by_cn_equalitysub(a)
                 self.context.add_prop(a.prop)
                 return
-            case "lemma_onray_assert":
-                self.assert_by_lemma_onray_assert(a)
+            case "by_prop_OnRay_assert":
+                self.assert_by_by_prop_OnRay_assert(a)
                 self.context.add_prop(a.prop)
                 return
             case "lemma_extension":
                 self.assert_by_lemma_extension(a)
                 self.context.add_prop(a.prop)
                 return
-            case "lemma_onray_orderofpoints_any" | "cn_equalitytransitive":
+            case "by_prop_OnRay_orderofpoints_any" | "cn_equalitytransitive":
                 # somehow this is not forward_using
                 proof = a.by.n + "???"
                 self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")

@@ -1,8 +1,8 @@
+Require Import ProofCheckingEuclid.by_prop_CongA_distinct.
+Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.
+Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_NCorder.
-Require Import ProofCheckingEuclid.lemma_angledistinct.
-Require Import ProofCheckingEuclid.lemma_equalanglessymmetric.
 Require Import ProofCheckingEuclid.lemma_trichotomy_equal.
 Require Import ProofCheckingEuclid.proposition_06a.
 
@@ -21,11 +21,11 @@ Proof.
 	intros CongA_ABC_ACB.
 
 	assert (nCol A B C) as nCol_A_B_C by (unfold Triangle in Triangle_ABC; exact Triangle_ABC).
-	pose proof (lemma_NCorder _ _ _ nCol_A_B_C) as (_ & _ & _ & nCol_A_C_B & _).
+	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (_ & _ & _ & nCol_A_C_B & _).
 	assert (Triangle A C B) as Triangle_ACB by (unfold Triangle; exact nCol_A_C_B ).
 
-	pose proof (lemma_angledistinct _ _ _ _ _ _ CongA_ABC_ACB) as (neq_A_B & _ & neq_A_C & _ & _ & _).
-	pose proof (lemma_equalanglessymmetric _ _ _ _ _ _ CongA_ABC_ACB) as CongA_ACB_ABC.
+	pose proof (by_prop_CongA_distinct _ _ _ _ _ _ CongA_ABC_ACB) as (neq_A_B & _ & neq_A_C & _ & _ & _).
+	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_ABC_ACB) as CongA_ACB_ABC.
 
 	pose proof (proposition_06a _ _ _ Triangle_ABC CongA_ABC_ACB) as n_Lt_AC_AB.
 	pose proof (proposition_06a _ _ _ Triangle_ACB CongA_ACB_ABC) as n_Lt_AB_AC.

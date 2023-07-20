@@ -1,12 +1,12 @@
 Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
+Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
+Require Import ProofCheckingEuclid.by_prop_Lt_transitive.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
-Require Import ProofCheckingEuclid.lemma_lessthancongruence.
-Require Import ProofCheckingEuclid.lemma_lessthantransitive.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
@@ -35,10 +35,10 @@ Proof.
 	pose proof (cn_congruencereverse B E) as Cong_BE_EB.
 	pose proof (cn_congruencereverse E D) as Cong_ED_DE.
 
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BC_DE) as Cong_DE_BC.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_BC_DE) as Cong_DE_BC.
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_C) as (_ & neq_A_B & _).
-	pose proof (lemma_betweennotequal _ _ _ BetS_A_C_E) as (neq_C_E & _ & _).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_B_C) as (_ & neq_A_B & _).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_C_E) as (neq_C_E & _ & _).
 
 	pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_A_B_C BetS_A_C_E) as BetS_A_B_E.
 	pose proof (lemma_orderofpoints_ABC_ACD_BCD _ _ _ _ BetS_A_B_C BetS_A_C_E) as BetS_B_C_E.
@@ -47,7 +47,7 @@ Proof.
 	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_A_B_E neq_A_B) as OnRay_AB_E.
 
 	pose proof (by_def_Lt _ _ _ _ _ BetS_B_C_E Cong_BC_BC) as Lt_BC_BE.
-	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_BC_BE Cong_BE_EB) as Lt_BC_EB.
+	pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_BC_BE Cong_BE_EB) as Lt_BC_EB.
 
 
 	assert (~ BetS A D B) as n_BetS_A_D_B.
@@ -61,9 +61,9 @@ Proof.
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_B_E) as BetS_E_B_D.
 
 		pose proof (by_def_Lt _ _ _ _ _ BetS_E_B_D Cong_EB_EB) as Lt_EB_ED.
-		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_EB_ED Cong_ED_DE) as Lt_EB_DE.
-		pose proof (lemma_lessthantransitive _ _ _ _ _ _ Lt_BC_EB Lt_EB_DE) as Lt_BC_DE.
-		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_BC_DE Cong_DE_BC) as Lt_BC_BC.
+		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_EB_ED Cong_ED_DE) as Lt_EB_DE.
+		pose proof (by_prop_Lt_transitive _ _ _ _ _ _ Lt_BC_EB Lt_EB_DE) as Lt_BC_DE.
+		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_BC_DE Cong_DE_BC) as Lt_BC_BC.
 
 		pose proof (lemma_trichotomy_asymmetric _ _ _ _ Lt_BC_BC) as n_Lt_BC_BC.
 

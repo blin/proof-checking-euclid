@@ -1,11 +1,11 @@
-Require Import ProofCheckingEuclid.euclidean_axioms.
-Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_congruencetransitive.
-Require Import ProofCheckingEuclid.lemma_doublereverse.
-Require Import ProofCheckingEuclid.lemma_localextension.
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
+Require Import ProofCheckingEuclid.by_prop_Cong_doublereverse.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
+Require Import ProofCheckingEuclid.euclidean_axioms.
+Require Import ProofCheckingEuclid.lemma_localextension.
 
 Section Euclid.
 
@@ -25,15 +25,15 @@ Proof.
 	intros Cong_BC_bc.
 	intros BetS_A_B_C.
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_A_B_C) as (neq_B_C & neq_A_B & neq_A_C).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_B_C) as (neq_B_C & neq_A_B & neq_A_C).
 	pose proof (axiom_nocollapse _ _ _ _ neq_A_B Cong_AB_ab) as neq_a_b.
 	pose proof (axiom_nocollapse _ _ _ _ neq_B_C Cong_BC_bc) as neq_b_c.
 	pose proof (lemma_localextension _ _ _ neq_a_b neq_b_c) as (d & BetS_a_b_d & Cong_bd_bc).
 
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_AC_ac) as (Cong_CA_ca & _).
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_BC_bc) as (Cong_CB_cb & _).
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_bd_bc) as Cong_bc_bd.
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BC_bc Cong_bc_bd) as Cong_BC_bd.
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AC_ac) as (Cong_CA_ca & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_BC_bc) as (Cong_CB_cb & _).
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_bd_bc) as Cong_bc_bd.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_BC_bc Cong_bc_bd) as Cong_BC_bd.
 
 	(* BetS A B C -> Col A B C -> DegenerateTriangle A B C *)
 	(* BetS a b c -> Col a b c -> DegenerateTriangle a b c *)
@@ -59,8 +59,8 @@ Proof.
 		Cong_AB_ab
 	) as Cong_CC_cd.
 
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_CC_cd) as (Cong_CC_dc & _).
-	pose proof (lemma_doublereverse _ _ _ _ Cong_CC_dc) as (Cong_cd_CC & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_CC_cd) as (Cong_CC_dc & _).
+	pose proof (by_prop_Cong_doublereverse _ _ _ _ Cong_CC_dc) as (Cong_cd_CC & _).
 
 	assert (~ neq c d) as eq_c_d.
 	{

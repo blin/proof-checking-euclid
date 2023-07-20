@@ -1,16 +1,16 @@
+Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
+Require Import ProofCheckingEuclid.by_prop_Cong_doublereverse.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_OnRay_orderofpoints_any.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
 Require Import ProofCheckingEuclid.lemma_differenceofparts.
-Require Import ProofCheckingEuclid.lemma_doublereverse.
 Require Import ProofCheckingEuclid.lemma_extensionunique.
 Require Import ProofCheckingEuclid.lemma_interior5.
-Require Import ProofCheckingEuclid.lemma_onray_orderofpoints_any.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
-Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -28,16 +28,16 @@ Proof.
 	intros OnRay_AB_D.
 	intros Cong_AC_AD.
 
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AC_AD) as Cong_AD_AC.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AC_AD) as Cong_AD_AC.
 	pose proof (cn_congruencereflexive A B) as Cong_AB_AB.
 	pose proof (cn_congruencereflexive B C) as Cong_BC_BC.
 	pose proof (cn_congruencereflexive A C) as Cong_AC_AC.
 
 	pose proof (
-		lemma_onray_orderofpoints_any _ _ _ OnRay_AB_C
+		by_prop_OnRay_orderofpoints_any _ _ _ OnRay_AB_C
 	) as BetS_A_C_B_or_eq_B_C_or_BetS_A_B_C.
 	pose proof (
-		lemma_onray_orderofpoints_any _ _ _ OnRay_AB_D
+		by_prop_OnRay_orderofpoints_any _ _ _ OnRay_AB_D
 	) as BetS_A_D_B_or_eq_B_D_or_BetS_A_B_D.
 
 	destruct BetS_A_C_B_or_eq_B_C_or_BetS_A_B_C as [BetS_A_C_B | [eq_B_C | BetS_A_B_C]].
@@ -49,7 +49,7 @@ Proof.
 			pose proof (
 				lemma_differenceofparts _ _ _ _ _ _ Cong_AC_AD Cong_AB_AB BetS_A_C_B BetS_A_D_B
 			) as Cong_CB_DB.
-			pose proof (lemma_congruenceflip _ _ _ _ Cong_CB_DB) as (Cong_BC_BD & _ & _).
+			pose proof (by_prop_Cong_flip _ _ _ _ Cong_CB_DB) as (Cong_BC_BD & _ & _).
 			pose proof (
 				lemma_interior5
 				_ _ _ _
@@ -65,7 +65,7 @@ Proof.
 			{
 				intros neq_C_D.
 
-				pose proof (lemma_doublereverse _ _ _ _ Cong_CC_DC) as (Cong_CD_CC & _).
+				pose proof (by_prop_Cong_doublereverse _ _ _ _ Cong_CC_DC) as (Cong_CD_CC & _).
 				pose proof (axiom_nocollapse _ _ _ _ neq_C_D Cong_CD_CC) as neq_C_C.
 				unfold neq in neq_C_C.
 				assert (eq C C) as eq_C_C by (reflexivity).
@@ -115,7 +115,7 @@ Proof.
 	{
 		(* case eq_B_C *)
 		assert (Cong A B A D) as Cong_AB_AD by (rewrite eq_B_C; exact Cong_AC_AD).
-		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_AD) as Cong_AD_AB.
+		pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AB_AD) as Cong_AD_AB.
 		destruct BetS_A_D_B_or_eq_B_D_or_BetS_A_B_D as [BetS_A_D_B | [eq_B_D | BetS_A_B_D]].
 		{
 			(* case BetS_A_D_B *)
@@ -185,7 +185,7 @@ Proof.
 		}
 		{
 			(* case BetS_A_B_D *)
-			pose proof (lemma_betweennotequal _ _ _ BetS_A_B_D) as (_ & neq_A_B & _).
+			pose proof (by_prop_BetS_notequal _ _ _ BetS_A_B_D) as (_ & neq_A_B & _).
 			pose proof (
 				lemma_differenceofparts _ _ _ _ _ _ Cong_AB_AB Cong_AC_AD BetS_A_B_C BetS_A_B_D
 			) as Cong_BC_BD.
