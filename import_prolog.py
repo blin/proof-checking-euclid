@@ -151,8 +151,8 @@ def prolog_lemmas(
         "cn_equalitytransitive",
         "isosceles",
         "lemma_extension",
-        "lemma_onray_assert",
-        "lemma_onray_orderofpoints_any",
+        "by_prop_OnRay_assert",
+        "by_prop_OnRay_orderofpoints_any",
         "postulate_circle_circle",
     }
 

@@ -1,9 +1,9 @@
+Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_betweennesspreserved.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_congruencetransitive.
-Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -30,7 +30,7 @@ Proof.
 	{
 		(* case eq_A_B *)
 		assert (Cong A A a b) as Cong_AA_ab by (setoid_rewrite eq_A_B at 2; exact Cong_AB_ab).
-		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AA_ab) as Cong_ab_AA.
+		pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AA_ab) as Cong_ab_AA.
 		assert (~ neq a b) as eq_a_b.
 		{
 			intros neq_a_b.
@@ -48,7 +48,7 @@ Proof.
 	{
 		(* case eq_A_C *)
 		assert (Cong A A a c) as Cong_AA_ac by (setoid_rewrite eq_A_C at 2; exact Cong_AC_ac).
-		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AA_ac) as Cong_ac_AA.
+		pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AA_ac) as Cong_ac_AA.
 		assert (~ neq a c) as eq_a_c.
 		{
 			intros neq_a_c.
@@ -66,7 +66,7 @@ Proof.
 	{
 		(* case eq_B_C *)
 		assert (Cong B B b c) as Cong_BB_bc by (setoid_rewrite eq_B_C at 2; exact Cong_BC_bc).
-		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_BB_bc) as Cong_bc_BB.
+		pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_BB_bc) as Cong_bc_BB.
 		assert (~ neq b c) as eq_b_c.
 		{
 			intros neq_b_c.
@@ -85,9 +85,9 @@ Proof.
 		(* case BetS_B_A_C *)
 		pose proof (cn_congruencereverse a b) as Cong_ab_ba.
 		pose proof (cn_congruencereverse A B) as Cong_AB_BA.
-		pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_AB_ab Cong_ab_ba) as Cong_AB_ba.
-		pose proof (lemma_congruencesymmetric _ _ _ _ Cong_AB_BA) as Cong_BA_AB.
-		pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_BA_AB Cong_AB_ba) as Cong_BA_ba.
+		pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_AB_ab Cong_ab_ba) as Cong_AB_ba.
+		pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AB_BA) as Cong_BA_AB.
+		pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_BA_AB Cong_AB_ba) as Cong_BA_ba.
 		pose proof (
 			lemma_betweennesspreserved _ _ _ _ _ _ Cong_BA_ba Cong_BC_bc Cong_AC_ac BetS_B_A_C
 		) as BetS_b_a_c.
@@ -104,8 +104,8 @@ Proof.
 		(* case BetS_A_C_B *)
 		pose proof (cn_congruencereverse C B) as Cong_CB_BC.
 		pose proof (cn_congruencereverse b c) as Cong_bc_cb.
-		pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_CB_BC Cong_BC_bc) as Cong_CB_bc.
-		pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_CB_bc Cong_bc_cb) as Cong_CB_cb.
+		pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_CB_BC Cong_BC_bc) as Cong_CB_bc.
+		pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_CB_bc Cong_bc_cb) as Cong_CB_cb.
 		pose proof (
 			lemma_betweennesspreserved _ _ _ _ _ _ Cong_AC_ac Cong_AB_ab Cong_CB_cb BetS_A_C_B
 		) as BetS_a_c_b.

@@ -11,13 +11,13 @@ Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.by_def_isosceles.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
+Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
+Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
-Require Import ProofCheckingEuclid.lemma_NCdistinct.
-Require Import ProofCheckingEuclid.lemma_NCorder.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
@@ -38,13 +38,13 @@ Proof.
 
 	destruct Lt_AB_CD as (E & BetS_C_E_D & Cong_CE_AB).
 
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_CE_AB) as Cong_AB_CE.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_CE_AB) as Cong_AB_CE.
 
 	assert (~ Lt C D A B) as n_Lt_CD_AB.
 	{
 		intro Lt_CD_AB.
 
-		pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_CD_AB Cong_AB_CE) as Lt_CD_CE.
+		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_CD_AB Cong_AB_CE) as Lt_CD_CE.
 		destruct Lt_CD_CE as (F & BetS_C_F_E & Cong_CF_CD).
 
 		pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_C_F_E BetS_C_E_D) as BetS_C_F_D.

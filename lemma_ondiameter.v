@@ -1,12 +1,12 @@
+Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
+Require Import ProofCheckingEuclid.by_prop_eq_symmetric.
+Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_equalitysymmetric.
-Require Import ProofCheckingEuclid.lemma_inequalitysymmetric.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_s_incirc_centre.
 Require Import ProofCheckingEuclid.lemma_s_incirc_within_radius.
-Require Coq.Logic.Classical_Prop.
 
 Section Euclid.
 
@@ -30,8 +30,8 @@ Proof.
 
 	pose proof (cn_congruencereflexive F N) as Cong_FN_FN.
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_D_F_M) as (_ & neq_D_F & _).
-	pose proof (lemma_inequalitysymmetric _ _ neq_D_F) as neq_F_D.
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_F_M) as (_ & neq_D_F & _).
+	pose proof (by_prop_neq_symmetric _ _ neq_D_F) as neq_F_D.
 
 	assert (~ ~ (BetS D N F \/ BetS F N M \/ eq F N)) as n_n_BetS_D_N_F_or_BetS_F_N_M_or_eq_F_N.
 	{
@@ -79,7 +79,7 @@ Proof.
 	}
 	{
 		(* case eq_F_N *)
-		pose proof (lemma_equalitysymmetric _ _ eq_F_N) as eq_N_F.
+		pose proof (by_prop_eq_symmetric _ _ eq_F_N) as eq_N_F.
 		assert (CI K N P Q) as CI_K_N_P_Q by (rewrite eq_N_F; exact CI_K_F_P_Q).
 
 		pose proof (lemma_s_incirc_centre _ _ _ _ CI_K_N_P_Q) as InCirc_N_K.

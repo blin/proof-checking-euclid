@@ -1,7 +1,7 @@
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_lessthancongruence.
 
 Section Euclid.
 
@@ -17,8 +17,8 @@ Proof.
 	intros Lt_CD_AB.
 	intros Cong_EF_AB.
 
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_EF_AB) as Cong_AB_EF.
-	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_CD_AB Cong_AB_EF) as Lt_CD_EF.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_EF_AB) as Cong_AB_EF.
+	pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_CD_AB Cong_AB_EF) as Lt_CD_EF.
 	destruct Lt_CD_EF as (G & BetS_E_G_F & Cong_EG_CD).
 
 	exists G.

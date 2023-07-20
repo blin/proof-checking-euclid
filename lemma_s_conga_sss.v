@@ -1,8 +1,8 @@
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
+Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_NCdistinct.
-Require Import ProofCheckingEuclid.lemma_congruenceflip.
 
 Section Euclid.
 
@@ -25,18 +25,18 @@ Proof.
 	intros nCol_a_b_c.
 
 	pose proof (
-		lemma_NCdistinct _ _ _ nCol_A_B_C
+		by_prop_nCol_distinct _ _ _ nCol_A_B_C
 	) as (_ & neq_B_C & _ & neq_B_A & _).
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_C) as OnRay_BC_C.
 
 	pose proof (
-		lemma_NCdistinct _ _ _ nCol_a_b_c
+		by_prop_nCol_distinct _ _ _ nCol_a_b_c
 	) as (neq_a_b & neq_b_c & neq_a_c & neq_b_a & _).
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_b_a) as OnRay_ba_a.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_b_c) as OnRay_bc_c.
 
-	pose proof (lemma_congruenceflip _ _ _ _ Cong_AB_ab) as (Cong_BA_ba & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_ab) as (Cong_BA_ba & _).
 
 	unfold CongA.
 	exists A, C, a, c.

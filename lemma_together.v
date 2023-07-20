@@ -1,10 +1,10 @@
+Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
+Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
+Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
+Require Import ProofCheckingEuclid.by_prop_Lt_congruence_smaller.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_betweennotequal.
-Require Import ProofCheckingEuclid.lemma_congruencesymmetric.
-Require Import ProofCheckingEuclid.lemma_congruencetransitive.
-Require Import ProofCheckingEuclid.lemma_lessthancongruence.
-Require Import ProofCheckingEuclid.lemma_lessthancongruence_smaller.
 
 Section Euclid.
 
@@ -30,21 +30,21 @@ Proof.
 
 	destruct TogetherGreater_Aa_Bb_Cc as (R & BetS_A_a_R & Cong_aR_Bb & Lt_Cc_AR).
 
-	pose proof (lemma_betweennotequal _ _ _ BetS_A_a_R) as (neq_a_R & neq_A_a & _).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_a_R) as (neq_a_R & neq_A_a & _).
 
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_aR_Bb) as Cong_Bb_aR.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_aR_Bb) as Cong_Bb_aR.
 	pose proof (axiom_nocollapse _ _ _ _ neq_a_R Cong_aR_Bb) as neq_B_b.
 
-	pose proof (lemma_congruencetransitive _ _ _ _ _ _ Cong_FG_Bb Cong_Bb_aR) as Cong_FG_aR.
+	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_FG_Bb Cong_Bb_aR) as Cong_FG_aR.
 	pose proof (cn_sumofparts _ _ _ _ _ _ Cong_DF_Aa Cong_FG_aR BetS_D_F_G BetS_A_a_R) as Cong_DG_AR.
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_DG_AR) as Cong_AR_DG.
-	pose proof (lemma_congruencesymmetric _ _ _ _ Cong_PQ_Cc) as Cong_Cc_PQ.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_DG_AR) as Cong_AR_DG.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_PQ_Cc) as Cong_Cc_PQ.
 
-	pose proof (lemma_lessthancongruence_smaller _ _ _ _ _ _ Lt_Cc_AR Cong_Cc_PQ) as Lt_PQ_AR.
-	pose proof (lemma_lessthancongruence _ _ _ _ _ _ Lt_PQ_AR Cong_AR_DG) as Lt_PQ_DG.
+	pose proof (by_prop_Lt_congruence_smaller _ _ _ _ _ _ Lt_Cc_AR Cong_Cc_PQ) as Lt_PQ_AR.
+	pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_PQ_AR Cong_AR_DG) as Lt_PQ_DG.
 
 	destruct Lt_Cc_AR as (S & BetS_A_S_R & Cong_AS_Cc).
-	pose proof (lemma_betweennotequal _ _ _ BetS_A_S_R) as (_ & neq_A_S & _).
+	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_S_R) as (_ & neq_A_S & _).
 	pose proof (axiom_nocollapse _ _ _ _ neq_A_S Cong_AS_Cc) as neq_C_c.
 
 	split.
