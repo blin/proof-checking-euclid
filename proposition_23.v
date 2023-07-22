@@ -1,6 +1,7 @@
 Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Triangle.
+Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_TogetherGreater_flip.
 Require Import ProofCheckingEuclid.by_prop_TogetherGreater_symmetric.
@@ -8,7 +9,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.proposition_20.
 Require Import ProofCheckingEuclid.proposition_22.
 
@@ -48,7 +48,7 @@ Proof.
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AG_EC) as (_ & _ & Cong_AG_CE).
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_GF_ED) as (Cong_FG_DE & _ & _).
 
-	pose proof (lemma_s_ncol_triangle _ _ _ Triangle_AGF) as nCol_A_G_F.
+	pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_AGF) as nCol_A_G_F.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_G_F) as (neq_A_G & _ & neq_A_F & _ & _ & _).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_G_F) as (_ & _ & nCol_F_A_G & _ & _).
 

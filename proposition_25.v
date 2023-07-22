@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
 Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence_smaller.
@@ -5,7 +6,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF.
-Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_24.
@@ -30,8 +30,8 @@ Proof.
 	intros Cong_AC_DF.
 	intros Lt_EF_BC.
 
-	pose proof (lemma_s_ncol_triangle _ _ _ Triangle_ABC) as nCol_A_B_C.
-	pose proof (lemma_s_ncol_triangle _ _ _ Triangle_DEF) as nCol_D_E_F.
+	pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_ABC) as nCol_A_B_C.
+	pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_DEF) as nCol_D_E_F.
 
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
 	pose proof (by_prop_nCol_order _ _ _ nCol_D_E_F) as (nCol_E_D_F & nCol_E_F_D & nCol_F_D_E & nCol_D_F_E & nCol_F_E_D).

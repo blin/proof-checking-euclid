@@ -78,7 +78,7 @@ def extract_requirements_top(t: Top) -> set[str]:
 def print_requirements(w: TextIO, t: Top) -> None:
     rs = extract_requirements_top(t)
     if "Triangle" in rs:
-        rs |= {"lemma_s_ncol_triangle", "by_def_Triangle"}
+        rs |= {"by_def_nCol_from_Triangle", "by_def_Triangle"}
     if "OnRay" in rs:
         rs |= {
             "by_def_OnRay_from_neq_A_B",
@@ -304,7 +304,7 @@ class LemmaPrinter:
                     case "nCol":
                         self.process_indent()
                         self.w.write(
-                            f"pose proof (lemma_s_ncol_triangle _ _ _ Triangle_{A}_{B}_{C}) as nCol_{A}_{B}_{C}.\n"
+                            f"pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_{A}_{B}_{C}) as nCol_{A}_{B}_{C}.\n"
                         )
                     case "Triangle":
                         self.process_indent()
@@ -317,11 +317,11 @@ class LemmaPrinter:
                 P, J = a.prop.points
                 U, V, W, X, Y = "U", "V", "W", "X", "Y"
                 self.w.write(
-                    f"pose proof (lemma_s_incirc_centre _ _ _ _ CI_{J}_{P}_{V}_{W}) as {a.prop.to_var()}.\n"
+                    f"pose proof (by_def_InCirc_center _ _ _ _ CI_{J}_{P}_{V}_{W}) as {a.prop.to_var()}.\n"
                 )
                 self.process_indent()
                 self.w.write(
-                    f"pose proof (lemma_s_incirc_within_radius _ _ _ _ _ _ _ CI_{J}_{U}_{V}_{W} BetS_{U}_{Y}_{X} Cong_{U}_{X}_{V}_{W} Cong_{U}_{P}_{U}_{Y}) as {a.prop.to_var()}.\n"
+                    f"pose proof (by_def_InCirc_within_radius _ _ _ _ _ _ _ CI_{J}_{U}_{V}_{W} BetS_{U}_{Y}_{X} Cong_{U}_{X}_{V}_{W} Cong_{U}_{P}_{U}_{Y}) as {a.prop.to_var()}.\n"
                 )
             case _:
                 self.process_indent()
