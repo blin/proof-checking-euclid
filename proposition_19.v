@@ -1,6 +1,7 @@
 Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.by_def_isosceles.
+Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
 Require Import ProofCheckingEuclid.by_prop_CongA_ABCequalsCBA.
 Require Import ProofCheckingEuclid.by_prop_CongA_reflexive.
 Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.
@@ -13,7 +14,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_angletrichotomy.
-Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 Require Import ProofCheckingEuclid.lemma_trichotomy_equal.
 Require Import ProofCheckingEuclid.proposition_05.
 Require Import ProofCheckingEuclid.proposition_18.
@@ -32,7 +32,7 @@ Proof.
 	intros Triangle_ABC.
 	intros LtA_BCA_ABC.
 
-	pose proof (lemma_s_ncol_triangle _ _ _ Triangle_ABC) as nCol_A_B_C.
+	pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_ABC) as nCol_A_B_C.
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (_ & nCol_B_C_A & _ & nCol_A_C_B & _).
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & _ & neq_A_C & _ & _ & _).
 

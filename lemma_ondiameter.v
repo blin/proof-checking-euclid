@@ -1,12 +1,12 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_InCirc_center.
+Require Import ProofCheckingEuclid.by_def_InCirc_within_radius.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_eq_symmetric.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
-Require Import ProofCheckingEuclid.lemma_s_incirc_centre.
-Require Import ProofCheckingEuclid.lemma_s_incirc_within_radius.
 
 Section Euclid.
 
@@ -67,13 +67,13 @@ Proof.
 	{
 		(* case BetS_D_N_F *)
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_N_F) as BetS_F_N_D.
-		pose proof (lemma_s_incirc_within_radius _ _ _ _ _ _ _ CI_K_F_P_Q BetS_F_N_D Cong_FD_PQ Cong_FN_FN) as InCirc_N_K.
+		pose proof (by_def_InCirc_within_radius _ _ _ _ _ _ _ CI_K_F_P_Q BetS_F_N_D Cong_FD_PQ Cong_FN_FN) as InCirc_N_K.
 
 		exact InCirc_N_K.
 	}
 	{
 		(* case BetS_F_N_M *)
-		pose proof (lemma_s_incirc_within_radius _ _ _ _ _ _ _ CI_K_F_P_Q BetS_F_N_M Cong_FM_PQ Cong_FN_FN) as InCirc_N_K.
+		pose proof (by_def_InCirc_within_radius _ _ _ _ _ _ _ CI_K_F_P_Q BetS_F_N_M Cong_FM_PQ Cong_FN_FN) as InCirc_N_K.
 
 		exact InCirc_N_K.
 	}
@@ -82,7 +82,7 @@ Proof.
 		pose proof (by_prop_eq_symmetric _ _ eq_F_N) as eq_N_F.
 		assert (CI K N P Q) as CI_K_N_P_Q by (rewrite eq_N_F; exact CI_K_F_P_Q).
 
-		pose proof (lemma_s_incirc_centre _ _ _ _ CI_K_N_P_Q) as InCirc_N_K.
+		pose proof (by_def_InCirc_center _ _ _ _ CI_K_N_P_Q) as InCirc_N_K.
 
 		exact InCirc_N_K.
 	}

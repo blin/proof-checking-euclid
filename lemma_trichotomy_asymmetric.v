@@ -11,6 +11,7 @@ Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.by_def_isosceles.
+Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
@@ -22,7 +23,6 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
-Require Import ProofCheckingEuclid.lemma_s_ncol_triangle.
 
 Section Euclid.
 

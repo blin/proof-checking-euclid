@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_InCirc_center.
 Require Import ProofCheckingEuclid.by_def_OnCirc.
 Require Import ProofCheckingEuclid.by_def_OutCirc.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
@@ -8,7 +9,6 @@ Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_localextension.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
-Require Import ProofCheckingEuclid.lemma_s_incirc_centre.
 
 
 Section Euclid.
@@ -35,8 +35,8 @@ Proof.
 		by_def_OutCirc _ _ _ _ _ _ CI_K_B_BA BetS_B_A_D Cong_BA_BA
 	) as OutCirc_D_K.
 
-	pose proof (lemma_s_incirc_centre _ _ _ _ CI_K_B_BA) as InCirc_B_K.
-	pose proof (lemma_s_incirc_centre _ _ _ _ CI_J_A_AB) as InCirc_A_J.
+	pose proof (by_def_InCirc_center _ _ _ _ CI_K_B_BA) as InCirc_B_K.
+	pose proof (by_def_InCirc_center _ _ _ _ CI_J_A_AB) as InCirc_A_J.
 
 	assert (Cong A B A B) as Cong_AB_AB by (apply cn_congruencereflexive).
 

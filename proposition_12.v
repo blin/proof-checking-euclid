@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_InCirc_within_radius.
 Require Import ProofCheckingEuclid.by_def_Perp_at.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
@@ -11,7 +12,6 @@ Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.euclidean_tactics.
-Require Import ProofCheckingEuclid.lemma_s_incirc_within_radius.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_10.
 
@@ -37,7 +37,7 @@ Proof.
 	pose proof (cn_congruencereflexive C E) as Cong_CE_CE.
 	pose proof (cn_congruencereflexive C B) as Cong_CB_CB.
 	pose proof (
-		lemma_s_incirc_within_radius _ _ _ _ _ _ _ CI_K_C_CE BetS_C_B_E Cong_CE_CE Cong_CB_CB
+		by_def_InCirc_within_radius _ _ _ _ _ _ _ CI_K_C_CE BetS_C_B_E Cong_CE_CE Cong_CB_CB
 	) as InCirc_B_K.
 
 	pose proof (

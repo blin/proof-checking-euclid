@@ -5,7 +5,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_ncol_triangle :
+Lemma by_def_nCol_from_Triangle :
 	forall A B C,
 	Triangle A B C ->
 	nCol A B C.
