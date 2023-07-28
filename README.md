@@ -214,6 +214,8 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_collinearbetween](./lemma_collinearbetween.v)
 001. [lemma_s_col_ABC_col_ABD_ncol_ACD_eq_AB](./lemma_s_col_ABC_col_ABD_ncol_ACD_eq_AB.v)
 001. [by_def_Par](./by_def_Par.v)
+001. [lemma_27helper_BetS_A_E_G](./lemma_27helper_BetS_A_E_G.v)
+001. [lemma_27helper_OnRay_EA_G](./lemma_27helper_OnRay_EA_G.v)
 001. [proposition_27](./proposition_27.v)
 001. [proposition_28A](./proposition_28A.v)
 001. [by_prop_Par_flip](./by_prop_Par_flip.v)
