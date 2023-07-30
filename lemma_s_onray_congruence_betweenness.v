@@ -1,4 +1,5 @@
 Require Import ProofCheckingEuclid.by_def_Lt.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
@@ -6,7 +7,6 @@ Require Import ProofCheckingEuclid.by_prop_OnRay_ABC_ACB.
 Require Import ProofCheckingEuclid.by_prop_OnRay_assert.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 
 Section Euclid.
@@ -33,9 +33,7 @@ Proof.
 	destruct Lt_AB_ac as (g & BetS_a_g_c & Cong_ag_AB).
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_a_g_c) as (_ & neq_a_g & _).
-	assert (BetS a c g \/ eq c g \/ BetS a g c) as BetS_a_c_g_or_eq_c_g_or_BetS_a_g_c.
-	one_of_disjunct BetS_a_g_c.
-	pose proof (by_prop_OnRay_assert _ _ _ BetS_a_c_g_or_eq_c_g_or_BetS_a_g_c neq_a_g) as OnRay_ag_c.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_a_g_c neq_a_g) as OnRay_ag_c.
 	pose proof (by_prop_OnRay_ABC_ACB _ _ _ OnRay_ag_c) as OnRay_ac_g.
 	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_ag_AB Cong_AB_ab) as Cong_ag_ab.
 	pose proof (by_prop_OnRay_ABC_ACB _ _ _ OnRay_ab_c) as OnRay_ac_b.

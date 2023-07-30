@@ -1,4 +1,5 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_LtA.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
@@ -16,7 +17,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_angletrichotomy.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
@@ -66,7 +66,7 @@ Proof.
 
 		pose proof (by_prop_BetS_notequal _ _ _ BetS_B_D_A) as (_ & neq_B_D & _).
 
-		assert (Col B D A) as Col_B_D_A by (unfold Col; one_of_disjunct BetS_B_D_A).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_D_A) as Col_B_D_A.
 		pose proof (by_prop_Col_order _ _ _ Col_B_D_A) as (_ & _ & _ & Col_B_A_D & _).
 
 		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_B_D_A neq_B_A) as OnRay_BA_D.

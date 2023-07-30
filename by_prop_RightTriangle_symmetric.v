@@ -1,4 +1,5 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.by_def_Supp.
@@ -16,7 +17,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
@@ -57,7 +57,7 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_B_E) as (neq_B_E & _ & _).
 	pose proof (by_prop_neq_symmetric _ _ neq_B_E) as neq_E_B.
 
-	assert (Col C B E) as Col_C_B_E by (unfold Col; one_of_disjunct BetS_C_B_E).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_B_E) as Col_C_B_E.
 	pose proof (by_prop_Col_order _ _ _ Col_C_B_E) as (_ & _ & _ & _ & Col_E_B_C).
 
 	pose proof (by_def_Supp _ _ _ _ _ OnRay_BC_C BetS_A_B_D) as Supp_ABC_CBD.
