@@ -3,6 +3,8 @@ Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_def_OutCirc.
 Require Import ProofCheckingEuclid.by_def_Triangle.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
@@ -21,8 +23,6 @@ Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_ondiameter.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_subtractequals.
 Require Import ProofCheckingEuclid.lemma_together.
 Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
@@ -206,12 +206,12 @@ Proof.
 			contradict Lt_FG_FG.
 			exact n_Lt_FG_FG.
 		}
-		pose proof (lemma_s_ncol_n_col _ _ _ nCol_F_G_K) as n_Col_F_G_K.
+		pose proof (by_def_n_Col_from_nCol _ _ _ nCol_F_G_K) as n_Col_F_G_K.
 
 		contradict Col_F_G_K.
 		exact n_Col_F_G_K.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_F_G_K) as nCol_F_G_K.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_F_G_K) as nCol_F_G_K.
 
 	pose proof (by_def_Triangle _ _ _ nCol_F_G_K) as Triangle_FGK.
 

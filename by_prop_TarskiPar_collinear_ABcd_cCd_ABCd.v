@@ -5,6 +5,8 @@ Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.by_def_TarskiPar.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_ABE_CDE.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
@@ -16,8 +18,6 @@ Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -71,7 +71,7 @@ Proof.
 	pose proof (by_prop_nCol_order _ _ _ nCol_q_d_p) as (_ & _ & _ & nCol_q_p_d & _).
 	assert (eq c c) as eq_c_c by (reflexivity).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_p_r_c) as n_Col_p_r_c.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_p_r_c) as n_Col_p_r_c.
 
 
 	assert (~ eq c p) as n_eq_c_p.
@@ -112,7 +112,7 @@ Proof.
 		contradict Meet_A_B_c_d.
 		exact n_Meet_A_B_c_d.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_C) as nCol_A_B_C.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_C) as nCol_A_B_C.
 
 	pose proof (lemma_orderofpoints_ABC_ACD_ABD _ _ _ _ BetS_q_F_E BetS_q_E_C) as BetS_q_F_C.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_q_F_C) as BetS_C_F_q.

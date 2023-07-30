@@ -3,6 +3,7 @@ Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.by_def_TarskiPar.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_ABE_CDE.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
@@ -14,7 +15,6 @@ Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 
 Section Euclid.
 
@@ -144,7 +144,7 @@ Proof.
 		contradict Meet_a_b_C_D.
 		exact n_Meet_a_b_C_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_a_d_P) as nCol_a_d_P.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_a_d_P) as nCol_a_d_P.
 
 	pose proof (postulate_Pasch_outer _ _ _ _ _ BetS_P_b_e BetS_a_e_d nCol_a_d_P) as (M & BetS_P_M_d & BetS_a_b_M).
 
@@ -188,7 +188,7 @@ Proof.
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_c) as nCol_A_B_c.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_c) as nCol_A_B_c.
 
 
 	assert (~ Col A B d) as n_Col_A_B_d.
@@ -200,7 +200,7 @@ Proof.
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_d) as nCol_A_B_d.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_d) as nCol_A_B_d.
 
 	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_B_b Col_A_B_M BetS_c_b_P BetS_d_M_P nCol_A_B_c nCol_A_B_d) as SameSide_c_d_AB.
 

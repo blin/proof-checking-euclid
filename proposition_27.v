@@ -8,6 +8,7 @@ Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Par.
 Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.by_def_Triangle.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -30,7 +31,6 @@ Require Import ProofCheckingEuclid.lemma_27helper_OnRay_EA_G.
 Require Import ProofCheckingEuclid.lemma_angletrichotomy.
 Require Import ProofCheckingEuclid.lemma_collinearbetween.
 Require Import ProofCheckingEuclid.lemma_s_col_ABC_col_ABD_ncol_ACD_eq_AB.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_16.
 
@@ -104,7 +104,7 @@ Proof.
 
 	pose proof (by_prop_Col_order _ _ _ Col_E_F_H) as (Col_F_E_H & Col_F_H_E & Col_H_E_F & Col_E_H_F & Col_H_F_E).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_E_F_A) as n_Col_E_F_A.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_E_F_A) as n_Col_E_F_A.
 	pose proof (by_prop_nCol_order _ _ _ nCol_E_F_A) as (nCol_F_E_A & nCol_F_A_E & nCol_A_E_F & nCol_E_A_F & nCol_A_F_E).
 	pose proof (by_def_Triangle _ _ _ nCol_E_A_F) as Triangle_EAF.
 

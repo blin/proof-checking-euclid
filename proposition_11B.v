@@ -4,6 +4,7 @@ Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_ABE_CDE.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
@@ -28,7 +29,6 @@ Require Import ProofCheckingEuclid.lemma_notperp.
 Require Import ProofCheckingEuclid.lemma_planeseparation.
 Require Import ProofCheckingEuclid.lemma_pointreflectionisometry.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_10.
 Require Import ProofCheckingEuclid.proposition_12.
 
@@ -60,7 +60,7 @@ Proof.
 
 	pose proof (lemma_notperp _ _ _ _ BetS_A_C_B nCol_A_B_P) as (M & nCol_A_B_M & SameSide_M_P_AB & n_RightTriangle_ACM).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_M) as n_Col_A_B_M.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_M) as n_Col_A_B_M.
 
 	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_M_P_AB) as (SameSide_P_M_AB & _ & _).
 

@@ -1,10 +1,10 @@
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -32,10 +32,10 @@ Proof.
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_C_A_B Col_C_A_D neq_C_A) as Col_A_B_D.
 
 		contradict Col_A_B_D.
-		pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_D) as n_Col_A_B_D.
+		pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_D) as n_Col_A_B_D.
 		exact n_Col_A_B_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_C_D) as nCol_A_C_D.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_C_D) as nCol_A_C_D.
 	exact nCol_A_C_D.
 Qed.
 

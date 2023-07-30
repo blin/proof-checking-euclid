@@ -1,5 +1,7 @@
 Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -8,8 +10,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -30,11 +30,11 @@ Proof.
 	intros nCol_R_Q_C.
 	intros Col_A_B_R.
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_R_Q_C) as n_Col_R_Q_C.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_R_Q_C) as n_Col_R_Q_C.
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_R) as (Col_B_A_R & Col_B_R_A & Col_R_A_B & Col_A_R_B & Col_R_B_A).
 
 	destruct OppositeSide_P_AB_C as (S & BetS_P_S_C & Col_A_B_S & nCol_A_B_P).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_P) as n_Col_A_B_P.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_P) as n_Col_A_B_P.
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_S) as (Col_B_A_S & Col_B_S_A & Col_S_A_B & Col_A_S_B & Col_S_B_A).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_P_S_C) as BetS_C_S_P.
@@ -104,7 +104,7 @@ Proof.
 		contradict Col_R_Q_C.
 		exact n_Col_R_Q_C.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_Q) as nCol_A_B_Q.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_Q) as nCol_A_B_Q.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_F_Q) as BetS_Q_F_C.
 
 	unfold OppositeSide.

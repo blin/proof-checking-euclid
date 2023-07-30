@@ -1,11 +1,11 @@
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -33,8 +33,8 @@ Proof.
 
 	destruct Triangle_ABD as (_ & neq_A_D & _ & _ & _ & _).
 	destruct Triangle_BAE as (_ & _ & neq_A_E & _ & _ & _).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_D) as n_Col_A_B_D.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_B_A_E) as n_Col_B_A_E.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_D) as n_Col_A_B_D.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_B_A_E) as n_Col_B_A_E.
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_F_D) as (neq_F_D & _ & _).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_F_E) as (neq_F_E & _ & _).

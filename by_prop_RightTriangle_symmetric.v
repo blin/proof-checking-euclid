@@ -3,6 +3,8 @@ Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.by_def_Supp.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -18,8 +20,6 @@ Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
 
@@ -36,7 +36,7 @@ Proof.
 	intros RightTriangle_ABC.
 
 	pose proof (by_prop_RightTriangle_NC _ _ _ RightTriangle_ABC) as nCol_A_B_C.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_A_B_C) as CongA_ABC_CBA.
 
 	destruct RightTriangle_ABC as (D & BetS_A_B_D & Cong_AB_DB & Cong_AC_DC & neq_B_C).
@@ -77,7 +77,7 @@ Proof.
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_E_B_A) as nCol_E_B_A.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_E_B_A) as nCol_E_B_A.
 	pose proof (by_prop_nCol_order _ _ _ nCol_E_B_A) as (_ & _ & _ & _ & nCol_A_B_E).
 
 	pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_A_B_E) as CongA_ABE_EBA.

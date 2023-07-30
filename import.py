@@ -1,3 +1,4 @@
+        w.write(f"Require Import ProofCheckingEuclid.{r}.\n")
 """
 This file and its dependencies are made out of hacks, repetitive if else trees,
 incomprehensible variable names, copy paste with minimal changes and otherwise 
@@ -98,8 +99,8 @@ def print_requirements(w: TextIO, t: Top) -> None:
         rs |= {
             "by_prop_nCol_distinct",
             "by_prop_nCol_order",
-            "lemma_s_n_col_ncol",
-            "lemma_s_ncol_n_col",
+            "by_def_nCol_from_n_Col",
+            "by_def_n_Col_from_nCol",
         }
     if "isosceles" in rs:
         rs |= { "by_def_isosceles" }
@@ -114,7 +115,6 @@ def print_requirements(w: TextIO, t: Top) -> None:
             continue
         if not any([r.startswith(p) for p in ["lemma_", "proposition_", "euclidean_"]]):
             continue
-        w.write(f"Require Import ProofCheckingEuclid.{r}.\n")
     w.write("\n")
 
 
@@ -583,7 +583,7 @@ class LemmaPrinter:
                 self.context.add_prop(new_prop)
                 self.process_indent()
                 self.w.write(
-                    f"pose proof (lemma_s_n_col_ncol _ _ _ {prop.to_var()}) as {new_prop.to_var()}.\n"
+                    f"pose proof (by_def_nCol_from_n_Col _ _ _ {prop.to_var()}) as {new_prop.to_var()}.\n"
                 )
             case _:
                 self.context.add_prop(a.prop)
