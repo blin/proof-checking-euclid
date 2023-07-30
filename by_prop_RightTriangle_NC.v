@@ -1,4 +1,5 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Midpoint.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
@@ -34,7 +35,7 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_B_D) as (_ & neq_A_B & neq_A_D).
 	pose proof (by_prop_neq_symmetric _ _ neq_A_B) as neq_B_A.
 
-	assert (Col A B D) as Col_A_B_D by (unfold Col; one_of_disjunct BetS_A_B_D).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_B_D) as Col_A_B_D.
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_D) as (Col_B_A_D & _ & _ & _ & _).
 
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_DB) as (_ & _ & Cong_AB_BD).

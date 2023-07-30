@@ -1,4 +1,6 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -37,7 +39,7 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_R_Q_P) as (neq_Q_P & neq_R_Q & neq_R_P). (* wanted neq_R_S *)
 
 	pose proof (postulate_Pasch_inner _ _ _ _ _ BetS_C_S_P BetS_R_Q_P nCol_C_P_R) as (F & BetS_C_F_Q & BetS_R_F_S).
-	assert (Col R S F) as Col_R_S_F by (unfold Col; one_of_disjunct BetS_R_F_S).
+	pose proof (by_def_Col_from_BetS_A_C_B _ _ _ BetS_R_F_S) as Col_R_S_F.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_P) as (neq_A_B & _ & _ & neq_B_A & _).
 	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_A_B_R Col_A_B_S neq_A_B) as Col_B_R_S.
 	pose proof (by_prop_Col_order _ _ _ Col_B_R_S) as (Col_R_B_S & Col_R_S_B & Col_S_B_R & Col_B_S_R & Col_S_R_B). (* wanted Col_R_S_B *)
@@ -92,14 +94,14 @@ Proof.
 		}
 		pose proof (by_prop_Col_order _ _ _ Col_R_Q_F) as (Col_Q_R_F & Col_Q_F_R & Col_F_R_Q & Col_R_F_Q & Col_F_Q_R).
 
-		assert (Col C F Q) as Col_C_F_Q by (unfold Col; one_of_disjunct BetS_C_F_Q).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_F_Q) as Col_C_F_Q.
 
 		pose proof (by_prop_Col_order _ _ _ Col_C_F_Q) as (Col_F_C_Q & Col_F_Q_C & Col_Q_C_F & Col_C_Q_F & Col_Q_F_C).
 		pose proof (by_prop_BetS_notequal _ _ _ BetS_C_F_Q) as (neq_F_Q & neq_C_F & neq_C_Q).
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_F_Q_R Col_F_Q_C neq_F_Q) as Col_Q_R_C.
 		pose proof (by_prop_Col_order _ _ _ Col_Q_R_C) as (Col_R_Q_C & Col_R_C_Q & Col_C_Q_R & Col_Q_C_R & Col_C_R_Q).
 
-		assert (Col R Q P) as Col_R_Q_P by (unfold Col; one_of_disjunct BetS_R_Q_P).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_R_Q_P) as Col_R_Q_P.
 		pose proof (by_prop_Col_order _ _ _ Col_R_Q_P) as (Col_Q_R_P & Col_Q_P_R & Col_P_R_Q & Col_R_P_Q & Col_P_Q_R). (* wanted Col_Q_R_P *)
 		pose proof (by_prop_neq_symmetric _ _ neq_R_Q) as neq_Q_R.
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_Q_R_C Col_Q_R_P neq_Q_R) as Col_R_C_P.

@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_SumTwoRT.
 Require Import ProofCheckingEuclid.by_def_Supp.
@@ -26,7 +28,7 @@ Proof.
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_B_C) as (_ & neq_D_B & _).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_B_C) as BetS_C_B_D.
-	assert (Col C B D) as Col_C_B_D by (unfold Col; one_of_disjunct BetS_C_B_D).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_B_D) as Col_C_B_D.
 
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (_ & _ & _ & neq_B_A & _ & _).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (_ & _ & _ & _ & nCol_C_B_A).
@@ -34,7 +36,7 @@ Proof.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
 
 	assert (eq B B) as eq_B_B by (reflexivity).
-	assert (Col C B B) as Col_C_B_B by (unfold Col; one_of_disjunct eq_B_B).
+	pose proof (by_def_Col_from_eq_B_C C B B eq_B_B) as Col_C_B_B.
 
 	pose proof (by_prop_nCol_helper _ _ _ _ _ nCol_C_B_A Col_C_B_D Col_C_B_B neq_D_B) as nCol_D_B_A.
 	pose proof (by_prop_nCol_order _ _ _ nCol_D_B_A) as (_ & _ & _ & _ & nCol_A_B_D).
