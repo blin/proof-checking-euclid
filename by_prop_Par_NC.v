@@ -1,10 +1,10 @@
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 
 Section Euclid.
 
@@ -40,7 +40,7 @@ Proof.
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_C_D) as nCol_A_C_D.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_C_D) as nCol_A_C_D.
 
 
 	assert (~ Col A B C) as n_Col_A_B_C.
@@ -52,7 +52,7 @@ Proof.
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_C) as nCol_A_B_C.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_C) as nCol_A_B_C.
 
 
 	assert (~ Col B C D) as n_Col_B_C_D.
@@ -65,7 +65,7 @@ Proof.
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_B_C_D) as nCol_B_C_D.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_B_C_D) as nCol_B_C_D.
 
 
 	assert (~ Col A B D) as n_Col_A_B_D.
@@ -77,7 +77,7 @@ Proof.
 		contradict Meet_A_B_C_D.
 		exact n_Meet_A_B_C_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_D) as nCol_A_B_D.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_D) as nCol_A_B_D.
 
 	split.
 	exact nCol_A_B_C.

@@ -1,12 +1,12 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_n_nCol.
 Require Import ProofCheckingEuclid.euclidean_axioms.
-Require Import ProofCheckingEuclid.lemma_s_n_ncol_col.
 
 Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_n_col_ncol :
+Lemma by_def_nCol_from_n_Col :
 	forall A B C,
 	~ Col A B C ->
 	nCol A B C.
@@ -17,7 +17,7 @@ Proof.
 	{
 		intros n_nCol_A_B_C.
 
-		pose proof (lemma_s_n_ncol_col _ _ _ n_nCol_A_B_C) as Col_A_B_C.
+		pose proof (by_def_Col_from_n_nCol _ _ _ n_nCol_A_B_C) as Col_A_B_C.
 
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.

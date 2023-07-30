@@ -2,6 +2,8 @@ Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_OnRay.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -18,8 +20,6 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -90,7 +90,7 @@ Proof.
 
 	destruct CongA_ABC_abc as (U & V & u & v & OnRay_BA_U & OnRay_BC_V & OnRay_ba_u & OnRay_bc_v & Cong_BU_bu & Cong_BV_bv & Cong_UV_uv & nCol_A_B_C).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 
 	pose proof (by_prop_OnRay_shared_initial_point _ _ _ _ OnRay_BC_D OnRay_BC_V) as OnRay_BD_V.
 	pose proof (by_prop_OnRay_shared_initial_point _ _ _ _ OnRay_bc_d OnRay_bc_v) as OnRay_bd_v.
@@ -141,7 +141,7 @@ Proof.
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_D_B_F) as nCol_D_B_F.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_D_B_F) as nCol_D_B_F.
 
 	pose proof (
 		by_def_CongA

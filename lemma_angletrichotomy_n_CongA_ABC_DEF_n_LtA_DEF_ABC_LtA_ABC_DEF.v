@@ -10,6 +10,7 @@ Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_CongA_ABCequalsCBA.
@@ -34,7 +35,6 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
 Require Import ProofCheckingEuclid.lemma_planeseparation.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_sameside_onray_EFAC_BFG_EGAC.
 Require Import ProofCheckingEuclid.proposition_23C.
 
@@ -62,7 +62,7 @@ Proof.
 
 	pose proof (cn_congruencereflexive B A) as Cong_BA_BA.
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
 	pose proof (by_prop_CongA_reflexive _ _ _ nCol_A_B_C) as CongA_ABC_ABC.
@@ -74,12 +74,12 @@ Proof.
 
 	assert (SameSide_G_C_BA2 := SameSide_G_C_BA).
 	destruct SameSide_G_C_BA2 as (_ & _ & _ & _ & _ & _ & _ & nCol_B_A_G & _).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_B_A_G) as n_Col_B_A_G.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_B_A_G) as n_Col_B_A_G.
 
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_B_A_G) as (_ & neq_A_G & neq_B_G & _ & neq_G_A & neq_G_B).
 	pose proof (by_prop_nCol_order _ _ _ nCol_B_A_G) as (nCol_A_B_G & nCol_A_G_B & nCol_G_B_A & nCol_B_G_A & nCol_G_A_B).
 	pose proof (by_prop_CongA_reflexive _ _ _ nCol_A_B_G) as CongA_ABG_ABG.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_G) as n_Col_A_B_G.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_G) as n_Col_A_B_G.
 
 	pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_A_B_G) as CongA_ABG_GBA.
 	pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_G_B_A) as CongA_GBA_ABG.
@@ -144,7 +144,7 @@ Proof.
 		pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_C_A Col_B_C_H neq_B_H) as nCol_B_H_A.
 		pose proof (by_prop_nCol_order _ _ _ nCol_B_H_A) as (nCol_H_B_A & nCol_H_A_B & nCol_A_B_H & nCol_B_A_H & nCol_A_H_B).
 
-		pose proof (lemma_s_ncol_n_col _ _ _ nCol_B_H_A) as n_Col_B_H_A.
+		pose proof (by_def_n_Col_from_nCol _ _ _ nCol_B_H_A) as n_Col_B_H_A.
 
 		pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_H_B_A) as CongA_HBA_ABH.
 		pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_A_B_H) as CongA_ABH_HBA.

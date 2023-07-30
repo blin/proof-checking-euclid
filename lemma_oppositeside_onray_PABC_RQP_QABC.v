@@ -1,6 +1,8 @@
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -14,9 +16,7 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -50,7 +50,7 @@ Proof.
 
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_L) as (Col_B_A_L & Col_B_L_A & Col_L_A_B & Col_A_L_B & Col_L_B_A).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_P) as n_Col_A_B_P.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_P) as n_Col_A_B_P.
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_P) as (nCol_B_A_P & nCol_B_P_A & nCol_P_A_B & nCol_A_P_B & nCol_P_B_A).
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_P) as (neq_A_B & neq_B_P & neq_A_P & neq_B_A & neq_P_B & neq_P_A).
 
@@ -169,7 +169,7 @@ Proof.
 			contradict Col_A_B_P.
 			exact n_Col_A_B_P.
 		}
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_Q) as nCol_A_B_Q.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_Q) as nCol_A_B_Q.
 
 		pose proof (by_def_OppositeSide _ _ _ _ _ BetS_Q_R_C Col_A_B_R nCol_A_B_Q) as OppositeSide_Q_AB_C.
 
@@ -177,7 +177,7 @@ Proof.
 	}
 	{
 		(* case n_Col_C_P_R *)
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_C_P_R) as nCol_C_P_R.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_C_P_R) as nCol_C_P_R.
 		pose proof (by_prop_nCol_order _ _ _ nCol_C_P_R) as (nCol_P_C_R & nCol_P_R_C & nCol_R_C_P & nCol_C_R_P & nCol_R_P_C).
 
 		(* assert by cases *)

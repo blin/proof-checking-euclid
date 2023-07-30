@@ -1,6 +1,7 @@
 Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_CongA_ABCequalsCBA.
 Require Import ProofCheckingEuclid.by_prop_CongA_NC.
@@ -20,7 +21,6 @@ Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.proposition_03.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_15a.
@@ -73,7 +73,7 @@ Proof.
 	assert (~ Col A B P \/ ~ ~ Col A B P) as [n_Col_A_B_P|Col_A_B_P] by (apply Classical_Prop.classic).
 	{
 		(* case n_Col_A_B_P *)
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_P) as nCol_A_B_P.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_P) as nCol_A_B_P.
 
 		pose proof (proposition_15a _ _ _ _ _ BetS_A_B_C BetS_P_B_Q nCol_A_B_P) as CongA_ABP_QBC.
 

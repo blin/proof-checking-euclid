@@ -1,13 +1,13 @@
 Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_B_A_C.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_BAC.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -26,7 +26,7 @@ Proof.
 	intros Cut_AB_CD_F.
 	intros nCol_B_C_D.
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_B_C_D) as n_Col_B_C_D.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_B_C_D) as n_Col_B_C_D.
 
 	destruct Cut_AB_CD_E as (BetS_A_E_B & BetS_C_E_D & _ & _).
 	destruct Cut_AB_CD_F as (BetS_A_F_B & BetS_C_F_D & _ & _).

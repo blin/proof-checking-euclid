@@ -4,6 +4,7 @@ Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Cross.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -23,7 +24,6 @@ Require Import ProofCheckingEuclid.lemma_collinearbetween.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABD_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_planeseparation.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -57,7 +57,7 @@ Proof.
 
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_C_B) as (neq_A_C & neq_C_B & neq_A_B & neq_C_A & neq_B_C & neq_B_A).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_C_B) as (nCol_C_A_B & nCol_C_B_A & nCol_B_A_C & nCol_A_B_C & nCol_B_C_A).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_C_B) as n_Col_A_C_B.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_C_B) as n_Col_A_C_B.
 
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_D) as (_ & neq_B_D & neq_A_D & _ & neq_D_B & neq_D_A).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_D) as (nCol_B_A_D & nCol_B_D_A & nCol_D_A_B & nCol_A_D_B & nCol_D_B_A).

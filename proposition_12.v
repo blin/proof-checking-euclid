@@ -3,6 +3,7 @@ Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_InCirc_within_radius.
 Require Import ProofCheckingEuclid.by_def_Perp_at.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -13,7 +14,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_10.
 
 Section Euclid.
@@ -66,7 +66,7 @@ Proof.
 		assert (Col A B C) as Col_A_B_C by (rewrite <- eq_M_C; exact Col_A_B_M).
 
 		contradict Col_A_B_C.
-		pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+		pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
 

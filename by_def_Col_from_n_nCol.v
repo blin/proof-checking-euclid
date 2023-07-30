@@ -12,7 +12,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_s_n_ncol_col :
+Lemma by_def_Col_from_n_nCol :
 	forall A B C,
 	~ nCol A B C ->
 	Col A B C.

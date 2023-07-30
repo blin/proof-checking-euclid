@@ -1,16 +1,16 @@
-Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_B_A_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_B.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_n_nCol.
+Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABD_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.lemma_s_n_ncol_col.
 
 Section Euclid.
 
@@ -119,7 +119,7 @@ Proof.
 				contradict eq_C_D.
 				exact neq_C_D.
 			}
-			apply lemma_s_n_ncol_col in Col_B_C_D.
+			apply by_def_Col_from_n_nCol in Col_B_C_D.
 			exact Col_B_C_D.
 		}
 		{
@@ -173,7 +173,7 @@ Proof.
 				contradict eq_C_D.
 				exact neq_C_D.
 			}
-			apply lemma_s_n_ncol_col in Col_B_C_D.
+			apply by_def_Col_from_n_nCol in Col_B_C_D.
 			exact Col_B_C_D.
 		}
 		{
@@ -229,7 +229,7 @@ Proof.
 				contradict eq_C_D.
 				exact neq_C_D.
 			}
-			apply lemma_s_n_ncol_col in Col_B_C_D.
+			apply by_def_Col_from_n_nCol in Col_B_C_D.
 			exact Col_B_C_D.
 		}
 	}

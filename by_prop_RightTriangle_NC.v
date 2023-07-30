@@ -1,6 +1,8 @@
 Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Midpoint.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -14,8 +16,6 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_midpointunique.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
 Require Import ProofCheckingEuclid.lemma_s_congruence_null_segment.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -112,7 +112,7 @@ Proof.
 	exact nBetS_A_D_C.
 	exact nBetS_C_A_D.
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_C_D) as n_Col_A_C_D.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_C_D) as n_Col_A_C_D.
 
 	assert (~ Col A B C) as n_Col_A_B_C.
 	{
@@ -124,7 +124,7 @@ Proof.
 		contradict Col_A_C_D.
 		exact n_Col_A_C_D.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_C) as nCol_A_B_C.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_C) as nCol_A_B_C.
 
 	exact nCol_A_B_C.
 Qed.

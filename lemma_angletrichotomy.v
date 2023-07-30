@@ -3,6 +3,8 @@ Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_SameSide.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -19,9 +21,7 @@ Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_sameside_onray.
 Require Import ProofCheckingEuclid.proposition_07.
 
@@ -84,13 +84,13 @@ Proof.
 
 		pose proof (by_prop_Cong_flip _ _ _ _ Cong_BV_Bv) as (Cong_VB_vB & _ & _).
 
-		pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+		pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 		pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & _ & _ & _ & _ & _).
 		pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & _ & _ & _).
 
 		pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_C_A Col_B_C_J neq_B_J) as nCol_B_J_A.
 		pose proof (by_prop_nCol_order _ _ _ nCol_B_J_A) as (_ & _ & _ & nCol_B_A_J & _).
-		pose proof (lemma_s_ncol_n_col _ _ _ nCol_B_A_J) as n_Col_B_A_J.
+		pose proof (by_def_n_Col_from_nCol _ _ _ nCol_B_A_J) as n_Col_B_A_J.
 
 		pose proof (postulate_Euclid2 _ _ neq_H_G) as (P & BetS_H_G_P).
 
@@ -138,7 +138,7 @@ Proof.
 			contradict Col_B_A_J.
 			exact n_Col_B_A_J.
 		}
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_B_U_H) as nCol_B_U_H.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_B_U_H) as nCol_B_U_H.
 
 		pose proof (by_def_OppositeSide _ _ _ _ _ BetS_H_G_P Col_B_U_G nCol_B_U_H) as OppositeSide_H_BU_P.
 
