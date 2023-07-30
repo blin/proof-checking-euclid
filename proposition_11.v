@@ -1,5 +1,6 @@
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_Cong_doublereverse.
@@ -9,7 +10,6 @@ Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_01.
 
 Section Euclid.
@@ -40,7 +40,7 @@ Proof.
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AF_FE) as (_ & _ & Cong_AF_EF).
 
 	assert (nCol A E F) as nCol_A_E_F by (unfold Triangle in Triangle_AEF; exact Triangle_AEF).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_E_F) as n_Col_A_E_F.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_E_F) as n_Col_A_E_F.
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_E_F Col_A_E_C neq_A_C) as nCol_A_C_F.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_C_F) as (_ & neq_C_F & _ & _ & _ & _).
 

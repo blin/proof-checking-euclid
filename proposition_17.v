@@ -6,6 +6,7 @@ Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_CongA_ABCequalsCBA.
@@ -24,7 +25,6 @@ Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_crossbar.
 Require Import ProofCheckingEuclid.lemma_extension.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_16.
 
 Section Euclid.
@@ -49,7 +49,7 @@ Proof.
 	pose proof (by_def_Col_from_eq_B_C B C C eq_C_C) as Col_B_C_C.
 
 	pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_ABC) as nCol_A_B_C.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (_ & neq_B_C & _ & _ & neq_C_B & _).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (_ & nCol_B_C_A & _ & nCol_A_C_B & _).
 	pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_A_B_C) as CongA_ABC_CBA.

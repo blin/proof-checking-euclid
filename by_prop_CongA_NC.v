@@ -1,4 +1,6 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
@@ -9,8 +11,6 @@ Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_collinearitypreserved.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -77,12 +77,12 @@ Proof.
 		pose proof (by_prop_neq_symmetric _ _ neq_B_V) as neq_V_B.
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_V_B_A Col_V_B_C neq_V_B) as Col_B_A_C.
 		pose proof (by_prop_Col_order _ _ _ Col_B_A_C) as (Col_A_B_C & _).
-		pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+		pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 
 		contradict Col_A_B_C.
 		exact n_Col_A_B_C.
 	}
-	apply lemma_s_n_col_ncol in nCol_a_b_c.
+	apply by_def_nCol_from_n_Col in nCol_a_b_c.
 	exact nCol_a_b_c.
 Qed.
 

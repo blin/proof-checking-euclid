@@ -3,6 +3,8 @@ Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_ABE_CDE.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
@@ -19,8 +21,6 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_outerconnectivity.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_twolines2.
 
 Section Euclid.
@@ -79,9 +79,9 @@ Proof.
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_D) as (nCol_B_A_D & nCol_B_D_A & nCol_D_A_B & nCol_A_D_B & nCol_D_B_A).
 
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_D) as n_Col_A_B_D.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_C_A_B) as n_Col_C_A_B.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_D) as n_Col_A_B_D.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_C_A_B) as n_Col_C_A_B.
 
 	pose proof (by_prop_neq_symmetric _ _ neq_C_G) as neq_G_C.
 	pose proof (by_prop_neq_symmetric _ _ neq_C_Q) as neq_Q_C.
@@ -273,7 +273,7 @@ Proof.
 	}
 	{
 		(* case n_Col_E_D_G *)
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_E_D_G) as nCol_E_D_G.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_E_D_G) as nCol_E_D_G.
 
 		assert (~ Col E C G) as n_Col_E_C_G.
 		{
@@ -285,7 +285,7 @@ Proof.
 			contradict Col_E_D_G.
 			exact n_Col_E_D_G.
 		}
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_E_C_G) as nCol_E_C_G.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_E_C_G) as nCol_E_C_G.
 		pose proof (by_prop_nCol_order _ _ _ nCol_E_C_G) as (nCol_C_E_G & nCol_C_G_E & nCol_G_E_C & nCol_E_G_C & nCol_G_C_E).
 
 		assert (BetS G C D \/ ~ BetS G C D) as [BetS_G_C_D|nBetS_G_C_D] by (apply Classical_Prop.classic).
@@ -383,9 +383,9 @@ Proof.
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_D) as (nCol_B_A_D & nCol_B_D_A & nCol_D_A_B & nCol_A_D_B & nCol_D_B_A).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_D) as n_Col_A_B_D.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_C_A_B) as n_Col_C_A_B.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_D) as n_Col_A_B_D.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_C_A_B) as n_Col_C_A_B.
 
 	pose proof (by_prop_neq_symmetric _ _ neq_C_G) as neq_G_C.
 	pose proof (by_prop_neq_symmetric _ _ neq_C_Q) as neq_Q_C.
@@ -397,8 +397,8 @@ Proof.
 	pose proof (by_prop_neq_symmetric _ _ neq_W_E) as neq_E_W.
 
 	pose proof (by_prop_nCol_order _ _ _ nCol_C_Q_D) as (nCol_Q_C_D & nCol_Q_D_C & nCol_D_C_Q & nCol_C_D_Q & nCol_D_Q_C).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_Q_C_D) as n_Col_Q_C_D.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_C_Q_D) as n_Col_C_Q_D.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_Q_C_D) as n_Col_Q_C_D.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_C_Q_D) as n_Col_C_Q_D.
 
 	pose proof (
 		postulate_Pasch_inner
@@ -509,7 +509,7 @@ Proof.
 			contradict Col_Q_C_D.
 			exact n_Col_Q_C_D.
 		}
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_H_C_E) as nCol_H_C_E.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_H_C_E) as nCol_H_C_E.
 
 		pose proof (
 			postulate_Pasch_outer
@@ -556,7 +556,7 @@ Proof.
 	}
 	{
 		(* case nCol_E_D_G *)
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_E_D_G) as nCol_E_D_G.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_E_D_G) as nCol_E_D_G.
 		pose proof (by_prop_nCol_order _ _ _ nCol_E_D_G) as (nCol_D_E_G & nCol_D_G_E & nCol_G_E_D & nCol_E_G_D & nCol_G_D_E).
 
 		assert (~ eq G W) as neq_G_W.
@@ -581,7 +581,7 @@ Proof.
 		assert (~ Col H C E \/ ~ ~ Col H C E) as [n_Col_H_C_E|Col_H_C_E] by (apply Classical_Prop.classic).
 		{
 			(* case nCol_H_C_E *)
-			pose proof (lemma_s_n_col_ncol _ _ _ n_Col_H_C_E) as nCol_H_C_E.
+			pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_H_C_E) as nCol_H_C_E.
 			pose proof (
 				lemma_oppositeside_betweenness_PABC_RPQ_QABC
 				_ _ _ _ _ _
@@ -740,7 +740,7 @@ Proof.
 	}
 	{
 		(* case n_Col_C_Q_D *)
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_C_Q_D) as nCol_C_Q_D.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_C_Q_D) as nCol_C_Q_D.
 
 		pose proof (
 			lemma_planeseparation_nCol_C_Q_D

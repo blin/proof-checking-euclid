@@ -6,6 +6,8 @@ Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_Supp.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_ABE_CDE.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
@@ -33,9 +35,7 @@ Require Import ProofCheckingEuclid.lemma_Euclid4.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_oppositeside_onray_PABC_RQP_QABC.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_11B.
@@ -66,7 +66,7 @@ Proof.
 
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_P) as (_ & neq_B_P & neq_A_P & neq_B_A & neq_P_B & neq_P_A).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_P) as (nCol_B_A_P & nCol_B_P_A & nCol_P_A_B & nCol_A_P_B & nCol_P_B_A).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_P) as n_Col_A_B_P.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_P) as n_Col_A_B_P.
 
 	pose proof (proposition_23 _ _ _ _ _ neq_A_B nCol_D_C_E) as (F & G & OnRay_AB_G & CongA_FAG_DCE).
 
@@ -77,12 +77,12 @@ Proof.
 	pose proof (by_prop_CongA_NC _ _ _ _ _ _ CongA_DCE_FAG) as nCol_F_A_G.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_F_A_G) as (neq_F_A & neq_A_G & neq_F_G & neq_A_F & neq_G_A & neq_G_F).
 	pose proof (by_prop_nCol_order _ _ _ nCol_F_A_G) as (nCol_A_F_G & nCol_A_G_F & nCol_G_F_A & nCol_F_G_A & nCol_G_A_F).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_F_A_G) as n_Col_F_A_G.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_F_A_G) as n_Col_F_A_G.
 
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_F) as OnRay_AF_F.
 
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_G_F Col_A_G_B neq_A_B) as nCol_A_B_F.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_F) as n_Col_A_B_F.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_F) as n_Col_A_B_F.
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_F) as (nCol_B_A_F & nCol_B_F_A & nCol_F_A_B & nCol_A_F_B & nCol_F_B_A).
 
 
@@ -101,7 +101,7 @@ Proof.
 	pose proof (by_prop_Col_ABC_ABD_ABE_CDE _ _ _ _ _ neq_A_B Col_A_B_J Col_A_B_H Col_A_B_G) as Col_J_H_G.
 
 	pose proof (by_prop_RightTriangle_NC _ _ _ RightTriangle_JHF) as nCol_J_H_F.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_J_H_F) as n_Col_J_H_F.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_J_H_F) as n_Col_J_H_F.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_J_H_F) as (neq_J_H & neq_H_F & neq_J_F & neq_H_J & neq_F_H & neq_F_J).
 	pose proof (by_prop_nCol_order _ _ _ nCol_J_H_F) as (nCol_H_J_F & nCol_H_F_J & nCol_F_J_H & nCol_J_F_H & nCol_F_H_J).
 
@@ -131,7 +131,7 @@ Proof.
 		contradict Col_A_B_P.
 		exact n_Col_A_B_P.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_J_T_P) as nCol_J_T_P.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_J_T_P) as nCol_J_T_P.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_J_T_P) as (_ & neq_T_P & neq_J_P & neq_T_J & neq_P_T & neq_P_J).
 	pose proof (by_prop_nCol_order _ _ _ nCol_J_T_P) as (nCol_T_J_P & nCol_T_P_J & nCol_P_J_T & nCol_J_P_T & nCol_P_T_J).
 
@@ -283,7 +283,7 @@ Proof.
 
 	destruct OppositeSide_S_JT_P as (M & BetS_S_M_P & Col_J_T_M & nCol_J_T_S).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_J_T_S) as n_Col_J_T_S.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_J_T_S) as n_Col_J_T_S.
 
 	assert (~ Col A B S) as n_Col_A_B_S.
 	{
@@ -294,7 +294,7 @@ Proof.
 		contradict Col_J_T_S.
 		exact n_Col_J_T_S.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_B_S) as nCol_A_B_S.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_B_S) as nCol_A_B_S.
 
 	pose proof (by_prop_Col_ABC_ABD_ABE_CDE _ _ _ _ _ neq_J_T Col_J_T_A Col_J_T_B Col_J_T_M) as Col_A_B_M.
 

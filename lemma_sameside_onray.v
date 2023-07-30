@@ -2,6 +2,8 @@ Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_SameSide.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -16,8 +18,6 @@ Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -48,7 +48,7 @@ Proof.
 
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_C_E) as (neq_A_C & _ & _ & neq_C_A & _ & _).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_C_F) as n_Col_A_C_F.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_C_F) as n_Col_A_C_F.
 
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_C) as (_ & Col_B_C_A & Col_C_A_B & Col_A_C_B & _).
 
@@ -129,7 +129,7 @@ Proof.
 			contradict Col_A_C_F.
 			exact n_Col_A_C_F.
 		}
-		pose proof (lemma_s_n_col_ncol _ _ _ n_Col_A_C_G) as nCol_A_C_G.
+		pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_A_C_G) as nCol_A_C_G.
 
 		pose proof (by_def_OppositeSide _ _ _ _ _ BetS_G_B_Q Col_A_C_B nCol_A_C_G) as OppositeSide_G_AC_Q.
 
@@ -173,7 +173,7 @@ Proof.
 		exact n_Col_A_C_F.
 
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_Q_F_B) as nCol_Q_F_B.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_Q_F_B) as nCol_Q_F_B.
 
 	pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_BF_G) as [BetS_B_G_F|[eq_F_G|BetS_B_F_G]].
 	{
@@ -202,7 +202,7 @@ Proof.
 		contradict Col_Q_F_B.
 		exact n_Col_Q_F_B.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_B_G_Q) as nCol_B_G_Q.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_B_G_Q) as nCol_B_G_Q.
 
 	pose proof (lemma_oppositeside_betweenness_PABC_RPQ_QABC _ _ _ _ _ _ OppositeSide_F_AC_Q BetS_B_F_G nCol_B_G_Q Col_A_C_B) as OppositeSide_G_AC_Q.
 

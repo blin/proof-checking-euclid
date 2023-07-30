@@ -2,6 +2,7 @@ Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
 Require Import ProofCheckingEuclid.by_def_Triangle.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.
 Require Import ProofCheckingEuclid.by_prop_CongA_transitive.
@@ -22,7 +23,6 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_right_triangle_same_base_cong_side_cong_hypotenuse.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_20.
 Require Import ProofCheckingEuclid.proposition_22.
 
@@ -80,7 +80,7 @@ Proof.
 	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_qbp) as RightTriangle_pbq.
 
 	pose proof (by_prop_RightTriangle_NC _ _ _ RightTriangle_pbq) as nCol_p_b_q.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_p_b_q) as n_Col_p_b_q.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_p_b_q) as n_Col_p_b_q.
 	pose proof (by_prop_nCol_order _ _ _ nCol_p_b_q) as (nCol_b_p_q & nCol_b_q_p & nCol_q_p_b & nCol_p_q_b & nCol_q_b_p).
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_p_b_q) as (neq_p_b & _ & neq_p_q & neq_b_p & neq_q_b & neq_q_p).
 

@@ -1,6 +1,7 @@
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_CongA_NC.
@@ -12,7 +13,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_planeseparation.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_15a.
 Require Import ProofCheckingEuclid.proposition_27.
 
@@ -48,7 +48,7 @@ Proof.
 
 	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_EGB_GHD) as CongA_GHD_EGB.
 	pose proof (by_prop_CongA_NC _ _ _ _ _ _ CongA_GHD_EGB) as nCol_E_G_B.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_E_G_B) as n_Col_E_G_B.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_E_G_B) as n_Col_E_G_B.
 
 	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_B_D_GH) as (SameSide_D_B_GH & _ & _).
 

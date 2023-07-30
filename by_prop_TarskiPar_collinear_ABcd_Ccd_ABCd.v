@@ -3,6 +3,8 @@ Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.by_def_TarskiPar.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_ABE_CDE.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
@@ -16,8 +18,6 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_collinearbetween.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_s_col_ABC_col_ABD_ncol_ACD_eq_AB.
-Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
 
@@ -62,7 +62,7 @@ Proof.
 	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_q_r_d) as Col_q_r_d.
 	pose proof (by_prop_Col_order _ _ _ Col_q_r_d) as (Col_r_q_d & Col_r_d_q & Col_d_q_r & Col_q_d_r & Col_d_r_q).
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_d) as n_Col_A_B_d.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_d) as n_Col_A_B_d.
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_d) as (nCol_B_A_d & nCol_B_d_A & nCol_d_A_B & nCol_A_d_B & nCol_d_B_A).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_c_d) as BetS_d_c_C.
@@ -155,7 +155,7 @@ Proof.
 		contradict eq_p_r.
 		exact n_eq_p_r.
 	}
-	pose proof (lemma_s_n_col_ncol _ _ _ n_Col_q_d_C) as nCol_q_d_C.
+	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_q_d_C) as nCol_q_d_C.
 	pose proof (by_prop_nCol_order _ _ _ nCol_q_d_C) as (nCol_d_q_C & _ & _ & _ & _).
 
 	pose proof (postulate_Pasch_inner _ _ _ _ _ BetS_q_r_d BetS_C_c_d nCol_q_d_C) as (E & BetS_q_E_c & BetS_C_E_r).

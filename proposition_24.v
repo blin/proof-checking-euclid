@@ -7,6 +7,7 @@ Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Triangle.
 Require Import ProofCheckingEuclid.by_def_isosceles.
 Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
+Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_CongA_ABCequalsCBA.
@@ -36,7 +37,6 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_crossbar.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
-Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_05.
 Require Import ProofCheckingEuclid.proposition_16.
@@ -63,7 +63,7 @@ Proof.
 	intros LtA_EDF_BAC.
 
 	pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_ABC) as nCol_A_B_C.
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_B_C) as n_Col_A_B_C.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_B_C) as n_Col_A_B_C.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
 
@@ -87,7 +87,7 @@ Proof.
 
 	pose proof (by_prop_CongA_NC _ _ _ _ _ _ CongA_EDF_BAT) as nCol_B_A_T.
 
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_B_A_T) as n_Col_B_A_T.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_B_A_T) as n_Col_B_A_T.
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_B_A_T) as (_ & neq_A_T & neq_B_T & _ & neq_T_A & neq_T_B).
 	pose proof (by_prop_nCol_order _ _ _ nCol_B_A_T) as (nCol_A_B_T & nCol_A_T_B & nCol_T_B_A & nCol_B_T_A & nCol_T_A_B).
 
@@ -141,7 +141,7 @@ Proof.
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_A_J_C Col_A_J_H neq_A_H) as nCol_A_H_C.
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_H_C) as (nCol_H_A_C & nCol_H_C_A & nCol_C_A_H & nCol_A_C_H & nCol_C_H_A).
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_H_C) as (_ & neq_H_C & _ & _ & neq_C_H & _).
-	pose proof (lemma_s_ncol_n_col _ _ _ nCol_A_C_H) as n_Col_A_C_H.
+	pose proof (by_def_n_Col_from_nCol _ _ _ nCol_A_C_H) as n_Col_A_C_H.
 
 	pose proof (by_def_Triangle _ _ _ nCol_C_A_H) as Triangle_CAH.
 
