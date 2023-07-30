@@ -1,4 +1,5 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
@@ -83,7 +84,7 @@ Proof.
 	pose proof (by_prop_neq_symmetric _ _ neq_B_F) as neq_F_B.
 
 	pose proof (by_prop_OnRay_impliescollinear _ _ _ OnRay_BC_D) as Col_B_C_D.
-	assert (Col A B F) as Col_A_B_F by (unfold Col; one_of_disjunct BetS_A_B_F).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_B_F) as Col_A_B_F.
 
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_F) as (_ & _ & _ & _ & Col_F_B_A).
 	pose proof (by_prop_Col_order _ _ _ Col_B_C_D) as (_ & _ & Col_D_B_C & _ & _).

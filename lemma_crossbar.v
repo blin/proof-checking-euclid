@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
@@ -57,8 +58,8 @@ Proof.
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AP_BU) as Cong_BU_AP.
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_CQ_BV) as Cong_BV_CQ.
 
-	assert (Col B A P) as Col_B_A_P by (unfold Col; one_of_disjunct BetS_B_A_P).
-	assert (Col B C Q) as Col_B_C_Q by (unfold Col; one_of_disjunct BetS_B_C_Q).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_A_P) as Col_B_A_P.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_C_Q) as Col_B_C_Q.
 	pose proof (by_prop_Col_order _ _ _ Col_B_A_P) as (_ & _ & Col_P_B_A & _ & _).
 	pose proof (by_prop_Col_order _ _ _ Col_B_C_Q) as (_ & _ & Col_Q_B_C & _ & _).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_A_P) as (_ & _ & neq_B_P).
@@ -120,7 +121,7 @@ Proof.
 	pose proof (postulate_Pasch_inner _ _ _ _ _ BetS_Q_W_P BetS_B_U_P nCol_Q_P_B) as (M & BetS_Q_M_U & BetS_B_M_W).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_Q_M_U) as BetS_U_M_Q.
 
-	assert (Col B U P) as Col_B_U_P by (unfold Col; one_of_disjunct BetS_B_U_P).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_U_P) as Col_B_U_P.
 	pose proof (by_prop_Col_order _ _ _ Col_B_U_P) as (_ & _ & _ & Col_B_P_U & _).
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_P_Q Col_B_P_U neq_B_U) as nCol_B_U_Q.
 	pose proof (by_prop_nCol_order _ _ _ nCol_B_U_Q) as (_ & nCol_U_Q_B & _ & _ & _).

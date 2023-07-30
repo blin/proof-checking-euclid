@@ -1,4 +1,6 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_B.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
@@ -50,7 +52,7 @@ Proof.
 		pose proof (by_prop_neq_symmetric _ _ neq_G_H) as neq_H_G.
 		pose proof (by_prop_neq_symmetric _ _ neq_J_H) as neq_H_J.
 
-		assert (Col G H J) as Col_G_H_J by (unfold Col; one_of_disjunct BetS_G_H_J).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_G_H_J) as Col_G_H_J.
 		pose proof (by_prop_Col_order _ _ _ Col_G_H_J) as (_ & Col_H_J_G & _ & _ & _).
 
 		pose proof (by_prop_OnRay_neq_A_C _ _ _ OnRay_BA_G) as neq_B_G.
@@ -127,7 +129,7 @@ Proof.
 			assert (BetS G B J) as BetS_G_B_J by (rewrite <- eq_H_B; exact BetS_G_H_J).
 			pose proof (by_prop_BetS_notequal _ _ _ BetS_G_B_J) as (_ & _ & neq_G_J).
 
-			assert (Col G B J) as Col_G_B_J by (unfold Col; one_of_disjunct BetS_G_B_J).
+			pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_G_B_J) as Col_G_B_J.
 			pose proof (by_prop_Col_order _ _ _ Col_G_B_J) as (Col_B_G_J & _ & _ & Col_G_J_B & _).
 
 			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_B_G_J Col_B_G_A neq_B_G) as Col_G_J_A.
@@ -149,7 +151,7 @@ Proof.
 		pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_B_U_G Col_B_U_G BetS_J_G_P BetS_H_G_P nCol_B_U_J nCol_B_U_H) as SameSide_J_H_BU.
 		pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_J_H_BU) as (SameSide_H_J_BU & _ & _).
 		assert (eq B B) as eq_B_B by (reflexivity).
-		assert (Col B B U) as Col_B_B_U by (unfold Col; one_of_disjunct eq_B_B).
+		pose proof (by_def_Col_from_eq_A_B B B U eq_B_B) as Col_B_B_U.
 		pose proof (lemma_sameside_onray _ _ _ _ _ _ SameSide_H_J_BU Col_B_B_U OnRay_BJ_V) as SameSide_H_V_BU.
 		pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_H_V_BU) as (SameSide_V_H_BU & _ & _).
 		pose proof (lemma_sameside_onray _ _ _ _ _ _ SameSide_V_H_BU Col_B_B_U OnRay_BH_v) as SameSide_V_v_BU.

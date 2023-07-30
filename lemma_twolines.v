@@ -1,4 +1,6 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_B_A_C.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_BAC.
@@ -35,10 +37,10 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_E_D) as (_ & _ & neq_C_D).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_E_B) as (_ & _ & neq_A_B).
 
-	assert (Col A E B) as Col_A_E_B by (unfold Col; one_of_disjunct BetS_A_E_B).
-	assert (Col A F B) as Col_A_F_B by (unfold Col; one_of_disjunct BetS_A_F_B).
-	assert (Col C E D) as Col_C_E_D by (unfold Col; one_of_disjunct BetS_C_E_D).
-	assert (Col C F D) as Col_C_F_D by (unfold Col; one_of_disjunct BetS_C_F_D).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_E_B) as Col_A_E_B.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_F_B) as Col_A_F_B.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_E_D) as Col_C_E_D.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_F_D) as Col_C_F_D.
 
 	pose proof (by_prop_Col_order _ _ _ Col_A_E_B) as (_ & _ & _ & Col_A_B_E & _).
 	pose proof (by_prop_Col_order _ _ _ Col_A_F_B) as (_ & _ & _ & Col_A_B_F & _).
@@ -64,7 +66,7 @@ Proof.
 		{
 			intros eq_F_B.
 
-			assert (Col F C D) as Col_F_C_D by (unfold Col; one_of_disjunct BetS_C_F_D).
+			pose proof (by_def_Col_from_BetS_B_A_C _ _ _ BetS_C_F_D) as Col_F_C_D.
 			assert (Col B C D) as Col_B_C_D by (rewrite <- eq_F_B; exact Col_F_C_D).
 
 			contradict Col_B_C_D.

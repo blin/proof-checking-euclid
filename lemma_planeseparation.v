@@ -1,4 +1,7 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_ABE_CDE.
@@ -54,7 +57,7 @@ Proof.
 	destruct OppositeSide_D_AB_E2 as (W & BetS_D_W_E & Col_A_B_W & _).
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_W_E) as (neq_W_E & neq_D_W & neq_D_E).
-	assert (Col D W E) as Col_D_W_E by (unfold Col; one_of_disjunct BetS_D_W_E).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_W_E) as Col_D_W_E.
 	pose proof (by_prop_Col_order _ _ _ Col_D_W_E) as (Col_W_D_E & Col_W_E_D & Col_E_D_W & Col_D_E_W & Col_E_W_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_W_E) as BetS_E_W_D.
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_W) as (Col_B_A_W & Col_B_W_A & Col_W_A_B & Col_A_W_B & Col_W_B_A).
@@ -64,8 +67,8 @@ Proof.
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_G_Q) as (neq_G_Q & neq_C_G & neq_C_Q).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_H_Q) as (neq_H_Q & neq_D_H & neq_D_Q).
-	assert (Col C G Q) as Col_C_G_Q by (unfold Col; one_of_disjunct BetS_C_G_Q).
-	assert (Col D H Q) as Col_D_H_Q by (unfold Col; one_of_disjunct BetS_D_H_Q).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_G_Q) as Col_C_G_Q.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_H_Q) as Col_D_H_Q.
 	pose proof (by_prop_Col_order _ _ _ Col_C_G_Q) as (Col_G_C_Q & Col_G_Q_C & Col_Q_C_G & Col_C_Q_G & Col_Q_G_C).
 	pose proof (by_prop_Col_order _ _ _ Col_D_H_Q) as (Col_H_D_Q & Col_H_Q_D & Col_Q_D_H & Col_D_Q_H & Col_Q_H_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_G_Q) as BetS_Q_G_C.
@@ -133,7 +136,7 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_Q_G_D) as (neq_G_D & _ & _).
 	pose proof (by_prop_neq_symmetric _ _ neq_G_D) as neq_D_G.
 
-	assert (Col Q G D) as Col_Q_G_D by (unfold Col; one_of_disjunct BetS_Q_G_D).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_Q_G_D) as Col_Q_G_D.
 	pose proof (by_prop_Col_order _ _ _ Col_Q_G_D) as (Col_G_Q_D & Col_G_D_Q & Col_D_Q_G & Col_Q_D_G & Col_D_G_Q).
 
 	assert (Col E D G \/ ~ Col E D G) as [Col_E_D_G|n_Col_E_D_G] by (apply Classical_Prop.classic).
@@ -359,7 +362,7 @@ Proof.
 	destruct OppositeSide_D_AB_E2 as (W & BetS_D_W_E & Col_A_B_W & _).
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_W_E) as (neq_W_E & neq_D_W & neq_D_E).
-	assert (Col D W E) as Col_D_W_E by (unfold Col; one_of_disjunct BetS_D_W_E).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_W_E) as Col_D_W_E.
 	pose proof (by_prop_Col_order _ _ _ Col_D_W_E) as (Col_W_D_E & Col_W_E_D & Col_E_D_W & Col_D_E_W & Col_E_W_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_W_E) as BetS_E_W_D.
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_W) as (Col_B_A_W & Col_B_W_A & Col_W_A_B & Col_A_W_B & Col_W_B_A).
@@ -369,8 +372,8 @@ Proof.
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_G_Q) as (neq_G_Q & neq_C_G & neq_C_Q).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_H_Q) as (neq_H_Q & neq_D_H & neq_D_Q).
-	assert (Col C G Q) as Col_C_G_Q by (unfold Col; one_of_disjunct BetS_C_G_Q).
-	assert (Col D H Q) as Col_D_H_Q by (unfold Col; one_of_disjunct BetS_D_H_Q).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_G_Q) as Col_C_G_Q.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_H_Q) as Col_D_H_Q.
 	pose proof (by_prop_Col_order _ _ _ Col_C_G_Q) as (Col_G_C_Q & Col_G_Q_C & Col_Q_C_G & Col_C_Q_G & Col_Q_G_C).
 	pose proof (by_prop_Col_order _ _ _ Col_D_H_Q) as (Col_H_D_Q & Col_H_Q_D & Col_Q_D_H & Col_D_Q_H & Col_Q_H_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_G_Q) as BetS_Q_G_C.
@@ -412,9 +415,9 @@ Proof.
 	pose proof (by_prop_neq_symmetric _ _ neq_C_H) as neq_H_C.
 	pose proof (by_prop_neq_symmetric _ _ neq_D_F) as neq_F_D.
 
-	assert (Col C F H) as Col_C_F_H by (unfold Col; one_of_disjunct BetS_C_F_H).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_F_H) as Col_C_F_H.
 	pose proof (by_prop_Col_order _ _ _ Col_C_F_H) as (Col_F_C_H & Col_F_H_C & Col_H_C_F & Col_C_H_F & Col_H_F_C).
-	assert (Col G F D) as Col_G_F_D by (unfold Col; one_of_disjunct BetS_G_F_D).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_G_F_D) as Col_G_F_D.
 	pose proof (by_prop_Col_order _ _ _ Col_G_F_D) as (Col_F_G_D & Col_F_D_G & Col_D_G_F & Col_G_D_F & Col_D_F_G).
 
 	assert (~ eq G H) as neq_G_H.
@@ -457,13 +460,13 @@ Proof.
 			pose proof (by_prop_Col_order _ _ _ Col_D_G_W) as (_ & Col_G_W_D & _ & _ & _).
 
 			assert (eq B B) as eq_B_B by (reflexivity).
-			assert (Col A B B) as Col_A_B_B by (unfold Col; one_of_disjunct eq_B_B).
+			pose proof (by_def_Col_from_eq_B_C A B B eq_B_B) as Col_A_B_B.
 
 			pose proof (by_prop_Col_ABC_ABD_ABE_CDE _ _ _ _ _ neq_A_B Col_A_B_G Col_A_B_W Col_A_B_B) as Col_G_W_B.
 			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_W_D Col_G_W_B neq_G_W) as Col_W_D_B.
 
 			assert (eq A A) as eq_A_A by (reflexivity).
-			assert (Col B A A) as Col_B_A_A by (unfold Col; one_of_disjunct eq_A_A).
+			pose proof (by_def_Col_from_eq_B_C B A A eq_A_A) as Col_B_A_A.
 			pose proof (by_prop_Col_ABC_ABD_ABE_CDE _ _ _ _ _ neq_B_A Col_B_A_G Col_B_A_W Col_B_A_A) as Col_G_W_A.
 			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_G_W_D Col_G_W_A neq_G_W) as Col_W_D_A.
 
@@ -492,7 +495,7 @@ Proof.
 			pose proof (by_prop_BetS_notequal _ _ _ BetS_D_F_E) as (neq_F_E & _ & _).
 			pose proof (by_prop_neq_symmetric _ _ neq_F_E) as neq_E_F.
 
-			assert (Col D F E) as Col_D_F_E by (unfold Col; one_of_disjunct BetS_D_F_E).
+			pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_F_E) as Col_D_F_E.
 			pose proof (by_prop_Col_order _ _ _ Col_D_F_E) as (_ & _ & _ & _ & Col_E_F_D).
 
 			pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_E_F_C Col_E_F_D neq_E_F) as Col_F_C_D.
@@ -519,7 +522,7 @@ Proof.
 		pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_M_C) as BetS_C_M_E.
 		pose proof (by_prop_BetS_notequal _ _ _ BetS_H_G_M) as (_ & neq_H_G & _).
 
-		assert (Col H G M) as Col_H_G_M by (unfold Col; one_of_disjunct BetS_H_G_M).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_H_G_M) as Col_H_G_M.
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_H_G_M Col_H_G_B neq_H_G) as Col_G_M_B.
 		pose proof (by_prop_Col_order _ _ _ Col_G_M_B) as (_ & _ & _ & Col_G_B_M & _).
 
@@ -606,8 +609,8 @@ Proof.
 		pose proof (by_prop_BetS_notequal _ _ _ BetS_E_J_F) as (_ & _ & neq_E_F).
 		pose proof (by_prop_neq_symmetric _ _ neq_E_F) as neq_F_E.
 
-		assert (Col G J W) as Col_G_J_W by (unfold Col; one_of_disjunct BetS_G_J_W).
-		assert (Col E F J) as Col_E_F_J by (unfold Col; one_of_disjunct BetS_E_J_F).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_G_J_W) as Col_G_J_W.
+		pose proof (by_def_Col_from_BetS_A_C_B _ _ _ BetS_E_J_F) as Col_E_F_J.
 
 		pose proof (by_prop_Col_order _ _ _ Col_G_J_W) as (_ & _ & _ & Col_G_W_J & _).
 		pose proof (by_prop_Col_order _ _ _ Col_E_F_J) as (Col_F_E_J & _ & _ & _ & _).
