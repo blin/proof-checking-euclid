@@ -11,7 +11,6 @@ Require Import ProofCheckingEuclid.by_prop_eq_symmetric.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_midpointunique.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
 Require Import ProofCheckingEuclid.lemma_s_congruence_null_segment.

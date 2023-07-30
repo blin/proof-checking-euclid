@@ -1,12 +1,12 @@
 Require Import ProofCheckingEuclid.by_def_CongA.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_prop_Cong_doublereverse.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
-Require Import ProofCheckingEuclid.by_prop_OnRay_assert.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_extension.
 
 Section Euclid.
@@ -37,13 +37,8 @@ Proof.
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_BE_BF) as Cong_BF_BE.
 	pose proof (cn_congruencereverse E F) as Cong_EF_FE.
 
-	assert (BetS B E A \/ eq E A \/ BetS B A E) as BetS_B_E_A_or_eq_E_A_or_BetS_B_A_E.
-	one_of_disjunct BetS_B_A_E.
-	pose proof (by_prop_OnRay_assert _ _ _ BetS_B_E_A_or_eq_E_A_or_BetS_B_A_E neq_B_A) as OnRay_BA_E.
-
-	assert (BetS B F C \/ eq F C \/ BetS B C F) as BetS_B_F_C_or_eq_F_C_or_BetS_B_C_F.
-	one_of_disjunct BetS_B_C_F.
-	pose proof (by_prop_OnRay_assert _ _ _ BetS_B_F_C_or_eq_F_C_or_BetS_B_C_F neq_B_C) as OnRay_BC_F.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_B_A_E neq_B_A) as OnRay_BA_E.
+	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_B_C_F neq_B_C) as OnRay_BC_F.
 
 	pose proof (
 		by_def_CongA

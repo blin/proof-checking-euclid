@@ -13,7 +13,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RPQ_QABC.
 Require Import ProofCheckingEuclid.lemma_oppositeside_betweenness_PABC_RQP_QABC.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.

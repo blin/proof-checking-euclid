@@ -7,7 +7,6 @@ Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_betweennesspreserved.
 Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_interior5.
