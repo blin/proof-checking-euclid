@@ -3,7 +3,6 @@ Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_s_conga_sss.
 Require Import ProofCheckingEuclid.lemma_s_triangle_vertex_to_ray_congruent.
 

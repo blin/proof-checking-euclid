@@ -54,7 +54,6 @@ and so the dependencies need to be introduced in a particular order.
       `proposition_03` is
        a direct application of that lemma and so their illustrations are
        equivalent.
-001. [euclidean_tactics](./euclidean_tactics.v)
 001. [lemma_orderofpoints_ABD_BCD_ACD](./lemma_orderofpoints_ABD_BCD_ACD.v)
 001. [lemma_orderofpoints_ABC_ACD_ABD](./lemma_orderofpoints_ABC_ACD_ABD.v)
 001. [lemma_outerconnectivity](./lemma_outerconnectivity.v)

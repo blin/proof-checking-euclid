@@ -7,7 +7,6 @@ Require Import ProofCheckingEuclid.by_prop_Col_ABC_BAC.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.

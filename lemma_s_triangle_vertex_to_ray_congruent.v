@@ -7,7 +7,6 @@ Require Import ProofCheckingEuclid.by_prop_OnRay_neq_A_B.
 Require Import ProofCheckingEuclid.by_prop_OnRay_orderofpoints_any.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_differenceofparts.
 Require Import ProofCheckingEuclid.lemma_interior5.
 Require Import ProofCheckingEuclid.lemma_layoffunique.

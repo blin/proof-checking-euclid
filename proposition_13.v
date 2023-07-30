@@ -10,7 +10,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_helper.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 
 Section Euclid.
 
