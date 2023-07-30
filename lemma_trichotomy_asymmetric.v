@@ -18,7 +18,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_partnotequalwhole.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.

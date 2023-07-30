@@ -1,15 +1,14 @@
 Require Coq.Logic.Classical_Prop.
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
-Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_s_n_col_ncol.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
@@ -32,7 +31,7 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_P_R_Q) as (neq_R_Q & _ & _).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_Q_R_P) as (_ & neq_Q_R & neq_Q_P).
 
-	assert (Col P R Q) as Col_P_R_Q by (unfold Col; one_of_disjunct BetS_P_R_Q).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_P_R_Q) as Col_P_R_Q.
 
 	pose proof (by_prop_Col_order _ _ _ Col_P_R_Q) as (_ & _ & _ & _ & Col_Q_R_P).
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_R) as (_ & _ & _ & _ & Col_R_B_A).

@@ -1,10 +1,10 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
@@ -34,8 +34,8 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_F_D) as (neq_F_D & _ & _).
 	pose proof (by_prop_neq_symmetric _ _ neq_B_E) as neq_E_B.
 
-	assert (Col A F D) as Col_A_F_D by (unfold Col; one_of_disjunct BetS_A_F_D).
-	assert (Col B F E) as Col_B_F_E by (unfold Col; one_of_disjunct BetS_B_F_E).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_F_D) as Col_A_F_D.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_F_E) as Col_B_F_E.
 	pose proof (by_prop_Col_order _ _ _ Col_A_F_D) as (_ & Col_F_D_A & _ & _ & _).
 	pose proof (by_prop_Col_order _ _ _ Col_B_F_E) as (_ & Col_F_E_B & Col_E_B_F & _ & _).
 
@@ -55,7 +55,7 @@ Proof.
 	{
 		intros BetS_B_D_E.
 
-		assert (Col B D E) as Col_B_D_E by (unfold Col; one_of_disjunct BetS_B_D_E).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_D_E) as Col_B_D_E.
 		pose proof (by_prop_Col_order _ _ _ Col_B_D_E) as (_ & _ & Col_E_B_D & _ & _).
 
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _  Col_E_B_D Col_E_B_F neq_E_B) as Col_B_D_F.
@@ -71,7 +71,7 @@ Proof.
 	{
 		intros BetS_B_E_D.
 
-		assert (Col B E D) as Col_B_E_D by (unfold Col; one_of_disjunct BetS_B_E_D).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_E_D) as Col_B_E_D.
 		pose proof (by_prop_Col_order _ _ _ Col_B_E_D) as (Col_E_B_D & _ & _ & _ & _).
 
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _  Col_E_B_D Col_E_B_F neq_E_B) as Col_B_D_F.
@@ -86,7 +86,7 @@ Proof.
 	{
 		intros BetS_D_B_E.
 
-		assert (Col D B E) as Col_D_B_E by (unfold Col; one_of_disjunct BetS_D_B_E).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_B_E) as Col_D_B_E.
 		pose proof (by_prop_Col_order _ _ _ Col_D_B_E) as (_ & _ & _ & _ & Col_E_B_D).
 
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _  Col_E_B_D Col_E_B_F neq_E_B) as Col_B_D_F.

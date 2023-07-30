@@ -1,10 +1,10 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 
 Section Euclid.
@@ -40,8 +40,8 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_F_E) as (neq_F_E & _ & _).
 	pose proof (by_prop_neq_symmetric _ _ neq_A_D) as neq_D_A.
 
-	assert (Col A F D) as Col_A_F_D by (unfold Col; one_of_disjunct BetS_A_F_D).
-	assert (Col B F E) as Col_B_F_E by (unfold Col; one_of_disjunct BetS_B_F_E).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_F_D) as Col_A_F_D.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_F_E) as Col_B_F_E.
 	pose proof (by_prop_Col_order _ _ _ Col_A_F_D) as (_ & Col_F_D_A & Col_D_A_F & _ & _).
 	pose proof (by_prop_Col_order _ _ _ Col_B_F_E) as (_ & Col_F_E_B & _ & _ & _).
 
@@ -61,7 +61,7 @@ Proof.
 	{
 		intros BetS_A_D_E.
 
-		assert (Col A D E) as Col_A_D_E by (unfold Col; one_of_disjunct BetS_A_D_E).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_D_E) as Col_A_D_E.
 		pose proof (by_prop_Col_order _ _ _ Col_A_D_E) as (Col_D_A_E & _ & _ & _ & _).
 
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_D_A_E Col_D_A_F neq_D_A) as Col_A_E_F.
@@ -76,7 +76,7 @@ Proof.
 	assert (~ BetS A E D) as nBetS_A_E_D.
 	{
 		intros BetS_A_E_D.
-		assert (Col A E D) as Col_A_E_D by (unfold Col; one_of_disjunct BetS_A_E_D).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_E_D) as Col_A_E_D.
 
 		pose proof (by_prop_Col_order _ _ _ Col_A_E_D) as (_ & _ & Col_D_A_E & _ & _).
 
@@ -93,7 +93,7 @@ Proof.
 	{
 		intros BetS_D_A_E.
 
-		assert (Col D A E) as Col_D_A_E by (unfold Col; one_of_disjunct BetS_D_A_E).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_D_A_E) as Col_D_A_E.
 
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_D_A_E Col_D_A_F neq_D_A) as Col_A_E_F.
 		pose proof (by_prop_Col_order _ _ _ Col_A_E_F) as (_ & _ & _ & _ & Col_F_E_A).

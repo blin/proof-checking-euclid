@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
@@ -14,7 +16,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 Require Import ProofCheckingEuclid.proposition_04.
@@ -39,9 +40,9 @@ Proof.
 	pose proof (cn_congruencereflexive B D) as Cong_BD_BD.
 
 	assert (eq B B) as eq_B_B by (reflexivity).
-	assert (Col A B B) as Col_A_B_B by (unfold Col; one_of_disjunct eq_B_B).
-	assert (Col D B B) as Col_D_B_B by (unfold Col; one_of_disjunct eq_B_B).
-	assert (Col C B B) as Col_C_B_B by (unfold Col; one_of_disjunct eq_B_B).
+	pose proof (by_def_Col_from_eq_B_C A B B eq_B_B) as Col_A_B_B.
+	pose proof (by_def_Col_from_eq_B_C D B B eq_B_B) as Col_D_B_B.
+	pose proof (by_def_Col_from_eq_B_C C B B eq_B_B) as Col_C_B_B.
 
 	destruct SumTwoRT_ABC_DBE as (a & b & e & c & d & Supp_abc_dbe & CongA_ABC_abc & CongA_DBE_dbe).
 
@@ -62,7 +63,7 @@ Proof.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_B_T) as BetS_T_B_A.
 
-	assert (Col A B T) as Col_A_B_T by (unfold Col; one_of_disjunct BetS_A_B_T).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_B_T) as Col_A_B_T.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_B_T) as (neq_B_T & _ & _).
 	pose proof (by_prop_neq_symmetric _ _ neq_B_T) as neq_T_B.
 	pose proof (by_prop_nCol_helper _ _ _ _ _ nCol_A_B_C Col_A_B_T Col_A_B_B neq_T_B) as nCol_T_B_C.

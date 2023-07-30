@@ -1,3 +1,5 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
+Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_InCirc_within_radius.
 Require Import ProofCheckingEuclid.by_def_Perp_at.
 Require Import ProofCheckingEuclid.by_def_RightTriangle.
@@ -11,7 +13,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
 Require Import ProofCheckingEuclid.proposition_10.
 
@@ -48,12 +49,12 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_P_B_Q) as (neq_B_Q & _ & neq_P_Q).
 	pose proof (proposition_10 _ _ neq_P_Q) as (M & BetS_P_M_Q & Cong_MP_MQ).
 
-	assert (Col P M Q) as Col_P_M_Q by (unfold Col; one_of_disjunct BetS_P_M_Q).
-	assert (Col P B Q) as Col_P_B_Q by (unfold Col; one_of_disjunct BetS_P_B_Q).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_P_M_Q) as Col_P_M_Q.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_P_B_Q) as Col_P_B_Q.
 	pose proof (by_prop_Col_order _ _ _ Col_P_M_Q) as (_ & _ & _ & Col_P_Q_M & _).
 	pose proof (by_prop_Col_order _ _ _ Col_P_B_Q) as (_ & _ & _ & Col_P_Q_B & _).
 	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_P_Q_B Col_P_Q_M neq_P_Q) as Col_Q_B_M.
-	assert (Col A B Q) as Col_A_B_Q by (unfold Col; one_of_disjunct BetS_A_B_Q).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_B_Q) as Col_A_B_Q.
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_Q) as (_ & _ & _ & _ & Col_Q_B_A).
 	pose proof (by_prop_neq_symmetric _ _ neq_B_Q) as neq_Q_B.
 	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_Q_B_M Col_Q_B_A neq_Q_B) as Col_B_M_A.
@@ -82,7 +83,7 @@ Proof.
 	) as RightTriangle_PMC.
 
 	assert (eq M M) as eq_M_M by (reflexivity).
-	assert (Col C M M) as Col_C_M_M by (unfold Col; one_of_disjunct eq_M_M).
+	pose proof (by_def_Col_from_eq_B_C C M M eq_M_M) as Col_C_M_M.
 
 	pose proof (
 		by_def_Perp_at

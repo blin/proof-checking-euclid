@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_CongA.
 Require Import ProofCheckingEuclid.by_def_InAngle.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
@@ -15,7 +16,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_n_col.
@@ -56,7 +56,7 @@ Proof.
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_F_E) as (_ & neq_B_F & _).
 
-	assert (Col B F E) as Col_B_F_E by (unfold Col; one_of_disjunct BetS_B_F_E).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_F_E) as Col_B_F_E.
 	pose proof (by_prop_Col_order _ _ _ Col_B_F_E) as (_ & _ & _ & Col_B_E_F & _).
 
 	pose proof (by_def_InAngle _ _ _ _ _ _ OnRay_AB_B OnRay_AC_E BetS_B_F_E) as InAngle_BAC_F.

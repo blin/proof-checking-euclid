@@ -1,3 +1,4 @@
+Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Supp.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
@@ -9,7 +10,6 @@ Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.euclidean_tactics.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.lemma_supplements_conga.
 
@@ -33,8 +33,8 @@ Proof.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_E_D) as BetS_D_E_C.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_E_B) as (neq_E_B & _ & _).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_E_D) as (neq_E_D & _ & _).
-	assert (Col A E B) as Col_A_E_B by (unfold Col; one_of_disjunct BetS_A_E_B).
-	assert (Col C E D) as Col_C_E_D by (unfold Col; one_of_disjunct BetS_C_E_D).
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_E_B) as Col_A_E_B.
+	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_E_D) as Col_C_E_D.
 	pose proof (by_prop_Col_order _ _ _ Col_A_E_B) as (Col_E_A_B & _ & _ & _ & _).
 	pose proof (by_prop_Col_order _ _ _ Col_C_E_D) as (Col_E_C_D & _ & _ & _ & _).
 
