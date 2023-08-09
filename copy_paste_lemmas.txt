@@ -1,8 +1,9 @@
-pose proof (by_prop_nCol_distinct _ _ _ nCol_X_Y_Z) as (neq_X_Y & neq_Y_Z & neq_X_Z & neq_Y_X & neq_Z_Y & neq_Z_X).
-pose proof (by_prop_nCol_order _ _ _ nCol_X_Y_Z) as (nCol_Y_X_Z & nCol_Y_Z_X & nCol_Z_X_Y & nCol_X_Z_Y & nCol_Z_Y_X).
-pose proof (by_prop_CongA_distinct _ _ _ _ _ _ CongA_X_Y_Z_x_y_z) as (neq_X_Y & neq_Y_Z & neq_X_Z & neq_x_y & neq_y_z & neq_x_z).
-pose proof (by_prop_BetS_notequal _ _ _ BetS_X_Y_Z) as (neq_Y_Z & neq_X_Y & neq_X_Z).
 pose proof (axiom_betweennesssymmetry _ _ _ BetS_X_Y_Z) as BetS_Z_Y_X.
-pose proof (by_prop_Col_order _ _ _ Col_X_Y_Z) as (Col_Y_X_Z & Col_Y_Z_X & Col_Z_X_Y & Col_X_Z_Y & Col_Z_Y_X).
+pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_X_Y_Z) as Col_X_Y_Z.
 pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_X_Y_Z) as nCol_X_Y_Z.
 pose proof (by_def_n_Col_from_nCol _ _ _ nCol_X_Y_Z) as n_Col_X_Y_Z.
+pose proof (by_prop_BetS_notequal _ _ _ BetS_X_Y_Z) as (neq_Y_Z & neq_X_Y & neq_X_Z).
+pose proof (by_prop_Col_order _ _ _ Col_X_Y_Z) as (Col_Y_X_Z & Col_Y_Z_X & Col_Z_X_Y & Col_X_Z_Y & Col_Z_Y_X).
+pose proof (by_prop_CongA_distinct _ _ _ _ _ _ CongA_X_Y_Z_x_y_z) as (neq_X_Y & neq_Y_Z & neq_X_Z & neq_x_y & neq_y_z & neq_x_z).
+pose proof (by_prop_nCol_distinct _ _ _ nCol_X_Y_Z) as (neq_X_Y & neq_Y_Z & neq_X_Z & neq_Y_X & neq_Z_Y & neq_Z_X).
+pose proof (by_prop_nCol_order _ _ _ nCol_X_Y_Z) as (nCol_Y_X_Z & nCol_Y_Z_X & nCol_Z_X_Y & nCol_X_Z_Y & nCol_Z_Y_X).

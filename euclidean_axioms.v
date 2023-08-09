@@ -109,14 +109,20 @@ Class euclidean_neutral :=
 	*)
 
 
+	(*
+		In inner Pasch asserted point is between (inside)
+		a point on the extension of one side and a point on another side.
+		In outer Pasch asserted point is following (outside)
+		a point on the extension of one side and a point on another side.
+	*)
 	postulate_Pasch_inner :
-		forall A B C P Q,
-			BetS A P C -> BetS B Q C -> nCol A C B ->
-			exists X, BetS A X Q /\ BetS B X P;
+		forall C D A E B,
+			BetS C E A -> BetS D B A -> nCol C A D ->
+			exists X, BetS C X B /\ BetS D X E;
 	postulate_Pasch_outer :
-		forall A B C P Q,
-			BetS A P C -> BetS B C Q -> nCol B Q A ->
-			exists X, BetS A X Q /\ BetS B P X;
+		forall C D B E A,
+			BetS C E B -> BetS D B A -> nCol D A C ->
+			exists X, BetS C X A /\ BetS D E X;
 
 	postulate_Euclid2 : forall A B, neq A B -> exists X, BetS A B X;
 	postulate_Euclid3 : forall A B, neq A B -> exists X, CI X A A B;
