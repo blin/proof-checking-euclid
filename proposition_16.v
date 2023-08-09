@@ -22,6 +22,7 @@ Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.
+Require Import ProofCheckingEuclid.lemma_s_Pasch_inner.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_10.
@@ -42,7 +43,6 @@ Proof.
 	intros BetS_B_C_D.
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_C_D) as (neq_C_D & _ & neq_B_D).
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_C_D) as BetS_D_C_B.
 	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_C_D) as Col_B_C_D.
 
 	pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_ABC) as nCol_A_B_C.
@@ -64,7 +64,6 @@ Proof.
 
 	pose proof (lemma_extension _ _ _ _ neq_B_E neq_E_B) as (F & BetS_B_E_F & Cong_EF_EB).
 
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_E_F) as BetS_F_E_B.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_E_F) as (neq_E_F & _ & neq_B_F).
 	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_E_F) as Col_B_E_F.
 	pose proof (by_prop_Col_order _ _ _ Col_B_E_F) as (Col_E_B_F & _ & _ & _ & _).
@@ -74,15 +73,14 @@ Proof.
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_E_C Col_B_E_F neq_B_F) as nCol_B_F_C.
 	pose proof (by_prop_nCol_order _ _ _ nCol_B_F_C) as (_ & _ & _ & nCol_B_C_F & _).
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_C_F Col_B_C_D neq_B_D) as nCol_B_D_F.
-	pose proof (by_prop_nCol_order _ _ _ nCol_B_D_F) as (nCol_D_B_F & _ & _ & _ & _).
+	pose proof (by_prop_nCol_order _ _ _ nCol_B_D_F) as (_ & _ & _ & nCol_B_F_D & _).
 
 	pose proof (by_prop_Cong_doublereverse _ _ _ _ Cong_EF_EB) as (Cong_BE_FE & _).
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_BE_FE) as (Cong_EB_EF & _ & _).
 
-	pose proof (postulate_Pasch_inner _ _ _ _ _ BetS_D_C_B BetS_F_E_B nCol_D_B_F) as (H & BetS_D_H_E & BetS_F_H_C).
+	pose proof (lemma_s_Pasch_inner _ _ _ _ _ BetS_B_C_D BetS_B_E_F nCol_B_F_D) as (H & BetS_D_H_E & BetS_C_H_F).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_H_E) as BetS_E_H_D.
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_F_H_C) as BetS_C_H_F.
 
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_B) as OnRay_AB_B.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_A) as OnRay_CA_A.
@@ -150,7 +148,6 @@ Proof.
 
 	pose proof (lemma_extension _ _ _ _ neq_A_E neq_E_A) as (F & BetS_A_E_F & Cong_EF_EA).
 
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_E_F) as BetS_F_E_A.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_E_F) as (neq_E_F & _ & neq_A_F).
 	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_E_F) as Col_A_E_F.
 	pose proof (by_prop_Col_order _ _ _ Col_A_E_F) as (Col_E_A_F & Col_E_F_A & _ & _ & _).
@@ -181,10 +178,9 @@ Proof.
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_C_B_A Col_C_B_D neq_C_D) as nCol_C_D_A.
 	pose proof (by_prop_nCol_order _ _ _ nCol_C_D_A) as (nCol_D_C_A & _ & _ & _ & _).
 
-	pose proof (postulate_Pasch_inner _ _ _ _ _ BetS_G_C_A BetS_F_E_A nCol_G_A_F) as (H & BetS_G_H_E & BetS_F_H_C).
+	pose proof (lemma_s_Pasch_inner _ _ _ _ _ BetS_A_C_G BetS_A_E_F nCol_A_F_G) as (H & BetS_G_H_E & BetS_C_H_F).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_G_H_E) as BetS_E_H_G.
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_F_H_C) as BetS_C_H_F.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_H_F) as (_ & neq_C_H & _).
 
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
