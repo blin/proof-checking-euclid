@@ -1,5 +1,6 @@
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
-Require Import ProofCheckingEuclid.by_def_LtA.
+Require Import ProofCheckingEuclid.by_def_InAngle.
+Require Import ProofCheckingEuclid.by_def_LtA_from_InAngle.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
@@ -108,7 +109,8 @@ Proof.
 	pose proof (by_prop_CongA_transitive _ _ _ _ _ _ _ _ _ CongA_BAC_ECF CongA_ECF_ACF) as CongA_BAC_ACF.
 	pose proof (by_prop_CongA_helper _ _ _ _ _ _ _ _ CongA_BAC_ACF OnRay_CA_A OnRay_CF_H) as CongA_BAC_ACH.
 
-	pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_E_H_D OnRay_CA_E OnRay_CD_D CongA_BAC_ACH) as LtA_BAC_ACD.
+	pose proof (by_def_InAngle _ _ _ _ _ _ OnRay_CA_E OnRay_CD_D BetS_E_H_D) as InAngle_ACD_H.
+	pose proof (by_def_LtA_from_InAngle _ _ _ _ _ _ _ InAngle_ACD_H CongA_BAC_ACH) as LtA_BAC_ACD.
 
 	exact LtA_BAC_ACD.
 Qed.
@@ -216,7 +218,8 @@ Proof.
 	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_GCB_ACD) as CongA_ACD_GCB.
 	pose proof (by_prop_CongA_helper _ _ _ _ _ _ _ _ CongA_ABC_BCF OnRay_CB_B OnRay_CF_H) as CongA_ABC_BCH.
 
-	pose proof (by_def_LtA _ _ _ _ _ _ _ _ _ BetS_E_H_G OnRay_CB_E OnRay_CG_G CongA_ABC_BCH) as LtA_ABC_BCG.
+	pose proof (by_def_InAngle _ _ _ _ _ _ OnRay_CB_E OnRay_CG_G BetS_E_H_G) as InAngle_BCG_H.
+	pose proof (by_def_LtA_from_InAngle _ _ _ _ _ _ _ InAngle_BCG_H CongA_ABC_BCH) as LtA_ABC_BCG.
 	pose proof (by_prop_LtA_respects_congruence _ _ _ _ _ _ _ _ _ LtA_ABC_BCG CongA_GCB_BCG) as LtA_ABC_GCB.
 	pose proof (by_prop_LtA_respects_congruence _ _ _ _ _ _ _ _ _ LtA_ABC_GCB CongA_ACD_GCB) as LtA_ABC_ACD.
 	pose proof (by_prop_LtA_respects_congruence_smaller _ _ _ _ _ _ _ _ _ LtA_ABC_ACD CongA_CBA_ABC) as LtA_CBA_ACD.
