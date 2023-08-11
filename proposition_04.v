@@ -22,9 +22,6 @@ Proof.
 	intros Cong_AC_ac.
 	intros CongA_BAC_bac.
 
-	pose proof (by_prop_CongA_NC _ _ _ _ _ _ CongA_BAC_bac) as  nCol_b_a_c.
-
-	unfold CongA in CongA_BAC_bac.
 	destruct CongA_BAC_bac as (
 		U & V & u & v &
 		OnRay_AB_U & OnRay_AC_V &
@@ -57,19 +54,13 @@ Proof.
 	) as Cong_CB_cb.
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_CB_cb) as (Cong_BC_bc & _).
 
-	pose proof (
-		by_prop_nCol_order _ _ _ nCol_B_A_C
-	) as (nCol_A_B_C & nCol_A_C_B & _).
-
-	pose proof (
-		by_prop_nCol_order _ _ _ nCol_b_a_c
-	) as (nCol_a_b_c & nCol_a_c_b & _).
+	pose proof (by_prop_nCol_order _ _ _ nCol_B_A_C) as (nCol_A_B_C & nCol_A_C_B & _).
 
 	pose proof (
 		lemma_s_conga_sss
 		A B C a b c
 		Cong_AB_ab Cong_AC_ac Cong_BC_bc
-		nCol_A_B_C nCol_a_b_c
+		nCol_A_B_C
 	) as CongA_ABC_abc.
 
 	pose proof (
@@ -79,7 +70,6 @@ Proof.
 		Cong_AB_ab
 		Cong_CB_cb
 		nCol_A_C_B
-		nCol_a_c_b
 	) as CongA_ACB_acb.
 
 	repeat split.

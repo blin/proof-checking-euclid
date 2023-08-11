@@ -1,6 +1,7 @@
 Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
+Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 
@@ -14,7 +15,6 @@ Lemma lemma_s_conga_sss :
 	Cong A C a c ->
 	Cong B C b c ->
 	nCol A B C ->
-	nCol a b c ->
 	CongA A B C a b c.
 Proof.
 	intros A B C a b c.
@@ -22,17 +22,15 @@ Proof.
 	intros Cong_AC_ac.
 	intros Cong_BC_bc.
 	intros nCol_A_B_C.
-	intros nCol_a_b_c.
 
-	pose proof (
-		by_prop_nCol_distinct _ _ _ nCol_A_B_C
-	) as (_ & neq_B_C & _ & neq_B_A & _).
+	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & _ & neq_B_A & _).
+
+	pose proof (axiom_nocollapse _ _ _ _ neq_A_B Cong_AB_ab) as neq_a_b.
+	pose proof (axiom_nocollapse _ _ _ _ neq_B_C Cong_BC_bc) as neq_b_c.
+	pose proof (by_prop_neq_symmetric _ _ neq_a_b) as neq_b_a.
+
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_A) as OnRay_BA_A.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_B_C) as OnRay_BC_C.
-
-	pose proof (
-		by_prop_nCol_distinct _ _ _ nCol_a_b_c
-	) as (neq_a_b & neq_b_c & neq_a_c & neq_b_a & _).
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_b_a) as OnRay_ba_a.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_b_c) as OnRay_bc_c.
 
