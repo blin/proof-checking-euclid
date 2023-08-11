@@ -20,6 +20,7 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
+Require Import ProofCheckingEuclid.lemma_s_5_line.
 
 Section Euclid.
 
@@ -117,17 +118,8 @@ Proof.
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_bw_UB) as Cong_UB_bw.
 	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_BW_UB Cong_UB_bw) as Cong_BW_bw.
 
-	pose proof (
-		axiom_5_line
-		U B W V
-		u b w v
-		Cong_BW_bw
-		Cong_UV_uv
-		Cong_BV_bv
-		BetS_U_B_W
-		BetS_u_b_w
-		Cong_UB_ub
-	) as Cong_VW_vw.
+	pose proof (lemma_s_5_line _ _ _ _ _ _ _ _ Cong_UB_ub Cong_BV_bv Cong_VU_vu BetS_U_B_W BetS_u_b_w Cong_BW_bw) as Cong_WV_wv.
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_WV_wv) as (Cong_VW_vw & _).
 
 	assert (~ Col D B F) as n_Col_D_B_F.
 	{
