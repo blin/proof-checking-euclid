@@ -10,19 +10,16 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-(*
-	TODO: replace with lemma_s_Col_ABC_nCol_ABD_nCol_ACD .
-*)
-Lemma lemma_s_ncol_ABD_col_ABC_ncol_ACD :
-	forall A B D C,
-	nCol A B D ->
+Lemma lemma_s_Col_ABC_nCol_ABD_nCol_ACD :
+	forall A B C D,
 	Col A B C ->
+	nCol A B D ->
 	neq A C ->
 	nCol A C D.
 Proof.
-	intros A B D C.
-	intros nCol_A_B_D.
+	intros A B C D.
 	intros Col_A_B_C.
+	intros nCol_A_B_D.
 	intros neq_A_C.
 
 	assert (~ Col A C D) as n_Col_A_C_D.
