@@ -12,7 +12,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_trichotomy_equal :
+Lemma by_prop_Lt_trichotomous :
 	forall A B C D,
 	~ Lt A B C D ->
 	~ Lt C D A B ->

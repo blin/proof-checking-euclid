@@ -1,12 +1,12 @@
 Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
 Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Lt_asymmetric.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence_smaller.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF.
-Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
 Require Import ProofCheckingEuclid.proposition_04.
 Require Import ProofCheckingEuclid.proposition_24.
 
@@ -44,7 +44,7 @@ Proof.
 		intro LtA_BAC_EDF.
 
 		pose proof (proposition_24 _ _ _ _ _ _ Triangle_DEF Triangle_ABC Cong_DE_AB Cong_DF_AC LtA_BAC_EDF) as Lt_BC_EF.
-		pose proof (lemma_trichotomy_asymmetric _ _ _ _ Lt_BC_EF) as n_Lt_EF_BC.
+		pose proof (by_prop_Lt_asymmetric _ _ _ _ Lt_BC_EF) as n_Lt_EF_BC.
 
 		contradict Lt_EF_BC.
 		exact n_Lt_EF_BC.
@@ -59,7 +59,7 @@ Proof.
 		pose proof (proposition_04 _ _ _ _ _ _ Cong_AB_DE Cong_AC_DF CongA_BAC_EDF) as (Cong_BC_EF & _ & _).
 		pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_BC_EF) as Cong_EF_BC.
 		pose proof (by_prop_Lt_congruence_smaller _ _ _ _ _ _ Lt_EF_BC Cong_EF_BC) as Lt_BC_BC.
-		pose proof (lemma_trichotomy_asymmetric _ _ _ _ Lt_BC_BC) as n_Lt_BC_BC.
+		pose proof (by_prop_Lt_asymmetric _ _ _ _ Lt_BC_BC) as n_Lt_BC_BC.
 
 		contradict Lt_BC_BC.
 		exact n_Lt_BC_BC.

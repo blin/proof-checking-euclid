@@ -9,6 +9,7 @@ Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
+Require Import ProofCheckingEuclid.by_prop_Lt_asymmetric.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence_smaller.
 Require Import ProofCheckingEuclid.by_prop_Lt_notequal.
@@ -25,7 +26,6 @@ Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_BCD_ACD.
 Require Import ProofCheckingEuclid.lemma_subtractequals.
 Require Import ProofCheckingEuclid.lemma_together.
-Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
 
 Section Euclid.
 
@@ -171,7 +171,7 @@ Proof.
 			pose proof (by_prop_Cong_flip _ _ _ _ Cong_AS_KG) as (_ & _ & Cong_AS_GK).
 			pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_Cc_AS Cong_AS_GK) as Lt_Cc_GK.
 			pose proof (by_prop_Lt_congruence_smaller _ _ _ _ _ _ Lt_Cc_GK Cong_Cc_GK) as Lt_GK_GK.
-			pose proof (lemma_trichotomy_asymmetric _ _ _ _ Lt_GK_GK) as n_Lt_GK_GK.
+			pose proof (by_prop_Lt_asymmetric _ _ _ _ Lt_GK_GK) as n_Lt_GK_GK.
 
 			contradict Lt_GK_GK.
 			exact n_Lt_GK_GK.
@@ -185,7 +185,7 @@ Proof.
 			pose proof (by_prop_Lt_congruence_smaller _ _ _ _ _ _ Lt_Aa_BS Cong_Aa_FK) as Lt_FK_BS.
 			pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_FK_BS) as Cong_BS_FK.
 			pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_FK_BS Cong_BS_FK) as Lt_FK_FK.
-			pose proof (lemma_trichotomy_asymmetric _ _ _ _ Lt_FK_FK) as n_Lt_FK_FK.
+			pose proof (by_prop_Lt_asymmetric _ _ _ _ Lt_FK_FK) as n_Lt_FK_FK.
 
 			contradict Lt_FK_FK.
 			exact n_Lt_FK_FK.
@@ -201,7 +201,7 @@ Proof.
 			pose proof (cn_sumofparts _ _ _ _ _ _ Cong_FK_Aa Cong_KG_aS BetS_F_K_G BetS_A_a_S) as Cong_FG_AS.
 			pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_FG_AS) as Cong_AS_FG.
 			pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_FG_AS Cong_AS_FG) as Lt_FG_FG.
-			pose proof (lemma_trichotomy_asymmetric _ _ _ _ Lt_FG_FG) as n_Lt_FG_FG.
+			pose proof (by_prop_Lt_asymmetric _ _ _ _ Lt_FG_FG) as n_Lt_FG_FG.
 
 			contradict Lt_FG_FG.
 			exact n_Lt_FG_FG.

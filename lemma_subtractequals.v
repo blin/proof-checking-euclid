@@ -2,6 +2,7 @@ Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Lt_asymmetric.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
 Require Import ProofCheckingEuclid.by_prop_Lt_transitive.
 Require Import ProofCheckingEuclid.euclidean_axioms.
@@ -9,7 +10,6 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_layoffunique.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_BCD.
-Require Import ProofCheckingEuclid.lemma_trichotomy_asymmetric.
 
 Section Euclid.
 
@@ -65,7 +65,7 @@ Proof.
 		pose proof (by_prop_Lt_transitive _ _ _ _ _ _ Lt_BC_EB Lt_EB_DE) as Lt_BC_DE.
 		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_BC_DE Cong_DE_BC) as Lt_BC_BC.
 
-		pose proof (lemma_trichotomy_asymmetric _ _ _ _ Lt_BC_BC) as n_Lt_BC_BC.
+		pose proof (by_prop_Lt_asymmetric _ _ _ _ Lt_BC_BC) as n_Lt_BC_BC.
 
 		contradict Lt_BC_BC.
 		exact n_Lt_BC_BC.
