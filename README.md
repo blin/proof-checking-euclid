@@ -248,13 +248,10 @@ and so the dependencies need to be introduced in a particular order.
 The following were done ahead of their time to prove something unrelated:
 
 001. [by_prop_RightTriangle_equaltoright](./by_prop_RightTriangle_equaltoright.v)
-001. [by_prop_OppositeSide_flip](./by_prop_OppositeSide_flip.v)
-001. [by_prop_RightTriangle_supplement](./by_prop_RightTriangle_supplement.v)
 001. [proposition_28B](./proposition_28B.v)
 001. [proposition_28C](./proposition_28C.v)
 001. [lemma_twoperpsparallel](./lemma_twoperpsparallel.v)
 001. [lemma_samenotopposite](./lemma_samenotopposite.v)
-001. [proposition_33B](./proposition_33B.v)
 001. [by_def_Square](./by_def_Square.v)
 001. [lemma_road_to_reality_2_7](./lemma_road_to_reality_2_7.v)
 

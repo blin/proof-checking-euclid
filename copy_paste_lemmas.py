@@ -87,6 +87,11 @@ destruct_Par = """
 assert (Par_p1_p2_p3_p4_2 := Par_p1_p2_p3_p4).
 destruct Par_p1_p2_p3_p4_2 as (p5 & p6 & p7 & p8 & p9 & neq_p1_p2 & neq_p3_p4 & Col_p1_p2_p5 & Col_p1_p2_p6 & neq_p5_p6 & Col_p3_p4_p7 & Col_p3_p4_p8 & neq_p7_p8 & n_Meet_p1_p2_p3_p4 & BetS_p5_p9_p8 & BetS_p7_p9_p6).\
 """
+
+destruct_Cross = """
+assert (Cross_p1_p2_p3_p4_2 := Cross_p1_p2_p3_p4).
+destruct Cross_p1_p2_p3_p4_2 as (p5 & BetS_p1_p5_p2 & BetS_p3_p5_p4).
+"""
 # fmt: on
 
 
@@ -144,6 +149,8 @@ def main():
             print(replace_points(by_prop_Col_A_B_B_order, points))
         case "neq":
             print(replace_points(by_def_OnRay_from_neq_A_B , points))
+        case "Cross":
+            print(replace_points(destruct_Cross , points))
         case _:
             raise ValueError(f"Unsupported hypothesis type: {t}")
 
