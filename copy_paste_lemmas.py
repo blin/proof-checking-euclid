@@ -53,6 +53,8 @@ destruct OppositeSide_p1_p2_p3_p4_2 as (p5 & BetS_p1_p5_p4 & Col_p2_p3_p5 & nCol
 """
 
 eq_reflexivity = "assert (eq p1 p1) as eq_p1_p1 by (reflexivity)."
+by_def_Col_from_eq_B_C = "pose proof (by_def_Col_from_eq_B_C sp p1 p1 eq_p1_p1) as Col_sp_p1_p1."
+by_prop_Col_A_B_B_order = "pose proof (by_prop_Col_order _ _ _ Col_sp_p1_p1) as (Col_p1_sp_p1 & Col_p1_p1_sp & _ & _ & _)."
 
 destruct_OnRay = """
 pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_p1_p2_p3) as [BetS_p1_p3_p2 | [eq_p2_p3 | BetS_p1_p2_p3]].
@@ -72,6 +74,19 @@ pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_p1_p2_p3) as [BetS_p1_p3
 
 by_prop_Cong_flip = "pose proof (by_prop_Cong_flip _ _ _ _ Cong_p1_p2_p3_p4) as (Cong_p2_p1_p4_p3 & Cong_p2_p1_p3_p4 & Cong_p1_p2_p4_p3)."
 by_prop_Cong_symmetric = "pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_p1_p2_p3_p4) as Cong_p3_p4_p1_p2." 
+
+by_prop_Par_flip = "pose proof (by_prop_Par_flip _ _ _ _ Par_p1_p2_p3_p4) as (Par_p2_p1_p3_p4 & Par_p1_p2_p4_p3 & Par_p2_p1_p4_p3)."
+by_prop_Par_symmetric = "pose proof (by_prop_Par_symmetric _ _ _ _ Par_p1_p2_p3_p4) as Par_p3_p4_p1_p2." 
+by_prop_Par_NC = "pose proof (by_prop_Par_NC _ _ _ _ Par_p1_p2_p3_p4) as (nCol_p1_p2_p3 & nCol_p1_p3_p4 & nCol_p2_p3_p4 & nCol_p1_p2_p4)."
+
+by_prop_neq_symmetric = "pose proof (by_prop_neq_symmetric _ _ neq_p1_p2) as neq_p2_p1."
+by_def_OnRay_from_neq_A_B  = "pose proof (by_def_OnRay_from_neq_A_B _ _ neq_p1_p2) as OnRay_p1_p2_p2."
+
+
+destruct_Par = """
+assert (Par_p1_p2_p3_p4_2 := Par_p1_p2_p3_p4).
+destruct Par_p1_p2_p3_p4_2 as (p5 & p6 & p7 & p8 & p9 & neq_p1_p2 & neq_p3_p4 & Col_p1_p2_p5 & Col_p1_p2_p6 & neq_p5_p6 & Col_p3_p4_p7 & Col_p3_p4_p8 & neq_p7_p8 & n_Meet_p1_p2_p3_p4 & BetS_p5_p9_p8 & BetS_p7_p9_p6).\
+"""
 # fmt: on
 
 
@@ -115,8 +130,20 @@ def main():
             print(replace_points(by_prop_Cong_flip, points))
             print(replace_points(by_prop_Cong_symmetric, points))
             print(replace_points(by_prop_Cong_flip, points[2:] + points[:2]))
+        case "Par":
+            print(replace_points(by_prop_Par_flip, points))
+            print(replace_points(by_prop_Par_symmetric, points))
+            print(replace_points(by_prop_Par_flip, points[2:] + points[:2]))
+            print(replace_points(by_prop_Par_NC, points))
+            print(replace_points(destruct_Par, points))
+            print(replace_points(by_prop_neq_symmetric, points[0:2]))
+            print(replace_points(by_prop_neq_symmetric, points[2:4]))
         case "eq":
             print(replace_points(eq_reflexivity, points))
+            print(replace_points(by_def_Col_from_eq_B_C, points))
+            print(replace_points(by_prop_Col_A_B_B_order, points))
+        case "neq":
+            print(replace_points(by_def_OnRay_from_neq_A_B , points))
         case _:
             raise ValueError(f"Unsupported hypothesis type: {t}")
 
