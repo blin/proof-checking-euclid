@@ -90,6 +90,11 @@ assert (Par_p01_p02_p03_p04_2 := Par_p01_p02_p03_p04).
 destruct Par_p01_p02_p03_p04_2 as (p05 & p06 & p07 & p08 & p09 & neq_p01_p02 & neq_p03_p04 & Col_p01_p02_p05 & Col_p01_p02_p06 & neq_p05_p06 & Col_p03_p04_p07 & Col_p03_p04_p08 & neq_p07_p08 & n_Meet_p01_p02_p03_p04 & BetS_p05_p09_p08 & BetS_p07_p09_p06).\
 """
 
+destruct_Par_not_Meet = """
+assert (Par_p01_p02_p03_p04_2 := Par_p01_p02_p03_p04).
+destruct Par_p01_p02_p03_p04_2 as (_ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & n_Meet_p01_p02_p03_p04 & _ & _).
+"""
+
 destruct_Cross = """
 assert (Cross_p01_p02_p03_p04_2 := Cross_p01_p02_p03_p04).
 destruct Cross_p01_p02_p03_p04_2 as (p05 & BetS_p01_p05_p02 & BetS_p03_p05_p04).
@@ -156,6 +161,7 @@ def main():
             print(replace_points(by_prop_Par_flip, points[2:] + points[:2]))
             print(replace_points(by_prop_Par_NC, points))
             print(replace_points(destruct_Par, points))
+            print(replace_points(destruct_Par_not_Meet, points))
             print(replace_points(by_prop_neq_symmetric, points[0:2]))
             print(replace_points(by_prop_neq_symmetric, points[2:4]))
         case "eq":

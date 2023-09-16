@@ -21,6 +21,8 @@ Class euclidean_neutral :=
 	neq A B := ~ eq A B;
 	nCol A B C := neq A B /\ neq A C /\ neq B C /\ ~ BetS A B C /\ ~ BetS A C B /\ ~ BetS B A C;
 	Col A B C := (eq A B \/ eq A C \/ eq B C \/ BetS B A C \/ BetS A B C \/ BetS A C B);
+	(* ABC and abc are congruent triangles *)
+	CongTriangles A B C a b c := Cong A B a b /\ Cong B C b c /\ Cong A C a c;
 	Triangle A B C := nCol A B C;
 
 

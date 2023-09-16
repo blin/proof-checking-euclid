@@ -8,7 +8,7 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
-Lemma lemma_samenotopposite :
+Lemma by_prop_SameSide_not_OppositeSide :
 	forall A B C D,
 	SameSide A B C D ->
 	~ OppositeSide A C D B.

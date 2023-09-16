@@ -1,5 +1,5 @@
 mayawggORequire Import ProofCheckingEuclid.pA.'a
-caw_
+caw_ 
 :s/ ->/./
 :s/ /_/g
 0iintros 

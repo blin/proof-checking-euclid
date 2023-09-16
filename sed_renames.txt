@@ -9,7 +9,9 @@ s/SumA /AngleSum /g
 s/TG /TogetherGreater /g
 s/TP /TarskiPar /g
 s/CR /Cross /g
+s/PG /Parallelogram /g
 s/SQ /Square /g
+s/Cong_3 /CongTriangles /g
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
 
@@ -38,8 +40,6 @@ s/lemma_collinear5/by_prop_Col_ABC_ABD_ABE_CDE/g
 s/9_5a/oppositeside_betweenness_PABC_RPQ_QABC/g
 s/9_5b/oppositeside_betweenness_PABC_RQP_QABC/g
 s/9_5/oppositeside_onray_PABC_RQP_QABC/g
-
-s/sameside2/sameside_onray_EFAC_BFG_EGAC/g
 
 s/lemma_8_2/by_prop_RightTriangle_symmetric/g
 s/lemma_8_3/by_prop_RightTriangle_leg_change/g
@@ -82,6 +82,9 @@ s/lemma_parallelNC/by_prop_Par_NC/g
 s/lemma_parallelflip/by_prop_Par_flip/g
 s/lemma_parallelsymmetric/by_prop_Par_symmetric/g
 
+s/lemma_sameside2/lemma_sameside_onray_EFAC_BFG_EGAC/g
+
+s/lemma_samenotopposite/by_prop_SameSide_not_OppositeSide/g
 s/lemma_samesidereflexive/by_prop_SameSide_reflexive/g
 s/lemma_samesidesymmetric/by_prop_SameSide_symmetric/g
 

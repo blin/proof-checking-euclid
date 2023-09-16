@@ -1,4 +1,3 @@
-        w.write(f"Require Import ProofCheckingEuclid.{r}.\n")
 """
 This file and its dependencies are made out of hacks, repetitive if else trees,
 incomprehensible variable names, copy paste with minimal changes and otherwise 
@@ -113,8 +112,9 @@ def print_requirements(w: TextIO, t: Top) -> None:
     for r in sorted(rs):
         if any([r.startswith(p) for p in ["cn_", "axiom_", "postulate_"]]):
             continue
-        if not any([r.startswith(p) for p in ["lemma_", "proposition_", "euclidean_"]]):
+        if not any([r.startswith(p) for p in ["lemma_", "proposition_", "euclidean_", "by_"]]):
             continue
+        w.write(f"Require Import ProofCheckingEuclid.{r}.\n")
     w.write("\n")
 
 

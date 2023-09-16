@@ -31,3 +31,4 @@ s/CongA_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([
 s/SumTwoRT_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SumTwoRT_\1\2\3_\4\5\6/g
 s/AngleSum_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/AngleSum_\1\2\3_\4\5\6_\7\8\9/g
 s/TogetherGreater_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/TogetherGreater_\1\2_\3\4_\5\6/g
+s/CongTriangles_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/CongTriangles_\1\2\3_\4\5\6/g
