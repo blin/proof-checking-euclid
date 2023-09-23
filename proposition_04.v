@@ -1,4 +1,3 @@
-Require Import ProofCheckingEuclid.by_prop_CongA_NC.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.

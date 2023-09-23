@@ -6,7 +6,6 @@ Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
 Require Import ProofCheckingEuclid.by_prop_Lt_transitive.
-Require Import ProofCheckingEuclid.by_prop_OnRay_assert.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_layoffunique.

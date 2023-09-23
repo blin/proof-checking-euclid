@@ -2,7 +2,6 @@ Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.by_def_TT.
 Require Import ProofCheckingEuclid.by_def_TogetherGreater.
-Require Import ProofCheckingEuclid.by_def_isosceles.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Cong_transitive.

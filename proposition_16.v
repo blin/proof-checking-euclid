@@ -8,7 +8,6 @@ Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_CongA_ABCequalsCBA.
-Require Import ProofCheckingEuclid.by_prop_CongA_NC.
 Require Import ProofCheckingEuclid.by_prop_CongA_helper.
 Require Import ProofCheckingEuclid.by_prop_CongA_reflexive.
 Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.

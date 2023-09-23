@@ -1,5 +1,4 @@
 Require Coq.Logic.Classical_Prop.
-Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_B_A_C.
 Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
