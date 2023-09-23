@@ -21,13 +21,12 @@ Proof.
 	destruct Parallelogram_A_B_C_D as (Par_AB_CD & Par_AD_BC).
 
 	pose proof (by_prop_Par_symmetric _ _ _ _ Par_AB_CD) as Par_CD_AB.
-
 	pose proof (by_prop_Par_to_TarskiPar _ _ _ _ Par_CD_AB) as TarskiPar_CD_AB.
+
 	destruct TarskiPar_CD_AB as (_ & _ & _ & SameSide_A_B_CD).
+
 	epose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_A_B_CD) as (_ & SameSide_A_B_DC & _).
-	
 	epose proof (by_prop_SameSide_not_Cross _ _ _ _ SameSide_A_B_DC) as n_Cross_A_B_D_C.
-	
 	epose proof (lemma_crisscross A B D C Par_AD_BC n_Cross_A_B_D_C) as Cross_A_C_B_D.
 
 	destruct Cross_A_C_B_D as (M & BetS_A_M_C & BetS_B_M_D).

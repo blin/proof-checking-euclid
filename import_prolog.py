@@ -146,6 +146,9 @@ def prolog_lemmas(
         "auto",
         "axiom_betweennessidentity",
         "axiom_betweennesssymmetry",
+        "axiom_paste3",
+        "by_prop_OnRay_assert",
+        "by_prop_OnRay_orderofpoints_any",
         "cn_congruencereflexive",
         "cn_congruencereverse",
         "cn_equalityreflexive",
@@ -153,9 +156,8 @@ def prolog_lemmas(
         "cn_equalitytransitive",
         "isosceles",
         "lemma_extension",
-        "by_prop_OnRay_assert",
-        "by_prop_OnRay_orderofpoints_any",
         "postulate_circle_circle",
+        "with",
     }
 
     rr = open(prolog_lemmas_path, "w")

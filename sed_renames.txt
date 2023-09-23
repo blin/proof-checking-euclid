@@ -12,8 +12,16 @@ s/CR /Cross /g
 s/PG /Parallelogram /g
 s/SQ /Square /g
 s/Cong_3 /CongTriangles /g
+s/ET /EqualTriangles /g
+s/EF /EqualQuadrilaterals /g
+
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
+
+s/axiom_ETpermutation/axiom_EqualTriangles_permutation/g
+s/axiom_ETsymmetric/axiom_EqualTriangles_symmetric/g
+s/axiom_EFpermutation/axiom_EqualQuadrilaterals_permutation/g
+s/axiom_EFsymmetric/axiom_EqualQuadrilaterals_symmetric/g
 
 s/lemma_3_5b/lemma_orderofpoints_ABD_BCD_ACD/g
 s/lemma_3_6a/lemma_orderofpoints_ABC_ACD_BCD/g
@@ -49,12 +57,12 @@ s/lemma_rightangleNC/by_prop_RightTriangle_NC/g
 s/lemma_10_12/by_prop_RightTriangle_same_base_cong_side_cong_hypotenuse/g
 
 s/lemma_supplementsymmetric/by_prop_Supp_symmetric/g
-s/supplements/supplements_conga/g
+s/lemma_supplements/lemma_supplements_conga/g
 
-s/angletrichotomy2/angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF/g
+s/lemma_angletrichotomy2/lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF/g
 
-s/trichotomy1/trichotomy_equal/g
-s/trichotomy2/trichotomy_asymmetric/g
+s/lemma_trichotomy1/by_prop_Lt_trichotomous/g
+s/lemma_trichotomy2/by_prop_Lt_asymmetric/g
 
 s/lemma_angleorderrespectscongruence2/by_prop_LtA_respects_congruence_smaller/g
 
@@ -128,3 +136,11 @@ s/lemma_equalanglessymmetric/by_prop_CongA_symmetric/g
 s/lemma_equalanglesNC/by_prop_CongA_NC/g
 s/lemma_ABCequalsCBA/by_prop_CongA_ABCequalsCBA/g
 s/lemma_angledistinct/by_prop_CongA_distinct/g
+
+s/lemma_PGsymmetric/by_prop_Parallelogram_symmetric/g
+s/lemma_PGflip/by_prop_Parallelogram_flip/g
+s/lemma_PGrotate/by_prop_Parallelogram_rotate/g
+
+s/lemma_TCreflexive/by_prop_CongTriangles_reflexive/g
+s/lemma_ETreflexive/by_prop_EqualTriangles_reflexive/g
+s/lemma_EFreflexive/by_prop_EqualQuadrilaterals_reflexive/g

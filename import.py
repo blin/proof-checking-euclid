@@ -377,6 +377,10 @@ class LemmaPrinter:
 
     def assert_by_cn_equalitysub(self, a: LtacAssertBy) -> None:
         e = a.prop
+        if not isinstance(e, PropSimple):
+            self.w.write(f"assert ({e.to_str()}) as {e.to_var()} by (rewrite ???; exact ???).\n")
+            return
+
         hhs = self.context.get_props()
         hhs = [h for h in hhs if isinstance(h, PropSimple)]
         hhs_eq = [h for h in hhs if h.head == "eq"]
@@ -417,7 +421,7 @@ class LemmaPrinter:
             return
 
         # Special case for proposition_27
-        if a.by.t in ["unfold", "auto"]:
+        if a.by.t in ["unfold", "auto", "eapply"]:
             self.process_indent()
             self.w.write(f"pose proof (???) as {a.prop.to_var()}.\n")
             self.context.add_prop(a.prop)
@@ -446,6 +450,11 @@ class LemmaPrinter:
                 self.context.add_prop(a.prop)
                 return
             case "postulate_circle_circle":
+                proof = a.by.n + "???"
+                self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
+                self.context.add_prop(a.prop)
+                return
+            case "axiom_paste3":
                 proof = a.by.n + "???"
                 self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
                 self.context.add_prop(a.prop)
@@ -659,7 +668,18 @@ class LemmaPrinter:
 
         for a in self.l.asserts:
             self.process_assert(a)
+            
+        match self.l.conclusion:
+            case PropSimple() | PropInversion():
+                self.w.write("\n")
+                self.process_indent()
+                self.w.write(f"exact {self.l.conclusion.to_var()}.")
+            case _:
+                self.w.write("\n")
+                self.process_indent()
+                self.w.write(f"(* exact {self.l.conclusion.to_var()}. *)")
 
+        self.w.write("\n")
         self.w.write("Qed.\n")
 
 

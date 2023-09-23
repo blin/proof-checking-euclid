@@ -15,7 +15,7 @@ Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_crisscross.
 Require Import ProofCheckingEuclid.lemma_s_conga_sss.
-Require Import ProofCheckingEuclid.lemma_samenotopposite .
+Require Import ProofCheckingEuclid.by_prop_SameSide_not_OppositeSide .
 Require Import ProofCheckingEuclid.lemma_twoperpsparallel.
 Require Import ProofCheckingEuclid.proposition_33.
 
@@ -48,7 +48,7 @@ Proof.
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AB_CD) as Cong_CD_AB.
 
 	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_D_A_BC) as (SameSide_A_D_BC & SameSide_D_A_CB & SameSide_A_D_CB).
-	pose proof (lemma_samenotopposite _ _ _ _ SameSide_A_D_BC) as n_OppositeSide_A_BC_D.
+	pose proof (by_prop_SameSide_not_OppositeSide _ _ _ _ SameSide_A_D_BC) as n_OppositeSide_A_BC_D.
 
 	pose proof (lemma_twoperpsparallel _ _ _ _ RightTriangle_ABC RightTriangle_BCD SameSide_A_D_BC) as Par_AB_CD.
 	pose proof (by_prop_Par_flip _ _ _ _ Par_AB_CD) as (Par_BA_CD & Par_AB_DC & Par_BA_DC).
@@ -58,17 +58,17 @@ Proof.
 
 	assert (~ Cross A D B C) as n_Cross_AD_BC.
 	{
-	    intros Cross_AD_BC.
+		intros Cross_AD_BC.
 
-	    destruct Cross_AD_BC as (M & BetS_A_M_D & BetS_B_M_C).
+		destruct Cross_AD_BC as (M & BetS_A_M_D & BetS_B_M_C).
 
-	    pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_M_C) as Col_B_M_C.
-	    pose proof (by_prop_Col_order _ _ _ Col_B_M_C) as (Col_M_B_C & Col_M_C_B & Col_C_B_M & Col_B_C_M & Col_C_M_B).
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_M_C) as Col_B_M_C.
+		pose proof (by_prop_Col_order _ _ _ Col_B_M_C) as (Col_M_B_C & Col_M_C_B & Col_C_B_M & Col_B_C_M & Col_C_M_B).
 
-	    pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_M_D Col_B_C_M nCol_B_C_A) as OppositeSide_A_BC_D.
+		pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_M_D Col_B_C_M nCol_B_C_A) as OppositeSide_A_BC_D.
 
-	    contradict OppositeSide_A_BC_D.
-	    exact n_OppositeSide_A_BC_D.
+		contradict OppositeSide_A_BC_D.
+		exact n_OppositeSide_A_BC_D.
 	}
 
 	pose proof (lemma_crisscross _ _ _ _ Par_AB_DC n_Cross_AD_BC) as Cross_AC_DB.

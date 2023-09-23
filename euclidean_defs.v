@@ -30,8 +30,6 @@ Definition Perp_at P Q A B C := exists X,
 	Col A B X /\
 	RightTriangle X C P.
 Definition InAngle A B C P := exists X Y, OnRay B A X /\ OnRay B C Y /\ BetS X P Y.
-(* C and D are on opposite sides of AB *)
-Definition OppositeSide P A B Q := exists X, BetS P X Q /\ Col A B X /\ nCol A B P.
 (* P and Q are on the same side of AB *)
 Definition SameSide P Q A B := exists X U V,
 	Col A B U /\

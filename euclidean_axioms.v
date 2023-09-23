@@ -23,6 +23,8 @@ Class euclidean_neutral :=
 	Col A B C := (eq A B \/ eq A C \/ eq B C \/ BetS B A C \/ BetS A B C \/ BetS A C B);
 	(* ABC and abc are congruent triangles *)
 	CongTriangles A B C a b c := Cong A B a b /\ Cong B C b c /\ Cong A C a c;
+	(* P and Q are on opposite sides of AB *)
+	OppositeSide P A B Q := exists X, BetS P X Q /\ Col A B X /\ nCol A B P;
 	Triangle A B C := nCol A B C;
 
 
@@ -163,4 +165,72 @@ Class euclidean_euclidean `(Ax : euclidean_neutral_ruler_compass) :=
 			BetS r t s -> BetS p t q -> BetS r a q ->
 			Cong p t q t -> Cong t r t s -> nCol p q s ->
 			exists X, BetS p a X /\ BetS s q X
+}.
+
+(** Last, we enrich the axiom system with axioms for equality of areas. *)
+
+Class area `(Ax : euclidean_euclidean) :=
+{
+	EqAreaQuad : Point -> Point -> Point -> Point -> Point -> Point -> Point -> Point -> Prop;
+	EqAreaTri : Point -> Point -> Point -> Point -> Point -> Point -> Prop;
+	axiom_congruentequal :
+		forall A B C a b c, CongTriangles A B C a b c -> EqAreaTri A B C a b c;
+	axiom_EqAreaTri_permutation :
+		forall A B C a b c,
+			EqAreaTri A B C a b c ->
+			EqAreaTri A B C b c a /\
+			EqAreaTri A B C a c b /\
+			EqAreaTri A B C b a c /\
+			EqAreaTri A B C c b a /\
+			EqAreaTri A B C c a b;
+	axiom_EqAreaTri_symmetric :
+		forall A B C a b c,
+			EqAreaTri A B C a b c ->
+			EqAreaTri a b c A B C;
+	axiom_EqAreaQuad_permutation :
+		forall A B C D a b c d,
+			EqAreaQuad A B C D a b c d ->
+			EqAreaQuad A B C D b c d a /\
+			EqAreaQuad A B C D d c b a /\
+			EqAreaQuad A B C D c d a b /\
+			EqAreaQuad A B C D b a d c /\
+			EqAreaQuad A B C D d a b c /\
+			EqAreaQuad A B C D c b a d /\
+			EqAreaQuad A B C D a d c b;
+	axiom_EqAreaQuad_symmetric :
+		forall A B C D a b c d,
+			EqAreaQuad A B C D a b c d ->
+			EqAreaQuad a b c d A B C D;
+	(* TODO: rename to axiom_cutoff_TriCorner ? *)
+	axiom_cutoff1 :
+		forall A B C D E a b c d e,
+			BetS A B C ->
+			BetS a b c ->
+			BetS E D C ->
+			BetS e d c ->
+			EqAreaTri B C D b c d ->
+			EqAreaTri A C E a c e ->
+			EqAreaQuad A B D E a b d e;
+	(* TODO: rename to axiom_paste_QuadCorner ? *)
+	axiom_paste2 :
+		forall A B C D E M a b c d e m,
+			BetS B C D ->
+			BetS b c d ->
+			EqAreaTri C D E c d e ->
+			EqAreaQuad A B C E a b c e ->
+			BetS A M D ->
+			BetS B M E ->
+			BetS a m d ->
+			BetS b m e ->
+			EqAreaQuad A B D E a b d e;
+	(* TODO: rename to axiom_paste_TwoTri ? *)
+	axiom_paste3 :
+		forall A B C D M a b c d m,
+			EqAreaTri A B C a b c ->
+			EqAreaTri A B D a b d ->
+			BetS C M D ->
+			(BetS A M B \/ eq A M \/ eq M B) ->
+			BetS c m d ->
+			(BetS a m b \/ eq a m \/ eq m b) ->
+			EqAreaQuad A C B D a c b d;
 }.

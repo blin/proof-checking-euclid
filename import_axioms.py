@@ -6,6 +6,21 @@ from import_rpl import (
     PropConjunction,
 )
 
+
+def EQ(ps1: str, ps2) -> PropSimple:
+    return PropSimple(
+        head="EqAreaQuad",
+        points=[p for p in ps1 + ps2],
+    )
+
+
+def ET(ps1: str, ps2) -> PropSimple:
+    return PropSimple(
+        head="EqAreaTri",
+        points=[p for p in ps1 + ps2],
+    )
+
+
 # TODO: extract from euclidean_axioms.v
 axioms = {
     "axiom_nocollapse": Lemma(
@@ -92,7 +107,9 @@ axioms = {
         given=[
             PropSimple(head="neq", points=["A", "B"]),
         ],
-        conclusion=PropExists(points=["X"], p=PropSimple(head="CI", points=["X", "A", "A", "B"])),
+        conclusion=PropExists(
+            points=["X"], p=PropSimple(head="CI", points=["X", "A", "A", "B"])
+        ),
         asserts=[],
     ),
     "postulate_Pasch_inner": Lemma(
@@ -147,6 +164,119 @@ axioms = {
                 right=PropSimple(head="BetS", points=["s", "q", "X"]),
             ),
         ),
+        asserts=[],
+    ),
+    "axiom_congruentequal": Lemma(
+        name="axiom_congruentequal",
+        points=["A", "B", "C", "a", "b", "c"],
+        given=[
+            PropSimple(head="CongTriangles", points=["A", "B", "C", "a", "b", "c"]),
+        ],
+        conclusion=PropSimple(head="EqAreaTri", points=["A", "B", "C", "a", "b", "c"]),
+        asserts=[],
+    ),
+    "axiom_congruentequal": Lemma(
+        name="axiom_congruentequal",
+        points=["A", "B", "C", "a", "b", "c"],
+        given=[
+            PropSimple(head="CongTriangles", points=["A", "B", "C", "a", "b", "c"]),
+        ],
+        conclusion=PropSimple(head="EqAreaTri", points=["A", "B", "C", "a", "b", "c"]),
+        asserts=[],
+    ),
+    "axiom_EqAreaQuad_permutation": Lemma(
+        name="axiom_EqAreaQuad_permutation",
+        points=["A", "B", "C", "D", "a", "b", "c", "d"],
+        given=[EQ("ABCD", "abcd")],
+        conclusion=PropConjunction(
+            left=EQ("ABCD", "bcda"),
+            right=PropConjunction(
+                left=EQ("ABCD", "dcba"),
+                right=PropConjunction(
+                    left=EQ("ABCD", "cdab"),
+                    right=PropConjunction(
+                        left=EQ("ABCD", "badc"),
+                        right=PropConjunction(
+                            left=EQ("ABCD", "dabc"),
+                            right=PropConjunction(
+                                left=EQ("ABCD", "cbad"),
+                                right=EQ("ABCD", "adcb"),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        asserts=[],
+    ),
+    "axiom_EqAreaQuad_symmetric": Lemma(
+        name="axiom_EqAreaQuad_symmetric",
+        points=["A", "B", "C", "D", "a", "b", "c", "d"],
+        given=[EQ("ABCD", "abcd")],
+        conclusion=EQ("abcd", "ABCD"),
+        asserts=[],
+    ),
+    "axiom_EqAreaTri_permutation": Lemma(
+        name="axiom_EqAreaTri_permutation",
+        points=[
+            "A",
+            "B",
+            "C",
+            "a",
+            "b",
+            "c",
+        ],
+        given=[ET("ABC", "abc")],
+        conclusion=PropConjunction(
+            left=ET("ABC", "bca"),
+            right=PropConjunction(
+                left=ET("ABC", "acb"),
+                right=PropConjunction(
+                    left=ET("ABC", "bac"),
+                    right=PropConjunction(
+                        left=ET("ABC", "cba"),
+                        right=ET("ABC", "cab"),
+                    ),
+                ),
+            ),
+        ),
+        asserts=[],
+    ),
+    "axiom_EqAreaTri_symmetric": Lemma(
+        name="axiom_EqAreaTri_symmetric",
+        points=["A", "B", "C", "a", "b", "c"],
+        given=[ET("ABC", "abc")],
+        conclusion=ET("abc", "ABC"),
+        asserts=[],
+    ),
+    "axiom_cutoff1": Lemma(
+        name="axiom_cutoff1",
+        points=["A", "B", "C", "D", "E", "a", "b", "c", "d", "e"],
+        given=[
+            PropSimple(head="BetS", points=["A", "B", "C"]),
+            PropSimple(head="BetS", points=["a", "b", "c"]),
+            PropSimple(head="BetS", points=["E", "D", "C"]),
+            PropSimple(head="BetS", points=["e", "d", "c"]),
+            ET("BCD", "bcd"),
+            ET("ACE", "ace"),
+        ],
+        conclusion=EQ("ABDE", "abde"),
+        asserts=[],
+    ),
+    "axiom_paste2": Lemma(
+        name="axiom_paste2",
+        points=["A", "B", "C", "D", "E", "M", "a", "b", "c", "d", "e", "m"],
+        given=[
+            PropSimple(head="BetS", points=["B", "C", "D"]),
+            PropSimple(head="BetS", points=["b", "c", "d"]),
+            ET("CDE", "cde"),
+            EQ("ABCE", "abce"),
+            PropSimple(head="BetS", points=["A", "M", "D"]),
+            PropSimple(head="BetS", points=["B", "M", "E"]),
+            PropSimple(head="BetS", points=["a", "m", "d"]),
+            PropSimple(head="BetS", points=["b", "m", "e"]),
+        ],
+        conclusion=EQ("ABDE", "abde"),
         asserts=[],
     ),
 }
@@ -345,29 +475,33 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
     ),
     "by_def_AngleSum": Lemma(
         name="by_def_AngleSum",
-        points=['A', 'B', 'C', 'D', 'E', 'F', 'P', 'Q', 'R', 'X'],
+        points=["A", "B", "C", "D", "E", "F", "P", "Q", "R", "X"],
         given=[
             PropSimple(head="CongA", points=["A", "B", "C", "P", "Q", "X"]),
             PropSimple(head="CongA", points=["D", "E", "F", "X", "Q", "R"]),
             PropSimple(head="BetS", points=["P", "X", "R"]),
         ],
-        conclusion=PropSimple(head="AngleSum", points=["A", "B", "C", "D", "E", "F", "P", "Q", "R"]),
+        conclusion=PropSimple(
+            head="AngleSum", points=["A", "B", "C", "D", "E", "F", "P", "Q", "R"]
+        ),
         asserts=[],
     ),
     "by_def_CongTriangles": Lemma(
         name="by_def_CongTriangles",
-        points=['A', 'B', 'C', 'a', 'b', 'c'],
+        points=["A", "B", "C", "a", "b", "c"],
         given=[
             PropSimple(head="Cong", points=["A", "B", "a", "b"]),
             PropSimple(head="Cong", points=["B", "C", "b", "c"]),
             PropSimple(head="Cong", points=["A", "C", "a", "c"]),
         ],
-        conclusion=PropSimple(head="CongTriangles", points=["A", "B", "C", "a", "b", "c"]),
+        conclusion=PropSimple(
+            head="CongTriangles", points=["A", "B", "C", "a", "b", "c"]
+        ),
         asserts=[],
     ),
     "by_def_Parallelogram": Lemma(
         name="by_def_Parallelogram",
-        points=['A', 'B', 'C', 'D'],
+        points=["A", "B", "C", "D"],
         given=[
             PropSimple(head="Par", points=["A", "B", "C", "D"]),
             PropSimple(head="Par", points=["A", "D", "B", "C"]),
@@ -376,6 +510,7 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         asserts=[],
     ),
 }
+
 
 defs_to_supporting_lemmas_for_defs = {
     "AngleSum": "by_def_AngleSum",
