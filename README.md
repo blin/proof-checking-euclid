@@ -247,6 +247,8 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_29C](./proposition_29C.v)
 001. [proposition_35A](./proposition_35A.v)
 001. [proposition_35](./proposition_35.v)
+001. [by_prop_Par_collinear2](./by_prop_Par_collinear2.svg)
+001. [proposition_36](./proposition_36.svg)
 
 The following were done ahead of their time to prove something unrelated:
 

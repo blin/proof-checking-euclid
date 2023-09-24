@@ -58,6 +58,8 @@ eq_reflexivity = "assert (eq p01 p01) as eq_p01_p01 by (reflexivity)."
 by_def_Col_from_eq_B_C = "pose proof (by_def_Col_from_eq_B_C sp p01 p01 eq_p01_p01) as Col_sp_p01_p01."
 by_prop_Col_A_B_B_order = "pose proof (by_prop_Col_order _ _ _ Col_sp_p01_p01) as (Col_p01_sp_p01 & Col_p01_p01_sp & _ & _ & _)."
 
+eq_neq_classic = "assert (eq p01 p02 \/ neq p01 p02) as [eq_p01_p02|neq_p01_p02] by (apply Classical_Prop.classic)."
+
 destruct_OnRay = """
 pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_p01_p02_p03) as [BetS_p01_p03_p02 | [eq_p02_p03 | BetS_p01_p02_p03]].
 {
@@ -185,6 +187,7 @@ def main():
             print(replace_points(eq_reflexivity, points))
             print(replace_points(by_def_Col_from_eq_B_C, points))
             print(replace_points(by_prop_Col_A_B_B_order, points))
+            print(replace_points(eq_neq_classic, points))
         case "neq":
             print(replace_points(by_def_OnRay_from_neq_A_B , points))
         case "Cross":

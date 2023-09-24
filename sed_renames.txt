@@ -12,16 +12,17 @@ s/CR /Cross /g
 s/PG /Parallelogram /g
 s/SQ /Square /g
 s/Cong_3 /CongTriangles /g
-s/ET /EqualTriangles /g
-s/EF /EqualQuadrilaterals /g
+s/ET /EqAreaTri /g
+s/EF /EqAreaQuad /g
 
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
 
-s/axiom_ETpermutation/axiom_EqualTriangles_permutation/g
-s/axiom_ETsymmetric/axiom_EqualTriangles_symmetric/g
-s/axiom_EFpermutation/axiom_EqualQuadrilaterals_permutation/g
-s/axiom_EFsymmetric/axiom_EqualQuadrilaterals_symmetric/g
+s/axiom_ETpermutation/axiom_EqAreaTri_permutation/g
+s/axiom_ETsymmetric/axiom_EqAreaTri_symmetric/g
+s/axiom_EFpermutation/axiom_EqAreaQuad_permutation/g
+s/axiom_EFsymmetric/axiom_EqAreaQuad_symmetric/g
+s/axiom_EFtransitive/axiom_EqAreaQuad_transitive/g
 
 s/lemma_3_5b/lemma_orderofpoints_ABD_BCD_ACD/g
 s/lemma_3_6a/lemma_orderofpoints_ABC_ACD_BCD/g
@@ -142,5 +143,5 @@ s/lemma_PGflip/by_prop_Parallelogram_flip/g
 s/lemma_PGrotate/by_prop_Parallelogram_rotate/g
 
 s/lemma_TCreflexive/by_prop_CongTriangles_reflexive/g
-s/lemma_ETreflexive/by_prop_EqualTriangles_reflexive/g
-s/lemma_EFreflexive/by_prop_EqualQuadrilaterals_reflexive/g
+s/lemma_ETreflexive/by_prop_EqAreaTri_reflexive/g
+s/lemma_EFreflexive/by_prop_EqAreaQuad_reflexive/g

@@ -216,6 +216,13 @@ axioms = {
         conclusion=EQ("abcd", "ABCD"),
         asserts=[],
     ),
+    "axiom_EqAreaQuad_transitive": Lemma(
+        name="axiom_EqAreaQuad_transitive",
+        points=["A", "B", "C", "D", "P", "Q", "R", "S", "a", "b", "c", "d"],
+        given=[EQ("ABCD", "abcd"), EQ("abcd", "PQRS")],
+        conclusion=EQ("ABCD", "PQRS"),
+        asserts=[],
+    ),
     "axiom_EqAreaTri_permutation": Lemma(
         name="axiom_EqAreaTri_permutation",
         points=[
