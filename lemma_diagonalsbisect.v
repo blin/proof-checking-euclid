@@ -22,7 +22,6 @@ Require Import ProofCheckingEuclid.by_prop_Par_flip.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_nCol_helper.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
-Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_crossimpliesopposite.
@@ -52,7 +51,7 @@ Proof.
 	destruct Parallelogram_A_B_C_D_2 as (Par_AB_CD & Par_AD_BC).
 
 	pose proof (lemma_diagonalsmeet _ _ _ _ Parallelogram_A_B_C_D) as (M & BetS_A_M_C & BetS_B_M_D).
-	
+
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_M_C) as BetS_C_M_A.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_M_C) as (neq_M_C & neq_A_M & neq_A_C).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_M_A) as (neq_M_A & neq_C_M & neq_C_A).
@@ -61,7 +60,7 @@ Proof.
 
 	pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_C_M_A neq_C_A) as OnRay_CA_M.
 	pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_A_M_C neq_A_C) as OnRay_AC_M.
-	
+
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_M_D) as BetS_D_M_B.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_M_D) as (neq_M_D & neq_B_M & neq_B_D).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_M_B) as (neq_M_B & neq_D_M & neq_D_B).

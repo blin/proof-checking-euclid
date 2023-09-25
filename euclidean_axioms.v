@@ -197,6 +197,15 @@ Class area `(Ax : euclidean_euclidean) :=
 			EqAreaQuad A B C D d a b c /\
 			EqAreaQuad A B C D c b a d /\
 			EqAreaQuad A B C D a d c b;
+	axiom_halvesofequals :
+		forall A B C D a b c d,
+			EqAreaTri A B C B C D ->
+			OppositeSide A B C D ->
+			EqAreaTri a b c b c d ->
+			OppositeSide a b c d ->
+			EqAreaQuad A B D C a b d c ->
+			EqAreaTri A B C a b c;
+
 	axiom_EqAreaQuad_symmetric :
 		forall A B C D a b c d,
 			EqAreaQuad A B C D a b c d ->

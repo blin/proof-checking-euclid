@@ -1,11 +1,6 @@
-Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol .
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct .
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
-Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_C_B.
-Require Import ProofCheckingEuclid.by_def_Col_from_BetS_B_A_C.
-Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_B.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
-Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_Par.
@@ -56,7 +51,7 @@ Proof.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_E_G_H) as BetS_H_G_E.
 
 	pose proof (lemma_extension _ _ _ _ neq_B_G neq_B_G) as (A & BetS_B_G_A & Cong_GA_BG).
-	
+
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_G_A) as BetS_A_G_B.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_G_A) as (neq_G_A & _ & neq_B_A).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_G_B) as (_ & neq_A_G & neq_A_B).
@@ -78,7 +73,7 @@ Proof.
 	pose proof (by_prop_neq_symmetric _ _ neq_H_D) as neq_D_H.
 
 	pose proof (lemma_extension _ _ _ _ neq_D_H neq_D_H) as (C & BetS_D_H_C & Cong_HC_DH).
-	
+
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_H_C) as BetS_C_H_D.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_D_H_C) as (neq_H_C & _ & neq_D_C).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_H_D) as (_ & neq_C_H & neq_C_D).
