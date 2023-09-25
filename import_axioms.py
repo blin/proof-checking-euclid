@@ -249,6 +249,19 @@ axioms = {
         ),
         asserts=[],
     ),
+    "axiom_halvesofequals": Lemma(
+        name="axiom_halvesofequals",
+        points=["A", "B", "C", "D", "a", "b", "c", "d"],
+        given=[
+            ET("ABC", "BCD"),
+            PropSimple(head="OppositeSide", points=["A", "B", "C", "D"]),
+            ET("abc", "bcd"),
+            PropSimple(head="OppositeSide", points=["a", "b", "c", "d"]),
+            EQ("ABDC", "abdc"),
+        ],
+        conclusion=ET("ABC","abc"),
+        asserts=[],
+    ),
     "axiom_EqAreaTri_symmetric": Lemma(
         name="axiom_EqAreaTri_symmetric",
         points=["A", "B", "C", "a", "b", "c"],

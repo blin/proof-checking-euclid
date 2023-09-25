@@ -249,6 +249,13 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_35](./proposition_35.v)
 001. [by_prop_Par_collinear2](./by_prop_Par_collinear2.svg)
 001. [proposition_36](./proposition_36.svg)
+001. [lemma_samesidetransitive](./lemma_samesidetransitive.svg)
+001. [lemma_Playfairhelper](./lemma_Playfairhelper.svg)
+001. [lemma_Playfairhelper2](./lemma_Playfairhelper2.svg)
+001. [lemma_Playfair](./lemma_Playfair.svg)
+001. [lemma_triangletoparallelogram](./lemma_triangletoparallelogram.svg)
+001. [proposition_37](./proposition_37.svg)
+001. [proposition_38](./proposition_38.svg)
 
 The following were done ahead of their time to prove something unrelated:
 
