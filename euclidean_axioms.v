@@ -215,6 +215,11 @@ Class area `(Ax : euclidean_euclidean) :=
 			EqAreaQuad A B C D a b c d ->
 			EqAreaQuad a b c d P Q R S ->
 			EqAreaQuad A B C D P Q R S;
+	axiom_EqAreaTri_transitive :
+		forall A B C P Q R a b c,
+			EqAreaTri A B C a b c ->
+			EqAreaTri a b c P Q R ->
+			EqAreaTri A B C P Q R;
 
 	(* TODO: rename to axiom_cutoff_TriCorner ? *)
 	axiom_cutoff1 :
@@ -226,6 +231,8 @@ Class area `(Ax : euclidean_euclidean) :=
 			EqAreaTri B C D b c d ->
 			EqAreaTri A C E a c e ->
 			EqAreaQuad A B D E a b d e;
+	axiom_deZolt1 :
+		forall B C D E, BetS B E D -> ~ EqAreaTri D B C E B C;
 	(* TODO: rename to axiom_paste_QuadCorner ? *)
 	axiom_paste2 :
 		forall A B C D E M a b c d e m,

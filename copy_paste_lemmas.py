@@ -125,6 +125,8 @@ destruct TarskiPar_p01_p02_p03_p04_2 as (neq_p01_p02 & neq_p03_p04 & n_Meet_p01_
 """
 
 by_prop_Supp_symmetric = "pose proof (by_prop_Supp_symmetric _ _ Supp_p01_p02_p03_p04_p05) as Supp_p05_p02_p04_p03_p01."
+
+by_def_nCol_from_Triangle = "pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_p01_p02_p03) as nCol_p01_p02_p03."
 # fmt: on
 
 
@@ -203,6 +205,8 @@ def main():
             print(replace_points(proposition_34, points))
         case "TarskiPar":
             print(replace_points(destruct_TarskiPar, points))
+        case "Triangle":
+            print(replace_points(by_def_nCol_from_Triangle, points))
         case _:
             raise ValueError(f"Unsupported hypothesis type: {t}")
 

@@ -256,6 +256,9 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_triangletoparallelogram](./lemma_triangletoparallelogram.svg)
 001. [proposition_37](./proposition_37.svg)
 001. [proposition_38](./proposition_38.svg)
+001. [by_prop_SameSide_flip](./by_prop_SameSide_flip.svg)
+001. [proposition_39A](./proposition_39A.svg)
+001. [proposition_39](./proposition_39.svg)
 
 The following were done ahead of their time to prove something unrelated:
 

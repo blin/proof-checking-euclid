@@ -223,6 +223,20 @@ axioms = {
         conclusion=EQ("ABCD", "PQRS"),
         asserts=[],
     ),
+    "axiom_EqAreaQuad_transitive": Lemma(
+        name="axiom_EqAreaQuad_transitive",
+        points=["A", "B", "C", "D", "P", "Q", "R", "S", "a", "b", "c", "d"],
+        given=[EQ("ABCD", "abcd"), EQ("abcd", "PQRS")],
+        conclusion=EQ("ABCD", "PQRS"),
+        asserts=[],
+    ),
+    "axiom_EqAreaTri_transitive": Lemma(
+        name="axiom_EqAreaTri_transitive",
+        points=["A", "B", "C", "P", "Q", "R", "a", "b", "c"],
+        given=[ET("ABC", "abc"), ET("abc", "PQR")],
+        conclusion=ET("ABC", "PQR"),
+        asserts=[],
+    ),
     "axiom_EqAreaTri_permutation": Lemma(
         name="axiom_EqAreaTri_permutation",
         points=[
@@ -281,6 +295,13 @@ axioms = {
             ET("ACE", "ace"),
         ],
         conclusion=EQ("ABDE", "abde"),
+        asserts=[],
+    ),
+    "axiom_deZolt1": Lemma(
+        name="axiom_deZolt1",
+        points=["B", "C", "D", "E"],
+        given=[PropSimple(head="BetS", points=["B", "E", "D"])],
+        conclusion=PropInversion(p=ET("DBC", "EBC")),
         asserts=[],
     ),
     "axiom_paste2": Lemma(

@@ -20,6 +20,7 @@ s/cn_equalityreverse/cn_congruencereverse/g
 
 s/axiom_ETpermutation/axiom_EqAreaTri_permutation/g
 s/axiom_ETsymmetric/axiom_EqAreaTri_symmetric/g
+s/axiom_ETtransitive/axiom_EqAreaTri_transitive/g
 s/axiom_EFpermutation/axiom_EqAreaQuad_permutation/g
 s/axiom_EFsymmetric/axiom_EqAreaQuad_symmetric/g
 s/axiom_EFtransitive/axiom_EqAreaQuad_transitive/g
@@ -96,6 +97,7 @@ s/lemma_sameside2/lemma_sameside_onray_EFAC_BFG_EGAC/g
 s/lemma_samenotopposite/by_prop_SameSide_not_OppositeSide/g
 s/lemma_samesidereflexive/by_prop_SameSide_reflexive/g
 s/lemma_samesidesymmetric/by_prop_SameSide_symmetric/g
+s/lemma_samesideflip/by_prop_SameSide_flip/g
 
 s/lemma_oppositesideflip/by_prop_OppositeSide_flip/g
 s/lemma_oppositesidesymmetric/by_prop_OppositeSide_symmetric/g

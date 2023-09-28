@@ -1,16 +1,16 @@
 s/   /\t/g
 s/[[:space:]]+$//g
 s/epose/pose/
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) [[:alpha:]] /\1 _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ [[:alpha:]] /\1 _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ [[:alpha:]] /\1 _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ [[:alpha:]] /\1 _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) [[:alpha:]] /\1 _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ [[:alpha:]] /\1 _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ [[:alpha:]] /\1 _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ [[:alpha:]] /\1 _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ _ /
 
 s/OnRay_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/OnRay_\1\2_\3/g
 s/Triangle_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Triangle_\1\2\3/g
