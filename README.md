@@ -260,6 +260,7 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_39A](./proposition_39A.v)
 001. [proposition_39](./proposition_39.v)
 001. [proposition_40](./proposition_40.v)
+001. [proposition_41](./proposition_41.v)
 
 The following were done ahead of their time to prove something unrelated:
 
