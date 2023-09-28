@@ -124,6 +124,16 @@ assert (TarskiPar_p01_p02_p03_p04_2 := TarskiPar_p01_p02_p03_p04).
 destruct TarskiPar_p01_p02_p03_p04_2 as (neq_p01_p02 & neq_p03_p04 & n_Meet_p01_p02_p03_p04 & SameSide_p03_p04_p01_p02).
 """
 
+destruct_SameSide = """\
+assert (SameSide_p01_p02_p03_p04_2 := SameSide_p01_p02_p03_p04).
+destruct SameSide_p01_p02_p03_p04_2 as (p05 & p06 & p07 & p08 & Col_p03_p04_p07 & BetS_p01_p06_p05 & BetS_p02_p07_p05 & nCol_p03_p04_p01 & nCol_p03_p04_p02).
+"""
+
+destruct_SameSide_nCol = """\
+assert (SameSide_p01_p02_p03_p04_2 := SameSide_p01_p02_p03_p04).
+destruct SameSide_p01_p02_p03_p04_2 as (_ & _ & _ & _ & _ & _ & _ & nCol_p03_p04_p01 & nCol_p03_p04_p02).
+"""
+
 by_prop_Supp_symmetric = "pose proof (by_prop_Supp_symmetric _ _ Supp_p01_p02_p03_p04_p05) as Supp_p05_p02_p04_p03_p01."
 
 by_def_nCol_from_Triangle = "pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_p01_p02_p03) as nCol_p01_p02_p03."
@@ -205,6 +215,9 @@ def main():
             print(replace_points(proposition_34, points))
         case "TarskiPar":
             print(replace_points(destruct_TarskiPar, points))
+        case "SameSide":
+            print(replace_points(destruct_SameSide, points))
+            print(replace_points(destruct_SameSide_nCol, points))
         case "Triangle":
             print(replace_points(by_def_nCol_from_Triangle, points))
         case _:

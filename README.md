@@ -261,6 +261,8 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_39](./proposition_39.v)
 001. [proposition_40](./proposition_40.v)
 001. [proposition_41](./proposition_41.v)
+001. [lemma_samesidecollinear](./lemma_samesidecollinear.v)
+001. [proposition_42](./proposition_42.v)
 
 The following were done ahead of their time to prove something unrelated:
 
