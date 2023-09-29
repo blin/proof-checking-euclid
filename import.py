@@ -454,7 +454,7 @@ class LemmaPrinter:
                 self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
                 self.context.add_prop(a.prop)
                 return
-            case "axiom_paste3":
+            case "axiom_paste3" | "axiom_cutoff2":
                 proof = a.by.n + "???"
                 self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
                 self.context.add_prop(a.prop)
