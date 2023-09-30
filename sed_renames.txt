@@ -59,6 +59,7 @@ s/lemma_rightangleNC/by_prop_RightTriangle_NC/g
 s/lemma_10_12/by_prop_RightTriangle_same_base_cong_side_cong_hypotenuse/g
 
 s/lemma_supplementsymmetric/by_prop_Supp_symmetric/g
+s/lemma_supplements2/lemma_supplements_SumTwoRT/g
 s/lemma_supplements/lemma_supplements_conga/g
 
 s/lemma_angletrichotomy2/lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF/g

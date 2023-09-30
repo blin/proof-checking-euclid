@@ -421,7 +421,7 @@ class LemmaPrinter:
             return
 
         # Special case for proposition_27
-        if a.by.t in ["unfold", "auto", "eapply"]:
+        if a.by.t in ["unfold", "auto", "eapply", "apply"]:
             self.process_indent()
             self.w.write(f"pose proof (???) as {a.prop.to_var()}.\n")
             self.context.add_prop(a.prop)
@@ -454,7 +454,7 @@ class LemmaPrinter:
                 self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
                 self.context.add_prop(a.prop)
                 return
-            case "axiom_paste3" | "axiom_cutoff2":
+            case "axiom_paste3" | "axiom_cutoff2" | "lemma_supplements_SumTwoRT":
                 proof = a.by.n + "???"
                 self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
                 self.context.add_prop(a.prop)
