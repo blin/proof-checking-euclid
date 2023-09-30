@@ -264,6 +264,14 @@ and so the dependencies need to be introduced in a particular order.
 001. [lemma_samesidecollinear](./lemma_samesidecollinear.v)
 001. [proposition_42](./proposition_42.v)
 001. [proposition_43](./proposition_43.v)
+001. [proposition_42B](./proposition_42B.v)
+001. [lemma_parallelbetween](./lemma_parallelbetween.v)
+001. [proposition_33B](./proposition_33B.v)
+001. [lemma_supplements_SumTwoRT](./lemma_supplements_SumTwoRT.v)
+001. [proposition_28D](./proposition_28D.v)
+001. [proposition_43B](./proposition_43B.v)
+001. [proposition_44A](./proposition_44A.v)
+001. [proposition_44](./proposition_44.v)
 
 The following were done ahead of their time to prove something unrelated:
 
