@@ -275,14 +275,15 @@ and so the dependencies need to be introduced in a particular order.
 001. [by_prop_SumTwoRT_congruence](./by_prop_SumTwoRT_congruence.v)
 001. [by_prop_SumTwoRT_symmetric](./by_prop_SumTwoRT_symmetric.v)
 001. [proposition_45](./proposition_45.v)
+001. [by_def_Square](./by_def_Square.v)
+001. [by_prop_RightTriangle_equaltoright](./by_prop_RightTriangle_equaltoright.v)
+001. [proposition_46](./proposition_46.v)
 
 The following were done ahead of their time to prove something unrelated:
 
-001. [by_prop_RightTriangle_equaltoright](./by_prop_RightTriangle_equaltoright.v)
 001. [proposition_28B](./proposition_28B.v)
 001. [proposition_28C](./proposition_28C.v)
 001. [lemma_twoperpsparallel](./lemma_twoperpsparallel.v)
-001. [by_def_Square](./by_def_Square.v)
 001. [lemma_road_to_reality_2_7](./lemma_road_to_reality_2_7.v)
 
 ## Differences from GeoCoq

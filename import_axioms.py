@@ -550,6 +550,21 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Parallelogram", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
+    "by_def_Square": Lemma(
+        name="by_def_Square",
+        points=["A", "B", "C", "D"],
+        given=[
+            PropSimple(head="Cong", points=["A", "B", "C", "D"]),
+            PropSimple(head="Cong", points=["A", "B", "B", "C"]),
+            PropSimple(head="Cong", points=["A", "B", "D", "A"]),
+            PropSimple(head="RightTriangle", points=["D", "A", "B"]),
+            PropSimple(head="RightTriangle", points=["A", "B", "C"]),
+            PropSimple(head="RightTriangle", points=["B", "C", "D"]),
+            PropSimple(head="RightTriangle", points=["C", "D", "A"]),
+        ],
+        conclusion=PropSimple(head="Square", points=["A", "B", "C", "D"]),
+        asserts=[],
+    ),
 }
 
 
@@ -566,10 +581,11 @@ defs_to_supporting_lemmas_for_defs = {
     "OnRay": "by_def_OnRay",
     "OppositeSide": "by_def_OppositeSide",
     "OutCirc": "by_def_OutCirc",
-    "Parallelogram": "by_def_Parallelogram",
     "Par": "by_def_Par",
+    "Parallelogram": "by_def_Parallelogram",
     "RightTriangle": "by_def_RightTriangle",
     "SameSide": "by_def_SameSide",
+    "Square": "by_def_Square",
     "SumTwoRT": "by_def_SumTwoRT",
     "Supp": "by_def_Supp",
     "TarskiPar": "by_def_TarskiPar",
