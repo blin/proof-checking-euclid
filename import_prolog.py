@@ -147,6 +147,7 @@ def prolog_lemmas(
         "axiom_betweennessidentity",
         "axiom_betweennesssymmetry",
         "axiom_paste3",
+        "axiom_paste4",
         "axiom_cutoff2",
         "by_prop_OnRay_assert",
         "by_prop_OnRay_orderofpoints_any",

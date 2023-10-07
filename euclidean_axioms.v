@@ -262,4 +262,18 @@ Class area `(Ax : euclidean_euclidean) :=
 			BetS c m d ->
 			(BetS a m b \/ eq a m \/ eq m b) ->
 			EqAreaQuad A C B D a c b d;
+	axiom_paste4 :
+		forall A B C D F G H J K L M P e m,
+			EqAreaQuad A B m D F K H G->
+			EqAreaQuad D B e C G H M L ->
+			BetS A P C->
+			BetS B P D->
+			BetS K H M->
+			BetS F G L ->
+			BetS B m D->
+			BetS B e C->
+			BetS F J M->
+			BetS K J L ->
+			EqAreaQuad A B C D F K M L;
+
 }.

@@ -148,3 +148,6 @@ s/lemma_PGrotate/by_prop_Parallelogram_rotate/g
 s/lemma_TCreflexive/by_prop_CongTriangles_reflexive/g
 s/lemma_ETreflexive/by_prop_EqAreaTri_reflexive/g
 s/lemma_EFreflexive/by_prop_EqAreaQuad_reflexive/g
+
+s/lemma_RTcongruence/by_prop_SumTwoRT_congruence/g
+s/lemma_RTsymmetric/by_prop_SumTwoRT_symmetric/g

@@ -272,6 +272,9 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_43B](./proposition_43B.v)
 001. [proposition_44A](./proposition_44A.v)
 001. [proposition_44](./proposition_44.v)
+001. [by_prop_SumTwoRT_congruence](./by_prop_SumTwoRT_congruence.v)
+001. [by_prop_SumTwoRT_symmetric](./by_prop_SumTwoRT_symmetric.v)
+001. [proposition_45](./proposition_45.v)
 
 The following were done ahead of their time to prove something unrelated:
 
