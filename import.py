@@ -126,7 +126,7 @@ def print_top(w: TextIO, t: Top) -> None:
 
 lemmas_can_be_forward_using = [
     "lemma_crossimpliesopposite",
-    "lemma_legsmallerhypotenuse",
+    "by_prop_RightTriangle_legsmallerhypotenuse",
     "lemma_righttogether",
     "by_prop_RightTriangle_supplement",
     "lemma_together",
@@ -267,6 +267,22 @@ class LemmaPrinter:
             self.process_indent()
             self.w.write(f"destruct {hh.to_var()} as {a.prop.to_var()}.\n")
 
+    def assert_by_conclude_def_destruct_mismatching(self, a: LtacAssertBy) -> None:
+        assert isinstance(a.prop, PropSimple)
+        self.process_indent()
+        match (a.prop.head, a.by.n):
+            case ("Par", "Parallelogram"):
+                A, B, C, D = a.prop.points
+                self.w.write(f"assert (Parallelogram_{A}_{B}_{C}_{D}_2 := Parallelogram_{A}_{B}_{C}_{D}).\n")
+                self.process_indent()
+                self.w.write(f"destruct Parallelogram_{A}_{B}_{C}_{D}_2 as (Par_{A}_{B}_{C}_{D} & Par_{A}_{D}_{B}_{C}).\n")
+                self.process_indent()
+                self.w.write(f"assert (Parallelogram_{A}_{C}_{D}_{B}_2 := Parallelogram_{A}_{C}_{D}_{B}).\n")
+                self.process_indent()
+                self.w.write(f"destruct Parallelogram_{A}_{C}_{D}_{B}_2 as (Par_{A}_{C}_{D}_{B} & Par_{A}_{B}_{C}_{D}).\n")
+            case (_, _):
+                self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct mismatching *)\n")
+
     def assert_by_conclude_def(self, a: LtacAssertBy) -> None:
         match a.prop:
             case PropExists() | PropConjunction():
@@ -280,12 +296,11 @@ class LemmaPrinter:
         match a.prop:
             case PropSimple():
                 if a.prop.head != a.by.n:
-                    self.process_indent()
-                    self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct *)\n")
+                    self.assert_by_conclude_def_destruct_mismatching(a)
                     return
             case PropInversion():
                 self.process_indent()
-                self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct *)\n")
+                self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct inversion *)\n")
                 return
 
         if a.by.n in defs_to_supporting_lemmas_for_defs:

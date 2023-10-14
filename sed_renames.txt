@@ -38,6 +38,8 @@ s/lemma_ray4/by_prop_OnRay_assert/g
 s/lemma_ray5/by_prop_OnRay_ABC_ACB/g
 s/lemma_raystrict/by_prop_OnRay_neq_A_C/g
 s/lemma_rayimpliescollinear/by_prop_OnRay_impliescollinear/g
+s/lemma_onray_betweenness/by_prop_OnRay_betweenness/g
+s/lemma_tworays/by_prop_OnRay_ABC_BAC_BetS_ACB/g
 
 s/lemma_parallelcollinear1/by_prop_TarskiPar_collinear_ABcd_Ccd_ABCd/g
 s/lemma_parallelcollinear2/by_prop_TarskiPar_collinear_ABcd_cCd_ABCd/g
@@ -57,6 +59,7 @@ s/lemma_8_7/by_prop_RightTriangle_CBA_n_ACB/g
 s/lemma_rightangleNC/by_prop_RightTriangle_NC/g
 
 s/lemma_10_12/by_prop_RightTriangle_same_base_cong_side_cong_hypotenuse/g
+s/lemma_legsmallerhypotenuse/by_prop_RightTriangle_legsmallerhypotenuse/g
 
 s/lemma_supplementsymmetric/by_prop_Supp_symmetric/g
 s/lemma_supplements2/lemma_supplements_SumTwoRT/g
@@ -130,8 +133,6 @@ s/lemma_lessthantransitive/by_prop_Lt_transitive/g
 
 s/lemma_collinearorder/by_prop_Col_order/g
 
-s/lemma_onray_betweenness/by_prop_OnRay_betweenness/g
-
 s/lemma_equalanglesflip/by_prop_CongA_flip/g
 s/lemma_equalanglesreflexive/by_prop_CongA_reflexive/g
 s/lemma_equalanglestransitive/by_prop_CongA_transitive/g
@@ -151,3 +152,7 @@ s/lemma_EFreflexive/by_prop_EqAreaQuad_reflexive/g
 
 s/lemma_RTcongruence/by_prop_SumTwoRT_congruence/g
 s/lemma_RTsymmetric/by_prop_SumTwoRT_symmetric/g
+
+s/lemma_squareflip/by_prop_Square_flip/g
+
+s/lemma_angleaddition/by_prop_AngleSum_respects_congruence/g

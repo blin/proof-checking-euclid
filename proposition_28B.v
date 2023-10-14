@@ -51,7 +51,6 @@ Proof.
 	pose proof (by_def_Supp _ _ _ _ _ OnRay_GH_H BetS_A_G_B) as Supp_AGH_HGB.
 	pose proof (by_prop_Supp_symmetric _ _ _ _ _ Supp_AGH_HGB) as Supp_BGH_HGA.
 
-
 	pose proof (lemma_supplements_conga _ _ _ _ _ _ _ _ _ _ CongA_abc_BGH Supp_abc_ebd Supp_BGH_HGA) as CongA_ebd_HGA.
 
 	pose proof (by_prop_CongA_NC _ _ _ _ _ _ CongA_ebd_HGA) as nCol_H_G_A.

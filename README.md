@@ -278,12 +278,23 @@ and so the dependencies need to be introduced in a particular order.
 001. [by_def_Square](./by_def_Square.v)
 001. [by_prop_RightTriangle_equaltoright](./by_prop_RightTriangle_equaltoright.v)
 001. [proposition_46](./proposition_46.v)
-
-The following were done ahead of their time to prove something unrelated:
-
+001. [by_prop_OppositeSide_flip](./by_prop_OppositeSide_flip.v)
+001. [by_prop_Square_flip](./by_prop_Square_flip.v)
+001. [lemma_righttogether](./lemma_righttogether.v)
+001. [lemma_squareparallelogram](./lemma_squareparallelogram.v)
+001. [by_prop_AngleSum_respects_congruence](./by_prop_AngleSum_respects_congruence.v)
+001. [by_prop_RightTriangle_legsmallerhypotenuse](./by_prop_RightTriangle_legsmallerhypotenuse.v)
+001. [by_prop_OnRay_ABC_BAC_BetS_ACB](./by_prop_OnRay_ABC_BAC_BetS_ACB.v)
+001. [lemma_altitudeofrighttriangle](./lemma_altitudeofrighttriangle.v)
+001. [lemma_erectedperpendicularunique](./lemma_erectedperpendicularunique.v)
 001. [proposition_28B](./proposition_28B.v)
-001. [proposition_28C](./proposition_28C.v)
 001. [lemma_twoperpsparallel](./lemma_twoperpsparallel.v)
+001. [proposition_47A](./proposition_47A.v)
+001. [proposition_47B](./proposition_47B.v)
+001. [proposition_47](./proposition_47.v)
+
+With all the above proved the following unrelated lemma can also be proved:
+
 001. [lemma_road_to_reality_2_7](./lemma_road_to_reality_2_7.v)
 
 ## Differences from GeoCoq
