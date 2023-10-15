@@ -135,6 +135,7 @@ def prolog_lemmas(
         "Par",
         "Parallelogram",
         "Perp_at",
+        "Rectangle",
         "RightTriangle",
         "SameSide",
         "Square",

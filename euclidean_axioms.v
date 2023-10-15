@@ -240,6 +240,8 @@ Class area `(Ax : euclidean_euclidean) :=
 			EqAreaQuad A B C E a b c e;
 	axiom_deZolt1 :
 		forall B C D E, BetS B E D -> ~ EqAreaTri D B C E B C;
+	axiom_deZolt2 :
+		forall A B C E F, Triangle A B C -> BetS B E A -> BetS B F C -> ~ EqAreaTri A B C E B F;
 	(* TODO: rename to axiom_paste_QuadCorner ? *)
 	axiom_paste2 :
 		forall A B C D E M a b c d e m,

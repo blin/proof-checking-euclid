@@ -14,6 +14,7 @@ s/SQ /Square /g
 s/Cong_3 /CongTriangles /g
 s/ET /EqAreaTri /g
 s/EF /EqAreaQuad /g
+s/RE /Rectangle /g
 
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g

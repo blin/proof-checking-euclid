@@ -53,6 +53,7 @@ checkpoints=(
 "proposition_45"
 "proposition_46"
 "proposition_47"
+"proposition_48"
 )
 
 make clean >/dev/null

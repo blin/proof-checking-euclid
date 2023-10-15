@@ -79,6 +79,12 @@ Definition Square A B C D :=
 	RightTriangle A B C /\
 	RightTriangle B C D /\
 	RightTriangle C D A.
+Definition Rectangle A B C D :=
+	RightTriangle D A B /\
+	RightTriangle A B C /\
+	RightTriangle B C D /\
+	RightTriangle C D A /\
+	Cross A C B D.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
 End Definitions.

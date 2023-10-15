@@ -304,6 +304,17 @@ axioms = {
         conclusion=PropInversion(p=ET("DBC", "EBC")),
         asserts=[],
     ),
+    "axiom_deZolt2": Lemma(
+        name="axiom_deZolt2",
+        points=["A", "B", "C", "E", "F"],
+        given=[
+            PropSimple(head="Triangle", points=["A", "B", "C"]),
+            PropSimple(head="BetS", points=["B", "E", "A"]),
+            PropSimple(head="BetS", points=["B", "F", "C"]),
+        ],
+        conclusion=PropInversion(p=ET("ABC", "EBF")),
+        asserts=[],
+    ),
     "axiom_paste2": Lemma(
         name="axiom_paste2",
         points=["A", "B", "C", "D", "E", "M", "a", "b", "c", "d", "e", "m"],
@@ -565,6 +576,19 @@ supporting_lemmas_for_defs: dict[str, Lemma] = {
         conclusion=PropSimple(head="Square", points=["A", "B", "C", "D"]),
         asserts=[],
     ),
+    "by_def_Rectangle": Lemma(
+        name="by_def_Rectangle",
+        points=["A", "B", "C", "D"],
+        given=[
+            PropSimple(head="RightTriangle", points=["D", "A", "B"]),
+            PropSimple(head="RightTriangle", points=["A", "B", "C"]),
+            PropSimple(head="RightTriangle", points=["B", "C", "D"]),
+            PropSimple(head="RightTriangle", points=["C", "D", "A"]),
+            PropSimple(head="Cross", points=["A", "C", "B", "D"])
+        ],
+        conclusion=PropSimple(head="Rectangle", points=["A", "B", "C", "D"]),
+        asserts=[],
+    ),
 }
 
 
@@ -583,6 +607,7 @@ defs_to_supporting_lemmas_for_defs = {
     "OutCirc": "by_def_OutCirc",
     "Par": "by_def_Par",
     "Parallelogram": "by_def_Parallelogram",
+    "Rectangle": "by_def_Rectangle",
     "RightTriangle": "by_def_RightTriangle",
     "SameSide": "by_def_SameSide",
     "Square": "by_def_Square",

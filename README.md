@@ -292,6 +292,16 @@ and so the dependencies need to be introduced in a particular order.
 001. [proposition_47A](./proposition_47A.v)
 001. [proposition_47B](./proposition_47B.v)
 001. [proposition_47](./proposition_47.v)
+001. [by_def_Rectangle](./by_def_Rectangle.v)
+001. [by_prop_RightTriangle_supplement](./by_prop_RightTriangle_supplement.v)
+001. [lemma_PGrectangle](./lemma_PGrectangle.v)
+001. [lemma_rectangleparallelogram](./lemma_rectangleparallelogram.v)
+001. [lemma_paste5](./lemma_paste5.v)
+001. [lemma_rectanglerotate](./lemma_rectanglerotate.v)
+001. [lemma_squarerectangle](./lemma_squarerectangle.v)
+001. [lemma_squaresequal](./lemma_squaresequal.v)
+001. [proposition_48A](./proposition_48A.v)
+001. [proposition_48](./proposition_48.v)
 
 With all the above proved the following unrelated lemma can also be proved:
 
