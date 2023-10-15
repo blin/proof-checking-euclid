@@ -16,7 +16,6 @@ Require Import ProofCheckingEuclid.by_prop_SameSide_flip.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_nCol_helper.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
-Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.

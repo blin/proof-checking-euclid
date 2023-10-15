@@ -1,8 +1,8 @@
-Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
-Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_B.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_B_E.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B.
 Require Import ProofCheckingEuclid.by_def_Parallelogram.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
@@ -18,7 +18,6 @@ Require Import ProofCheckingEuclid.by_prop_Par_to_TarskiPar.
 Require Import ProofCheckingEuclid.by_prop_SameSide_flip.
 Require Import ProofCheckingEuclid.by_prop_SameSide_symmetric.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
-Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_extension.

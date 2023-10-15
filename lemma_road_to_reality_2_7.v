@@ -9,13 +9,13 @@ Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
 Require Import ProofCheckingEuclid.by_prop_Par_NC.
 Require Import ProofCheckingEuclid.by_prop_Par_flip.
 Require Import ProofCheckingEuclid.by_prop_RightTriangle_equaltoright.
+Require Import ProofCheckingEuclid.by_prop_SameSide_not_OppositeSide .
 Require Import ProofCheckingEuclid.by_prop_SameSide_symmetric.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_crisscross.
 Require Import ProofCheckingEuclid.lemma_s_conga_sss.
-Require Import ProofCheckingEuclid.by_prop_SameSide_not_OppositeSide .
 Require Import ProofCheckingEuclid.lemma_twoperpsparallel.
 Require Import ProofCheckingEuclid.proposition_33.
 

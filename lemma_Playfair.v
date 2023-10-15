@@ -1,6 +1,4 @@
 Require Import ProofCheckingEuclid.by_def_Cross.
-Require Import ProofCheckingEuclid.by_def_Par.
-Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Par_flip.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.

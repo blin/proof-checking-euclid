@@ -15,22 +15,22 @@ Lemma by_def_Rectangle :
 	Rectangle A B C D.
 Proof.
 	intros A B C D.
-	intros RightTriangle_D_A_B.
-	intros RightTriangle_A_B_C.
-	intros RightTriangle_B_C_D.
-	intros RightTriangle_C_D_A.
-	intros Cross_A_C_B_D.
+	intros RightTriangle_DAB.
+	intros RightTriangle_ABC.
+	intros RightTriangle_BCD.
+	intros RightTriangle_CDA.
+	intros Cross_AC_BD.
 
 	unfold Rectangle.
 	split.
-	exact RightTriangle_D_A_B.
+	exact RightTriangle_DAB.
 	split.
-	exact RightTriangle_A_B_C.
+	exact RightTriangle_ABC.
 	split.
-	exact RightTriangle_B_C_D.
+	exact RightTriangle_BCD.
 	split.
-	exact RightTriangle_C_D_A.
-	exact Cross_A_C_B_D.
+	exact RightTriangle_CDA.
+	exact Cross_AC_BD.
 Qed.
 
 End Euclid.

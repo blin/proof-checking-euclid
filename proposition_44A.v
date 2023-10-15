@@ -28,7 +28,6 @@ Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_Playfair.
 Require Import ProofCheckingEuclid.lemma_collinearbetween.
 Require Import ProofCheckingEuclid.lemma_diagonalsbisect.
-Require Import ProofCheckingEuclid.lemma_diagonalsmeet.
 Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.lemma_parallelbetween.
 Require Import ProofCheckingEuclid.lemma_samesidecollinear.

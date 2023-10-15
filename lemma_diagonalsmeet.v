@@ -25,11 +25,11 @@ Proof.
 
 	destruct TarskiPar_CD_AB as (_ & _ & _ & SameSide_A_B_CD).
 
-	epose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_A_B_CD) as (_ & SameSide_A_B_DC & _).
-	epose proof (by_prop_SameSide_not_Cross _ _ _ _ SameSide_A_B_DC) as n_Cross_A_B_D_C.
-	epose proof (lemma_crisscross A B D C Par_AD_BC n_Cross_A_B_D_C) as Cross_A_C_B_D.
+	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_A_B_CD) as (_ & SameSide_A_B_DC & _).
+	pose proof (by_prop_SameSide_not_Cross _ _ _ _ SameSide_A_B_DC) as n_Cross_AB_DC.
+	pose proof (lemma_crisscross _ _ _ _ Par_AD_BC n_Cross_AB_DC) as Cross_AC_BD.
 
-	destruct Cross_A_C_B_D as (M & BetS_A_M_C & BetS_B_M_D).
+	destruct Cross_AC_BD as (M & BetS_A_M_C & BetS_B_M_D).
 
 	exists M.
 	split.

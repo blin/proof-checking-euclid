@@ -20,10 +20,10 @@ Proof.
 	intros Cong_AB_CD.
 	intros SameSide_A_C_BD.
 
-	epose proof (by_prop_SameSide_not_Cross _ _ _ _ SameSide_A_C_BD) as n_Cross_A_C_B_D.
-	pose proof (lemma_crisscross _ _ _ _ Par_AB_CD n_Cross_A_C_B_D) as Cross_A_D_C_B.
+	pose proof (by_prop_SameSide_not_Cross _ _ _ _ SameSide_A_C_BD) as n_Cross_AC_BD.
+	pose proof (lemma_crisscross _ _ _ _ Par_AB_CD n_Cross_AC_BD) as Cross_AD_CB.
 
-	destruct Cross_A_D_C_B as (m & BetS_A_m_D & BetS_C_m_B).
+	destruct Cross_AD_CB as (m & BetS_A_m_D & BetS_C_m_B).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_m_B) as BetS_B_m_C.
 

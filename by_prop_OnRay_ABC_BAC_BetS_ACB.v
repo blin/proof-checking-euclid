@@ -14,15 +14,15 @@ Lemma by_prop_OnRay_ABC_BAC_BetS_ACB :
 	BetS A C B.
 Proof.
 	intros A B C.
-	intros OnRay_A_B_C.
-	intros OnRay_B_A_C.
+	intros OnRay_AB_C.
+	intros OnRay_BA_C.
 
-	pose proof (by_prop_OnRay_neq_A_C _ _ _ OnRay_A_B_C) as neq_A_C.
-	pose proof (by_prop_OnRay_neq_A_C _ _ _ OnRay_B_A_C) as neq_B_C.
+	pose proof (by_prop_OnRay_neq_A_C _ _ _ OnRay_AB_C) as neq_A_C.
+	pose proof (by_prop_OnRay_neq_A_C _ _ _ OnRay_BA_C) as neq_B_C.
 
 	(* assert by cases *)
 	assert (BetS A C B) as BetS_A_C_B.
-	pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_A_B_C) as [BetS_A_C_B | [eq_B_C | BetS_A_B_C]].
+	pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_AB_C) as [BetS_A_C_B | [eq_B_C | BetS_A_B_C]].
 	{
 		(* case BetS_A_C_B *)
 		exact BetS_A_C_B.
@@ -37,8 +37,8 @@ Proof.
 
 		(* assert by cases *)
 		assert (BetS A C B) as BetS_A_C_B.
-		
-		pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_B_A_C) as [BetS_B_C_A | [eq_A_C | BetS_B_A_C]].
+
+		pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_BA_C) as [BetS_B_C_A | [eq_A_C | BetS_B_A_C]].
 		{
 			(* case BetS_B_C_A *)
 			pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_C_A) as BetS_A_C_B.

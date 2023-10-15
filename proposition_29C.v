@@ -1,4 +1,3 @@
-Require Import ProofCheckingEuclid.by_prop_nCol_distinct .
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
@@ -13,6 +12,7 @@ Require Import ProofCheckingEuclid.by_prop_Par_collinear.
 Require Import ProofCheckingEuclid.by_prop_Par_flip.
 Require Import ProofCheckingEuclid.by_prop_Par_symmetric.
 Require Import ProofCheckingEuclid.by_prop_SameSide_symmetric.
+Require Import ProofCheckingEuclid.by_prop_nCol_distinct .
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.

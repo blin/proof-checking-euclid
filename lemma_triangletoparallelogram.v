@@ -1,9 +1,9 @@
-Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col .
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
 Require Import ProofCheckingEuclid.by_def_Par.
 Require Import ProofCheckingEuclid.by_def_Parallelogram.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col .
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.

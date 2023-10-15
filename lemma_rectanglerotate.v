@@ -16,12 +16,12 @@ Proof.
 	intros Rectangle_A_B_C_D.
 
 
-	destruct Rectangle_A_B_C_D as (RightTriangle_D_A_B & RightTriangle_A_B_C & RightTriangle_B_C_D & RightTriangle_C_D_A & Cross_A_C_B_D).
+	destruct Rectangle_A_B_C_D as (RightTriangle_DAB & RightTriangle_ABC & RightTriangle_BCD & RightTriangle_CDA & Cross_AC_BD).
 
-	destruct Cross_A_C_B_D as (M & BetS_A_M_C & BetS_B_M_D).
+	destruct Cross_AC_BD as (M & BetS_A_M_C & BetS_B_M_D).
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_M_C) as BetS_C_M_A.
-	pose proof (by_def_Cross _ _ _ _ _ BetS_B_M_D BetS_C_M_A) as Cross_B_D_C_A.
-	pose proof (by_def_Rectangle _ _ _ _ RightTriangle_A_B_C RightTriangle_B_C_D RightTriangle_C_D_A RightTriangle_D_A_B Cross_B_D_C_A) as Rectangle_B_C_D_A.
+	pose proof (by_def_Cross _ _ _ _ _ BetS_B_M_D BetS_C_M_A) as Cross_BD_CA.
+	pose proof (by_def_Rectangle _ _ _ _ RightTriangle_ABC RightTriangle_BCD RightTriangle_CDA RightTriangle_DAB Cross_BD_CA) as Rectangle_B_C_D_A.
 
 	exact Rectangle_B_C_D_A.
 Qed.

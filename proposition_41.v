@@ -23,15 +23,15 @@ Proof.
 	intros A B C D E.
 	intros Parallelogram_A_B_C_D.
 	intros Col_A_D_E.
-	
-	assert (Parallelogram_A_B_C_D_2 := Parallelogram_A_B_C_D).
-	destruct Parallelogram_A_B_C_D_2 as (Par_A_B_C_D & Par_A_D_B_C).
 
-	pose proof (by_prop_Par_NC _ _ _ _ Par_A_B_C_D) as (nCol_A_B_C & _ & _ & _).
-	pose proof (by_prop_Par_symmetric _ _ _ _ Par_A_D_B_C) as Par_B_C_A_D.
-	pose proof (by_prop_Par_flip _ _ _ _ Par_B_C_A_D) as (_ & Par_B_C_D_A & _).
-	pose proof (by_def_Triangle _ _ _ nCol_A_B_C) as Triangle_A_B_C.
-	pose proof (by_prop_EqAreaTri_reflexive _ _ _ Triangle_A_B_C) as EqAreaTri_A_B_C_A_B_C.
+	assert (Parallelogram_A_B_C_D_2 := Parallelogram_A_B_C_D).
+	destruct Parallelogram_A_B_C_D_2 as (Par_AB_CD & Par_AD_BC).
+
+	pose proof (by_prop_Par_NC _ _ _ _ Par_AB_CD) as (nCol_A_B_C & _ & _ & _).
+	pose proof (by_prop_Par_symmetric _ _ _ _ Par_AD_BC) as Par_BC_AD.
+	pose proof (by_prop_Par_flip _ _ _ _ Par_BC_AD) as (_ & Par_BC_DA & _).
+	pose proof (by_def_Triangle _ _ _ nCol_A_B_C) as Triangle_ABC.
+	pose proof (by_prop_EqAreaTri_reflexive _ _ _ Triangle_ABC) as EqAreaTri_A_B_C_A_B_C.
 
 	pose proof (by_prop_Col_order _ _ _ Col_A_D_E) as (Col_D_A_E & _ & _ & _ & _).
 
@@ -47,10 +47,10 @@ Proof.
 	{
 		(* case neq_A_E *)
 		pose proof (by_prop_neq_symmetric _ _ neq_A_E) as neq_E_A.
-		pose proof (by_prop_Par_collinear _ _ _ _ _ Par_B_C_D_A Col_D_A_E neq_E_A) as Par_B_C_E_A.
-		pose proof (by_prop_Par_flip _ _ _ _ Par_B_C_E_A) as (_ & Par_B_C_A_E & _).
-		pose proof (by_prop_Par_symmetric _ _ _ _ Par_B_C_A_E) as Par_A_E_B_C.
-		pose proof (proposition_37 _ _ _ _ Par_A_E_B_C) as EqAreaTri_A_B_C_E_B_C.
+		pose proof (by_prop_Par_collinear _ _ _ _ _ Par_BC_DA Col_D_A_E neq_E_A) as Par_BC_EA.
+		pose proof (by_prop_Par_flip _ _ _ _ Par_BC_EA) as (_ & Par_BC_AE & _).
+		pose proof (by_prop_Par_symmetric _ _ _ _ Par_BC_AE) as Par_AE_BC.
+		pose proof (proposition_37 _ _ _ _ Par_AE_BC) as EqAreaTri_A_B_C_E_B_C.
 
 		exact EqAreaTri_A_B_C_E_B_C.
 	}

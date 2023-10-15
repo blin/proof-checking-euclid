@@ -20,11 +20,11 @@ Lemma lemma_samesidecollinear :
 	SameSide P Q A C.
 Proof.
 	intros A B C P Q.
-	intros SameSide_P_Q_A_B.
+	intros SameSide_P_Q_AB.
 	intros Col_A_B_C.
 	intros neq_A_C.
 
-	destruct SameSide_P_Q_A_B as (p & q & r & Col_A_B_p & Col_A_B_q & BetS_P_p_r & BetS_Q_q_r & nCol_A_B_P & nCol_A_B_Q).
+	destruct SameSide_P_Q_AB as (p & q & r & Col_A_B_p & Col_A_B_q & BetS_P_p_r & BetS_Q_q_r & nCol_A_B_P & nCol_A_B_Q).
 
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_P) as (neq_A_B & _ & _ & _ & _ & _).
 	assert (eq A A) as eq_A_A by (reflexivity).
@@ -37,9 +37,9 @@ Proof.
 	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_B_A_C Col_B_A_p neq_B_A) as Col_A_C_p.
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_q) as (Col_B_A_q & _ & _ & _ & _).
 	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_B_A_C Col_B_A_q neq_B_A) as Col_A_C_q.
-	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_C_p Col_A_C_q BetS_P_p_r BetS_Q_q_r nCol_A_C_P nCol_A_C_Q) as SameSide_P_Q_A_C.
+	pose proof (by_def_SameSide _ _ _ _ _ _ _ Col_A_C_p Col_A_C_q BetS_P_p_r BetS_Q_q_r nCol_A_C_P nCol_A_C_Q) as SameSide_P_Q_AC.
 
-	exact SameSide_P_Q_A_C.
+	exact SameSide_P_Q_AC.
 Qed.
 
 End Euclid.

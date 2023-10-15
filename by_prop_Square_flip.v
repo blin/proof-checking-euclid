@@ -17,22 +17,22 @@ Proof.
 	intros Square_A_B_C_D.
 
 	destruct Square_A_B_C_D as (
-		Cong_A_B_C_D & Cong_A_B_B_C & Cong_A_B_D_A & RightTriangle_D_A_B & RightTriangle_A_B_C & RightTriangle_B_C_D & RightTriangle_C_D_A
+		Cong_AB_CD & Cong_AB_BC & Cong_AB_DA & RightTriangle_DAB & RightTriangle_ABC & RightTriangle_BCD & RightTriangle_CDA
 	).
 
-	pose proof (by_prop_Cong_flip _ _ _ _ Cong_A_B_C_D) as (Cong_B_A_D_C & _ & _).
-	pose proof (by_prop_Cong_flip _ _ _ _ Cong_A_B_D_A) as (Cong_B_A_A_D & _ & _).
-	pose proof (by_prop_Cong_flip _ _ _ _ Cong_A_B_B_C) as (Cong_B_A_C_B & _ & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_CD) as (Cong_BA_DC & _ & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_DA) as (Cong_BA_AD & _ & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_BC) as (Cong_BA_CB & _ & _).
 
-	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_A_B_C) as RightTriangle_C_B_A.
-	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_D_A_B) as RightTriangle_B_A_D.
-	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_C_D_A) as RightTriangle_A_D_C.
-	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_B_C_D) as RightTriangle_D_C_B.
+	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_ABC) as RightTriangle_CBA.
+	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_DAB) as RightTriangle_BAD.
+	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_CDA) as RightTriangle_ADC.
+	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_BCD) as RightTriangle_DCB.
 
 	pose proof (
 		by_def_Square
 		_ _ _ _
-		Cong_B_A_D_C Cong_B_A_A_D Cong_B_A_C_B RightTriangle_C_B_A RightTriangle_B_A_D RightTriangle_A_D_C RightTriangle_D_C_B
+		Cong_BA_DC Cong_BA_AD Cong_BA_CB RightTriangle_CBA RightTriangle_BAD RightTriangle_ADC RightTriangle_DCB
 	) as Square_B_A_D_C.
 
 	exact Square_B_A_D_C.

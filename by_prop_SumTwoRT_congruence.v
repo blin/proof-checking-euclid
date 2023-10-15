@@ -15,17 +15,17 @@ Lemma by_prop_SumTwoRT_congruence :
 	SumTwoRT P Q R D E F.
 Proof.
 	intros A B C D E F P Q R.
-	intros SumTwoRT_A_B_C_D_E_F.
-	intros CongA_A_B_C_P_Q_R.
+	intros SumTwoRT_ABC_DEF.
+	intros CongA_ABC_PQR.
 
-	destruct SumTwoRT_A_B_C_D_E_F as (a & b & c & d & e & Supp_a_b_c_d_e & CongA_A_B_C_a_b_c & CongA_D_E_F_d_b_e).
+	destruct SumTwoRT_ABC_DEF as (a & b & c & d & e & Supp_abc_dbe & CongA_ABC_abc & CongA_DEF_dbe).
 
-	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_A_B_C_P_Q_R) as CongA_P_Q_R_A_B_C.
+	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_ABC_PQR) as CongA_PQR_ABC.
 
-	pose proof (by_prop_CongA_transitive _ _ _ _ _ _ _ _ _ CongA_P_Q_R_A_B_C CongA_A_B_C_a_b_c) as CongA_P_Q_R_a_b_c.
-	pose proof (by_def_SumTwoRT _ _ _ _ _ _ _ _ _ _ _ Supp_a_b_c_d_e CongA_P_Q_R_a_b_c CongA_D_E_F_d_b_e) as SumTwoRT_P_Q_R_D_E_F.
+	pose proof (by_prop_CongA_transitive _ _ _ _ _ _ _ _ _ CongA_PQR_ABC CongA_ABC_abc) as CongA_PQR_abc.
+	pose proof (by_def_SumTwoRT _ _ _ _ _ _ _ _ _ _ _ Supp_abc_dbe CongA_PQR_abc CongA_DEF_dbe) as SumTwoRT_PQR_DEF.
 
-	exact SumTwoRT_P_Q_R_D_E_F.
+	exact SumTwoRT_PQR_DEF.
 Qed.
 
 End Euclid.

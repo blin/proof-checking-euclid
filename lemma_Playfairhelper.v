@@ -1,8 +1,7 @@
-Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B .
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_B.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
-Require Import ProofCheckingEuclid.by_def_Cross.
+Require Import ProofCheckingEuclid.by_def_OnRay_from_neq_A_B .
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_SameSide.
 Require Import ProofCheckingEuclid.by_def_Triangle.

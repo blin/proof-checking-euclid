@@ -1,11 +1,6 @@
 Require Import ProofCheckingEuclid.by_def_CongTriangles.
-Require Import ProofCheckingEuclid.by_def_Lt.
 Require Import ProofCheckingEuclid.by_def_OnRay_from_BetS_A_E_B .
-Require Import ProofCheckingEuclid.by_def_Parallelogram.
-Require Import ProofCheckingEuclid.by_def_Rectangle.
-Require Import ProofCheckingEuclid.by_def_Square.
 Require Import ProofCheckingEuclid.by_def_Triangle.
-Require Import ProofCheckingEuclid.by_def_nCol_from_Triangle.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_CongA_helper.
 Require Import ProofCheckingEuclid.by_prop_CongA_reflexive.
@@ -14,7 +9,6 @@ Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence_smaller.
 Require Import ProofCheckingEuclid.by_prop_Lt_trichotomous.
-Require Import ProofCheckingEuclid.by_prop_OnRay_assert.
 Require Import ProofCheckingEuclid.by_prop_Par_NC.
 Require Import ProofCheckingEuclid.by_prop_RightTriangle_equaltoright.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
@@ -43,158 +37,158 @@ Proof.
 	intros Square_A_B_C_D.
 	intros Square_a_b_c_d.
 	intros EqAreaQuad_A_B_C_D_a_b_c_d.
-	
+
 
 	assert (Square_A_B_C_D_2 := Square_A_B_C_D).
-	destruct Square_A_B_C_D_2 as (_ & _ & Cong_A_B_D_A & RightTriangle_D_A_B & _ & _ & _).
+	destruct Square_A_B_C_D_2 as (_ & _ & Cong_AB_DA & RightTriangle_DAB & _ & _ & _).
 
-	pose proof (by_prop_Cong_flip _ _ _ _ Cong_A_B_D_A) as (_ & _ & Cong_A_B_A_D).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_DA) as (_ & _ & Cong_AB_AD).
 
 	pose proof (lemma_squarerectangle _ _ _ _ Square_A_B_C_D) as Rectangle_A_B_C_D.
 	assert (Rectangle_A_B_C_D_2 := Rectangle_A_B_C_D).
-	destruct Rectangle_A_B_C_D as (_ & _ & _ & _ & Cross_A_C_B_D).
+	destruct Rectangle_A_B_C_D as (_ & _ & _ & _ & Cross_AC_BD).
 
 	pose proof (lemma_squareparallelogram _ _ _ _ Square_A_B_C_D) as Parallelogram_A_B_C_D.
 	assert (Parallelogram_A_B_C_D_2 := Parallelogram_A_B_C_D).
-	destruct Parallelogram_A_B_C_D_2 as (Par_A_B_C_D & Par_A_D_B_C).
+	destruct Parallelogram_A_B_C_D_2 as (Par_AB_CD & Par_AD_BC).
 
-	pose proof (by_prop_Par_NC _ _ _ _ Par_A_B_C_D) as (_ & _ & _ & nCol_A_B_D).
+	pose proof (by_prop_Par_NC _ _ _ _ Par_AB_CD) as (_ & _ & _ & nCol_A_B_D).
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_D) as (_ & _ & nCol_D_A_B & _ & _).
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_D) as (neq_A_B & _ & _ & _ & _ & _).
-	pose proof (by_prop_CongA_reflexive _ _ _ nCol_D_A_B) as CongA_D_A_B_D_A_B.
+	pose proof (by_prop_CongA_reflexive _ _ _ nCol_D_A_B) as CongA_DAB_DAB.
 
-	pose proof (by_def_Triangle _ _ _ nCol_D_A_B) as Triangle_D_A_B.
+	pose proof (by_def_Triangle _ _ _ nCol_D_A_B) as Triangle_DAB.
 
-	pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_A_C_B_D nCol_A_B_D) as (OppositeSide_A_B_D_C & _ & _ & _).
-	
+	pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_AC_BD nCol_A_B_D) as (OppositeSide_A_BD_C & _ & _ & _).
+
 	assert (Square_a_b_c_d_2 := Square_a_b_c_d).
-	destruct Square_a_b_c_d_2 as (_ & _ & Cong_a_b_d_a & RightTriangle_d_a_b & _ & _ & _).
+	destruct Square_a_b_c_d_2 as (_ & _ & Cong_ab_da & RightTriangle_dab & _ & _ & _).
 
-	pose proof (by_prop_Cong_flip _ _ _ _ Cong_a_b_d_a) as (_ & _ & Cong_a_b_a_d).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_ab_da) as (_ & _ & Cong_ab_ad).
 
 	pose proof (lemma_squarerectangle _ _ _ _ Square_a_b_c_d) as Rectangle_a_b_c_d.
 	assert (Rectangle_a_b_c_d_2 := Rectangle_a_b_c_d).
-	destruct Rectangle_a_b_c_d as (_ & _ & _ & _ & Cross_a_c_b_d).
+	destruct Rectangle_a_b_c_d as (_ & _ & _ & _ & Cross_ac_bd).
 
 	pose proof (lemma_squareparallelogram _ _ _ _ Square_a_b_c_d) as Parallelogram_a_b_c_d.
 	assert (Parallelogram_a_b_c_d_2 := Parallelogram_a_b_c_d).
-	destruct Parallelogram_a_b_c_d_2 as (Par_a_b_c_d & Par_a_d_b_c).
+	destruct Parallelogram_a_b_c_d_2 as (Par_ab_cd & Par_ad_bc).
 
-	pose proof (by_prop_Par_NC _ _ _ _ Par_a_b_c_d) as (_ & _ & _ & nCol_a_b_d).
+	pose proof (by_prop_Par_NC _ _ _ _ Par_ab_cd) as (_ & _ & _ & nCol_a_b_d).
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_a_b_d) as (neq_a_b & _ & _ & _ & _ & _).
 	pose proof (by_prop_nCol_order _ _ _ nCol_a_b_d) as (_ & _ & nCol_d_a_b & _ & _).
-	pose proof (by_prop_CongA_reflexive _ _ _ nCol_d_a_b) as CongA_d_a_b_d_a_b.
+	pose proof (by_prop_CongA_reflexive _ _ _ nCol_d_a_b) as CongA_dab_dab.
 
-	pose proof (by_def_Triangle _ _ _ nCol_d_a_b) as Triangle_d_a_b.
+	pose proof (by_def_Triangle _ _ _ nCol_d_a_b) as Triangle_dab.
 
-	pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_a_c_b_d nCol_a_b_d) as (OppositeSide_a_b_d_c & _ & _ & _).
+	pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_ac_bd nCol_a_b_d) as (OppositeSide_a_bd_c & _ & _ & _).
 
-	pose proof (proposition_34 _ _ _ _ Parallelogram_A_B_C_D) as (_ & _ & _ & _ & CongTriangles_B_A_D_D_C_B).
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_B_A_D_D_C_B) as EqAreaTri_B_A_D_D_C_B.
+	pose proof (proposition_34 _ _ _ _ Parallelogram_A_B_C_D) as (_ & _ & _ & _ & CongTriangles_BAD_DCB).
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_BAD_DCB) as EqAreaTri_B_A_D_D_C_B.
 	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_B_A_D_D_C_B) as (_ & _ & _ & _ & EqAreaTri_B_A_D_B_D_C).
 	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_B_A_D_B_D_C) as EqAreaTri_B_D_C_B_A_D.
 	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_B_D_C_B_A_D) as (_ & _ & EqAreaTri_B_D_C_A_B_D & _ & _).
 	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_B_D_C_A_B_D) as EqAreaTri_A_B_D_B_D_C.
 
-	pose proof (proposition_34 _ _ _ _ Parallelogram_a_b_c_d) as (_ & _ & _ & _ & CongTriangles_b_a_d_d_c_b).
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_b_a_d_d_c_b) as EqAreaTri_b_a_d_d_c_b.
+	pose proof (proposition_34 _ _ _ _ Parallelogram_a_b_c_d) as (_ & _ & _ & _ & CongTriangles_bad_dcb).
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_bad_dcb) as EqAreaTri_b_a_d_d_c_b.
 	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_b_a_d_d_c_b) as (_ & _ & _ & _ & EqAreaTri_b_a_d_b_d_c).
 	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_b_a_d_b_d_c) as EqAreaTri_b_d_c_b_a_d.
 	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_b_d_c_b_a_d) as (_ & _ & EqAreaTri_b_d_c_a_b_d & _ & _).
 	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_b_d_c_a_b_d) as EqAreaTri_a_b_d_b_d_c.
-	
+
 	pose proof (
 		axiom_halvesofequals
 		_ _ _ _ _ _ _ _
-		EqAreaTri_A_B_D_B_D_C OppositeSide_A_B_D_C EqAreaTri_a_b_d_b_d_c OppositeSide_a_b_d_c EqAreaQuad_A_B_C_D_a_b_c_d
+		EqAreaTri_A_B_D_B_D_C OppositeSide_A_BD_C EqAreaTri_a_b_d_b_d_c OppositeSide_a_bd_c EqAreaQuad_A_B_C_D_a_b_c_d
 	) as EqAreaTri_A_B_D_a_b_d.
 
 	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_A_B_D_a_b_d) as EqAreaTri_a_b_d_A_B_D.
 
 
-	assert (~ Lt a b A B) as n_Lt_a_b_A_B.
+	assert (~ Lt a b A B) as n_Lt_ab_AB.
 	{
-		intro Lt_a_b_A_B.
+		intro Lt_ab_AB.
 
-		pose proof (by_prop_Lt_congruence_smaller _ _ _ _ _ _ Lt_a_b_A_B Cong_a_b_a_d) as Lt_a_d_A_B.
-		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_a_d_A_B Cong_A_B_A_D) as Lt_a_d_A_D.
+		pose proof (by_prop_Lt_congruence_smaller _ _ _ _ _ _ Lt_ab_AB Cong_ab_ad) as Lt_ad_AB.
+		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_ad_AB Cong_AB_AD) as Lt_ad_AD.
 
-		assert (Lt_a_b_A_B_2 := Lt_a_b_A_B).
-		destruct Lt_a_b_A_B_2 as (E & BetS_A_E_B & Cong_A_E_a_b).
+		assert (Lt_ab_AB_2 := Lt_ab_AB).
+		destruct Lt_ab_AB_2 as (E & BetS_A_E_B & Cong_AE_ab).
 
-		pose proof (by_def_OnRay_from_BetS_A_E_B A B E BetS_A_E_B neq_A_B) as OnRay_A_B_E.
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_A_E_B neq_A_B) as OnRay_AB_E.
 
 
-		destruct Lt_a_d_A_D as (F & BetS_A_F_D & Cong_A_F_a_d).
+		destruct Lt_ad_AD as (F & BetS_A_F_D & Cong_AF_ad).
 
 		pose proof (by_prop_BetS_notequal _ _ _ BetS_A_F_D) as (_ & _ & neq_A_D).
 
-		pose proof (by_prop_Cong_flip _ _ _ _ Cong_A_F_a_d) as (Cong_F_A_d_a & _ & _).
-		
-		pose proof (by_def_OnRay_from_BetS_A_E_B A D F BetS_A_F_D neq_A_D) as OnRay_A_D_F.
+		pose proof (by_prop_Cong_flip _ _ _ _ Cong_AF_ad) as (Cong_FA_da & _ & _).
 
-		pose proof (by_prop_CongA_helper _ _ _ _ _ _ _ _ CongA_D_A_B_D_A_B OnRay_A_D_F OnRay_A_B_E) as CongA_D_A_B_F_A_E.
-		pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_D_A_B_F_A_E) as CongA_F_A_E_D_A_B.
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_A_F_D neq_A_D) as OnRay_AD_F.
 
-		pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_D_A_B CongA_F_A_E_D_A_B) as RightTriangle_F_A_E.
-		pose proof (lemma_Euclid4 _ _ _ _ _ _ RightTriangle_F_A_E RightTriangle_d_a_b) as CongA_F_A_E_d_a_b.
-		pose proof (proposition_04 _ _ _ _ _ _ Cong_A_F_a_d Cong_A_E_a_b CongA_F_A_E_d_a_b) as (Cong_F_E_d_b & _ & _).
-		pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_F_A_d_a Cong_A_E_a_b Cong_F_E_d_b) as CongTriangles_F_A_E_d_a_b.
-		pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_F_A_E_d_a_b) as EqAreaTri_F_A_E_d_a_b.
+		pose proof (by_prop_CongA_helper _ _ _ _ _ _ _ _ CongA_DAB_DAB OnRay_AD_F OnRay_AB_E) as CongA_DAB_FAE.
+		pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_DAB_FAE) as CongA_FAE_DAB.
+
+		pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_DAB CongA_FAE_DAB) as RightTriangle_FAE.
+		pose proof (lemma_Euclid4 _ _ _ _ _ _ RightTriangle_FAE RightTriangle_dab) as CongA_FAE_dab.
+		pose proof (proposition_04 _ _ _ _ _ _ Cong_AF_ad Cong_AE_ab CongA_FAE_dab) as (Cong_FE_db & _ & _).
+		pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_FA_da Cong_AE_ab Cong_FE_db) as CongTriangles_FAE_dab.
+		pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_FAE_dab) as EqAreaTri_F_A_E_d_a_b.
 		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_F_A_E_d_a_b) as (EqAreaTri_F_A_E_a_b_d & _ & _ & _ & _).
 		pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_F_A_E_a_b_d EqAreaTri_a_b_d_A_B_D) as EqAreaTri_F_A_E_A_B_D.
 		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_F_A_E_A_B_D) as (_ & _ & _ & _ & EqAreaTri_F_A_E_D_A_B).
 		pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_F_A_E_D_A_B) as EqAreaTri_D_A_B_F_A_E.
 
-		pose proof (axiom_deZolt2 _ _ _ _ _ Triangle_D_A_B BetS_A_F_D BetS_A_E_B) as n_EqAreaTri_D_A_B_F_A_E.
+		pose proof (axiom_deZolt2 _ _ _ _ _ Triangle_DAB BetS_A_F_D BetS_A_E_B) as n_EqAreaTri_D_A_B_F_A_E.
 
 		contradict EqAreaTri_D_A_B_F_A_E.
 		exact n_EqAreaTri_D_A_B_F_A_E.
 	}
 
 
-	assert (~ Lt A B a b) as n_Lt_A_B_a_b.
+	assert (~ Lt A B a b) as n_Lt_AB_ab.
 	{
-		intro Lt_A_B_a_b.
+		intro Lt_AB_ab.
 
-		pose proof (by_prop_Lt_congruence_smaller _ _ _ _ _ _ Lt_A_B_a_b Cong_A_B_A_D) as Lt_A_D_a_b.
-		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_A_D_a_b Cong_a_b_a_d) as Lt_A_D_a_d.
+		pose proof (by_prop_Lt_congruence_smaller _ _ _ _ _ _ Lt_AB_ab Cong_AB_AD) as Lt_AD_ab.
+		pose proof (by_prop_Lt_congruence _ _ _ _ _ _ Lt_AD_ab Cong_ab_ad) as Lt_AD_ad.
 
-		assert (Lt_A_B_a_b_2 := Lt_A_B_a_b).
-		destruct Lt_A_B_a_b_2 as (e & BetS_a_e_b & Cong_a_e_A_B).
+		assert (Lt_AB_ab_2 := Lt_AB_ab).
+		destruct Lt_AB_ab_2 as (e & BetS_a_e_b & Cong_ae_AB).
 
-		pose proof (by_def_OnRay_from_BetS_A_E_B a b e BetS_a_e_b neq_a_b) as OnRay_a_b_e.
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_a_e_b neq_a_b) as OnRay_ab_e.
 
-		destruct Lt_A_D_a_d as (f & BetS_a_f_d & Cong_a_f_A_D).
+		destruct Lt_AD_ad as (f & BetS_a_f_d & Cong_af_AD).
 
 		pose proof (by_prop_BetS_notequal _ _ _ BetS_a_f_d) as (_ & _ & neq_a_d).
-		
-		pose proof (by_def_OnRay_from_BetS_A_E_B a d f BetS_a_f_d neq_a_d) as OnRay_a_d_f.
 
-		pose proof (by_prop_Cong_flip _ _ _ _ Cong_a_f_A_D) as (Cong_f_a_D_A & _ & _).
+		pose proof (by_def_OnRay_from_BetS_A_E_B _ _ _ BetS_a_f_d neq_a_d) as OnRay_ad_f.
+
+		pose proof (by_prop_Cong_flip _ _ _ _ Cong_af_AD) as (Cong_fa_DA & _ & _).
 
 
-		pose proof (by_prop_CongA_helper _ _ _ _ _ _ _ _ CongA_d_a_b_d_a_b OnRay_a_d_f OnRay_a_b_e) as CongA_d_a_b_f_a_e.
-		pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_d_a_b_f_a_e) as CongA_f_a_e_d_a_b.
-		pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_d_a_b CongA_f_a_e_d_a_b) as RightTriangle_f_a_e.
-		pose proof (lemma_Euclid4 _ _ _ _ _ _ RightTriangle_f_a_e RightTriangle_D_A_B) as CongA_f_a_e_D_A_B.
-		pose proof (proposition_04 _ _ _ _ _ _ Cong_a_f_A_D Cong_a_e_A_B CongA_f_a_e_D_A_B) as (Cong_f_e_D_B & _ & _).
-		pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_f_a_D_A Cong_a_e_A_B Cong_f_e_D_B) as CongTriangles_f_a_e_D_A_B.
-		pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_f_a_e_D_A_B) as EqAreaTri_f_a_e_D_A_B.
+		pose proof (by_prop_CongA_helper _ _ _ _ _ _ _ _ CongA_dab_dab OnRay_ad_f OnRay_ab_e) as CongA_dab_fae.
+		pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_dab_fae) as CongA_fae_dab.
+		pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_dab CongA_fae_dab) as RightTriangle_fae.
+		pose proof (lemma_Euclid4 _ _ _ _ _ _ RightTriangle_fae RightTriangle_DAB) as CongA_fae_DAB.
+		pose proof (proposition_04 _ _ _ _ _ _ Cong_af_AD Cong_ae_AB CongA_fae_DAB) as (Cong_fe_DB & _ & _).
+		pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_fa_DA Cong_ae_AB Cong_fe_DB) as CongTriangles_fae_DAB.
+		pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_fae_DAB) as EqAreaTri_f_a_e_D_A_B.
 		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_f_a_e_D_A_B) as (EqAreaTri_f_a_e_A_B_D & _ & _ & _ & _).
 		pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_f_a_e_A_B_D EqAreaTri_A_B_D_a_b_d) as EqAreaTri_f_a_e_a_b_d.
 		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_f_a_e_a_b_d) as (_ & _ & _ & _ & EqAreaTri_f_a_e_d_a_b).
 		pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_f_a_e_d_a_b) as EqAreaTri_d_a_b_f_a_e.
 
-		pose proof (axiom_deZolt2 _ _ _ _ _ Triangle_d_a_b BetS_a_f_d BetS_a_e_b) as n_EqAreaTri_d_a_b_f_a_e.
+		pose proof (axiom_deZolt2 _ _ _ _ _ Triangle_dab BetS_a_f_d BetS_a_e_b) as n_EqAreaTri_d_a_b_f_a_e.
 
 		contradict EqAreaTri_d_a_b_f_a_e.
 		exact n_EqAreaTri_d_a_b_f_a_e.
 	}
 
-	pose proof (by_prop_Lt_trichotomous _ _ _ _ n_Lt_A_B_a_b n_Lt_a_b_A_B neq_A_B neq_a_b) as Cong_A_B_a_b.
+	pose proof (by_prop_Lt_trichotomous _ _ _ _ n_Lt_AB_ab n_Lt_ab_AB neq_A_B neq_a_b) as Cong_AB_ab.
 
-	exact Cong_A_B_a_b.
+	exact Cong_AB_ab.
 Qed.
 
 End Euclid.

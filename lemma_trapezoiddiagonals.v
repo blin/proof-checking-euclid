@@ -1,13 +1,13 @@
-Require Import ProofCheckingEuclid.by_prop_nCol_order .
-Require Import ProofCheckingEuclid.by_prop_Par_NC .
-Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col .
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
 Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_Meet.
+Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col .
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
+Require Import ProofCheckingEuclid.by_prop_Par_NC .
+Require Import ProofCheckingEuclid.by_prop_nCol_order .
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
@@ -31,13 +31,13 @@ Proof.
 	pose proof (by_def_Col_from_eq_B_C A B B eq_B_B) as Col_A_B_B.
 
 	assert (Parallelogram_A_B_C_D_2 := Parallelogram_A_B_C_D).
-	destruct Parallelogram_A_B_C_D_2 as (Par_A_B_C_D & Par_AD_BC).
-	
-	pose proof (by_prop_Par_NC _ _ _ _ Par_A_B_C_D) as (nCol_A_B_C & nCol_A_C_D & nCol_B_C_D & nCol_A_B_D).
+	destruct Parallelogram_A_B_C_D_2 as (Par_AB_CD & Par_AD_BC).
+
+	pose proof (by_prop_Par_NC _ _ _ _ Par_AB_CD) as (nCol_A_B_C & nCol_A_C_D & nCol_B_C_D & nCol_A_B_D).
 	pose proof (by_prop_nCol_order _ _ _ nCol_B_C_D) as (nCol_C_B_D & nCol_C_D_B & nCol_D_B_C & nCol_B_D_C & nCol_D_C_B).
 
-	assert (Par_A_B_C_D_2 := Par_A_B_C_D).
-	destruct Par_A_B_C_D_2 as (_ & _ & _ & _ & _ & neq_A_B & neq_C_D & _ & _ & _ & _ & _ & _ & n_Meet_A_B_C_D & _ & _).
+	assert (Par_AB_CD_2 := Par_AB_CD).
+	destruct Par_AB_CD_2 as (_ & _ & _ & _ & _ & neq_A_B & neq_C_D & _ & _ & _ & _ & _ & _ & n_Meet_A_B_C_D & _ & _).
 
 	pose proof (by_prop_neq_symmetric _ _ neq_A_B) as neq_B_A.
 	pose proof (by_prop_neq_symmetric _ _ neq_C_D) as neq_D_C.
@@ -54,7 +54,7 @@ Proof.
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AM_MC) as (_ & Cong_MA_MC & _).
 
 	pose proof (postulate_Euclid5 _ _ _ _ _ _ BetS_A_M_C BetS_B_M_D BetS_A_E_D Cong_BM_DM Cong_MA_MC nCol_B_D_C) as (P & BetS_B_E_P & BetS_C_D_P).
-	
+
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_D_P) as BetS_P_D_C.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_D_P) as (neq_D_P & _ & neq_C_P).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_P_D_C) as (_ & neq_P_D & neq_P_C).
