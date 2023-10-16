@@ -322,9 +322,37 @@ With all the above proved the following unrelated lemma can also be proved:
   name for those lemmas.
 * `axiom_innertransitivity` is renamed to `axiom_orderofpoints_ABD_BCD_ABC`
   to match the renaming of `lemma_3_6a` into `lemma_orderofpoints_ABC_ACD_BCD`.
-* `Out` is renamed to `OnRay`, which I found easier to reason about.
-* `lemma_ray*` were renamed to `lemma_onray*` to match the change
-  from `Out` to `OnRay`.
+* Most primitives and definitions are renamed to be more spelled out.
+  * OS -> SameSide
+    * OS presumably comes from "one side", but there are lemmas like
+      `lemma_samesidereflexive`, whish suggest `SameSide` to be
+      an appropriate name.
+  * TS -> OppositeSide
+    * TS presumably comes from "two sides", but there are lemmas like
+      `lemma_oppositesideflip`, whish suggest `OppositeSide` to be
+      an appropriate name.
+  * Out -> OnRay
+  * Per -> RightTriangle
+    * I found definition of Square to be more natural with 4 `RightTriangle`s
+      than with 4 `Per`s.
+  * RT -> SumTwoRT
+  * SumA -> AngleSum
+  * TG -> TogetherGreater
+  * TP -> TarskiPar
+  * CR -> Cross
+  * PG -> Parallelogram
+  * SQ -> Square
+  * Cong_3 -> CongTriangles
+  * ET -> EqAreaTri
+    * Being explicit about the kind of equality used seems prudent,
+      especially given how prominent congruence is.
+  * EF -> EqAreaQuad
+  * RE -> Rectangle
+* Lemmas that encode properties of objects that can be pithily expressed
+  were renamed to start with `by_prop_$OBJECT_`
+  so that it is easier to find them and to ignore them in proof text.
+  If there was no pithy way to express the property, or if the proof
+  of the property turned out to be very complex, I've mostly left unchanged.
 * `lemma_onray[12345]` instead of having numeric suffixes have evocative
   if not descriptive suffixes,
   `by_prop_OnRay_orderofpoints_any` instead of `lemma_ray1`.
@@ -333,9 +361,12 @@ With all the above proved the following unrelated lemma can also be proved:
   `by_prop_Col_ABC_BAC` instead of `lemma_collinear1`.
 * You can find the full list of renames in [sed_renames.txt](./sed_renames.txt).
 * Many lemmas are introduced
-  to make it easier to use some of the definitions and
-  to make sense of what is going on. Newly introduced lemmas start with
-  `lemma_s` , with `s` for `supporting`.
+  to make it easier to use some of the definitions, these lemmas were named
+  to start with `by_def_$OBJECT_`.
+* Many lemmas are introduced to make sense of what is going on.
+  Newly introduced lemmas start with `lemma_s` , with `s` for `supporting`.
+* Long proofs by contradiction that assert the lemma's goal were re-structured
+  as proofs "by cases", thus turning `contrdict+exact` into just `exact`.
 
 ## Diagrams
 
