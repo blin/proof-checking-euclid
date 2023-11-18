@@ -15,9 +15,9 @@ Proof.
 	intros Triangle_ABC.
 
 	pose proof (by_prop_CongTriangles_reflexive _ _ _ Triangle_ABC) as CongTriangles_ABC_ABC.
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_ABC_ABC) as EqAreaTri_A_B_C_A_B_C.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_ABC_ABC) as EqAreaTri_ABC_ABC.
 
-	exact EqAreaTri_A_B_C_A_B_C.
+	exact EqAreaTri_ABC_ABC.
 Qed.
 
 End Euclid.

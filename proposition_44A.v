@@ -305,7 +305,7 @@ Proof.
 		Parallelogram_H_F_K_L
 		BetS_H_A_L BetS_H_G_F BetS_L_M_K BetS_F_E_K BetS_H_B_K
 		Parallelogram_G_H_A_B Parallelogram_E_B_M_K
-	) as EqAreaQuad_B_E_F_G_L_M_B_A.
+	) as EqAreaQuad_BEFG_LMBA.
 	pose proof (
 		proposition_43B
 		_ _ _ _ _ _ _ _ _
@@ -325,7 +325,7 @@ Proof.
 	split.
 	exact CongA_ABM_JDN.
 	split.
-	exact EqAreaQuad_B_E_F_G_L_M_B_A.
+	exact EqAreaQuad_BEFG_LMBA.
 	exact BetS_G_B_M.
 Qed.
 

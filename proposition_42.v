@@ -345,23 +345,23 @@ Proof.
 	pose proof (by_prop_CongA_reflexive _ _ _ nCol_C_E_F) as CongA_CEF_CEF.
 	pose proof (by_prop_CongA_ABCequalsCBA _ _ _ nCol_C_E_F) as CongA_CEF_FEC.
 
-	pose proof (proposition_38 _ _ _ _ _ _ _ _ Par_PQ_BE Col_P_Q_A Col_P_Q_A Cong_BE_EC Col_B_E_E Col_B_E_C) as EqAreaTri_A_B_E_A_E_C.
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_A_B_E_A_E_C) as EqAreaTri_A_E_C_A_B_E.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_A_E_C_A_B_E) as (_ & EqAreaTri_A_E_C_A_E_B & _ & _ & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_A_E_C_A_E_B) as EqAreaTri_A_E_B_A_E_C.
+	pose proof (proposition_38 _ _ _ _ _ _ _ _ Par_PQ_BE Col_P_Q_A Col_P_Q_A Cong_BE_EC Col_B_E_E Col_B_E_C) as EqAreaTri_ABE_AEC.
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_ABE_AEC) as EqAreaTri_AEC_ABE.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_AEC_ABE) as (_ & EqAreaTri_AEC_AEB & _ & _ & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_AEC_AEB) as EqAreaTri_AEB_AEC.
 
 	pose proof (proposition_34 _ _ _ _ Parallelogram_E_F_G_C) as (_ & _ & _ & _ & CongTriangles_FEC_CGF).
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_FEC_CGF) as EqAreaTri_F_E_C_C_G_F.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_F_E_C_C_G_F) as (_ & _ & _ & _ & EqAreaTri_F_E_C_F_C_G).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_F_E_C_F_C_G) as EqAreaTri_F_C_G_F_E_C.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_F_C_G_F_E_C) as (_ & EqAreaTri_F_C_G_F_C_E & _ & _ & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_F_C_G_F_C_E) as EqAreaTri_F_C_E_F_C_G.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_FEC_CGF) as EqAreaTri_FEC_CGF.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_FEC_CGF) as (_ & _ & _ & _ & EqAreaTri_FEC_FCG).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_FEC_FCG) as EqAreaTri_FCG_FEC.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_FCG_FEC) as (_ & EqAreaTri_FCG_FCE & _ & _ & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_FCG_FCE) as EqAreaTri_FCE_FCG.
 
-	pose proof (proposition_41 _ _ _ _ _ Parallelogram_F_E_C_G Col_F_G_A) as EqAreaTri_F_E_C_A_E_C.
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_F_E_C_A_E_C) as EqAreaTri_A_E_C_F_E_C.
-	pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_A_E_B_A_E_C EqAreaTri_A_E_C_F_E_C) as EqAreaTri_A_E_B_F_E_C.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_A_E_B_F_E_C) as (_ & EqAreaTri_A_E_B_F_C_E & _ & _ & _).
-	pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_A_E_C_F_E_C EqAreaTri_F_E_C_F_C_G) as EqAreaTri_A_E_C_F_C_G.
+	pose proof (proposition_41 _ _ _ _ _ Parallelogram_F_E_C_G Col_F_G_A) as EqAreaTri_FEC_AEC.
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_FEC_AEC) as EqAreaTri_AEC_FEC.
+	pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_AEB_AEC EqAreaTri_AEC_FEC) as EqAreaTri_AEB_FEC.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_AEB_FEC) as (_ & EqAreaTri_AEB_FCE & _ & _ & _).
+	pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_AEC_FEC EqAreaTri_FEC_FCG) as EqAreaTri_AEC_FCG.
 
 	pose proof (lemma_diagonalsmeet _ _ _ _ Parallelogram_E_F_G_C) as (m & BetS_E_m_G & BetS_F_m_C).
 
@@ -371,13 +371,13 @@ Proof.
 	pose proof (
 		axiom_paste3
 		A E B C E F C E G m
-		EqAreaTri_A_E_B_F_C_E
-		EqAreaTri_A_E_C_F_C_G
+		EqAreaTri_AEB_FCE
+		EqAreaTri_AEC_FCG
 		BetS_B_E_C
 		eq_E_E'
 		BetS_E_m_G
 		BetS_F_m_C'
-	) as EqAreaQuad_A_B_E_C_F_E_C_G.
+	) as EqAreaQuad_ABEC_FECG.
 
 
 	(* assert by cases *)
@@ -443,7 +443,7 @@ Proof.
 	split.
 	exact Parallelogram_F_E_C_G.
 	split.
-	exact EqAreaQuad_A_B_E_C_F_E_C_G.
+	exact EqAreaQuad_ABEC_FECG.
 	split.
 	exact CongA_CEF_JDK .
 	exact Col_F_G_A.

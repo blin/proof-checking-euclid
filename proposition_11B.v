@@ -64,8 +64,8 @@ Proof.
 
 	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_M_P_AB) as (SameSide_P_M_AB & _ & _).
 
-	pose proof (proposition_12 _ _ _ nCol_A_B_M) as (Q & Perp_at_M_Q_A_B_Q).
-	destruct Perp_at_M_Q_A_B_Q as (E & _ & Col_A_B_Q & Col_A_B_E & RightTriangle_EQM).
+	pose proof (proposition_12 _ _ _ nCol_A_B_M) as (Q & Perp_at_MQ_AB_Q).
+	destruct Perp_at_MQ_AB_Q as (E & _ & Col_A_B_Q & Col_A_B_E & RightTriangle_EQM).
 
 	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_A_B_Q Col_A_B_C neq_A_B) as Col_B_Q_C.
 	pose proof (by_prop_Col_order _ _ _ Col_B_Q_C) as (_ & Col_Q_C_B & _ & _ & _).

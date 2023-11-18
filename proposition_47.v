@@ -82,7 +82,7 @@ Proof.
 		Parallelogram_B_M_L_D & BetS_B_M_C &
 		Parallelogram_M_C_E_L & BetS_D_L_E &
 		BetS_L_M_A & RightTriangle_DLA &
-		EqAreaQuad_A_B_F_G_B_M_L_D
+		EqAreaQuad_ABFG_BMLD
 	).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_M_C) as BetS_C_M_B.
@@ -111,7 +111,7 @@ Proof.
 		_ & BetS_C_m_B &
 		_ & BetS_E_l_D &
 		BetS_l_m_A & RightTriangle_ElA &
-		EqAreaQuad_A_C_K_H_C_m_l_E
+		EqAreaQuad_ACKH_CmlE
 	).
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_m_B) as (neq_m_B & neq_C_m & _).
@@ -157,11 +157,11 @@ Proof.
 	apply Classical_Prop.NNPP in eq_M_m.
 
 
-	assert (EqAreaQuad A C K H C M l E) as EqAreaQuad_A_C_K_H_C_M_l_E by (rewrite eq_M_m; exact EqAreaQuad_A_C_K_H_C_m_l_E).
-	assert (EqAreaQuad A C K H C M L E) as EqAreaQuad_A_C_K_H_C_M_L_E by (rewrite <- eq_l_L; exact EqAreaQuad_A_C_K_H_C_M_l_E).
+	assert (EqAreaQuad A C K H C M l E) as EqAreaQuad_ACKH_CMlE by (rewrite eq_M_m; exact EqAreaQuad_ACKH_CmlE).
+	assert (EqAreaQuad A C K H C M L E) as EqAreaQuad_ACKH_CMLE by (rewrite <- eq_l_L; exact EqAreaQuad_ACKH_CMlE).
 
-	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_A_C_K_H_C_M_L_E) as (
-		_ & _ & _ & EqAreaQuad_A_C_K_H_M_C_E_L & _ & _ & _
+	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_ACKH_CMLE) as (
+		_ & _ & _ & EqAreaQuad_ACKH_MCEL & _ & _ & _
 	).
 
 	exists M, L.
@@ -174,8 +174,8 @@ Proof.
 	split.
 	exact BetS_D_L_E.
 	split.
-	exact EqAreaQuad_A_B_F_G_B_M_L_D.
-	exact EqAreaQuad_A_C_K_H_M_C_E_L.
+	exact EqAreaQuad_ABFG_BMLD.
+	exact EqAreaQuad_ACKH_MCEL.
 Qed.
 
 End Euclid.

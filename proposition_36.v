@@ -115,7 +115,7 @@ Proof.
 
 
 	(* assert by cases *)
-	assert (EqAreaQuad A B C D E F G H) as EqAreaQuad_A_B_C_D_E_F_G_H.
+	assert (EqAreaQuad A B C D E F G H) as EqAreaQuad_ABCD_EFGH.
 	destruct Cross_EC_BH_or_Cross_EB_HC as [Cross_EC_BH | Cross_EB_HC].
 	{
 		(* case Cross_EC_BH *)
@@ -133,15 +133,15 @@ Proof.
 		pose proof (by_def_Parallelogram _ _ _ _ Par_EB_CH Par_EH_BC) as Parallelogram_E_B_C_H.
 		pose proof (by_def_Parallelogram _ _ _ _ Par_CH_EB Par_CB_HE) as Parallelogram_C_H_E_B.
 
-		pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_A_B_C_D Parallelogram_E_B_C_H Col_A_D_E Col_A_D_H) as EqAreaQuad_A_B_C_D_E_B_C_H.
-		pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_G_H_E_F Parallelogram_C_H_E_B Col_G_F_C Col_G_F_B) as EqAreaQuad_G_H_E_F_C_H_E_B.
+		pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_A_B_C_D Parallelogram_E_B_C_H Col_A_D_E Col_A_D_H) as EqAreaQuad_ABCD_EBCH.
+		pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_G_H_E_F Parallelogram_C_H_E_B Col_G_F_C Col_G_F_B) as EqAreaQuad_GHEF_CHEB.
 
-		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_G_H_E_F_C_H_E_B) as (_ & _ & EqAreaQuad_G_H_E_F_E_B_C_H & _ & _ & _ & _).
-		pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_G_H_E_F_E_B_C_H) as EqAreaQuad_E_B_C_H_G_H_E_F.
-		pose proof (axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_A_B_C_D_E_B_C_H EqAreaQuad_E_B_C_H_G_H_E_F) as EqAreaQuad_A_B_C_D_G_H_E_F.
-		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_A_B_C_D_G_H_E_F) as (_ & _ & EqAreaQuad_A_B_C_D_E_F_G_H & _ & _ & _ & _).
+		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_GHEF_CHEB) as (_ & _ & EqAreaQuad_GHEF_EBCH & _ & _ & _ & _).
+		pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_GHEF_EBCH) as EqAreaQuad_EBCH_GHEF.
+		pose proof (axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_ABCD_EBCH EqAreaQuad_EBCH_GHEF) as EqAreaQuad_ABCD_GHEF.
+		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_ABCD_GHEF) as (_ & _ & EqAreaQuad_ABCD_EFGH & _ & _ & _ & _).
 
-		exact EqAreaQuad_A_B_C_D_E_F_G_H.
+		exact EqAreaQuad_ABCD_EFGH.
 	}
 	{
 		(* case Cross_EB_HC *)
@@ -157,18 +157,18 @@ Proof.
 		pose proof (by_def_Parallelogram _ _ _ _ Par_HB_CE Par_HE_BC) as Parallelogram_H_B_C_E.
 		pose proof (by_def_Parallelogram _ _ _ _ Par_CE_HB Par_CB_EH) as Parallelogram_C_E_H_B.
 
-		pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_A_B_C_D Parallelogram_H_B_C_E Col_A_D_H Col_A_D_E) as EqAreaQuad_A_B_C_D_H_B_C_E.
-		pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_F_E_H_G Parallelogram_C_E_H_B Col_F_G_C Col_F_G_B) as EqAreaQuad_F_E_H_G_C_E_H_B.
+		pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_A_B_C_D Parallelogram_H_B_C_E Col_A_D_H Col_A_D_E) as EqAreaQuad_ABCD_HBCE.
+		pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_F_E_H_G Parallelogram_C_E_H_B Col_F_G_C Col_F_G_B) as EqAreaQuad_FEHG_CEHB.
 
-		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_F_E_H_G_C_E_H_B) as (_ & _ & EqAreaQuad_F_E_H_G_H_B_C_E & _ & _ & _ & _).
-		pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_F_E_H_G_H_B_C_E) as EqAreaQuad_H_B_C_E_F_E_H_G.
-		pose proof (axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_A_B_C_D_H_B_C_E EqAreaQuad_H_B_C_E_F_E_H_G) as EqAreaQuad_A_B_C_D_F_E_H_G.
-		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_A_B_C_D_F_E_H_G) as (_ & _ & _ & EqAreaQuad_A_B_C_D_E_F_G_H & _ & _ & _).
+		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_FEHG_CEHB) as (_ & _ & EqAreaQuad_FEHG_HBCE & _ & _ & _ & _).
+		pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_FEHG_HBCE) as EqAreaQuad_HBCE_FEHG.
+		pose proof (axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_ABCD_HBCE EqAreaQuad_HBCE_FEHG) as EqAreaQuad_ABCD_FEHG.
+		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_ABCD_FEHG) as (_ & _ & _ & EqAreaQuad_ABCD_EFGH & _ & _ & _).
 
-		exact EqAreaQuad_A_B_C_D_E_F_G_H.
+		exact EqAreaQuad_ABCD_EFGH.
 	}
 
-	exact EqAreaQuad_A_B_C_D_E_F_G_H.
+	exact EqAreaQuad_ABCD_EFGH.
 Qed.
 
 End Euclid.

@@ -33,7 +33,7 @@ Proof.
 	intros Triangle_ABC.
 	intros Triangle_DBC.
 	intros SameSide_A_D_BC.
-	intros EqAreaTri_A_B_C_D_B_C.
+	intros EqAreaTri_ABC_DBC.
 	intros neq_A_D.
 
 	pose proof (cn_congruencereflexive B C) as Cong_BC_BC.
@@ -61,11 +61,11 @@ Proof.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_A) as OnRay_CA_A.
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_D) as OnRay_CD_D.
 
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_A_B_C_D_B_C) as (_ & EqAreaTri_A_B_C_D_C_B & _ & _ & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_A_B_C_D_C_B) as EqAreaTri_D_C_B_A_B_C.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_D_C_B_A_B_C) as (_ & EqAreaTri_D_C_B_A_C_B & _ & _ & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_D_C_B_A_C_B) as EqAreaTri_A_C_B_D_C_B.
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_A_B_C_D_B_C) as EqAreaTri_D_B_C_A_B_C.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_ABC_DBC) as (_ & EqAreaTri_ABC_DCB & _ & _ & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_ABC_DCB) as EqAreaTri_DCB_ABC.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_DCB_ABC) as (_ & EqAreaTri_DCB_ACB & _ & _ & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_DCB_ACB) as EqAreaTri_ACB_DCB.
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_ABC_DBC) as EqAreaTri_DBC_ABC.
 
 	assert (~ ~ Par A D B C) as n_n_Par_AD_BC.
 	{
@@ -76,7 +76,7 @@ Proof.
 			intro LtA_CBD_CBA.
 
 			pose proof (lemma_crossbar_LtA _ _ _ _ _ _ LtA_CBD_CBA SameSide_D_A_BC OnRay_BC_C OnRay_BA_A) as (M & BetS_A_M_C & OnRay_BD_M).
-			pose proof (proposition_39A _ _ _ _ _ Triangle_ABC EqAreaTri_A_B_C_D_B_C BetS_A_M_C OnRay_BD_M) as Par_AD_BC.
+			pose proof (proposition_39A _ _ _ _ _ Triangle_ABC EqAreaTri_ABC_DBC BetS_A_M_C OnRay_BD_M) as Par_AD_BC.
 
 			contradict Par_AD_BC.
 			exact n_Par_AD_BC.
@@ -88,7 +88,7 @@ Proof.
 			intro LtA_CBA_CBD.
 
 			pose proof (lemma_crossbar_LtA _ _ _ _ _ _ LtA_CBA_CBD SameSide_A_D_BC OnRay_BC_C OnRay_BD_D) as (M & BetS_D_M_C & OnRay_BA_M).
-			pose proof (proposition_39A _ _ _ _ _ Triangle_DBC EqAreaTri_D_B_C_A_B_C BetS_D_M_C OnRay_BA_M) as Par_DA_BC.
+			pose proof (proposition_39A _ _ _ _ _ Triangle_DBC EqAreaTri_DBC_ABC BetS_D_M_C OnRay_BA_M) as Par_DA_BC.
 			pose proof (by_prop_Par_flip _ _ _ _ Par_DA_BC) as (Par_AD_BC & _ & _).
 
 			contradict Par_AD_BC.
@@ -117,7 +117,7 @@ Proof.
 			intro LtA_BCD_BCA.
 
 			pose proof (lemma_crossbar_LtA _ _ _ _ _ _ LtA_BCD_BCA SameSide_D_A_CB OnRay_CB_B OnRay_CA_A) as (M & BetS_A_M_B & OnRay_CD_M).
-			pose proof (proposition_39A _ _ _ _ _ Triangle_ACB EqAreaTri_A_C_B_D_C_B BetS_A_M_B OnRay_CD_M) as Par_AD_CB.
+			pose proof (proposition_39A _ _ _ _ _ Triangle_ACB EqAreaTri_ACB_DCB BetS_A_M_B OnRay_CD_M) as Par_AD_CB.
 			pose proof (by_prop_Par_flip _ _ _ _ Par_AD_CB) as (_ & Par_AD_BC & _).
 
 			contradict Par_AD_BC.
@@ -130,7 +130,7 @@ Proof.
 			intro LtA_BCA_BCD.
 
 			pose proof (lemma_crossbar_LtA _ _ _ _ _ _ LtA_BCA_BCD SameSide_A_D_CB OnRay_CB_B OnRay_CD_D) as (M & BetS_D_M_B & OnRay_CA_M).
-			pose proof (proposition_39A _ _ _ _ _ Triangle_DCB EqAreaTri_D_C_B_A_C_B BetS_D_M_B OnRay_CA_M) as Par_DA_CB.
+			pose proof (proposition_39A _ _ _ _ _ Triangle_DCB EqAreaTri_DCB_ACB BetS_D_M_B OnRay_CA_M) as Par_DA_CB.
 			pose proof (by_prop_Par_flip _ _ _ _ Par_DA_CB) as (_ & _ & Par_AD_BC).
 
 			contradict Par_AD_BC.

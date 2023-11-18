@@ -157,13 +157,13 @@ Proof.
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_ea_EA) as (Cong_ae_AE & Cong_ae_EA & Cong_ea_AE).
 
 	pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_AE_ae Cong_EB_eb Cong_AB_ab) as CongTriangles_AEB_aeb.
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_AEB_aeb) as EqAreaTri_A_E_B_a_e_b.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_AEB_aeb) as EqAreaTri_AEB_aeb.
 
 	pose proof (by_prop_nCol_helper _ _ _ _ _ nCol_C_B_A Col_C_B_C Col_C_B_E neq_C_E) as nCol_C_E_A.
 	pose proof (by_prop_nCol_order _ _ _ nCol_C_E_A) as (_ & _ & _ & _ & nCol_A_E_C).
 
 	pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_AE_ae Cong_EC_ec Cong_AC_ac) as CongTriangles_AEC_aec.
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_AEC_aec) as EqAreaTri_A_E_C_a_e_c.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_AEC_aec) as EqAreaTri_AEC_aec.
 
 	assert (eq E E) as eq_E_E by (reflexivity).
 	assert (eq e e) as eq_e_e by (reflexivity).
@@ -174,16 +174,16 @@ Proof.
 	pose proof (
 		axiom_paste3
 		A E B C E a e b c e
-		EqAreaTri_A_E_B_a_e_b
-		EqAreaTri_A_E_C_a_e_c
+		EqAreaTri_AEB_aeb
+		EqAreaTri_AEC_aec
 		BetS_B_E_C
 		eq_E_E'
 		BetS_b_e_c
 		eq_e_e'
-	) as EqAreaQuad_A_B_E_C_a_b_e_c.
-	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_A_B_E_C_a_b_e_c) as EqAreaQuad_a_b_e_c_A_B_E_C.
+	) as EqAreaQuad_ABEC_abec.
+	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_ABEC_abec) as EqAreaQuad_abec_ABEC.
 
-	pose proof (proposition_42 _ _ _ _ _ _ _ Triangle_ABC nCol_J_D_K Midpoint_B_E_C) as (F & G & Parallelogram_F_E_C_G & EqAreaQuad_A_B_E_C_F_E_C_G & CongA_CEF_JDK & Col_F_G_A).
+	pose proof (proposition_42 _ _ _ _ _ _ _ Triangle_ABC nCol_J_D_K Midpoint_B_E_C) as (F & G & Parallelogram_F_E_C_G & EqAreaQuad_ABEC_FECG & CongA_CEF_JDK & Col_F_G_A).
 
 	assert (Parallelogram_F_E_C_G_2 := Parallelogram_F_E_C_G).
 	destruct Parallelogram_F_E_C_G_2 as (Par_FE_CG & Par_FG_EC).
@@ -193,7 +193,7 @@ Proof.
 
 	pose proof (by_prop_Col_order _ _ _ Col_F_G_A) as (Col_G_F_A & _ & _ & _ & _).
 
-	pose proof (axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_a_b_e_c_A_B_E_C EqAreaQuad_A_B_E_C_F_E_C_G) as EqAreaQuad_a_b_e_c_F_E_C_G.
+	pose proof (axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_abec_ABEC EqAreaQuad_ABEC_FECG) as EqAreaQuad_abec_FECG.
 
 	pose proof (lemma_sameside_onray_EFAC_BFG_EGAC _ _ _ _ _ _ SameSide_R_P_BC Col_B_B_C OnRay_BP_A) as SameSide_R_A_BC.
 	pose proof (by_prop_SameSide_flip _ _ _ _ SameSide_R_A_BC) as SameSide_R_A_CB.
@@ -230,7 +230,7 @@ Proof.
 	split.
 	exact Parallelogram_F_E_C_G.
 	split.
-	exact EqAreaQuad_a_b_e_c_F_E_C_G.
+	exact EqAreaQuad_abec_FECG.
 	split.
 	exact CongA_CEF_JDK.
 	exact SameSide_R_F_EC.

@@ -51,7 +51,7 @@ Lemma proposition_39A :
 Proof.
 	intros A B C D M.
 	intros Triangle_ABC.
-	intros EqAreaTri_A_B_C_D_B_C.
+	intros EqAreaTri_ABC_DBC.
 	intros BetS_A_M_C.
 	intros OnRay_BD_M.
 
@@ -68,7 +68,7 @@ Proof.
 
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_C_B) as OnRay_CB_B.
 
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_A_B_C_D_B_C) as EqAreaTri_D_B_C_A_B_C.
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_ABC_DBC) as EqAreaTri_DBC_ABC.
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_M_C) as BetS_C_M_A.
 
@@ -164,9 +164,9 @@ Proof.
 	pose proof (by_prop_Par_symmetric _ _ _ _ Par_CB_AE) as Par_AE_CB.
 	pose proof (by_prop_Par_flip _ _ _ _ Par_AE_CB) as (_ & Par_AE_BC & _).
 
-	pose proof (proposition_37 _ _ _ _ Par_AE_BC) as EqAreaTri_A_B_C_E_B_C.
-	pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_D_B_C_A_B_C EqAreaTri_A_B_C_E_B_C) as EqAreaTri_D_B_C_E_B_C.
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_D_B_C_E_B_C) as EqAreaTri_E_B_C_D_B_C.
+	pose proof (proposition_37 _ _ _ _ Par_AE_BC) as EqAreaTri_ABC_EBC.
+	pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_DBC_ABC EqAreaTri_ABC_EBC) as EqAreaTri_DBC_EBC.
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_DBC_EBC) as EqAreaTri_EBC_DBC.
 
 	pose proof (by_def_OnRay_from_BetS_A_B_E _ _ _ BetS_B_M_E neq_B_M) as OnRay_BM_E.
 
@@ -177,10 +177,10 @@ Proof.
 	pose proof (by_prop_OnRay_orderofpoints_any _ _ _ OnRay_BD_E) as [BetS_B_E_D | [eq_D_E | BetS_B_D_E]].
 	{
 		(* case BetS_B_E_D *)
-		pose proof (axiom_deZolt1 _ C _ _ BetS_B_E_D) as n_EqAreaTri_D_B_C_E_B_C.
+		pose proof (axiom_deZolt1 _ C _ _ BetS_B_E_D) as n_EqAreaTri_DBC_EBC.
 
-		contradict EqAreaTri_D_B_C_E_B_C.
-		exact n_EqAreaTri_D_B_C_E_B_C.
+		contradict EqAreaTri_DBC_EBC.
+		exact n_EqAreaTri_DBC_EBC.
 	}
 	{
 		(* case eq_D_E *)
@@ -190,10 +190,10 @@ Proof.
 	}
 	{
 		(* case BetS_B_D_E *)
-		pose proof (axiom_deZolt1 _ C _ _ BetS_B_D_E) as n_EqAreaTri_E_B_C_D_B_C.
+		pose proof (axiom_deZolt1 _ C _ _ BetS_B_D_E) as n_EqAreaTri_EBC_DBC.
 
-		contradict EqAreaTri_E_B_C_D_B_C.
-		exact n_EqAreaTri_E_B_C_D_B_C.
+		contradict EqAreaTri_EBC_DBC.
+		exact n_EqAreaTri_EBC_DBC.
 	}
 
 	exact Par_AD_BC.

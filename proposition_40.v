@@ -35,7 +35,7 @@ Lemma proposition_40 :
 Proof.
 	intros A B C D E H.
 	intros Cong_BC_HE.
-	intros EqAreaTri_A_B_C_D_H_E.
+	intros EqAreaTri_ABC_DHE.
 	intros Triangle_ABC.
 	intros Triangle_DHE.
 	intros Col_B_C_H.
@@ -82,14 +82,14 @@ Proof.
 
 	pose proof (by_prop_Par_collinear _ _ _ _ _ Par_PQ_RE Col_R_E_H neq_H_E) as Par_PQ_HE.
 
-	pose proof (proposition_38 _ _ _ _ _ _ _ _ Par_PQ_HE Col_P_Q_D Col_P_Q_D Cong_HE_BC Col_H_E_B Col_H_E_C) as EqAreaTri_D_H_E_D_B_C.
-	pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_A_B_C_D_H_E EqAreaTri_D_H_E_D_B_C) as EqAreaTri_A_B_C_D_B_C.
+	pose proof (proposition_38 _ _ _ _ _ _ _ _ Par_PQ_HE Col_P_Q_D Col_P_Q_D Cong_HE_BC Col_H_E_B Col_H_E_C) as EqAreaTri_DHE_DBC.
+	pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_ABC_DHE EqAreaTri_DHE_DBC) as EqAreaTri_ABC_DBC.
 
 	pose proof (by_prop_nCol_helper _ _ _ _ _ nCol_H_E_D Col_H_E_B Col_H_E_C neq_B_C) as nCol_B_C_D.
 	pose proof (by_prop_nCol_order _ _ _ nCol_B_C_D) as (_ & _ & nCol_D_B_C & _ & _).
 	pose proof (by_def_Triangle _ _ _ nCol_D_B_C) as Triangle_DBC.
 
-	pose proof (proposition_39 _ _ _ _ Triangle_ABC Triangle_DBC SameSide_A_D_BC EqAreaTri_A_B_C_D_B_C neq_A_D) as Par_AD_BC.
+	pose proof (proposition_39 _ _ _ _ Triangle_ABC Triangle_DBC SameSide_A_D_BC EqAreaTri_ABC_DBC neq_A_D) as Par_AD_BC.
 
 	exact Par_AD_BC.
 Qed.

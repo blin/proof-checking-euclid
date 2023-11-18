@@ -58,8 +58,8 @@ Proof.
 	pose proof (by_def_Triangle _ _ _ nCol_a_c_b) as Triangle_acb.
 	pose proof (by_prop_CongTriangles_reflexive _ _ _ Triangle_acd) as CongTriangles_acd_acd.
 	pose proof (by_prop_CongTriangles_reflexive _ _ _ Triangle_acb) as CongTriangles_acb_acb.
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_acd_acd) as EqAreaTri_a_c_d_a_c_d.
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_acb_acb) as EqAreaTri_a_c_b_a_c_b.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_acd_acd) as EqAreaTri_acd_acd.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_acb_acb) as EqAreaTri_acb_acb.
 	pose proof (by_def_Col_from_BetS_A_C_B _ _ _ BetS_a_p_c) as Col_a_c_p.
 	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_b_p_d Col_a_c_p nCol_a_c_b) as OppositeSide_b_ac_d.
 
@@ -71,13 +71,13 @@ Proof.
 	pose proof (
 		axiom_paste3
 		a c b d p a c b d p
-		EqAreaTri_a_c_b_a_c_b
-		EqAreaTri_a_c_d_a_c_d
+		EqAreaTri_acb_acb
+		EqAreaTri_acd_acd
 		BetS_b_p_d BetS_a_p_c_or_eq_a_p_or_eq_p_c
 		BetS_b_p_d BetS_a_p_c_or_eq_a_p_or_eq_p_c
-	) as EqAreaQuad_a_b_c_d_a_b_c_d.
+	) as EqAreaQuad_abcd_abcd.
 
-	exact EqAreaQuad_a_b_c_d_a_b_c_d.
+	exact EqAreaQuad_abcd_abcd.
 Qed.
 
 End Euclid.

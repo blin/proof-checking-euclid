@@ -147,9 +147,9 @@ Proof.
 	}
 	pose proof (by_def_nCol_from_n_Col _ _ _ n_Col_D_E_A) as nCol_D_E_A.
 
-	pose proof (proposition_12 _ _ _ nCol_D_E_A) as (L & Perp_at_A_L_D_E_L).
+	pose proof (proposition_12 _ _ _ nCol_D_E_A) as (L & Perp_at_AL_DE_L).
 
-	destruct Perp_at_A_L_D_E_L as (p & _ & Col_D_E_L & Col_D_E_p & RightTriangle_pLA).
+	destruct Perp_at_AL_DE_L as (p & _ & Col_D_E_L & Col_D_E_p & RightTriangle_pLA).
 
 	pose proof (by_prop_Col_order _ _ _ Col_D_E_L) as (Col_E_D_L & _ & _ & _ & _).
 	pose proof (by_prop_Col_order _ _ _ Col_E_D_L) as (_ & Col_D_L_E & _ & _ & _).

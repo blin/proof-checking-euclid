@@ -160,9 +160,9 @@ Proof.
 	assert (BetS A D F \/ ~ BetS A D F) as [BetS_A_D_F|n_BetS_A_D_F] by (apply Classical_Prop.classic).
 	{
 		(* case BetS_A_D_F *)
-		pose proof (proposition_35A _ _ _ _ _ _ Parallelogram_A_B_C_D Parallelogram_E_B_C_F BetS_A_D_F Col_A_E_F) as EqAreaQuad_A_B_C_D_E_B_C_F.
+		pose proof (proposition_35A _ _ _ _ _ _ Parallelogram_A_B_C_D Parallelogram_E_B_C_F BetS_A_D_F Col_A_E_F) as EqAreaQuad_ABCD_EBCF.
 
-		exact EqAreaQuad_A_B_C_D_E_B_C_F.
+		exact EqAreaQuad_ABCD_EBCF.
 	}
 	(* case n_BetS_A_D_F *)
 	assert (BetS E A D \/ ~ BetS E A D) as [BetS_E_A_D|n_BetS_E_A_D] by (apply Classical_Prop.classic).
@@ -175,14 +175,14 @@ Proof.
 		pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_A_D_E Col_A_D_F neq_A_D) as Col_D_E_F.
 		pose proof (by_prop_Col_order _ _ _ Col_D_E_F) as (_ & _ & _ & Col_D_F_E & _).
 
-		pose proof (proposition_35A _ _ _ _ _ _ Parallelogram_D_C_B_A Parallelogram_F_C_B_E BetS_D_A_E Col_D_F_E) as EqAreaQuad_D_C_B_A_F_C_B_E.
+		pose proof (proposition_35A _ _ _ _ _ _ Parallelogram_D_C_B_A Parallelogram_F_C_B_E BetS_D_A_E Col_D_F_E) as EqAreaQuad_DCBA_FCBE.
 
-		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_D_C_B_A_F_C_B_E) as (_ & EqAreaQuad_D_C_B_A_E_B_C_F & _ & _ & _ & _ & _).
-		pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_D_C_B_A_E_B_C_F) as EqAreaQuad_E_B_C_F_D_C_B_A.
-		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_E_B_C_F_D_C_B_A) as (_ & EqAreaQuad_E_B_C_F_A_B_C_D & _ & _ & _ & _ & _).
-		pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_E_B_C_F_A_B_C_D) as EqAreaQuad_A_B_C_D_E_B_C_F.
+		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_DCBA_FCBE) as (_ & EqAreaQuad_DCBA_EBCF & _ & _ & _ & _ & _).
+		pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_DCBA_EBCF) as EqAreaQuad_EBCF_DCBA.
+		pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_EBCF_DCBA) as (_ & EqAreaQuad_EBCF_ABCD & _ & _ & _ & _ & _).
+		pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_EBCF_ABCD) as EqAreaQuad_ABCD_EBCF.
 
-		exact EqAreaQuad_A_B_C_D_E_B_C_F.
+		exact EqAreaQuad_ABCD_EBCF.
 	}
 	(* case n_BetS_E_A_D *)
 
@@ -407,11 +407,11 @@ Proof.
 			(* case eq_A_E *)
 			pose proof (lemma_diagonalsmeet _ _ _ _ Parallelogram_A_B_C_D) as (M & BetS_A_M_C & BetS_B_M_D).
 
-			pose proof (by_prop_EqAreaQuad_reflexive _ _ _ _ _ BetS_A_M_C BetS_B_M_D nCol_A_B_C) as EqAreaQuad_A_B_C_D_A_B_C_D.
-			assert (EqAreaQuad A B C D E B C D) as EqAreaQuad_A_B_C_D_E_B_C_D by (rewrite <- eq_A_E; exact EqAreaQuad_A_B_C_D_A_B_C_D).
-			assert (EqAreaQuad A B C D E B C F) as EqAreaQuad_A_B_C_D_E_B_C_F by (rewrite <- eq_D_F; exact EqAreaQuad_A_B_C_D_E_B_C_D).
+			pose proof (by_prop_EqAreaQuad_reflexive _ _ _ _ _ BetS_A_M_C BetS_B_M_D nCol_A_B_C) as EqAreaQuad_ABCD_ABCD.
+			assert (EqAreaQuad A B C D E B C D) as EqAreaQuad_ABCD_EBCD by (rewrite <- eq_A_E; exact EqAreaQuad_ABCD_ABCD).
+			assert (EqAreaQuad A B C D E B C F) as EqAreaQuad_ABCD_EBCF by (rewrite <- eq_D_F; exact EqAreaQuad_ABCD_EBCD).
 
-			exact EqAreaQuad_A_B_C_D_E_B_C_F.
+			exact EqAreaQuad_ABCD_EBCF.
 		}
 		(* case neq_A_E *)
 		(* This branch leads to a contradiction *)

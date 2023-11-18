@@ -31,18 +31,18 @@ Proof.
 	pose proof (by_prop_Par_symmetric _ _ _ _ Par_AD_BC) as Par_BC_AD.
 	pose proof (by_prop_Par_flip _ _ _ _ Par_BC_AD) as (_ & Par_BC_DA & _).
 	pose proof (by_def_Triangle _ _ _ nCol_A_B_C) as Triangle_ABC.
-	pose proof (by_prop_EqAreaTri_reflexive _ _ _ Triangle_ABC) as EqAreaTri_A_B_C_A_B_C.
+	pose proof (by_prop_EqAreaTri_reflexive _ _ _ Triangle_ABC) as EqAreaTri_ABC_ABC.
 
 	pose proof (by_prop_Col_order _ _ _ Col_A_D_E) as (Col_D_A_E & _ & _ & _ & _).
 
 	(* assert by cases *)
-	assert (EqAreaTri A B C E B C) as EqAreaTri_A_B_C_E_B_C.
+	assert (EqAreaTri A B C E B C) as EqAreaTri_ABC_EBC.
 	assert (eq A E \/ neq A E) as [eq_A_E|neq_A_E] by (apply Classical_Prop.classic).
 	{
 		(* case eq_A_E *)
-		assert (EqAreaTri A B C E B C) as EqAreaTri_A_B_C_E_B_C by (rewrite <- eq_A_E; exact EqAreaTri_A_B_C_A_B_C).
+		assert (EqAreaTri A B C E B C) as EqAreaTri_ABC_EBC by (rewrite <- eq_A_E; exact EqAreaTri_ABC_ABC).
 
-		exact EqAreaTri_A_B_C_E_B_C.
+		exact EqAreaTri_ABC_EBC.
 	}
 	{
 		(* case neq_A_E *)
@@ -50,12 +50,12 @@ Proof.
 		pose proof (by_prop_Par_collinear _ _ _ _ _ Par_BC_DA Col_D_A_E neq_E_A) as Par_BC_EA.
 		pose proof (by_prop_Par_flip _ _ _ _ Par_BC_EA) as (_ & Par_BC_AE & _).
 		pose proof (by_prop_Par_symmetric _ _ _ _ Par_BC_AE) as Par_AE_BC.
-		pose proof (proposition_37 _ _ _ _ Par_AE_BC) as EqAreaTri_A_B_C_E_B_C.
+		pose proof (proposition_37 _ _ _ _ Par_AE_BC) as EqAreaTri_ABC_EBC.
 
-		exact EqAreaTri_A_B_C_E_B_C.
+		exact EqAreaTri_ABC_EBC.
 	}
 
-	exact EqAreaTri_A_B_C_E_B_C.
+	exact EqAreaTri_ABC_EBC.
 Qed.
 
 End Euclid.

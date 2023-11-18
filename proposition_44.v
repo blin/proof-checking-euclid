@@ -87,7 +87,7 @@ Proof.
 	pose proof (by_def_Midpoint _ _ _ BetS_Q_B_E Cong_QB_BE) as Midpoint_Q_B_E.
 
 	pose proof (proposition_42B _ _ _ _ _ _ _ _ _ _ _ Triangle_abc Midpoint_b_m_c nCol_J_D_N Midpoint_Q_B_E Cong_BE_mc nCol_R_B_E) as (
-		G & F & Parallelogram_G_B_E_F & EqAreaQuad_a_b_m_c_G_B_E_F & CongA_EBG_JDN & SameSide_R_G_BE
+		G & F & Parallelogram_G_B_E_F & EqAreaQuad_abmc_GBEF & CongA_EBG_JDN & SameSide_R_G_BE
 	).
 
 	pose proof (by_prop_Parallelogram_rotate _ _ _ _ Parallelogram_G_B_E_F) as Parallelogram_B_E_F_G.
@@ -102,14 +102,14 @@ Proof.
 	pose proof (lemma_samesidecollinear _ _ _ _ _ SameSide_R_G_BE Col_B_E_A neq_B_A) as SameSide_R_G_BA.
 	pose proof (by_prop_SameSide_flip _ _ _ _ SameSide_R_G_BA) as SameSide_R_G_AB.
 
-	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_a_b_m_c_G_B_E_F) as (EqAreaQuad_a_b_m_c_B_E_F_G & _ & _ & _ & _ & _ & _).
+	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_abmc_GBEF) as (EqAreaQuad_abmc_BEFG & _ & _ & _ & _ & _ & _).
 
 	pose proof (proposition_44A _ _ _ _ _ _ _ _ Parallelogram_B_E_F_G CongA_EBG_JDN BetS_A_B_E) as (
-		M & L & Parallelogram_A_B_M_L & CongA_ABM_JDN & EqAreaQuad_B_E_F_G_L_M_B_A & BetS_G_B_M
+		M & L & Parallelogram_A_B_M_L & CongA_ABM_JDN & EqAreaQuad_BEFG_LMBA & BetS_G_B_M
 	).
 
-	pose proof (axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_a_b_m_c_B_E_F_G EqAreaQuad_B_E_F_G_L_M_B_A) as EqAreaQuad_a_b_m_c_L_M_B_A.
-	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_a_b_m_c_L_M_B_A) as (_ & EqAreaQuad_a_b_m_c_A_B_M_L & _ & _ & _ & _ & _).
+	pose proof (axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_abmc_BEFG EqAreaQuad_BEFG_LMBA) as EqAreaQuad_abmc_LMBA.
+	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_abmc_LMBA) as (_ & EqAreaQuad_abmc_ABML & _ & _ & _ & _ & _).
 
 	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_G_B_M Col_A_B_B nCol_A_B_G) as OppositeSide_G_AB_M.
 	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_R_G_AB OppositeSide_G_AB_M) as OppositeSide_R_AB_M.
@@ -121,7 +121,7 @@ Proof.
 	split.
 	exact CongA_ABM_JDN.
 	split.
-	exact EqAreaQuad_a_b_m_c_A_B_M_L.
+	exact EqAreaQuad_abmc_ABML.
 	split.
 	exact Midpoint_b_m_c .
 	exact OppositeSide_M_AB_R.

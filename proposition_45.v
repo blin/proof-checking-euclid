@@ -126,7 +126,7 @@ Proof.
 	pose proof (by_prop_nCol_order _ _ _ nCol_H_K_S) as (_ & _ & _ & _ & nCol_S_K_H).
 
 	pose proof (proposition_42B _ _ _ _ _ _ _ _ _ _ _ Triangle_ABD Midpoint_B_m_D nCol_J_E_N Midpoint_P_K_H Cong_KH_mD nCol_S_K_H) as (
-		F & G & Parallelogram_F_K_H_G & EqAreaQuad_A_B_m_D_F_K_H_G & CongA_HKF_JEN & SameSide_S_F_KH
+		F & G & Parallelogram_F_K_H_G & EqAreaQuad_ABmD_FKHG & CongA_HKF_JEN & SameSide_S_F_KH
 	).
 
 	pose proof (by_def_Col_from_eq_B_C F K K eq_K_K) as Col_F_K_K.
@@ -165,7 +165,7 @@ Proof.
 	destruct TarskiPar_GH_FK_2 as (_ & _ & n_Meet_G_H_F_K & SameSide_F_K_GH).
 
 	pose proof (proposition_44 _ _ _ _ _ _ _ _ _ Triangle_DBC nCol_J_E_N nCol_G_H_K) as (
-		M & L & e & Parallelogram_G_H_M_L & CongA_GHM_JEN & EqAreaQuad_D_B_e_C_G_H_M_L & Midpoint_B_e_C & OppositeSide_M_GH_K
+		M & L & e & Parallelogram_G_H_M_L & CongA_GHM_JEN & EqAreaQuad_DBeC_GHML & Midpoint_B_e_C & OppositeSide_M_GH_K
 	).
 
 	assert (eq M M) as eq_M_M by (reflexivity).
@@ -279,8 +279,8 @@ Proof.
 		A B C D
 		F _ _ j
 		K L M _ _ _
-		EqAreaQuad_A_B_m_D_F_K_H_G
-		EqAreaQuad_D_B_e_C_G_H_M_L
+		EqAreaQuad_ABmD_FKHG
+		EqAreaQuad_DBeC_GHML
 		BetS_A_O_C
 		BetS_B_O_D
 		BetS_K_H_M
@@ -288,9 +288,9 @@ Proof.
 		BetS_B_m_D
 		BetS_B_e_C
 		BetS_F_j_M BetS_K_j_L
-	) as EqAreaQuad_A_B_C_D_F_K_M_L.
+	) as EqAreaQuad_ABCD_FKML.
 
-	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_A_B_C_D_F_K_M_L) as EqAreaQuad_F_K_M_L_A_B_C_D.
+	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_ABCD_FKML) as EqAreaQuad_FKML_ABCD.
 
 	exists F, M, L.
 	split.
@@ -298,7 +298,7 @@ Proof.
 	split.
 	exact CongA_FKM_JEN .
 	split.
-	exact EqAreaQuad_F_K_M_L_A_B_C_D .
+	exact EqAreaQuad_FKML_ABCD .
 	split.
 	exact OnRay_KR_M .
 	exact SameSide_F_S_KM.

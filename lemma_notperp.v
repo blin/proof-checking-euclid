@@ -96,9 +96,9 @@ Proof.
 	pose proof (lemma_s_ncol_ABD_col_ABC_ncol_ACD _ _ _ _ nCol_B_C_M Col_B_C_A neq_B_A) as nCol_B_A_M.
 	pose proof (by_prop_nCol_order _ _ _ nCol_B_A_M) as (nCol_A_B_M & nCol_A_M_B & nCol_M_B_A & nCol_B_M_A & nCol_M_A_B).
 
-	pose proof (proposition_12 _ _ _ nCol_A_B_M) as (R & Perp_at_M_R_A_B_R).
+	pose proof (proposition_12 _ _ _ nCol_A_B_M) as (R & Perp_at_MR_AB_R).
 
-	destruct Perp_at_M_R_A_B_R as (E & _ & Col_A_B_R & Col_A_B_E & RightTriangle_ERM).
+	destruct Perp_at_MR_AB_R as (E & _ & Col_A_B_R & Col_A_B_E & RightTriangle_ERM).
 
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_R) as (Col_B_A_R & _ & _ & _ & _).
 	pose proof (by_prop_Col_ABC_ABD_BCD _ _ _ _ Col_A_B_C Col_A_B_R neq_A_B) as Col_B_C_R.

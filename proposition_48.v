@@ -52,8 +52,8 @@ Proof.
 	intros Square_B_C_E_D.
 	intros BetS_B_M_C.
 	intros BetS_E_L_D.
-	intros EqAreaQuad_A_B_F_G_B_M_L_D.
-	intros EqAreaQuad_A_C_K_H_M_C_E_L.
+	intros EqAreaQuad_ABFG_BMLD.
+	intros EqAreaQuad_ACKH_MCEL.
 	intros Rectangle_M_C_E_L.
 
 	pose proof (cn_congruencereflexive A B) as Cong_AB_AB.
@@ -65,8 +65,8 @@ Proof.
 
 	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
 
-	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_A_B_F_G_B_M_L_D) as EqAreaQuad_B_M_L_D_A_B_F_G.
-	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_A_C_K_H_M_C_E_L) as EqAreaQuad_M_C_E_L_A_C_K_H.
+	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_ABFG_BMLD) as EqAreaQuad_BMLD_ABFG.
+	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_ACKH_MCEL) as EqAreaQuad_MCEL_ACKH.
 
 	pose proof (lemma_extension _ _ _ _ neq_B_A neq_A_B) as (R & BetS_B_A_R & _).
 
@@ -97,13 +97,13 @@ Proof.
 
 	pose proof (proposition_46 _ _ _ neq_A_B nCol_A_B_c) as (f & g & Square_A_B_f_g & OppositeSide_g_AB_c & _).
 
-	pose proof (lemma_squaresequal _ _ _ _ _ _ _ _ Cong_AB_AB Square_A_B_F_G Square_A_B_f_g) as EqAreaQuad_A_B_F_G_A_B_f_g.
+	pose proof (lemma_squaresequal _ _ _ _ _ _ _ _ Cong_AB_AB Square_A_B_F_G Square_A_B_f_g) as EqAreaQuad_ABFG_ABfg.
 
 	pose proof (by_prop_OppositeSide_flip _ _ _ _ OppositeSide_g_AB_c) as OppositeSide_g_BA_c.
 
 	pose proof (proposition_46 _ _ _ neq_A_c nCol_A_c_B) as (k & h & Square_A_c_k_h & OppositeSide_h_Ac_B & _).
 
-	pose proof (lemma_squaresequal _ _ _ _ _ _ _ _ Cong_AC_Ac Square_A_C_K_H Square_A_c_k_h) as EqAreaQuad_A_C_K_H_A_c_k_h.
+	pose proof (lemma_squaresequal _ _ _ _ _ _ _ _ Cong_AC_Ac Square_A_C_K_H Square_A_c_k_h) as EqAreaQuad_ACKH_Ackh.
 
 	pose proof (by_prop_OppositeSide_flip _ _ _ _ OppositeSide_h_Ac_B) as OppositeSide_h_cA_B.
 
@@ -124,7 +124,7 @@ Proof.
 		m & l &
 		_ & BetS_B_m_c &
 		Parallelogram_m_c_e_l & BetS_d_l_e &
-		EqAreaQuad_A_B_f_g_B_m_l_d & EqAreaQuad_A_c_k_h_m_c_e_l
+		EqAreaQuad_ABfg_Bmld & EqAreaQuad_Ackh_mcel
 	).
 
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_m_c) as (neq_m_c & _ & _).
@@ -136,17 +136,17 @@ Proof.
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_d_l_e) as BetS_e_l_d.
 
 	pose proof (
-		axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_A_B_F_G_A_B_f_g EqAreaQuad_A_B_f_g_B_m_l_d
-	) as EqAreaQuad_A_B_F_G_B_m_l_d.
+		axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_ABFG_ABfg EqAreaQuad_ABfg_Bmld
+	) as EqAreaQuad_ABFG_Bmld.
 	pose proof (
-		axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_B_M_L_D_A_B_F_G EqAreaQuad_A_B_F_G_B_m_l_d
-	) as EqAreaQuad_B_M_L_D_B_m_l_d.
+		axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_BMLD_ABFG EqAreaQuad_ABFG_Bmld
+	) as EqAreaQuad_BMLD_Bmld.
 	pose proof (
-		axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_M_C_E_L_A_C_K_H EqAreaQuad_A_C_K_H_A_c_k_h
-	) as EqAreaQuad_M_C_E_L_A_c_k_h.
+		axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_MCEL_ACKH EqAreaQuad_ACKH_Ackh
+	) as EqAreaQuad_MCEL_Ackh.
 	pose proof (
-		axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_M_C_E_L_A_c_k_h EqAreaQuad_A_c_k_h_m_c_e_l
-	) as EqAreaQuad_M_C_E_L_m_c_e_l.
+		axiom_EqAreaQuad_transitive _ _ _ _ _ _ _ _ _ _ _ _ EqAreaQuad_MCEL_Ackh EqAreaQuad_Ackh_mcel
+	) as EqAreaQuad_MCEL_mcel.
 
 
 	pose proof (by_prop_RightTriangle_collinear _ _ _ _ RightTriangle_Bce Col_B_c_m neq_m_c) as RightTriangle_mce.
@@ -158,12 +158,12 @@ Proof.
 	pose proof (
 		lemma_paste5
 		_ _ _ _ _ _ _ _ _ _ _ _
-		EqAreaQuad_B_M_L_D_B_m_l_d
-		EqAreaQuad_M_C_E_L_m_c_e_l
+		EqAreaQuad_BMLD_Bmld
+		EqAreaQuad_MCEL_mcel
 		BetS_B_M_C BetS_B_m_c BetS_E_L_D BetS_e_l_d Rectangle_M_C_E_L Rectangle_m_c_e_l
-	) as EqAreaQuad_B_C_E_D_B_c_e_d.
+	) as EqAreaQuad_BCED_Bced.
 
-	pose proof (proposition_48A _ _ _ _ _ _ _ _ Square_B_C_E_D Square_B_c_e_d EqAreaQuad_B_C_E_D_B_c_e_d) as Cong_BC_Bc.
+	pose proof (proposition_48A _ _ _ _ _ _ _ _ Square_B_C_E_D Square_B_c_e_d EqAreaQuad_BCED_Bced) as Cong_BC_Bc.
 
 	pose proof (
 		proposition_08

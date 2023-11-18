@@ -36,7 +36,7 @@ Proof.
 	intros A B C D a b c d.
 	intros Square_A_B_C_D.
 	intros Square_a_b_c_d.
-	intros EqAreaQuad_A_B_C_D_a_b_c_d.
+	intros EqAreaQuad_ABCD_abcd.
 
 
 	assert (Square_A_B_C_D_2 := Square_A_B_C_D).
@@ -84,26 +84,26 @@ Proof.
 	pose proof (lemma_crossimpliesopposite _ _ _ _ Cross_ac_bd nCol_a_b_d) as (OppositeSide_a_bd_c & _ & _ & _).
 
 	pose proof (proposition_34 _ _ _ _ Parallelogram_A_B_C_D) as (_ & _ & _ & _ & CongTriangles_BAD_DCB).
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_BAD_DCB) as EqAreaTri_B_A_D_D_C_B.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_B_A_D_D_C_B) as (_ & _ & _ & _ & EqAreaTri_B_A_D_B_D_C).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_B_A_D_B_D_C) as EqAreaTri_B_D_C_B_A_D.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_B_D_C_B_A_D) as (_ & _ & EqAreaTri_B_D_C_A_B_D & _ & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_B_D_C_A_B_D) as EqAreaTri_A_B_D_B_D_C.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_BAD_DCB) as EqAreaTri_BAD_DCB.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_BAD_DCB) as (_ & _ & _ & _ & EqAreaTri_BAD_BDC).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_BAD_BDC) as EqAreaTri_BDC_BAD.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_BDC_BAD) as (_ & _ & EqAreaTri_BDC_ABD & _ & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_BDC_ABD) as EqAreaTri_ABD_BDC.
 
 	pose proof (proposition_34 _ _ _ _ Parallelogram_a_b_c_d) as (_ & _ & _ & _ & CongTriangles_bad_dcb).
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_bad_dcb) as EqAreaTri_b_a_d_d_c_b.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_b_a_d_d_c_b) as (_ & _ & _ & _ & EqAreaTri_b_a_d_b_d_c).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_b_a_d_b_d_c) as EqAreaTri_b_d_c_b_a_d.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_b_d_c_b_a_d) as (_ & _ & EqAreaTri_b_d_c_a_b_d & _ & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_b_d_c_a_b_d) as EqAreaTri_a_b_d_b_d_c.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_bad_dcb) as EqAreaTri_bad_dcb.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_bad_dcb) as (_ & _ & _ & _ & EqAreaTri_bad_bdc).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_bad_bdc) as EqAreaTri_bdc_bad.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_bdc_bad) as (_ & _ & EqAreaTri_bdc_abd & _ & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_bdc_abd) as EqAreaTri_abd_bdc.
 
 	pose proof (
 		axiom_halvesofequals
 		_ _ _ _ _ _ _ _
-		EqAreaTri_A_B_D_B_D_C OppositeSide_A_BD_C EqAreaTri_a_b_d_b_d_c OppositeSide_a_bd_c EqAreaQuad_A_B_C_D_a_b_c_d
-	) as EqAreaTri_A_B_D_a_b_d.
+		EqAreaTri_ABD_BDC OppositeSide_A_BD_C EqAreaTri_abd_bdc OppositeSide_a_bd_c EqAreaQuad_ABCD_abcd
+	) as EqAreaTri_ABD_abd.
 
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_A_B_D_a_b_d) as EqAreaTri_a_b_d_A_B_D.
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_ABD_abd) as EqAreaTri_abd_ABD.
 
 
 	assert (~ Lt a b A B) as n_Lt_ab_AB.
@@ -134,16 +134,16 @@ Proof.
 		pose proof (lemma_Euclid4 _ _ _ _ _ _ RightTriangle_FAE RightTriangle_dab) as CongA_FAE_dab.
 		pose proof (proposition_04 _ _ _ _ _ _ Cong_AF_ad Cong_AE_ab CongA_FAE_dab) as (Cong_FE_db & _ & _).
 		pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_FA_da Cong_AE_ab Cong_FE_db) as CongTriangles_FAE_dab.
-		pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_FAE_dab) as EqAreaTri_F_A_E_d_a_b.
-		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_F_A_E_d_a_b) as (EqAreaTri_F_A_E_a_b_d & _ & _ & _ & _).
-		pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_F_A_E_a_b_d EqAreaTri_a_b_d_A_B_D) as EqAreaTri_F_A_E_A_B_D.
-		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_F_A_E_A_B_D) as (_ & _ & _ & _ & EqAreaTri_F_A_E_D_A_B).
-		pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_F_A_E_D_A_B) as EqAreaTri_D_A_B_F_A_E.
+		pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_FAE_dab) as EqAreaTri_FAE_dab.
+		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_FAE_dab) as (EqAreaTri_FAE_abd & _ & _ & _ & _).
+		pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_FAE_abd EqAreaTri_abd_ABD) as EqAreaTri_FAE_ABD.
+		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_FAE_ABD) as (_ & _ & _ & _ & EqAreaTri_FAE_DAB).
+		pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_FAE_DAB) as EqAreaTri_DAB_FAE.
 
-		pose proof (axiom_deZolt2 _ _ _ _ _ Triangle_DAB BetS_A_F_D BetS_A_E_B) as n_EqAreaTri_D_A_B_F_A_E.
+		pose proof (axiom_deZolt2 _ _ _ _ _ Triangle_DAB BetS_A_F_D BetS_A_E_B) as n_EqAreaTri_DAB_FAE.
 
-		contradict EqAreaTri_D_A_B_F_A_E.
-		exact n_EqAreaTri_D_A_B_F_A_E.
+		contradict EqAreaTri_DAB_FAE.
+		exact n_EqAreaTri_DAB_FAE.
 	}
 
 
@@ -174,16 +174,16 @@ Proof.
 		pose proof (lemma_Euclid4 _ _ _ _ _ _ RightTriangle_fae RightTriangle_DAB) as CongA_fae_DAB.
 		pose proof (proposition_04 _ _ _ _ _ _ Cong_af_AD Cong_ae_AB CongA_fae_DAB) as (Cong_fe_DB & _ & _).
 		pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_fa_DA Cong_ae_AB Cong_fe_DB) as CongTriangles_fae_DAB.
-		pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_fae_DAB) as EqAreaTri_f_a_e_D_A_B.
-		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_f_a_e_D_A_B) as (EqAreaTri_f_a_e_A_B_D & _ & _ & _ & _).
-		pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_f_a_e_A_B_D EqAreaTri_A_B_D_a_b_d) as EqAreaTri_f_a_e_a_b_d.
-		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_f_a_e_a_b_d) as (_ & _ & _ & _ & EqAreaTri_f_a_e_d_a_b).
-		pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_f_a_e_d_a_b) as EqAreaTri_d_a_b_f_a_e.
+		pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_fae_DAB) as EqAreaTri_fae_DAB.
+		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_fae_DAB) as (EqAreaTri_fae_ABD & _ & _ & _ & _).
+		pose proof (axiom_EqAreaTri_transitive _ _ _ _ _ _ _ _ _ EqAreaTri_fae_ABD EqAreaTri_ABD_abd) as EqAreaTri_fae_abd.
+		pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_fae_abd) as (_ & _ & _ & _ & EqAreaTri_fae_dab).
+		pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_fae_dab) as EqAreaTri_dab_fae.
 
-		pose proof (axiom_deZolt2 _ _ _ _ _ Triangle_dab BetS_a_f_d BetS_a_e_b) as n_EqAreaTri_d_a_b_f_a_e.
+		pose proof (axiom_deZolt2 _ _ _ _ _ Triangle_dab BetS_a_f_d BetS_a_e_b) as n_EqAreaTri_dab_fae.
 
-		contradict EqAreaTri_d_a_b_f_a_e.
-		exact n_EqAreaTri_d_a_b_f_a_e.
+		contradict EqAreaTri_dab_fae.
+		exact n_EqAreaTri_dab_fae.
 	}
 
 	pose proof (by_prop_Lt_trichotomous _ _ _ _ n_Lt_AB_ab n_Lt_ab_AB neq_A_B neq_a_b) as Cong_AB_ab.

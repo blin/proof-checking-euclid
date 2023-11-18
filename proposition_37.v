@@ -67,20 +67,20 @@ Proof.
 
 	pose proof (proposition_34 _ _ _ _ Parallelogram_E_B_C_A) as (_ & _ & _ & _ & CongTriangles_BEA_ACB).
 	pose proof (proposition_34 _ _ _ _ Parallelogram_F_B_C_D) as (_ & _ & _ & _ & CongTriangles_BFD_DCB).
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_BEA_ACB) as EqAreaTri_B_E_A_A_C_B.
-	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_BFD_DCB) as EqAreaTri_B_F_D_D_C_B.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_B_E_A_A_C_B) as (EqAreaTri_B_E_A_C_B_A & _ & _ & _ & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_B_E_A_C_B_A) as EqAreaTri_C_B_A_B_E_A.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_C_B_A_B_E_A) as (_ & EqAreaTri_C_B_A_B_A_E & _ & _ & _).
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_B_F_D_D_C_B) as (EqAreaTri_B_F_D_C_B_D & _ & _ & _ & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_B_F_D_C_B_D) as EqAreaTri_C_B_D_B_F_D.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_C_B_D_B_F_D) as (_ & EqAreaTri_C_B_D_B_D_F & _ & _ & _).
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_BEA_ACB) as EqAreaTri_BEA_ACB.
+	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_BFD_DCB) as EqAreaTri_BFD_DCB.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_BEA_ACB) as (EqAreaTri_BEA_CBA & _ & _ & _ & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_BEA_CBA) as EqAreaTri_CBA_BEA.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_CBA_BEA) as (_ & EqAreaTri_CBA_BAE & _ & _ & _).
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_BFD_DCB) as (EqAreaTri_BFD_CBD & _ & _ & _ & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_BFD_CBD) as EqAreaTri_CBD_BFD.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_CBD_BFD) as (_ & EqAreaTri_CBD_BDF & _ & _ & _).
 
-	pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_E_B_C_A Parallelogram_F_B_C_D Col_E_A_F Col_E_A_D) as EqAreaQuad_E_B_C_A_F_B_C_D.
-	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_E_B_C_A_F_B_C_D) as (_ & _ & _ & _ & _ & EqAreaQuad_E_B_C_A_C_B_F_D & _).
-	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_E_B_C_A_C_B_F_D) as EqAreaQuad_C_B_F_D_E_B_C_A.
-	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_C_B_F_D_E_B_C_A) as (_ & _ & _ & _ & _ & EqAreaQuad_C_B_F_D_C_B_E_A & _).
-	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_C_B_F_D_C_B_E_A) as EqAreaQuad_C_B_E_A_C_B_F_D.
+	pose proof (proposition_35 _ _ _ _ _ _ Parallelogram_E_B_C_A Parallelogram_F_B_C_D Col_E_A_F Col_E_A_D) as EqAreaQuad_EBCA_FBCD.
+	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_EBCA_FBCD) as (_ & _ & _ & _ & _ & EqAreaQuad_EBCA_CBFD & _).
+	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_EBCA_CBFD) as EqAreaQuad_CBFD_EBCA.
+	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_CBFD_EBCA) as (_ & _ & _ & _ & _ & EqAreaQuad_CBFD_CBEA & _).
+	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_CBFD_CBEA) as EqAreaQuad_CBEA_CBFD.
 
 	pose proof (lemma_diagonalsmeet _ _ _ _ Parallelogram_E_B_C_A) as (M & BetS_E_M_C & BetS_B_M_A).
 	pose proof (lemma_diagonalsmeet _ _ _ _ Parallelogram_F_B_C_D) as (m & BetS_F_m_C & BetS_B_m_D).
@@ -95,14 +95,14 @@ Proof.
 	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_F_m_C Col_B_D_m nCol_B_D_F) as OppositeSide_F_BD_C.
 	pose proof (by_prop_OppositeSide_symmetric _ _ _ _ OppositeSide_F_BD_C) as OppositeSide_C_BD_F.
 
-	pose proof (axiom_halvesofequals _ _ _ _ _ _ _ _ EqAreaTri_C_B_A_B_A_E OppositeSide_C_BA_E EqAreaTri_C_B_D_B_D_F OppositeSide_C_BD_F EqAreaQuad_C_B_E_A_C_B_F_D) as EqAreaTri_C_B_A_C_B_D.
+	pose proof (axiom_halvesofequals _ _ _ _ _ _ _ _ EqAreaTri_CBA_BAE OppositeSide_C_BA_E EqAreaTri_CBD_BDF OppositeSide_C_BD_F EqAreaQuad_CBEA_CBFD) as EqAreaTri_CBA_CBD.
 
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_C_B_A_C_B_D) as (_ & _ & _ & EqAreaTri_C_B_A_D_B_C & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_C_B_A_D_B_C) as EqAreaTri_D_B_C_C_B_A.
-	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_D_B_C_C_B_A) as (_ & _ & _ & EqAreaTri_D_B_C_A_B_C & _).
-	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_D_B_C_A_B_C) as EqAreaTri_A_B_C_D_B_C.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_CBA_CBD) as (_ & _ & _ & EqAreaTri_CBA_DBC & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_CBA_DBC) as EqAreaTri_DBC_CBA.
+	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_DBC_CBA) as (_ & _ & _ & EqAreaTri_DBC_ABC & _).
+	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_DBC_ABC) as EqAreaTri_ABC_DBC.
 
-	exact EqAreaTri_A_B_C_D_B_C.
+	exact EqAreaTri_ABC_DBC.
 Qed.
 
 End Euclid.
