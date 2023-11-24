@@ -270,7 +270,7 @@ Proof.
 	pose proof (lemma_crisscross _ _ _ _ Par_bc_dl n_Cross_bd_cl) as Cross_bl_dc.
 
 	destruct Cross_bl_dc as (r & BetS_b_r_l & BetS_d_r_c).
-	pose proof (axiom_paste2 _ _ _ _ _ _ _ _ _ _ _ _ BetS_B_M_C BetS_b_m_c EqAreaTri_MCL_mcl EqAreaQuad_DBML_dbml BetS_D_R_C BetS_B_R_L BetS_d_r_c BetS_b_r_l) as EqAreaQuad_DBCL_dbcl.
+	pose proof (cn_sumofparts_Quad_Tri_sharedside _ _ _ _ _ _ _ _ _ _ _ _ BetS_B_M_C BetS_b_m_c EqAreaTri_MCL_mcl EqAreaQuad_DBML_dbml BetS_D_R_C BetS_B_R_L BetS_d_r_c BetS_b_r_l) as EqAreaQuad_DBCL_dbcl.
 	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_DBCL_dbcl) as (_ & _ & _ & EqAreaQuad_DBCL_bdlc & _ & _ & _).
 	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_DBCL_bdlc) as EqAreaQuad_bdlc_DBCL.
 	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_bdlc_DBCL) as (_ & _ & _ & EqAreaQuad_bdlc_BDLC & _ & _ & _).
@@ -391,7 +391,7 @@ Proof.
 	pose proof (lemma_crisscross _ _ _ _ Par_bc_de n_Cross_bd_ce) as Cross_be_dc.
 
 	destruct Cross_be_dc as (t & BetS_b_t_e & BetS_d_t_c).
-	pose proof (axiom_paste2 _ _ _ _ _ _ _ _ _ _ _ _ BetS_D_L_E BetS_d_l_e EqAreaTri_LEC_lec EqAreaQuad_BDLC_bdlc BetS_B_T_E BetS_D_T_C BetS_b_t_e BetS_d_t_c) as EqAreaQuad_BDEC_bdec.
+	pose proof (cn_sumofparts_Quad_Tri_sharedside _ _ _ _ _ _ _ _ _ _ _ _ BetS_D_L_E BetS_d_l_e EqAreaTri_LEC_lec EqAreaQuad_BDLC_bdlc BetS_B_T_E BetS_D_T_C BetS_b_t_e BetS_d_t_c) as EqAreaQuad_BDEC_bdec.
 	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_BDEC_bdec) as (_ & _ & _ & _ & _ & _ & EqAreaQuad_BDEC_bced).
 	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_BDEC_bced) as EqAreaQuad_bced_BDEC.
 	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_bced_BDEC) as (_ & _ & _ & _ & _ & _ & EqAreaQuad_bced_BCED).

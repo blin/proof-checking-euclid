@@ -82,7 +82,7 @@ Proof.
 	assert (BetS b m d \/ eq b m \/ eq m d) as BetS_b_m_d' by (left; exact BetS_b_m_d).
 
 	pose proof (
-		axiom_paste3
+		cn_sumofparts_Tri_Tri_sharedside
 		B D A C M
 		b d a c m
 		EqAreaTri_BDA_bda

@@ -221,8 +221,7 @@ Class area `(Ax : euclidean_euclidean) :=
 			EqAreaTri a b c P Q R ->
 			EqAreaTri A B C P Q R;
 
-	(* TODO: rename to axiom_cutoff_TriCorner ? *)
-	axiom_cutoff1 :
+	cn_differenceofparts_Tri_Tri_sharedvertex :
 		forall A B C D E a b c d e,
 			BetS A B C ->
 			BetS a b c ->
@@ -242,8 +241,7 @@ Class area `(Ax : euclidean_euclidean) :=
 		forall B C D E, BetS B E D -> ~ EqAreaTri D B C E B C;
 	axiom_deZolt2 :
 		forall A B C E F, Triangle A B C -> BetS B E A -> BetS B F C -> ~ EqAreaTri A B C E B F;
-	(* TODO: rename to axiom_paste_QuadCorner ? *)
-	axiom_paste2 :
+	cn_sumofparts_Quad_Tri_sharedside :
 		forall A B C D E M a b c d e m,
 			BetS B C D ->
 			BetS b c d ->
@@ -254,8 +252,7 @@ Class area `(Ax : euclidean_euclidean) :=
 			BetS a m d ->
 			BetS b m e ->
 			EqAreaQuad A B D E a b d e;
-	(* TODO: rename to axiom_paste_TwoTri ? *)
-	axiom_paste3 :
+	cn_sumofparts_Tri_Tri_sharedside :
 		forall A B C D M a b c d m,
 			EqAreaTri A B C a b c ->
 			EqAreaTri A B D a b d ->

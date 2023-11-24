@@ -172,7 +172,7 @@ Proof.
 	assert (BetS a e e \/ eq a e \/ eq e e) as eq_e_e' by (right; right; exact eq_e_e).
 
 	pose proof (
-		axiom_paste3
+		cn_sumofparts_Tri_Tri_sharedside
 		A E B C E a e b c e
 		EqAreaTri_AEB_aeb
 		EqAreaTri_AEC_aec

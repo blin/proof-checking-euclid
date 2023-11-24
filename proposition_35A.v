@@ -118,6 +118,7 @@ Proof.
 
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AB_DC) as Cong_DC_AB.
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_EF_BC) as Cong_BC_EF.
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_EB_FC) as Cong_FC_EB.
 
 	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_AD_BC Cong_BC_EF) as Cong_AD_EF.
 	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_AD_EF Cong_EF_FE) as Cong_AD_FE.
@@ -139,13 +140,6 @@ Proof.
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_A_E_F) as (neq_E_F & neq_A_E & neq_A_F).
 	pose proof (by_prop_BetS_notequal _ _ _ BetS_F_E_A) as (neq_E_A & neq_F_E & neq_F_A).
 
-	pose proof (by_prop_Par_to_TarskiPar _ _ _ _ Par_AD_BC) as TarskiPar_AD_BC.
-	assert (TarskiPar_AD_BC_2 := TarskiPar_AD_BC).
-	destruct TarskiPar_AD_BC_2 as (_ & _ & _ & SameSide_B_C_AD).
-
-	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_B_C_AD) as (_ & _ & SameSide_C_B_DA).
-	pose proof (proposition_29C _ _ _ _ _ Par_DC_AB SameSide_C_B_DA BetS_F_D_A) as (CongA_FDC_DAB & _).
-
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_B) as OnRay_AB_B.
 
 	assert (~ ~ (BetS A D E \/ eq D E \/ BetS A E D)) as n_n_BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D.
@@ -164,13 +158,6 @@ Proof.
 	}
 	assert (BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D := n_n_BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D).
 	apply Classical_Prop.NNPP in BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D.
-
-	pose proof (by_prop_OnRay_assert A E D BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D neq_A_E) as OnRay_AE_D.
-	pose proof (by_prop_OnRay_ABC_ACB _ _ _ OnRay_AE_D) as OnRay_AD_E.
-
-	pose proof (by_prop_CongA_helper _ _ _ _ _ _ _ _ CongA_DAB_DAB OnRay_AD_E OnRay_AB_B) as CongA_DAB_EAB.
-	pose proof (by_prop_CongA_transitive _ _ _ _ _ _ _ _ _ CongA_FDC_DAB CongA_DAB_EAB) as CongA_FDC_EAB.
-
 
 	(* assert by cases *)
 	assert (Cong A E D F) as Cong_AE_DF.
@@ -200,14 +187,9 @@ Proof.
 
 		exact Cong_AE_DF.
 	}
+	(* asserted Cong_AE_DF *)
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AE_DF) as Cong_DF_AE.
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_DF_AE) as (Cong_FD_EA & _ & _).
-
-	pose proof (proposition_04 _ _ _ _ _ _ Cong_DF_AE Cong_DC_AB CongA_FDC_EAB) as (Cong_FC_EB & CongA_DFC_AEB & CongA_DCF_ABE).
-
-	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_DCF_ABE) as CongA_ABE_DCF.
-	pose proof (by_prop_CongA_NC _ _ _ _ _ _ CongA_ABE_DCF) as nCol_D_C_F.
-	pose proof (by_prop_nCol_order _ _ _ nCol_D_C_F) as (nCol_C_D_F & _ & _ & _ & _).
 
 	pose proof (by_def_CongTriangles _ _ _ _ _ _ Cong_FD_EA Cong_DC_AB Cong_FC_EB) as CongTriangles_FDC_EAB.
 	pose proof (axiom_congruentequal _ _ _ _ _ _ CongTriangles_FDC_EAB) as EqAreaTri_FDC_EAB.
@@ -327,7 +309,7 @@ Proof.
 			area(△AEB) - area(△DEG) = area(△FDC) - area(△DEG)
 		*)
 		pose proof (
-			axiom_cutoff1
+			cn_differenceofparts_Tri_Tri_sharedvertex
 			A D E G B
 			F E D G C
 			BetS_A_D_E BetS_F_E_D
@@ -353,7 +335,7 @@ Proof.
 			area(ADGB) + area(△BCG) = area(FEGC) + area(△BCG)
 		*)
 		pose proof (
-			axiom_paste2
+			cn_sumofparts_Quad_Tri_sharedside
 			_ _ _ _ _ _ _ _ _ _ _ _
 			BetS_D_G_C BetS_E_G_B
 			EqAreaTri_GCB_GBC EqAreaQuad_ADGB_FEGC
@@ -390,7 +372,7 @@ Proof.
 		assert (BetS C j D \/ eq C j \/ eq j D) as BetS_C_j_D' by (left; exact BetS_C_j_D).
 
 		pose proof (
-			axiom_paste3
+			cn_sumofparts_Tri_Tri_sharedside
 			B E A C J C D F B j
 			EqAreaTri_BEA_CDF
 			EqAreaTri_BEC_CDB
@@ -447,7 +429,7 @@ Proof.
 			area(BCDE) + area(△ABE) = area(BCDE) + area(△CDF)
 		*)
 		pose proof (
-			axiom_paste2
+			cn_sumofparts_Quad_Tri_sharedside
 			_ _ _ _ _ _ _ _ _ _ _ _
 			BetS_D_E_A BetS_E_D_F
 			EqAreaTri_EAB_DFC EqAreaQuad_CDEB_BEDC

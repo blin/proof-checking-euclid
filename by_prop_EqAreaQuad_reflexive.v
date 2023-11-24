@@ -69,7 +69,7 @@ Proof.
 	assert (BetS a p c \/ eq a p \/ eq p c) as BetS_a_p_c_or_eq_a_p_or_eq_p_c by (left; exact BetS_a_p_c).
 
 	pose proof (
-		axiom_paste3
+		cn_sumofparts_Tri_Tri_sharedside
 		a c b d p a c b d p
 		EqAreaTri_acb_acb
 		EqAreaTri_acd_acd

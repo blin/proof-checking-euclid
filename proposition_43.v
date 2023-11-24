@@ -54,7 +54,7 @@ Proof.
 	pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_KCF_KGC) as (_ & EqAreaTri_KCF_KCG & _ & _ & _).
 	pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_KCF_KCG) as EqAreaTri_KCG_KCF.
 
-	pose proof (axiom_cutoff1 _ _ _ _ _ _ _ _ _ _ BetS_A_K_C BetS_A_K_C BetS_B_G_C BetS_D_F_C EqAreaTri_KCG_KCF EqAreaTri_ACB_ACD) as EqAreaQuad_AKGB_AKFD.
+	pose proof (cn_differenceofparts_Tri_Tri_sharedvertex _ _ _ _ _ _ _ _ _ _ BetS_A_K_C BetS_A_K_C BetS_B_G_C BetS_D_F_C EqAreaTri_KCG_KCF EqAreaTri_ACB_ACD) as EqAreaQuad_AKGB_AKFD.
 	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_AKGB_AKFD) as (_ & _ & EqAreaQuad_AKGB_FDAK & _ & _ & _ & _).
 	pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_AKGB_FDAK) as EqAreaQuad_FDAK_AKGB.
 	pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_FDAK_AKGB) as (_ & _ & EqAreaQuad_FDAK_GBAK & _ & _ & _ & _).

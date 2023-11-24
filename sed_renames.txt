@@ -19,6 +19,11 @@ s/RE /Rectangle /g
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
 
+s/axiom_paste2/cn_sumofparts_Quad_Tri_sharedside/g
+s/axiom_paste3/cn_sumofparts_Tri_Tri_sharedside/g
+
+s/axiom_cutoff1/cn_differenceofparts_Tri_Tri_sharedvertex/g
+
 s/axiom_ETpermutation/axiom_EqAreaTri_permutation/g
 s/axiom_ETsymmetric/axiom_EqAreaTri_symmetric/g
 s/axiom_ETtransitive/axiom_EqAreaTri_transitive/g

@@ -83,6 +83,8 @@ by_prop_Par_flip = "pose proof (by_prop_Par_flip _ _ _ _ Par_p01_p02_p03_p04) as
 by_prop_Par_symmetric = "pose proof (by_prop_Par_symmetric _ _ _ _ Par_p01_p02_p03_p04) as Par_p03_p04_p01_p02." 
 by_prop_Par_NC = "pose proof (by_prop_Par_NC _ _ _ _ Par_p01_p02_p03_p04) as (nCol_p01_p02_p03 & nCol_p01_p03_p04 & nCol_p02_p03_p04 & nCol_p01_p02_p04)."
 
+by_prop_Par_to_TarskiPar = "pose proof (by_prop_Par_to_TarskiPar _ _ _ _ Par_p01_p02_p03_p04) as TarskiPar_p01_p02_p03_p04."
+
 by_prop_neq_symmetric = "pose proof (by_prop_neq_symmetric _ _ neq_p01_p02) as neq_p02_p01."
 by_def_OnRay_from_neq_A_B  = "pose proof (by_def_OnRay_from_neq_A_B _ _ neq_p01_p02) as OnRay_p01_p02_p02."
 
@@ -94,7 +96,7 @@ destruct Par_p01_p02_p03_p04_2 as (p05 & p06 & p07 & p08 & p09 & neq_p01_p02 & n
 
 destruct_Par_not_Meet = """
 assert (Par_p01_p02_p03_p04_2 := Par_p01_p02_p03_p04).
-destruct Par_p01_p02_p03_p04_2 as (_ & _ & _ & _ & _ & neq_p01_p02 & neq_p03_p04 & _ & _ & _ & _ & _ & _ & n_Meet_p01_p02_p03_p04 & _ & _).
+destruct Par_p01_p02_p03_p04_2 as (_ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & _ & n_Meet_p01_p02_p03_p04 & _ & _).
 """
 
 destruct_Cross = """
@@ -126,7 +128,7 @@ destruct TarskiPar_p01_p02_p03_p04_2 as (neq_p01_p02 & neq_p03_p04 & n_Meet_p01_
 
 destruct_SameSide = """\
 assert (SameSide_p01_p02_p03_p04_2 := SameSide_p01_p02_p03_p04).
-destruct SameSide_p01_p02_p03_p04_2 as (p05 & p06 & p07 & p08 & Col_p03_p04_p07 & BetS_p01_p06_p05 & BetS_p02_p07_p05 & nCol_p03_p04_p01 & nCol_p03_p04_p02).
+destruct SameSide_p01_p02_p03_p04_2 as (p05 & p06 & p07 & Col_p03_p04_p06 & Col_p03_p04_p07 & BetS_p01_p06_p05 & BetS_p02_p07_p05 & nCol_p03_p04_p01 & nCol_p03_p04_p02).
 """
 
 destruct_SameSide_nCol = """\
@@ -200,6 +202,8 @@ def main():
             print(replace_points(by_prop_neq_symmetric, points[0:2]))
             print(replace_points(by_prop_neq_symmetric, points[2:4]))
             print(replace_points(destruct_Par, points))
+            print(replace_points(by_prop_Par_to_TarskiPar, points))
+            print(replace_points(by_prop_Par_to_TarskiPar, points[2:] + points[:2]))
         case "eq":
             print(replace_points(eq_reflexivity, points))
             print(replace_points(by_def_Col_from_eq_B_C, points))

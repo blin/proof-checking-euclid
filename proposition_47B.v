@@ -303,7 +303,7 @@ Proof.
 	assert (BetS D n M \/ eq D n \/ eq n M) as BetS_D_n_M' by (left; exact BetS_D_n_M).
 
 	pose proof (
-		axiom_paste3
+		cn_sumofparts_Tri_Tri_sharedside
 		F A B G m
 		D M B L n
 		EqAreaTri_FAB_DMB

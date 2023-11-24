@@ -369,7 +369,7 @@ Proof.
 	assert (BetS F m C \/ eq F m \/ eq m C) as BetS_F_m_C' by (left; exact BetS_F_m_C).
 
 	pose proof (
-		axiom_paste3
+		cn_sumofparts_Tri_Tri_sharedside
 		A E B C E F C E G m
 		EqAreaTri_AEB_FCE
 		EqAreaTri_AEC_FCG
