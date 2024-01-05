@@ -38,6 +38,7 @@ Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_35helper.
+Require Import ProofCheckingEuclid.lemma_BetS_ambiguous_ABD_ACD.
 Require Import ProofCheckingEuclid.lemma_collinearbetween.
 Require Import ProofCheckingEuclid.lemma_diagonalsmeet.
 Require Import ProofCheckingEuclid.lemma_differenceofparts.
@@ -142,22 +143,7 @@ Proof.
 
 	pose proof (by_def_OnRay_from_neq_A_B _ _ neq_A_B) as OnRay_AB_B.
 
-	assert (~ ~ (BetS A D E \/ eq D E \/ BetS A E D)) as n_n_BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D.
-	{
-		intro n_BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D.
-
-		apply Classical_Prop.not_or_and in n_BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D.
-		destruct n_BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D as (n_BetS_A_D_E & eq_D_E_or_n_BetS_A_E_D).
-		apply Classical_Prop.not_or_and in eq_D_E_or_n_BetS_A_E_D.
-		destruct eq_D_E_or_n_BetS_A_E_D as (neq_D_E & n_BetS_A_E_D).
-
-		pose proof (axiom_connectivity _ _ _ _ BetS_A_D_F BetS_A_E_F n_BetS_A_D_E n_BetS_A_E_D) as eq_D_E.
-
-		contradict eq_D_E.
-		exact neq_D_E.
-	}
-	assert (BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D := n_n_BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D).
-	apply Classical_Prop.NNPP in BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D.
+	pose proof (lemma_BetS_ambiguous_ABD_ACD _ _ _ _ BetS_A_D_F BetS_A_E_F) as BetS_A_D_E_or_eq_D_E_or_BetS_A_E_D.
 
 	(* assert by cases *)
 	assert (Cong A E D F) as Cong_AE_DF.
