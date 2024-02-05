@@ -24,7 +24,6 @@ Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_crossbar.
-Require Import ProofCheckingEuclid.lemma_extension.
 Require Import ProofCheckingEuclid.proposition_16.
 
 Section Euclid.

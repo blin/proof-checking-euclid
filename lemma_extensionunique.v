@@ -1,5 +1,4 @@
 Require Coq.Logic.Classical_Prop.
-Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 

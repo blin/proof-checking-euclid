@@ -9,12 +9,12 @@ Require Import ProofCheckingEuclid.by_prop_CongA_transitive.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_LtA_respects_congruence.
 Require Import ProofCheckingEuclid.by_prop_LtA_respects_congruence_smaller.
+Require Import ProofCheckingEuclid.by_prop_Lt_trichotomous.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_angletrichotomy.
-Require Import ProofCheckingEuclid.lemma_trichotomy_equal.
 Require Import ProofCheckingEuclid.proposition_05.
 Require Import ProofCheckingEuclid.proposition_18.
 
@@ -75,7 +75,7 @@ Proof.
 	{
 		intro n_Lt_AB_AC.
 
-		pose proof (lemma_trichotomy_equal _ _ _ _ n_Lt_AB_AC n_Lt_AC_AB neq_A_B neq_A_C) as Cong_AB_AC.
+		pose proof (by_prop_Lt_trichotomous _ _ _ _ n_Lt_AB_AC n_Lt_AC_AB neq_A_B neq_A_C) as Cong_AB_AC.
 		pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AB_AC) as Cong_AC_AB.
 
 		contradict Cong_AC_AB.

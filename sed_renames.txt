@@ -1,4 +1,4 @@
-s/GeoCoq.Elements.OriginalProofs/ProofCheckingEuclid/
+s/GeoCoq.Elements.OriginalProofs/ProofCheckingEuclid/g
 
 s/OS /SameSide /g
 s/TS /OppositeSide /g
@@ -9,10 +9,27 @@ s/SumA /AngleSum /g
 s/TG /TogetherGreater /g
 s/TP /TarskiPar /g
 s/CR /Cross /g
+s/PG /Parallelogram /g
 s/SQ /Square /g
-s/lemma_TG/lemma_TogetherGreater_/g
+s/Cong_3 /CongTriangles /g
+s/ET /EqAreaTri /g
+s/EF /EqAreaQuad /g
+s/RE /Rectangle /g
+
 s/axiom_innertransitivity/axiom_orderofpoints_ABD_BCD_ABC/g
 s/cn_equalityreverse/cn_congruencereverse/g
+
+s/axiom_paste2/cn_sumofparts_Quad_Tri_sharedside/g
+s/axiom_paste3/cn_sumofparts_Tri_Tri_sharedside/g
+
+s/axiom_cutoff1/cn_differenceofparts_Tri_Tri_sharedvertex/g
+
+s/axiom_ETpermutation/axiom_EqAreaTri_permutation/g
+s/axiom_ETsymmetric/axiom_EqAreaTri_symmetric/g
+s/axiom_ETtransitive/axiom_EqAreaTri_transitive/g
+s/axiom_EFpermutation/axiom_EqAreaQuad_permutation/g
+s/axiom_EFsymmetric/axiom_EqAreaQuad_symmetric/g
+s/axiom_EFtransitive/axiom_EqAreaQuad_transitive/g
 
 s/lemma_3_5b/lemma_orderofpoints_ABD_BCD_ACD/g
 s/lemma_3_6a/lemma_orderofpoints_ABC_ACD_BCD/g
@@ -20,94 +37,88 @@ s/lemma_3_6b/lemma_orderofpoints_ABC_ACD_ABD/g
 s/lemma_3_7a/lemma_orderofpoints_ABC_BCD_ACD/g
 s/lemma_3_7b/lemma_orderofpoints_ABC_BCD_ABD/g
 
-s/ray1/onray_orderofpoints_any/g
-s/ray2/onray_neq_A_B/g
-s/ray3/onray_shared_initial_point/g
-s/ray4/onray_assert/g
-s/ray5/onray_ABC_ACB/g
-s/raystrict/onray_strict/g
-s/rayimpliescollinear/onray_impliescollinear/
+s/lemma_ray1/by_prop_OnRay_orderofpoints_any/g
+s/lemma_ray2/by_prop_OnRay_neq_A_B/g
+s/lemma_ray3/by_prop_OnRay_shared_initial_point/g
+s/lemma_ray4/by_prop_OnRay_assert/g
+s/lemma_ray5/by_prop_OnRay_ABC_ACB/g
+s/lemma_raystrict/by_prop_OnRay_neq_A_C/g
+s/lemma_rayimpliescollinear/by_prop_OnRay_impliescollinear/g
+s/lemma_onray_betweenness/by_prop_OnRay_betweenness/g
+s/lemma_tworays/by_prop_OnRay_ABC_BAC_BetS_ACB/g
 
-s/parallelcollinear1/tarski_parallel_collinear_ABcd_Ccd_ABCd/g
-s/parallelcollinear2/tarski_parallel_collinear_ABcd_cCd_ABCd/g
+s/lemma_parallelcollinear1/by_prop_TarskiPar_collinear_ABcd_Ccd_ABCd/g
+s/lemma_parallelcollinear2/by_prop_TarskiPar_collinear_ABcd_cCd_ABCd/g
 
-s/collinear1/collinear_ABC_BAC/g
-s/collinear2/collinear_ABC_BCA/g
-s/collinear4/collinear_ABC_ABD_BCD/g
-s/collinear5/collinear_ABC_ABD_ABE_CDE/g
+s/lemma_collinear1/by_prop_Col_ABC_BAC/g
+s/lemma_collinear2/by_prop_Col_ABC_BCA/g
+s/lemma_collinear4/by_prop_Col_ABC_ABD_BCD/g
+s/lemma_collinear5/by_prop_Col_ABC_ABD_ABE_CDE/g
 
 s/9_5a/oppositeside_betweenness_PABC_RPQ_QABC/g
 s/9_5b/oppositeside_betweenness_PABC_RQP_QABC/g
 s/9_5/oppositeside_onray_PABC_RQP_QABC/g
 
-s/sameside2/sameside_onray_EFAC_BFG_EGAC/g
+s/lemma_8_2/by_prop_RightTriangle_symmetric/g
+s/lemma_8_3/by_prop_RightTriangle_leg_change/g
+s/lemma_8_7/by_prop_RightTriangle_CBA_n_ACB/g
+s/lemma_rightangleNC/by_prop_RightTriangle_NC/g
 
-s/8_2/right_triangle_symmetric/g
-s/8_3/right_triangle_leg_change/g
-s/8_7/right_triangle_CBA_n_ACB/g
-s/rightangleNC/right_triangle_NC/g
+s/lemma_10_12/by_prop_RightTriangle_same_base_cong_side_cong_hypotenuse/g
+s/lemma_legsmallerhypotenuse/by_prop_RightTriangle_legsmallerhypotenuse/g
 
-s/10_12/right_triangle_same_base_cong_side_cong_hypotenuse/g
+s/lemma_supplementsymmetric/by_prop_Supp_symmetric/g
+s/lemma_supplements2/lemma_supplements_SumTwoRT/g
+s/lemma_supplements/lemma_supplements_conga/g
 
-s/supplementsymmetric/supplement_symmetric/g
-s/supplements/supplements_conga/g
+s/lemma_angletrichotomy2/lemma_angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF/g
 
-s/angletrichotomy2/angletrichotomy_n_CongA_ABC_DEF_n_LtA_DEF_ABC_LtA_ABC_DEF/g
+s/lemma_trichotomy1/by_prop_Lt_trichotomous/g
+s/lemma_trichotomy2/by_prop_Lt_asymmetric/g
 
-s/trichotomy1/trichotomy_equal/g
-s/trichotomy2/trichotomy_asymmetric/g
+s/lemma_angleorderrespectscongruence2/by_prop_LtA_respects_congruence_smaller/g
 
-s/angleorderrespectscongruence2/angleorderrespectscongruence_smaller/g
-
-s/lessthancongruence2/lessthancongruence_smaller/g
+s/lemma_lessthancongruence2/by_prop_Lt_congruence_smaller/g
 
 s/crossbar2/crossbar_LtA/g
 
-s/parallelcollinear/collinear_tarski_parallel/g
-s/paralleldef2B/parallel_to_tarski_parallel/g
+s/lemma_parallelcollinear/by_prop_TarskiPar_collinear/g
+s/lemma_paralleldef2B/by_prop_Par_to_TarskiPar/g
 
 s/lemma_equalitysymmetric/by_prop_eq_symmetric/g
 s/lemma_inequalitysymmetric/by_prop_neq_symmetric/g
-s/lemma_TogetherGreater_symmetric/by_prop_TogetherGreater_symmetric/g
-s/lemma_TogetherGreater_flip/by_prop_TogetherGreater_flip/g
+
+s/lemma_TGsymmetric/by_prop_TogetherGreater_symmetric/g
+s/lemma_TGflip/by_prop_TogetherGreater_flip/g
 
 s/lemma_TTtransitive/by_prop_TT_transitive/g
 s/lemma_TTorder/by_prop_TT_order/g
 s/lemma_TTflip2/by_prop_TT_flip2/g
 s/lemma_TTflip/by_prop_TT_flip/g
 
-s/lemma_collinear_tarski_parallel/by_prop_TarskiPar_collinear/g
-s/lemma_tarski_parallel_collinear_ABcd_Ccd_ABCd/by_prop_TarskiPar_collinear_ABcd_Ccd_ABCd/g
-s/lemma_tarski_parallel_collinear_ABcd_cCd_ABCd/by_prop_TarskiPar_collinear_ABcd_cCd_ABCd/g
 s/lemma_tarskiparallelflip/by_prop_TarskiPar_flip/g
-
 s/lemma_collinearparallel/by_prop_Par_collinear/g
 s/lemma_parallelNC/by_prop_Par_NC/g
-s/lemma_parallel_to_tarski_parallel/by_prop_Par_to_TarskiPar/g
 s/lemma_parallelflip/by_prop_Par_flip/g
 s/lemma_parallelsymmetric/by_prop_Par_symmetric/g
 
-s/lemma_supplement_symmetric/by_prop_Supp_symmetric/g
+s/lemma_sameside2/lemma_sameside_onray_EFAC_BFG_EGAC/g
 
+s/lemma_samenotopposite/by_prop_SameSide_not_OppositeSide/g
 s/lemma_samesidereflexive/by_prop_SameSide_reflexive/g
 s/lemma_samesidesymmetric/by_prop_SameSide_symmetric/g
+s/lemma_samesideflip/by_prop_SameSide_flip/g
 
 s/lemma_oppositesideflip/by_prop_OppositeSide_flip/g
 s/lemma_oppositesidesymmetric/by_prop_OppositeSide_symmetric/g
 
 s/lemma_angleordertransitive/by_prop_LtA_transitive/g
 s/lemma_angleorderrespectscongruence/by_prop_LtA_respects_congruence/g
-s/lemma_angleorderrespectscongruence_smaller/by_prop_LtA_respects_congruence_smaller/g
 
 s/lemma_equaltorightisright/by_prop_RightTriangle_equaltoright/g
 s/lemma_collinearright/by_prop_RightTriangle_collinear/g
 s/lemma_supplementofright/by_prop_RightTriangle_supplement/g
 s/lemma_rightreverse/by_prop_RightTriangle_reverse/g
-s/lemma_right_triangle_CBA_n_ACB/by_prop_RightTriangle_CBA_n_ACB/g
-s/lemma_right_triangle_NC/by_prop_RightTriangle_NC/g
-s/lemma_right_triangle_symmetric/by_prop_RightTriangle_symmetric/g
-s/lemma_right_triangle_leg_change/by_prop_RightTriangle_leg_change/g
-s/lemma_right_triangle_same_base_cong_side_cong_hypotenuse/by_prop_RightTriangle_same_base_cong_side_cong_hypotenuse/g
 
 s/lemma_congruenceflip/by_prop_Cong_flip/g
 s/lemma_congruencetransitive/by_prop_Cong_transitive/g
@@ -123,24 +134,10 @@ s/lemma_NCorder/by_prop_nCol_order/g
 s/lemma_lessthanadditive/by_prop_Lt_additive/g
 s/lemma_lessthanbetween/by_prop_Lt_between/g
 s/lemma_lessthancongruence/by_prop_Lt_congruence/g
-s/lemma_lessthancongruence_smaller/by_prop_Lt_congruence_smaller/g
 s/lemma_lessthannotequal/by_prop_Lt_notequal/g
 s/lemma_lessthantransitive/by_prop_Lt_transitive/g
 
-s/lemma_collinear_ABC_ABD_ABE_CDE/by_prop_Col_ABC_ABD_ABE_CDE/g
-s/lemma_collinear_ABC_ABD_BCD/by_prop_Col_ABC_ABD_BCD/g
-s/lemma_collinear_ABC_BCA/by_prop_Col_ABC_BCA/g
-s/lemma_collinear_ABC_BAC/by_prop_Col_ABC_BAC/g
 s/lemma_collinearorder/by_prop_Col_order/g
-
-s/lemma_onray_shared_initial_point/by_prop_OnRay_shared_initial_point/g
-s/lemma_onray_ABC_ACB/by_prop_OnRay_ABC_ACB/g
-s/lemma_onray_assert/by_prop_OnRay_assert/g
-s/lemma_onray_orderofpoints_any/by_prop_OnRay_orderofpoints_any/g
-s/lemma_onray_betweenness/by_prop_OnRay_betweenness/g
-s/lemma_onray_strict/by_prop_OnRay_neq_A_C/g
-s/lemma_onray_neq_A_B/by_prop_OnRay_neq_A_B/g
-s/lemma_onray_impliescollinear/by_prop_OnRay_impliescollinear/g
 
 s/lemma_equalanglesflip/by_prop_CongA_flip/g
 s/lemma_equalanglesreflexive/by_prop_CongA_reflexive/g
@@ -150,3 +147,18 @@ s/lemma_equalanglessymmetric/by_prop_CongA_symmetric/g
 s/lemma_equalanglesNC/by_prop_CongA_NC/g
 s/lemma_ABCequalsCBA/by_prop_CongA_ABCequalsCBA/g
 s/lemma_angledistinct/by_prop_CongA_distinct/g
+
+s/lemma_PGsymmetric/by_prop_Parallelogram_symmetric/g
+s/lemma_PGflip/by_prop_Parallelogram_flip/g
+s/lemma_PGrotate/by_prop_Parallelogram_rotate/g
+
+s/lemma_TCreflexive/by_prop_CongTriangles_reflexive/g
+s/lemma_ETreflexive/by_prop_EqAreaTri_reflexive/g
+s/lemma_EFreflexive/by_prop_EqAreaQuad_reflexive/g
+
+s/lemma_RTcongruence/by_prop_SumTwoRT_congruence/g
+s/lemma_RTsymmetric/by_prop_SumTwoRT_symmetric/g
+
+s/lemma_squareflip/by_prop_Square_flip/g
+
+s/lemma_angleaddition/by_prop_AngleSum_respects_congruence/g

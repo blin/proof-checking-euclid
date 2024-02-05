@@ -1,9 +1,9 @@
 Require Import ProofCheckingEuclid.by_prop_CongA_distinct.
 Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.
+Require Import ProofCheckingEuclid.by_prop_Lt_trichotomous.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_trichotomy_equal.
 Require Import ProofCheckingEuclid.proposition_06a.
 
 Section Euclid.
@@ -30,7 +30,7 @@ Proof.
 	pose proof (proposition_06a _ _ _ Triangle_ABC CongA_ABC_ACB) as n_Lt_AC_AB.
 	pose proof (proposition_06a _ _ _ Triangle_ACB CongA_ACB_ABC) as n_Lt_AB_AC.
 
-	pose proof (lemma_trichotomy_equal _ _ _ _ n_Lt_AB_AC n_Lt_AC_AB neq_A_B neq_A_C) as Cong_AB_AC.
+	pose proof (by_prop_Lt_trichotomous _ _ _ _ n_Lt_AB_AC n_Lt_AC_AB neq_A_B neq_A_C) as Cong_AB_AC.
 
 	exact Cong_AB_AC.
 Qed.

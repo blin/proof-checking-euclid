@@ -1,36 +1,23 @@
 Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
-Require Import ProofCheckingEuclid.by_def_Col_from_eq_A_C.
-Require Import ProofCheckingEuclid.by_def_Col_from_eq_B_C.
 Require Import ProofCheckingEuclid.by_def_OppositeSide.
 Require Import ProofCheckingEuclid.by_def_Square.
-Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Cong_transitive.
-Require Import ProofCheckingEuclid.by_prop_OppositeSide_flip.
-Require Import ProofCheckingEuclid.by_prop_OppositeSide_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Par_NC.
-Require Import ProofCheckingEuclid.by_prop_Par_collinear.
 Require Import ProofCheckingEuclid.by_prop_Par_flip.
-Require Import ProofCheckingEuclid.by_prop_Par_symmetric.
-Require Import ProofCheckingEuclid.by_prop_Par_to_TarskiPar.
-Require Import ProofCheckingEuclid.by_prop_RightTriangle_NC.
-Require Import ProofCheckingEuclid.by_prop_RightTriangle_collinear.
 Require Import ProofCheckingEuclid.by_prop_RightTriangle_equaltoright.
-Require Import ProofCheckingEuclid.by_prop_RightTriangle_supplement.
-Require Import ProofCheckingEuclid.by_prop_RightTriangle_symmetric.
+Require Import ProofCheckingEuclid.by_prop_SameSide_not_OppositeSide .
 Require Import ProofCheckingEuclid.by_prop_SameSide_symmetric.
-Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
-Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
-Require Import ProofCheckingEuclid.lemma_planeseparation.
+Require Import ProofCheckingEuclid.lemma_crisscross.
+Require Import ProofCheckingEuclid.lemma_s_conga_sss.
 Require Import ProofCheckingEuclid.lemma_twoperpsparallel.
-Require Import ProofCheckingEuclid.proposition_29.
-Require Import ProofCheckingEuclid.proposition_33B.
+Require Import ProofCheckingEuclid.proposition_33.
 
 Section Euclid.
 
@@ -52,107 +39,59 @@ Proof.
 	intros Cong_BC_CD.
 	intros SameSide_D_A_BC.
 
-	assert (eq C C) as eq_C_C by (reflexivity).
-	assert (eq D D) as eq_D_D by (reflexivity).
-
-	pose proof (by_def_Col_from_eq_A_C C D C eq_C_C) as Col_C_D_C.
-	pose proof (by_def_Col_from_eq_B_C A D D eq_D_D) as Col_A_D_D.
-
-	pose proof (by_prop_RightTriangle_NC _ _ _ RightTriangle_ABC) as nCol_A_B_C.
-	pose proof (by_prop_RightTriangle_NC _ _ _ RightTriangle_BCD) as nCol_B_C_D.
-
-	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_C) as (neq_A_B & neq_B_C & neq_A_C & neq_B_A & neq_C_B & neq_C_A).
-
-	pose proof (by_prop_nCol_distinct _ _ _ nCol_B_C_D) as (_ & neq_C_D & neq_B_D & _ & neq_D_C & neq_D_B).
-	pose proof (by_prop_nCol_order _ _ _ nCol_B_C_D) as (nCol_C_B_D & nCol_C_D_B & nCol_D_B_C & nCol_B_D_C & nCol_D_C_B).
+	pose proof (cn_congruencereverse A C) as Cong_AC_CA.
+	pose proof (cn_congruencereverse B D) as Cong_BD_DB.
 
 	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_AB_BC Cong_BC_CD) as Cong_AB_CD.
-	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_CD) as (_ & _ & Cong_AB_DC).
 
-	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_D_A_BC) as (SameSide_A_D_BC & _ & _).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_CD) as (Cong_BA_DC & Cong_BA_CD & Cong_AB_DC).
+	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AB_CD) as Cong_CD_AB.
 
+	pose proof (by_prop_SameSide_symmetric _ _ _ _ SameSide_D_A_BC) as (SameSide_A_D_BC & SameSide_D_A_CB & SameSide_A_D_CB).
+	pose proof (by_prop_SameSide_not_OppositeSide _ _ _ _ SameSide_A_D_BC) as n_OppositeSide_A_BC_D.
 
 	pose proof (lemma_twoperpsparallel _ _ _ _ RightTriangle_ABC RightTriangle_BCD SameSide_A_D_BC) as Par_AB_CD.
-	pose proof (by_prop_Par_symmetric _ _ _ _ Par_AB_CD) as Par_CD_AB.
-	pose proof (by_prop_Par_flip _ _ _ _ Par_AB_CD) as (_ & Par_AB_DC & _).
+	pose proof (by_prop_Par_flip _ _ _ _ Par_AB_CD) as (Par_BA_CD & Par_AB_DC & Par_BA_DC).
 
-	pose proof (by_prop_Par_NC _ _ _ _ Par_AB_DC) as (nCol_A_B_D & nCol_A_D_C & _ & _).
-	pose proof (by_prop_nCol_distinct _ _ _ nCol_A_B_D) as (_ & _ & neq_A_D & _ & _ & neq_D_A).
+	pose proof (by_prop_Par_NC _ _ _ _ Par_AB_CD) as (nCol_A_B_C & nCol_A_C_D & nCol_B_C_D & nCol_A_B_D).
+	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_C) as (nCol_B_A_C & nCol_B_C_A & nCol_C_A_B & nCol_A_C_B & nCol_C_B_A).
 
-	pose proof (proposition_33B _ _ _ _ Par_AB_DC Cong_AB_DC SameSide_A_D_BC) as (Par_AD_BC & Cong_AD_BC).
+	assert (~ Cross A D B C) as n_Cross_AD_BC.
+	{
+		intros Cross_AD_BC.
 
-	pose proof (by_prop_Par_flip _ _ _ _ Par_AD_BC) as (_ & _ & Par_DA_CB).
+		destruct Cross_AD_BC as (M & BetS_A_M_D & BetS_B_M_C).
+
+		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_M_C) as Col_B_M_C.
+		pose proof (by_prop_Col_order _ _ _ Col_B_M_C) as (Col_M_B_C & Col_M_C_B & Col_C_B_M & Col_B_C_M & Col_C_M_B).
+
+		pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_M_D Col_B_C_M nCol_B_C_A) as OppositeSide_A_BC_D.
+
+		contradict OppositeSide_A_BC_D.
+		exact n_OppositeSide_A_BC_D.
+	}
+
+	pose proof (lemma_crisscross _ _ _ _ Par_AB_DC n_Cross_AD_BC) as Cross_AC_DB.
+
+	assert (Cross_AC_DB_2 := Cross_AC_DB).
+	destruct Cross_AC_DB_2 as (M & BetS_A_M_C & BetS_D_M_B).
+
+	pose proof (axiom_betweennesssymmetry _ _ _ BetS_D_M_B) as BetS_B_M_D.
+
+	pose proof (proposition_33 _ _ _ _ _ Par_AB_DC Cong_AB_DC BetS_A_M_C BetS_B_M_D) as (_ & Cong_AD_BC).
 
 	pose proof (by_prop_Cong_symmetric _ _ _ _ Cong_AD_BC) as Cong_BC_AD.
-	pose proof (by_prop_Cong_flip _ _ _ _ Cong_BC_AD) as (_ & _ & Cong_BC_DA).
+	pose proof (by_prop_Cong_flip _ _ _ _ Cong_BC_AD) as (Cong_CB_DA & Cong_CB_AD & Cong_BC_DA).
+
 	pose proof (by_prop_Cong_transitive _ _ _ _ _ _ Cong_AB_BC Cong_BC_DA) as Cong_AB_DA.
 
-	pose proof (by_prop_Par_to_TarskiPar _ _ _ _ Par_CD_AB) as TarskiPar_CD_AB.
-	destruct TarskiPar_CD_AB as (_ & _ & _ & SameSide_A_B_CD).
+	pose proof (lemma_s_conga_sss _ _ _ _ _ _ Cong_AB_CD  Cong_AC_CA Cong_BC_DA nCol_A_B_C) as CongA_ABC_CDA.
+	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_ABC_CDA) as CongA_CDA_ABC.
+	pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_ABC CongA_CDA_ABC) as RightTriangle_CDA.
 
-	pose proof (by_prop_Par_to_TarskiPar _ _ _ _ Par_AD_BC) as TarskiPar_AD_BC.
-	destruct TarskiPar_AD_BC as (_ & _ & _ & SameSide_B_C_AD).
-
-	pose proof (postulate_Euclid2 _ _ neq_A_D) as (E & BetS_A_D_E).
-	pose proof (postulate_Euclid2 _ _ neq_B_A) as (G & BetS_B_A_G).
-	pose proof (postulate_Euclid2 _ _ neq_B_C) as (H & BetS_B_C_H).
-	pose proof (postulate_Euclid2 _ _ neq_C_D) as (F & BetS_C_D_F).
-
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_A_D_E) as BetS_E_D_A.
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_A_G) as BetS_G_A_B.
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_B_C_H) as BetS_H_C_B.
-	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_D_F) as BetS_F_D_C.
-
-	pose proof (by_prop_BetS_notequal _ _ _ BetS_B_A_G) as (neq_A_G & _ & neq_B_G).
-	pose proof (by_prop_BetS_notequal _ _ _ BetS_C_D_F) as (neq_D_F & _ & neq_C_F).
-	pose proof (by_prop_BetS_notequal _ _ _ BetS_E_D_A) as (_ & neq_E_D & neq_E_A).
-	pose proof (by_prop_BetS_notequal _ _ _ BetS_H_C_B) as (_ & neq_H_C & neq_H_B).
-	pose proof (by_prop_neq_symmetric _ _ neq_B_G) as neq_G_B.
-	pose proof (by_prop_neq_symmetric _ _ neq_C_F) as neq_F_C.
-
-	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_A_D_E) as Col_A_D_E.
-	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_A_G) as Col_B_A_G.
-	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_C_H) as Col_B_C_H.
-	pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_C_D_F) as Col_C_D_F.
-	pose proof (by_prop_Col_order _ _ _ Col_A_D_E) as (Col_D_A_E & Col_D_E_A & Col_E_A_D & Col_A_E_D & Col_E_D_A).
-	pose proof (by_prop_Col_order _ _ _ Col_B_A_G) as (Col_A_B_G & Col_A_G_B & Col_G_B_A & Col_B_G_A & Col_G_A_B).
-	pose proof (by_prop_Col_order _ _ _ Col_B_C_H) as (Col_C_B_H & Col_C_H_B & Col_H_B_C & Col_B_H_C & Col_H_C_B).
-	pose proof (by_prop_Col_order _ _ _ Col_C_D_F) as (Col_D_C_F & Col_D_F_C & Col_F_C_D & Col_C_F_D & Col_F_D_C).
-
-	pose proof (by_prop_Par_collinear _ _ _ _ _ Par_DA_CB Col_C_B_H neq_H_B) as Par_DA_HB.
-	pose proof (by_prop_Par_symmetric _ _ _ _ Par_DA_HB) as Par_HB_DA.
-	pose proof (by_prop_Par_collinear _ _ _ _ _ Par_HB_DA Col_D_A_E neq_E_A) as Par_HB_EA.
-	pose proof (by_prop_Par_symmetric _ _ _ _ Par_HB_EA) as Par_EA_HB.
-	pose proof (by_prop_Par_flip _ _ _ _ Par_EA_HB) as (Par_AE_HB & Par_EA_BH & Par_AE_BH).
-	pose proof (by_prop_Par_collinear _ _ _ _ _ Par_AB_DC Col_D_C_F neq_F_C) as Par_AB_FC.
-	pose proof (by_prop_Par_symmetric _ _ _ _ Par_AB_FC) as Par_FC_AB.
-	pose proof (by_prop_Par_collinear _ _ _ _ _ Par_FC_AB Col_A_B_G neq_G_B) as Par_FC_GB.
-
-	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_B_C_H Col_C_D_C nCol_C_D_B) as OppositeSide_B_CD_H.
-	pose proof (by_def_OppositeSide _ _ _ _ _ BetS_C_D_F Col_A_D_D nCol_A_D_C) as OppositeSide_C_AD_F.
-
-	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_A_B_CD OppositeSide_B_CD_H) as OppositeSide_A_CD_H.
-	pose proof (lemma_planeseparation _ _ _ _ _ SameSide_B_C_AD OppositeSide_C_AD_F) as OppositeSide_B_AD_F.
-
-	pose proof (by_prop_OppositeSide_symmetric _ _ _ _ OppositeSide_B_AD_F) as OppositeSide_F_AD_B.
-	pose proof (by_prop_OppositeSide_flip _ _ _ _ OppositeSide_A_CD_H) as OppositeSide_A_DC_H.
-	pose proof (by_prop_OppositeSide_flip _ _ _ _ OppositeSide_F_AD_B) as OppositeSide_F_DA_B.
-
-	pose proof (proposition_29 _ _ _ _ _ _ _ Par_AE_BH BetS_A_D_E BetS_B_C_H BetS_F_D_C OppositeSide_A_DC_H) as (CongA_ADC_DCH & _ & _).
-	pose proof (proposition_29 _ _ _ _ _ _ _ Par_FC_GB BetS_F_D_C BetS_G_A_B BetS_E_D_A OppositeSide_F_DA_B) as (_ & _ & SumTwoRT_CDA_DAB).
-
-	pose proof (by_prop_RightTriangle_collinear _ _ _ _ RightTriangle_BCD Col_B_C_H neq_H_C) as RightTriangle_HCD.
-	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_HCD) as RightTriangle_DCH.
-	pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_DCH CongA_ADC_DCH) as RightTriangle_ADC.
-	pose proof (by_prop_RightTriangle_symmetric _ _ _ RightTriangle_ADC) as RightTriangle_CDA.
-
-	destruct SumTwoRT_CDA_DAB as (X & Y & Z & U & V & Supp_XYU_VYZ & CongA_CDA_XYU & CongA_DAB_VYZ).
-
-	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_CDA_XYU) as CongA_XYU_CDA.
-	pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_CDA CongA_XYU_CDA) as RightTriangle_XYU.
-
-	pose proof (by_prop_RightTriangle_supplement _ _ _ _ _ Supp_XYU_VYZ RightTriangle_XYU) as (_ & RightTriangle_VYZ).
-	pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_VYZ CongA_DAB_VYZ) as RightTriangle_DAB.
+	pose proof (lemma_s_conga_sss _ _ _ _ _ _ Cong_BC_DA Cong_BD_DB Cong_CD_AB nCol_B_C_D) as CongA_BCD_DAB.
+	pose proof (by_prop_CongA_symmetric _ _ _ _ _ _ CongA_BCD_DAB) as CongA_DAB_BCD.
+	pose proof (by_prop_RightTriangle_equaltoright _ _ _ _ _ _ RightTriangle_BCD CongA_DAB_BCD) as RightTriangle_DAB.
 
 	pose proof (by_def_Square _ _ _ _ Cong_AB_CD Cong_AB_BC Cong_AB_DA RightTriangle_DAB RightTriangle_ABC RightTriangle_BCD RightTriangle_CDA) as Square_A_B_C_D.
 

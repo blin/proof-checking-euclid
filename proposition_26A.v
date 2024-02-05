@@ -9,12 +9,12 @@ Require Import ProofCheckingEuclid.by_prop_CongA_transitive.
 Require Import ProofCheckingEuclid.by_prop_Cong_flip.
 Require Import ProofCheckingEuclid.by_prop_Cong_symmetric.
 Require Import ProofCheckingEuclid.by_prop_Lt_congruence.
+Require Import ProofCheckingEuclid.by_prop_Lt_trichotomous.
 Require Import ProofCheckingEuclid.by_prop_OnRay_neq_A_C.
 Require Import ProofCheckingEuclid.by_prop_nCol_distinct.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_angletrichotomy.
-Require Import ProofCheckingEuclid.lemma_trichotomy_equal.
 Require Import ProofCheckingEuclid.proposition_04.
 
 Section Euclid.
@@ -120,7 +120,7 @@ Proof.
 		exact n_LtA_EFD_EFD.
 	}
 
-	pose proof (lemma_trichotomy_equal _ _ _ _ n_Lt_AB_DE n_Lt_DE_AB neq_A_B neq_D_E) as Cong_AB_DE.
+	pose proof (by_prop_Lt_trichotomous _ _ _ _ n_Lt_AB_DE n_Lt_DE_AB neq_A_B neq_D_E) as Cong_AB_DE.
 	pose proof (by_prop_Cong_flip _ _ _ _ Cong_AB_DE) as (Cong_BA_ED & _ & _).
 	pose proof (proposition_04 _ _ _ _ _ _ Cong_BA_ED Cong_BC_EF CongA_ABC_DEF) as (Cong_AC_DF & CongA_BAC_EDF & _).
 

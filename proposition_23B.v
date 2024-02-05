@@ -86,11 +86,11 @@ Proof.
 	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_F) as (nCol_B_A_F & nCol_B_F_A & nCol_F_A_B & nCol_A_F_B & nCol_F_B_A).
 
 
-	pose proof (proposition_12 _ _ _ nCol_A_B_F) as (H & Perp_at_F_H_A_B_H).
+	pose proof (proposition_12 _ _ _ nCol_A_B_F) as (H & Perp_at_FH_AB_H).
 
 	pose proof (cn_congruencereflexive H A) as Cong_HA_HA.
 
-	destruct Perp_at_F_H_A_B_H as (J & _ & Col_A_B_H & Col_A_B_J & RightTriangle_JHF).
+	destruct Perp_at_FH_AB_H as (J & _ & Col_A_B_H & Col_A_B_J & RightTriangle_JHF).
 
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_H) as (Col_B_A_H & Col_B_H_A & Col_H_A_B & Col_A_H_B & Col_H_B_A).
 	pose proof (by_prop_Col_order _ _ _ Col_A_B_J) as (Col_B_A_J & Col_B_J_A & Col_J_A_B & Col_A_J_B & Col_J_B_A).

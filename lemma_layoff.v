@@ -1,7 +1,6 @@
 Require Coq.Logic.Classical_Prop.
 Require Import ProofCheckingEuclid.by_def_OnRay.
 Require Import ProofCheckingEuclid.by_prop_BetS_notequal.
-Require Import ProofCheckingEuclid.by_prop_eq_symmetric.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.

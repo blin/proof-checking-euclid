@@ -30,8 +30,6 @@ Definition Perp_at P Q A B C := exists X,
 	Col A B X /\
 	RightTriangle X C P.
 Definition InAngle A B C P := exists X Y, OnRay B A X /\ OnRay B C Y /\ BetS X P Y.
-(* C and D are on opposite sides of AB *)
-Definition OppositeSide P A B Q := exists X, BetS P X Q /\ Col A B X /\ nCol A B P.
 (* P and Q are on the same side of AB *)
 Definition SameSide P Q A B := exists X U V,
 	Col A B U /\
@@ -72,6 +70,7 @@ Definition Par A B C D := exists U V u v X,
 	BetS U X v /\
 	BetS u X V.
 Definition AngleSum A B C D E F P Q R := exists X, CongA A B C P Q X /\ CongA D E F X Q R /\ BetS P X R.
+Definition Parallelogram A B C D := Par A B C D /\ Par A D B C.
 Definition Square A B C D :=
 	Cong A B C D /\
 	Cong A B B C /\
@@ -80,6 +79,12 @@ Definition Square A B C D :=
 	RightTriangle A B C /\
 	RightTriangle B C D /\
 	RightTriangle C D A.
+Definition Rectangle A B C D :=
+	RightTriangle D A B /\
+	RightTriangle A B C /\
+	RightTriangle B C D /\
+	RightTriangle C D A /\
+	Cross A C B D.
 Definition equilateral A B C := Cong A B B C /\ Cong B C C A.
 
 End Definitions.

@@ -1,4 +1,3 @@
-        w.write(f"Require Import ProofCheckingEuclid.{r}.\n")
 """
 This file and its dependencies are made out of hacks, repetitive if else trees,
 incomprehensible variable names, copy paste with minimal changes and otherwise 
@@ -113,8 +112,9 @@ def print_requirements(w: TextIO, t: Top) -> None:
     for r in sorted(rs):
         if any([r.startswith(p) for p in ["cn_", "axiom_", "postulate_"]]):
             continue
-        if not any([r.startswith(p) for p in ["lemma_", "proposition_", "euclidean_"]]):
+        if not any([r.startswith(p) for p in ["lemma_", "proposition_", "euclidean_", "by_"]]):
             continue
+        w.write(f"Require Import ProofCheckingEuclid.{r}.\n")
     w.write("\n")
 
 
@@ -126,7 +126,7 @@ def print_top(w: TextIO, t: Top) -> None:
 
 lemmas_can_be_forward_using = [
     "lemma_crossimpliesopposite",
-    "lemma_legsmallerhypotenuse",
+    "by_prop_RightTriangle_legsmallerhypotenuse",
     "lemma_righttogether",
     "by_prop_RightTriangle_supplement",
     "lemma_together",
@@ -267,6 +267,22 @@ class LemmaPrinter:
             self.process_indent()
             self.w.write(f"destruct {hh.to_var()} as {a.prop.to_var()}.\n")
 
+    def assert_by_conclude_def_destruct_mismatching(self, a: LtacAssertBy) -> None:
+        assert isinstance(a.prop, PropSimple)
+        self.process_indent()
+        match (a.prop.head, a.by.n):
+            case ("Par", "Parallelogram"):
+                A, B, C, D = a.prop.points
+                self.w.write(f"assert (Parallelogram_{A}_{B}_{C}_{D}_2 := Parallelogram_{A}_{B}_{C}_{D}).\n")
+                self.process_indent()
+                self.w.write(f"destruct Parallelogram_{A}_{B}_{C}_{D}_2 as (Par_{A}_{B}_{C}_{D} & Par_{A}_{D}_{B}_{C}).\n")
+                self.process_indent()
+                self.w.write(f"assert (Parallelogram_{A}_{C}_{D}_{B}_2 := Parallelogram_{A}_{C}_{D}_{B}).\n")
+                self.process_indent()
+                self.w.write(f"destruct Parallelogram_{A}_{C}_{D}_{B}_2 as (Par_{A}_{C}_{D}_{B} & Par_{A}_{B}_{C}_{D}).\n")
+            case (_, _):
+                self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct mismatching *)\n")
+
     def assert_by_conclude_def(self, a: LtacAssertBy) -> None:
         match a.prop:
             case PropExists() | PropConjunction():
@@ -280,12 +296,11 @@ class LemmaPrinter:
         match a.prop:
             case PropSimple():
                 if a.prop.head != a.by.n:
-                    self.process_indent()
-                    self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct *)\n")
+                    self.assert_by_conclude_def_destruct_mismatching(a)
                     return
             case PropInversion():
                 self.process_indent()
-                self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct *)\n")
+                self.w.write(f"destruct X as {a.prop.to_var()}. (* def destruct inversion *)\n")
                 return
 
         if a.by.n in defs_to_supporting_lemmas_for_defs:
@@ -377,6 +392,10 @@ class LemmaPrinter:
 
     def assert_by_cn_equalitysub(self, a: LtacAssertBy) -> None:
         e = a.prop
+        if not isinstance(e, PropSimple):
+            self.w.write(f"assert ({e.to_str()}) as {e.to_var()} by (rewrite ???; exact ???).\n")
+            return
+
         hhs = self.context.get_props()
         hhs = [h for h in hhs if isinstance(h, PropSimple)]
         hhs_eq = [h for h in hhs if h.head == "eq"]
@@ -417,7 +436,7 @@ class LemmaPrinter:
             return
 
         # Special case for proposition_27
-        if a.by.t in ["unfold", "auto"]:
+        if a.by.t in ["unfold", "auto", "eapply", "apply"]:
             self.process_indent()
             self.w.write(f"pose proof (???) as {a.prop.to_var()}.\n")
             self.context.add_prop(a.prop)
@@ -446,6 +465,11 @@ class LemmaPrinter:
                 self.context.add_prop(a.prop)
                 return
             case "postulate_circle_circle":
+                proof = a.by.n + "???"
+                self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
+                self.context.add_prop(a.prop)
+                return
+            case "axiom_paste3" | "axiom_paste4" | "axiom_cutoff2" | "lemma_supplements_SumTwoRT":
                 proof = a.by.n + "???"
                 self.w.write(f"pose proof ({proof}) as {a.prop.to_var()}.\n")
                 self.context.add_prop(a.prop)
@@ -659,7 +683,18 @@ class LemmaPrinter:
 
         for a in self.l.asserts:
             self.process_assert(a)
+            
+        match self.l.conclusion:
+            case PropSimple() | PropInversion():
+                self.w.write("\n")
+                self.process_indent()
+                self.w.write(f"exact {self.l.conclusion.to_var()}.")
+            case _:
+                self.w.write("\n")
+                self.process_indent()
+                self.w.write(f"(* exact {self.l.conclusion.to_var()}. *)")
 
+        self.w.write("\n")
         self.w.write("Qed.\n")
 
 

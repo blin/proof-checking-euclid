@@ -1,16 +1,16 @@
 s/   /\t/g
 s/[[:space:]]+$//g
 s/epose/pose/
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) [[:alpha:]] /\1 _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ [[:alpha:]] /\1 _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ [[:alpha:]] /\1 _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ [[:alpha:]] /\1 _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ /
-/(by_def_Col_from_eq|axiom_betweennessidentity)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) [[:alpha:]] /\1 _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ [[:alpha:]] /\1 _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ [[:alpha:]] /\1 _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ [[:alpha:]] /\1 _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ /
+/(by_def_Col_from_eq|axiom_betweennessidentity|axiom_deZolt1)/! s/((by_def|lemma|postulate|proposition|axiom)_\w+) _ _ _ _ _ _ _ _ _ [[:alpha:]] /\1 _ _ _ _ _ _ _ _ _ _ /
 
 s/OnRay_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/OnRay_\1\2_\3/g
 s/Triangle_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Triangle_\1\2\3/g
@@ -31,3 +31,7 @@ s/CongA_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([
 s/SumTwoRT_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/SumTwoRT_\1\2\3_\4\5\6/g
 s/AngleSum_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/AngleSum_\1\2\3_\4\5\6_\7\8\9/g
 s/TogetherGreater_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/TogetherGreater_\1\2_\3\4_\5\6/g
+s/CongTriangles_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/CongTriangles_\1\2\3_\4\5\6/g
+s/EqAreaTri_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/EqAreaTri_\1\2\3_\4\5\6/g
+s/Perp_at_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/Perp_at_\1\2_\3\4_\5/g
+s/EqAreaQuad_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])_([[:alpha:]])/EqAreaQuad_\1\2\3\4_\5\6\7\8/g

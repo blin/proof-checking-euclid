@@ -21,6 +21,10 @@ Class euclidean_neutral :=
 	neq A B := ~ eq A B;
 	nCol A B C := neq A B /\ neq A C /\ neq B C /\ ~ BetS A B C /\ ~ BetS A C B /\ ~ BetS B A C;
 	Col A B C := (eq A B \/ eq A C \/ eq B C \/ BetS B A C \/ BetS A B C \/ BetS A C B);
+	(* ABC and abc are congruent triangles *)
+	CongTriangles A B C a b c := Cong A B a b /\ Cong B C b c /\ Cong A C a c;
+	(* P and Q are on opposite sides of AB *)
+	OppositeSide P A B Q := exists X, BetS P X Q /\ Col A B X /\ nCol A B P;
 	Triangle A B C := nCol A B C;
 
 
@@ -161,4 +165,114 @@ Class euclidean_euclidean `(Ax : euclidean_neutral_ruler_compass) :=
 			BetS r t s -> BetS p t q -> BetS r a q ->
 			Cong p t q t -> Cong t r t s -> nCol p q s ->
 			exists X, BetS p a X /\ BetS s q X
+}.
+
+(** Last, we enrich the axiom system with axioms for equality of areas. *)
+
+Class area `(Ax : euclidean_euclidean) :=
+{
+	EqAreaQuad : Point -> Point -> Point -> Point -> Point -> Point -> Point -> Point -> Prop;
+	EqAreaTri : Point -> Point -> Point -> Point -> Point -> Point -> Prop;
+	axiom_congruentequal :
+		forall A B C a b c, CongTriangles A B C a b c -> EqAreaTri A B C a b c;
+	axiom_EqAreaTri_permutation :
+		forall A B C a b c,
+			EqAreaTri A B C a b c ->
+			EqAreaTri A B C b c a /\
+			EqAreaTri A B C a c b /\
+			EqAreaTri A B C b a c /\
+			EqAreaTri A B C c b a /\
+			EqAreaTri A B C c a b;
+	axiom_EqAreaTri_symmetric :
+		forall A B C a b c,
+			EqAreaTri A B C a b c ->
+			EqAreaTri a b c A B C;
+	axiom_EqAreaQuad_permutation :
+		forall A B C D a b c d,
+			EqAreaQuad A B C D a b c d ->
+			EqAreaQuad A B C D b c d a /\
+			EqAreaQuad A B C D d c b a /\
+			EqAreaQuad A B C D c d a b /\
+			EqAreaQuad A B C D b a d c /\
+			EqAreaQuad A B C D d a b c /\
+			EqAreaQuad A B C D c b a d /\
+			EqAreaQuad A B C D a d c b;
+	axiom_halvesofequals :
+		forall A B C D a b c d,
+			EqAreaTri A B C B C D ->
+			OppositeSide A B C D ->
+			EqAreaTri a b c b c d ->
+			OppositeSide a b c d ->
+			EqAreaQuad A B D C a b d c ->
+			EqAreaTri A B C a b c;
+
+	axiom_EqAreaQuad_symmetric :
+		forall A B C D a b c d,
+			EqAreaQuad A B C D a b c d ->
+			EqAreaQuad a b c d A B C D;
+	axiom_EqAreaQuad_transitive :
+		forall A B C D P Q R S a b c d,
+			EqAreaQuad A B C D a b c d ->
+			EqAreaQuad a b c d P Q R S ->
+			EqAreaQuad A B C D P Q R S;
+	axiom_EqAreaTri_transitive :
+		forall A B C P Q R a b c,
+			EqAreaTri A B C a b c ->
+			EqAreaTri a b c P Q R ->
+			EqAreaTri A B C P Q R;
+
+	cn_differenceofparts_Tri_Tri_sharedvertex :
+		forall A B C D E a b c d e,
+			BetS A B C ->
+			BetS a b c ->
+			BetS E D C ->
+			BetS e d c ->
+			EqAreaTri B C D b c d ->
+			EqAreaTri A C E a c e ->
+			EqAreaQuad A B D E a b d e;
+	axiom_cutoff2 :
+		forall A B C D E a b c d e,
+			BetS B C D ->
+			BetS b c d ->
+			EqAreaTri C D E c d e ->
+			EqAreaQuad A B D E a b d e ->
+			EqAreaQuad A B C E a b c e;
+	axiom_deZolt1 :
+		forall B C D E, BetS B E D -> ~ EqAreaTri D B C E B C;
+	axiom_deZolt2 :
+		forall A B C E F, Triangle A B C -> BetS B E A -> BetS B F C -> ~ EqAreaTri A B C E B F;
+	cn_sumofparts_Quad_Tri_sharedside :
+		forall A B C D E M a b c d e m,
+			BetS B C D ->
+			BetS b c d ->
+			EqAreaTri C D E c d e ->
+			EqAreaQuad A B C E a b c e ->
+			BetS A M D ->
+			BetS B M E ->
+			BetS a m d ->
+			BetS b m e ->
+			EqAreaQuad A B D E a b d e;
+	cn_sumofparts_Tri_Tri_sharedside :
+		forall A B C D M a b c d m,
+			EqAreaTri A B C a b c ->
+			EqAreaTri A B D a b d ->
+			BetS C M D ->
+			(BetS A M B \/ eq A M \/ eq M B) ->
+			BetS c m d ->
+			(BetS a m b \/ eq a m \/ eq m b) ->
+			EqAreaQuad A C B D a c b d;
+	axiom_paste4 :
+		forall A B C D F G H J K L M P e m,
+			EqAreaQuad A B m D F K H G->
+			EqAreaQuad D B e C G H M L ->
+			BetS A P C->
+			BetS B P D->
+			BetS K H M->
+			BetS F G L ->
+			BetS B m D->
+			BetS B e C->
+			BetS F J M->
+			BetS K J L ->
+			EqAreaQuad A B C D F K M L;
+
 }.

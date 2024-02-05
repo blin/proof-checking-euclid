@@ -2,7 +2,6 @@ Require Import ProofCheckingEuclid.by_def_nCol_from_n_Col.
 Require Import ProofCheckingEuclid.by_def_n_Col_from_nCol.
 Require Import ProofCheckingEuclid.by_prop_Col_ABC_ABD_BCD.
 Require Import ProofCheckingEuclid.by_prop_Col_order.
-Require Import ProofCheckingEuclid.by_prop_nCol_order.
 Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 
@@ -10,6 +9,9 @@ Section Euclid.
 
 Context `{Ax:euclidean_neutral_ruler_compass}.
 
+(*
+	TODO: replace with lemma_s_Col_ABC_nCol_ABD_nCol_ACD .
+*)
 Lemma lemma_s_ncol_ABD_col_ABC_ncol_ACD :
 	forall A B D C,
 	nCol A B D ->

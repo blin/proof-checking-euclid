@@ -5,7 +5,6 @@ Require Import ProofCheckingEuclid.by_prop_Col_order.
 Require Import ProofCheckingEuclid.by_prop_CongA_NC.
 Require Import ProofCheckingEuclid.by_prop_CongA_distinct.
 Require Import ProofCheckingEuclid.by_prop_CongA_helper.
-Require Import ProofCheckingEuclid.by_prop_CongA_reflexive.
 Require Import ProofCheckingEuclid.by_prop_CongA_symmetric.
 Require Import ProofCheckingEuclid.by_prop_LtA_respects_congruence.
 Require Import ProofCheckingEuclid.by_prop_OnRay_ABC_ACB.
@@ -13,11 +12,9 @@ Require Import ProofCheckingEuclid.by_prop_OnRay_impliescollinear.
 Require Import ProofCheckingEuclid.by_prop_OnRay_neq_A_B.
 Require Import ProofCheckingEuclid.by_prop_OnRay_neq_A_C.
 Require Import ProofCheckingEuclid.by_prop_nCol_order.
-Require Import ProofCheckingEuclid.by_prop_neq_symmetric.
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_crossbar.
-Require Import ProofCheckingEuclid.lemma_layoff.
 Require Import ProofCheckingEuclid.lemma_orderofpoints_ABC_ACD_ABD.
 Require Import ProofCheckingEuclid.lemma_s_ncol_ABD_col_ABC_ncol_ACD.
 

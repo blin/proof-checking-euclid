@@ -1,12 +1,7 @@
-Require Import ProofCheckingEuclid.by_def_Col_from_BetS_A_B_C.
-Require Import ProofCheckingEuclid.by_def_OppositeSide.
-Require Import ProofCheckingEuclid.by_prop_Col_order.
-Require Import ProofCheckingEuclid.by_prop_Par_NC.
-Require Import ProofCheckingEuclid.by_prop_nCol_order.
+Require Import ProofCheckingEuclid.by_prop_SameSide_not_Cross .
 Require Import ProofCheckingEuclid.euclidean_axioms.
 Require Import ProofCheckingEuclid.euclidean_defs.
 Require Import ProofCheckingEuclid.lemma_crisscross.
-Require Import ProofCheckingEuclid.lemma_samenotopposite.
 Require Import ProofCheckingEuclid.proposition_33.
 
 Section Euclid.
@@ -25,29 +20,10 @@ Proof.
 	intros Cong_AB_CD.
 	intros SameSide_A_C_BD.
 
-	pose proof (by_prop_Par_NC _ _ _ _ Par_AB_CD) as (_ & _ & _ & nCol_A_B_D).
-	pose proof (by_prop_nCol_order _ _ _ nCol_A_B_D) as (_ & nCol_B_D_A & _ & _ & _).
+	pose proof (by_prop_SameSide_not_Cross _ _ _ _ SameSide_A_C_BD) as n_Cross_AC_BD.
+	pose proof (lemma_crisscross _ _ _ _ Par_AB_CD n_Cross_AC_BD) as Cross_AD_CB.
 
-	pose proof (lemma_samenotopposite _ _ _ _ SameSide_A_C_BD) as n_OppositeSide_A_BD_C.
-
-	assert (~ Cross A C B D) as n_CR_A_C_B_D.
-	{
-		intro CR_A_C_B_D.
-
-		destruct CR_A_C_B_D as (M & BetS_A_M_C & BetS_B_M_D).
-
-		pose proof (by_def_Col_from_BetS_A_B_C _ _ _ BetS_B_M_D) as Col_B_M_D.
-		pose proof (by_prop_Col_order _ _ _ Col_B_M_D) as (_ & _ & _ & Col_B_D_M & _).
-
-		pose proof (by_def_OppositeSide _ _ _ _ _ BetS_A_M_C Col_B_D_M nCol_B_D_A) as OppositeSide_A_BD_C.
-
-		contradict OppositeSide_A_BD_C.
-		exact n_OppositeSide_A_BD_C.
-	}
-
-	pose proof (lemma_crisscross _ _ _ _ Par_AB_CD n_CR_A_C_B_D) as CR_A_D_C_B.
-
-	destruct CR_A_D_C_B as (m & BetS_A_m_D & BetS_C_m_B).
+	destruct Cross_AD_CB as (m & BetS_A_m_D & BetS_C_m_B).
 
 	pose proof (axiom_betweennesssymmetry _ _ _ BetS_C_m_B) as BetS_B_m_C.
 
