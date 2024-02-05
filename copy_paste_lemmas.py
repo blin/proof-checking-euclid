@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+from itertools import compress
 
 
 # fmt: off
@@ -144,6 +145,30 @@ destruct Square_p01_p02_p03_p04_2 as (Cong_p01_p02_p03_p04 & Cong_p01_p02_p02_p0
 by_prop_Supp_symmetric = "pose proof (by_prop_Supp_symmetric _ _ Supp_p01_p02_p03_p04_p05) as Supp_p05_p02_p04_p03_p01."
 
 by_def_nCol_from_Triangle = "pose proof (by_def_nCol_from_Triangle _ _ _ Triangle_p01_p02_p03) as nCol_p01_p02_p03."
+
+axiom_EqAreaTri_symmetric = "pose proof (axiom_EqAreaTri_symmetric _ _ _ _ _ _ EqAreaTri_p01_p02_p03_p04_p05_p06) as EqAreaTri_p04_p05_p06_p01_p02_p03."
+axiom_EqAreaTri_permutation = """\
+pose proof (axiom_EqAreaTri_permutation _ _ _ _ _ _ EqAreaTri_p01_p02_p03_p04_p05_p06) as (
+    EqAreaTri_p01_p02_p03_p05_p06_p04 &
+    EqAreaTri_p01_p02_p03_p04_p06_p05 &
+    EqAreaTri_p01_p02_p03_p05_p04_p06 &
+    EqAreaTri_p01_p02_p03_p06_p05_p04 &
+    EqAreaTri_p01_p02_p03_p06_p04_p05
+).
+"""
+
+axiom_EqAreaQuad_symmetric = "pose proof (axiom_EqAreaQuad_symmetric _ _ _ _ _ _ _ _ EqAreaQuad_p01_p02_p03_p04_p05_p06_p07_p08) as EqAreaQuad_p05_p06_p07_p08_p01_p02_p03_p04."
+axiom_EqAreaQuad_permutation = """\
+pose proof (axiom_EqAreaQuad_permutation _ _ _ _ _ _ _ _ EqAreaQuad_p01_p02_p03_p04_p05_p06_p07_p08) as (
+    EqAreaQuad_p01_p02_p03_p04_p06_p07_p08_p05 &
+    EqAreaQuad_p01_p02_p03_p04_p08_p07_p06_p05 &
+    EqAreaQuad_p01_p02_p03_p04_p07_p08_p05_p06 &
+    EqAreaQuad_p01_p02_p03_p04_p06_p05_p08_p07 &
+    EqAreaQuad_p01_p02_p03_p04_p08_p05_p06_p07 &
+    EqAreaQuad_p01_p02_p03_p04_p07_p06_p05_p08 &
+    EqAreaQuad_p01_p02_p03_p04_p05_p08_p07_p06
+).
+"""
 # fmt: on
 
 
@@ -198,12 +223,12 @@ def main():
             print(replace_points(by_prop_Par_symmetric, points))
             print(replace_points(by_prop_Par_flip, points[2:] + points[:2]))
             print(replace_points(by_prop_Par_NC, points))
+            print(replace_points(by_prop_nCol_distinct, compress(points, [1,1,1,0])))
+            print(replace_points(by_prop_nCol_order, compress(points, [1,1,1,0])))
             print(replace_points(destruct_Par_not_Meet, points))
-            print(replace_points(by_prop_neq_symmetric, points[0:2]))
-            print(replace_points(by_prop_neq_symmetric, points[2:4]))
-            print(replace_points(destruct_Par, points))
             print(replace_points(by_prop_Par_to_TarskiPar, points))
             print(replace_points(by_prop_Par_to_TarskiPar, points[2:] + points[:2]))
+            print(replace_points(destruct_Par, points))
         case "eq":
             print(replace_points(eq_reflexivity, points))
             print(replace_points(by_def_Col_from_eq_B_C, points))
@@ -231,6 +256,14 @@ def main():
             print(replace_points(destruct_Square, points))
         case "Triangle":
             print(replace_points(by_def_nCol_from_Triangle, points))
+        case "EqAreaTri":
+            print(replace_points(axiom_EqAreaTri_symmetric, points))
+            print(replace_points(axiom_EqAreaTri_permutation, points))
+            print(replace_points(axiom_EqAreaTri_permutation, points[3:] + points[:3]))
+        case "EqAreaQuad":
+            print(replace_points(axiom_EqAreaQuad_symmetric, points))
+            print(replace_points(axiom_EqAreaQuad_permutation, points))
+            print(replace_points(axiom_EqAreaQuad_permutation, points[4:] + points[:4]))
         case _:
             raise ValueError(f"Unsupported hypothesis type: {t}")
 
