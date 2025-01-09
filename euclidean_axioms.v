@@ -161,10 +161,14 @@ Class euclidean_neutral_ruler_compass `(Ax : euclidean_neutral) :=
 Class euclidean_euclidean `(Ax : euclidean_neutral_ruler_compass) :=
 {
 	postulate_Euclid5 :
-		forall a p q r s t,
-			BetS r t s -> BetS p t q -> BetS r a q ->
-			Cong p t q t -> Cong t r t s -> nCol p q s ->
-			exists X, BetS p a X /\ BetS s q X
+		forall m a d b c t,
+			BetS b t c ->
+			BetS a t d ->
+			BetS b m d ->
+			Cong a t d t ->
+			Cong t b t c ->
+			nCol a d c ->
+			exists X, BetS a m X /\ BetS c d X
 }.
 
 (** Last, we enrich the axiom system with axioms for equality of areas. *)
